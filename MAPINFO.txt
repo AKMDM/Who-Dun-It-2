@@ -221,3 +221,4 @@ Map WDI21 "Knee-Deep in The Murder"
 	Next = "WDI01"
 	AllowMonsterTelefrags
 }
+
