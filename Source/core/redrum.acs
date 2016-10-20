@@ -1,0 +1,1043 @@
+/***************************************************************************
+============================================================================
+
+
+                                                                                                              '#'
+                                                                                                              @@@
+                                                                                                              +@@
+                                    ;                                                                         @@.
+              @        .#       #: +'                          '@#@@@;+,`                                     @@@
+             @@.       @`       @  .@                           @@     ;@@@@`                                 @@@
+              @.       +@       @  .@                           @'         #@@                              ..`@@..
+              @@       @@`     .@   @                           @@          .@@`                             '@@@'
+              @@       ;@@     #    @                           +@            @@                              @@@
+              `@      + @@     @    @                           @@            .@.                             #@#   ;@
+               @      @ `@     @    @                           #@             @#                             #@@   @@
+               #@     #  @`    ;    @                           `@             @@                             @@@.  ++
+               .@    ,.  +@   ;     @  +';       +@@,           ;.             @@  `#    ,'   ' .;#;          @@@  .#@`.'
+                @+   #    @   @     @@@+@@@    #'   @#          .@             @:  @@    @+  .@+ : @#         @@@  .@#`#`
+                #@   @    @'  @     @     @   @.     @+         `@            :@   @#    @+   @     @         @@@   '#
+                 @   #    #@ ,.     @     @  .@      @@         .@            @,   @@    @:   +     ;         `@@   :'
+                 @; +     `@ @      @     @  @+      #@         .@           .@    #;    +;   @     ,         #;@   ::
+                 #@ @      @;@      @    `@  ;@      @.         `@           @:    @'    @.   @     :         +;#   ;:
+                 :@ @      @@@      @     @  `@`    .@           @          @.     #+   '@#   @     @         ;'.   ;,  '
+                  @@+      +@@      @    #@   `@@@+@`            @        ;@        @@;@`',   @     ;         ,:'   ,'+,
+                  @@`       @;                                  .@      .@'                                   ,;.
+                   @.       @;                                  ;@    #@`                                     ,.'
+                   @        ,                                  ;@@@@#,                                        `+:
+                                                                                                              ``.
+                                                                                                               ``
+                                                                                                                `
+                                                                                                                `
+
+A Murder Simulator (Hi Jack Thompson!)
+
+V4.0 Core Files Written by Theshooter7
+
+============================================================================
+***************************************************************************/
+
+// Standard Include lines
+#include "ZCommon.acs"
+
+// Build into a library
+#library "redrum"
+
+#libdefine DEBUG 0
+
+// Some Defines
+#libdefine TID_START 600
+#libdefine TKID_START 700
+#libdefine GAMESTATE_WAITFORPLAYERS 0		// the game is waiting for players to show up
+#libdefine GAMESTATE_SAFETYCOUNTDOWN 1		// the game is in safety mode
+#libdefine GAMESTATE_MURDERCHOOSE 2			// the game is choosing a murderer
+#libdefine GAMESTATE_GAMEACTIVE 3			// the game is now active and awaiting an ending condition to be met
+#libdefine GAMESTATE_GAMEOVER 4				// the game is over and the tally board is being shown
+#libdefine END_INOLOSE 0					// the innocents lost; all innocents died and the murderer is alive
+#libdefine END_MURLOSE 1					// the murderer lost; the innocents have killed him or he fell victim to a trap of his own
+#libdefine END_MURSUICIDE 2					// the murderer went insane and died
+
+// Client update Defines
+#libdefine CLIENT_SAFETIMER 0
+#libdefine CLIENT_GAMESTATE 1
+#libdefine CLIENT_WHOISM 2
+#libdefine CLIENT_KILLER 3
+
+#libdefine CLIENT_CIVCOUNT 0
+#libdefine CLIENT_CIVMAX 1
+#libdefine CLIENT_DEATHS 2
+#libdefine CLIENT_DISCONNECTS 3
+#libdefine CLIENT_ENDING 4
+#libdefine CLIENT_STARTPLAYERS 5
+
+#libdefine CLIENT_MURD_IN_GAME 0
+#libdefine CLIENT_TRIPS_USED 1
+#libdefine CLIENT_GAS_USED 2
+#libdefine CLIENT_SMOKE_USED 3
+#libdefine CLIENT_FAKE_STIMS_USED 4
+#libdefine CLIENT_NOISEMAKER_USED 5
+#libdefine CLIENT_STIMS_USED 6
+#libdefine CLIENT_BACKSTAB_COUNT 7
+
+#libdefine ARRAY_GAMEINFO 0
+#libdefine ARRAY_PLAYINFO 1
+#libdefine ARRAY_MURDINFO 2
+
+#libdefine ASPECT_4_3 (4.0 / 3)
+#libdefine ASPECT_5_4 1.25
+#libdefine ASPECT_16_9 (16.0 / 9)
+#libdefine ASPECT_16_10 1.6
+
+str default_songs[5] =
+{
+	"D_HLMS02",
+	"D_FINAL1",
+	"D_FINAL2",
+	"D_FINAL3",
+	"D_FINAL4",
+};
+
+int gameinfo[3]; // 0-safetimer, 1-gamestate, 2-whoism, 3-killer
+int playinfo[6]; // 0-civcount, 1-civmax, 2-deaths, 3-disconnects, 4-ending, 5-startplayers
+int murdinfo[8]; // 0-murdingame, 1-trips, 2-gas, 3-smoke, 4-fakestims, 5-noisemaker, 6-stims, 7-backstabs
+
+int tallycounts[4]; // 0-murderer kills, 1-tks, 2-sanity, 3-health
+
+int healthcounter[32] = {0}; // This tracks health regen times
+
+bool doendfade = true;
+
+bool custom_finale = false;
+
+bool forcetracker = false;	// Force the innocent tracker to activate NOW
+
+bool foundeasteregg = false; // Compatibility for WDI09, this simply allows the mug to work on other maps without bugging out
+
+global int 30:blacklist[];
+
+bool bCameraState = TRUE; // 0-off 1-on
+bool bCameraDestroyed = FALSE;
+bool bHideCamera = FALSE;
+
+int remainingpercentage;
+bool dwindlemessage;
+
+str finalesong = "";
+
+bool died[32] = { TRUE };
+bool spawned[32] = { FALSE };
+
+bool bGotABeating[32] = { FALSE } ;
+
+// tips hur hur
+str InoTip[17] = {"Keep an eye out for someone with a knife or murderous intent...", 
+                "If you see a player vanish into a wall, they're the murderer.", 
+                "Ammo is scarce, opt to use melee weapons instead.", 
+                "Try to avoid killing other innocents. You'll be severely penalized if you do!", 
+                "Be alert! The murderer could be anywhere, even your buddy following you around...", 
+                "Ammo carries over into the next round. Stockpile it and give the murderer hell!", 
+                "Don't forget to bind drop weapon and drop inventory keys! Your friends may need it more than you.",
+		"Careless players have a colored aura around them. What you do with them is up to you...",
+		"Watch your back! You can be easily dispatched from behind!",
+		"Listen! Murderer traps make all sorts of mechanical noises on deployment.",
+		"Stick together! If you know somebody is innocent, buddy up!",
+		"Work together! Stunning the murderer with the pool cue is more helpful than you think!",
+		"Secure rooms! If a room is full of poison gas, close that door to prevent damage to others!",
+		"Accidents happen! Don't slaughter every kill offender you see.",
+		"The murderer doesn't stand a chance against the chainsaw or shotgun.",
+		"Watch your fire! It's easy to cripple a friend whilst in a mob!",
+		"This is a completely useless tip! Aren't you happy?"}; 
+
+
+str MurTip[19] = {"As the murderer, you're both the hunter and the hunted. Try to keep a low profile when killing!", 
+                "Use the knife for quick kills! It can be seen and heard by other players, however...", 
+                "Use hidden corridors to set up an ambush! They are marked by an exclamation point.", 
+                "Play Innocent! The best place to hide is right in front of them!", 
+                "Your sanity is constantly diminishing; Fighting and killing innocents will keep it full!", 
+                "Changing your color after making a kill or being identified is a valid tactic...", 
+                "Cause panic! Letting the players kill each other saves you the trouble.", 
+                "Your weapons do less damage than the innocents; Stick with the knife and chainsaw for high damage!",
+		"Use the knife from behind for an instant-kill backstab!",
+		"The closer you are, the more damage your knife deals.",
+		"Make use of your tools! Gas is great for small rooms, and trip shotguns are best behind doors!",
+		"You have infinite remote cameras. Use them as much as you want!",
+		"Want a 'Perfect' rating? Use few items and get all the kills yourself!",
+		"The more innocents alive when you die, the more points you lose.",
+		"Practice deceit! Convince other players to camp in a room for you to slaughter!",
+		"Stim Traps make decent landmines.",
+		"Beware of innocents with the chainsaw and shotgun! They can rip you to shreds in only seconds!",
+		"Did you know the murderer has more tips than the innocents?",
+		"This is a completely useless tip! Isn't that just grand?"}; //Same thing, but for murderer shit
+
+// TID = 600+PlayerNumber()
+
+function int wdi_gamestate(void)
+{
+	return gameinfo[1];
+}
+
+function int wdi_ending(void)
+{
+	return playinfo[4];
+}
+
+function void wdi_endfade(bool set)
+{
+	doendfade = set;
+}
+
+function int wdi_murdid(void)
+{
+	return gameinfo[2];
+}
+
+function bool wdi_isfinale(void)
+{
+	return dwindlemessage;
+}
+
+function void wdi_forcetracker(bool set)
+{
+	forcetracker = set;
+}
+
+function bool wdi_checkforactiveplayers(int count)
+{
+	int i, c, r;
+	for(i = 0; i < 32; i++)
+	{
+		if(PlayerInGame(i))
+		{
+			c++;
+			if(c >= count)
+			{
+				r = TRUE;
+				break;
+			}
+		}
+	}
+	return r;
+}
+
+function void wdi_setfinalemusic(str song)
+{
+	finalesong = song;
+	custom_finale = true;
+}
+
+function void updateclient(int arrayid, int pos, int val)
+{
+	ACS_ExecuteAlways(402,0,arrayid, pos, val);
+}
+
+function int wdi_countinnocents(void)
+{
+	int players = 0;
+	for(int v = 0; v < 32; v++)
+	{
+		if((ClassifyActor(TID_START+v) & ACTOR_PLAYER) && (ClassifyActor(TID_START+v)) && PlayerInGame(v) && (!CheckActorInventory(TID_START+v, "MurderMarker")))
+		{
+			players++;
+		}
+	}
+	return players;
+}
+
+function bool wdi_murderchooser(void)
+{
+	int r = FALSE;
+	int counting = 0;
+	gameinfo[2] = Random(0,31);
+	if(PlayerIsBot(gameinfo[2]))
+		return FALSE;
+	for(int l = 0; l < 32; l++) // See how many players are actually blacklisted
+	{
+		if(blacklist[l] > 0)
+		{
+			counting++;
+		}
+	}
+	
+	if(counting >= PlayerCount()) // If for some reason every player ends up blacklisted, clear all the blacklists.
+	{
+		for(int k = 0; k < 32; k++)
+		{
+			blacklist[k] = 0;
+		}
+	}
+	// The following determines if the chosen player is elligible to become murderer
+	if((ClassifyActor(TID_START+gameinfo[2]) & ACTOR_PLAYER) && (ClassifyActor(TID_START+gameinfo[2]) & ACTOR_ALIVE) && PlayerInGame(gameinfo[2]) && (blacklist[gameinfo[2]] <= 0))
+	{
+		for(int n = 0; n < 32; n++) // if so, decrement all other blacklists
+		{
+			if(blacklist[n] > 0)
+			{
+				blacklist[n]--;
+			}
+		}
+		blacklist[gameinfo[2]] = GetCVar("wdi_blacklist_rounds"); // Then blacklist this one
+		UpdateClient(ARRAY_GAMEINFO, CLIENT_WHOISM, gameinfo[2]);
+		GiveMurdererEquipment(TID_START+gameinfo[2]);
+		murdinfo[0] = TRUE;
+		UpdateClient(ARRAY_MURDINFO, CLIENT_MURD_IN_GAME, murdinfo[0]);
+		r = TRUE;
+	}
+	return r;
+}
+
+function void givemurdererequipment(int who)
+{
+	GiveActorInventory(who, "MurderMarker", 2);
+	GiveActorInventory(who, "MadMeter", 500);
+	TakeActorInventory(who, "MarkMe", 1);
+	GiveActorInventory(who, "MurdererNerf", 1);
+	GiveActorInventory(who, "MurderKnife", 1);
+	GiveActorInventory(who, "RedSkull", 1); //For the hidden corridors.
+	GiveActorInventory(who, "BlueSkull", 1); // [TS7] Fuckit. Let's just give him all the keys.
+	GiveActorInventory(who, "YellowSkull", 1);
+	GiveActorInventory(who, "RedCard", 1);
+	GiveActorInventory(who, "BlueCard", 1);
+	GiveActorInventory(who, "YellowCard", 1);
+	SetActorProperty(who, APROP_HEALTH, (100 + (PlayerCount() - 2) * GetCvar("wdi_murd_healthbonus"))); //Set his health to however many players are in the game + 100.
+	SetActorProperty(who, APROP_SPAWNHEALTH, (100 + (PlayerCount() - 2) * GetCvar("wdi_murd_healthbonus")));
+	if(GetActorProperty(who, APROP_SPAWNHEALTH) > GetCvar("wdi_murd_maxbonus"))
+	{
+		SetActorProperty(who, APROP_HEALTH, GetCvar("wdi_murd_maxbonus"));
+		SetActorProperty(who, APROP_SPAWNHEALTH, GetCvar("wdi_murd_maxbonus"));
+	}
+	GiveActorInventory(who, "SmallKit", 3);
+	GiveActorInventory(who, "MurdererKey", 1);
+	
+	GiveActorInventory(who, "MurderDoorUnblocker", 1);
+
+	//Give Traps
+	GiveActorInventory(who, "ChlorineGas", 1); // Poison Gas x1
+	GiveActorInventory(who, "TripShotgun", 2); // TripWire Shotguns x2
+	GiveActorInventory(who, "SmokeBomb", 2); // Smoke Bombs x2
+	GiveActorInventory(who, "RemoteCamera", 1); // Remote Camera x1
+	GiveActorInventory(who, "FakeStim", 3); // Fake Stimpack x3
+	GiveActorInventory(who, "SoundEmitter", 4); // Sound Emitters x4
+
+	//Take the FF immunities
+	TakeActorInventory(who, "PowerFriendlyGunDamage", 100);
+	TakeActorInventory(who, "PowerFriendlyMeleeDamage", 100);
+	TakeActorInventory(who, "PowerFriendlySawDamage", 100);
+	TakeActorInventory(who, "PowerFriendlyThrownDamage", 100);
+	TakeActorInventory(who, "PowerFriendlyCueDamage", 100);
+	TakeActorInventory(who, "PowerFriendlyShovelDamage", 100);
+	TakeActorInventory(who, "PowerFriendlyBurnDamage", 100);
+}
+
+function void resethealth(void)
+{
+	for(int i=0;i < 32;i++)
+	{
+		SetActorProperty(TID_START+i, APROP_HEALTH, 100);
+		SetActorProperty(TID_START+i, APROP_SPAWNHEALTH, 100);
+	}
+}
+function void resetinventoryself(void)
+{
+	SetActorProperty(ActivatorTID(), APROP_HEALTH, 100);
+	SetActorProperty(ActivatorTID(), APROP_SPAWNHEALTH, 100);
+	
+	if(!CheckActorInventory(ActivatorTID(), "SmallKit"))
+		GiveActorInventory(ActivatorTID(), "SmallKit", 1);
+	
+	TakeActorInventory(ActivatorTID(), "MadMeter", 9999);
+	TakeActorInventory(ActivatorTID(), "TKToken", 999);
+	TakeActorInventory(ActivatorTID(), "TKHero", 999);
+	TakeActorInventory(ActivatorTID(), "Hero", 999);
+	TakeActorInventory(ActivatorTID(), "MurderKnife", 1);
+	TakeActorInventory(ActivatorTID(), "LChainsaw", 1);
+	TakeActorInventory(ActivatorTID(), "Gasoline", 1000);
+	TakeActorInventory(ActivatorTID(), "ChainsawOnce", 1);
+	TakeActorInventory(ActivatorTID(), "LeadPipe", 1);
+	TakeActorInventory(ActivatorTID(), "PipeWrench", 1);
+	TakeActorInventory(ActivatorTID(), "Shovel", 2);
+	TakeActorInventory(ActivatorTID(), "PoolCue", 2);
+	TakeActorInventory(ActivatorTID(), "Luger", 1);
+	TakeActorInventory(ActivatorTID(), "Brick", 1);
+	TakeActorInventory(ActivatorTID(), "Molotov", 1);
+	TakeActorInventory(ActivatorTID(), "LugerOnce", 1);
+	TakeActorInventory(ActivatorTID(), "Shotgun2", 1);
+	TakeActorInventory(ActivatorTID(), "ShotgunOnce", 1);
+	TakeActorInventory(ActivatorTID(), "Crossbow", 1);
+	TakeActorInventory(ActivatorTID(), "CrossbowOnce", 1);
+	TakeActorInventory(ActivatorTID(), "LoadedBolts", 1);
+	TakeActorInventory(ActivatorTID(), "MurderMarker", 2);
+	TakeActorInventory(ActivatorTID(), "MurdererKey", 1);
+	TakeActorInventory(ActivatorTID(), "M1Carbine", 1);
+	TakeActorInventory(ActivatorTID(), "RedSkull", 1);
+	TakeActorInventory(ActivatorTID(), "BlueSkull", 1);
+	TakeActorInventory(ActivatorTID(), "YellowSkull", 1);
+	TakeActorInventory(ActivatorTID(), "YellowCard", 1);
+	TakeActorInventory(ActivatorTID(), "RedCard", 1);
+	TakeActorInventory(ActivatorTID(), "BlueCard", 1);
+	TakeActorInventory(ActivatorTID(), "ChlorineGas", 1);
+	TakeActorInventory(ActivatorTID(), "TripShotgun", 2);
+	TakeActorInventory(ActivatorTID(), "RemoteCamera", 1);
+	TakeActorInventory(ActivatorTID(), "SmokeBomb", 4);
+	TakeActorInventory(ActivatorTID(), "FakeStim", 4);
+	TakeActorInventory(ActivatorTID(), "SoundEmitter", 4);
+	TakeActorInventory(ActivatorTID(), "Hero", 1);
+	TakeActorInventory(ActivatorTID(), "NoRegen", 1);
+	TakeActorInventory(ActivatorTID(), "KillMarker", 999);
+	TakeActorInventory(ActivatorTID(), "SlowCounter", 999);
+	TakeActorInventory(ActivatorTID(), "GasUsed", 999);
+	TakeActorInventory(ActivatorTID(), "SmokeUsed", 999);
+	TakeActorInventory(ActivatorTID(), "StimUsed", 999);
+	TakeActorInventory(ActivatorTID(), "BackStabCount", 999);
+	TakeActorInventory(ActivatorTID(), "FakeStimUsed", 999);
+	TakeActorInventory(ActivatorTID(), "TripUsed", 999);
+	TakeActorInventory(ActivatorTID(), "NoiseMakerUsed", 999);
+	TakeActorInventory(ActivatorTID(), "Beretta", 1);
+	TakeActorInventory(ActivatorTID(), "PistolOnce", 1);
+	TakeActorInventory(ActivatorTID(), "M1Once", 1);
+	TakeActorInventory(ActivatorTID(), "Slot1Filled", 999);
+	TakeActorInventory(ActivatorTID(), "Slot2Filled", 999);
+	
+	TakeActorInventory(ActivatorTID(), "Plank", 1);
+	TakeActorInventory(ActivatorTID(), "NailedPlank", 1);
+	TakeActorInventory(ActivatorTID(), "Twig", 1);
+		
+	SetActorProperty(ActivatorTID(), APROP_HEALTH, 100);
+	SetActorProperty(ActivatorTID(), APROP_SPAWNHEALTH, 100);
+		
+	GiveActorInventory(ActivatorTID(), "MarkMe", 1);
+		
+	GiveActorInventory(ActivatorTID(), "MurderDoorBlocker", 1);
+		
+	GiveActorInventory(ActivatorTID(), "InnocentBuff", 1);
+	TakeActorInventory(ActivatorTID(), "PowerDeathHider", 100);
+	TakeActorInventory(ActivatorTID(), "PowerMurderNerf1", 100);
+	TakeActorInventory(ActivatorTID(), "PowerMurderNerf2", 100);
+	TakeActorInventory(ActivatorTID(), "PowerMurderNerf3", 100);
+	TakeActorInventory(ActivatorTID(), "PowerMurderNerf4", 100);
+	TakeActorInventory(ActivatorTID(), "PowerMurderNerf5", 100);
+}
+
+function void resetinventory(void)
+{
+	for(int i = 0; i <= 32; i++)
+	{
+		SetActorProperty(TID_START+i, APROP_HEALTH, 100);
+		SetActorProperty(TID_START+i, APROP_SPAWNHEALTH, 100);
+		
+		if(!CheckActorInventory(TID_START+i, "SmallKit"))
+			GiveActorInventory(TID_START+i, "SmallKit", 1);
+			
+		TakeActorInventory(TID_START+i, "MadMeter", 9999);
+		TakeActorInventory(TID_START+i, "TKToken", 999);
+		TakeActorInventory(TID_START+i, "TKHero", 999);
+		TakeActorInventory(TID_START+i, "Hero", 999);
+		TakeActorInventory(TID_START+i, "MurderKnife", 1);
+		TakeActorInventory(TID_START+i, "LChainsaw", 1);
+		TakeActorInventory(TID_START+i, "Gasoline", 1000);
+		TakeActorInventory(TID_START+i, "ChainsawOnce", 1);
+		TakeActorInventory(TID_START+i, "LeadPipe", 1);
+		TakeActorInventory(TID_START+i, "PipeWrench", 1);
+		TakeActorInventory(TID_START+i, "Shovel", 2);
+		TakeActorInventory(TID_START+i, "PoolCue", 2);
+		TakeActorInventory(TID_START+i, "Luger", 1);
+		TakeActorInventory(TID_START+i, "Brick", 1);
+		TakeActorInventory(TID_START+i, "Molotov", 1);
+		TakeActorInventory(TID_START+i, "LugerOnce", 1);
+		TakeActorInventory(TID_START+i, "Shotgun2", 1);
+		TakeActorInventory(TID_START+i, "ShotgunOnce", 1);
+		TakeActorInventory(TID_START+i, "Crossbow", 1);
+		TakeActorInventory(TID_START+i, "CrossbowOnce", 1);
+		TakeActorInventory(TID_START+i, "LoadedBolts", 1);
+		TakeActorInventory(TID_START+i, "MurderMarker", 2);
+		TakeActorInventory(TID_START+i, "MurdererKey", 1);
+		TakeActorInventory(TID_START+i, "M1Carbine", 1);
+		TakeActorInventory(TID_START+i, "RedSkull", 1);
+		TakeActorInventory(TID_START+i, "BlueSkull", 1);
+		TakeActorInventory(TID_START+i, "YellowSkull", 1);
+		TakeActorInventory(TID_START+i, "YellowCard", 1);
+		TakeActorInventory(TID_START+i, "RedCard", 1);
+		TakeActorInventory(TID_START+i, "BlueCard", 1);
+		TakeActorInventory(TID_START+i, "ChlorineGas", 1);
+		TakeActorInventory(TID_START+i, "TripShotgun", 2);
+		TakeActorInventory(TID_START+i, "RemoteCamera", 1);
+		TakeActorInventory(TID_START+i, "SmokeBomb", 4);
+		TakeActorInventory(TID_START+i, "FakeStim", 4);
+		TakeActorInventory(TID_START+i, "SoundEmitter", 4);
+		TakeActorInventory(TID_START+i, "Hero", 1);
+		TakeActorInventory(TID_START+i, "NoRegen", 1);
+		TakeActorInventory(TID_START+i, "KillMarker", 999);
+		TakeActorInventory(TID_START+i, "SlowCounter", 999);
+		TakeActorInventory(TID_START+i, "GasUsed", 999);
+		TakeActorInventory(TID_START+i, "SmokeUsed", 999);
+		TakeActorInventory(TID_START+i, "StimUsed", 999);
+		TakeActorInventory(TID_START+i, "FakeStimUsed", 999);
+		TakeActorInventory(TID_START+i, "BackStabCount", 999);
+		TakeActorInventory(TID_START+i, "TripUsed", 999);
+		TakeActorInventory(TID_START+i, "NoiseMakerUsed", 999);
+		TakeActorInventory(TID_START+i, "Beretta", 1);
+		TakeActorInventory(TID_START+i, "PistolOnce", 1);
+		TakeActorInventory(TID_START+i, "M1Once", 1);
+		TakeActorInventory(TID_START+i, "Slot1Filled", 999);
+		TakeActorInventory(TID_START+i, "Slot2Filled", 999);
+		
+		TakeActorInventory(TID_START+i, "Plank", 1);
+		TakeActorInventory(TID_START+i, "NailedPlank", 1);
+		TakeActorInventory(TID_START+i, "Twig", 1);
+		
+		SetActorProperty(TID_START+i, APROP_HEALTH, 100);
+		SetActorProperty(TID_START+i, APROP_SPAWNHEALTH, 100);
+		
+		GiveActorInventory(TID_START+i, "MarkMe", 1);
+		
+		GiveActorInventory(TID_START+i, "MurderDoorBlocker", 1);
+		
+		GiveActorInventory(TID_START+i, "InnocentBuff", 1);
+		TakeActorInventory(TID_START+i, "PowerDeathHider", 100);
+		TakeActorInventory(TID_START+i, "PowerMurderNerf1", 100);
+		TakeActorInventory(TID_START+i, "PowerMurderNerf2", 100);
+		TakeActorInventory(TID_START+i, "PowerMurderNerf3", 100);
+		TakeActorInventory(TID_START+i, "PowerMurderNerf4", 100);
+		TakeActorInventory(TID_START+i, "PowerMurderNerf5", 100);
+	}
+}
+
+function int getintegeractorx(int tid) {
+    return GetActorX(tid) >> 16;
+}
+
+function int getintegeractory(int tid) {
+    return GetActorY(tid) >> 16;
+}
+
+function int getintegeractorz(int tid) {
+    return GetActorZ(tid) >> 16;
+}
+
+function int getplayertid(int number) {
+    return TID_START+number;
+}
+
+function int sqractordistance(int fromTID, int toTID) {
+    int x = GetIntegerActorX(fromTID) - GetIntegerActorX(toTID);
+    int y = GetIntegerActorY(fromTID) - GetIntegerActorY(toTID);
+    int z = GetIntegerActorZ(fromTID) - GetIntegerActorZ(toTID);
+
+    return x * x + y * y + z * z;
+}
+
+function int findplayerback(int tid, int minDistance) {
+    int selected = -1;
+    minDistance = minDistance * minDistance;
+    
+    for (int i = 0; i < 32; i++) {
+        int candidateTID = GetPlayerTID(i);
+        if (candidateTID != tid) {
+            int distance = SqrActorDistance(tid, candidateTID);        
+            if (distance <= minDistance) {
+                int vang = VectorAngle (GetActorX (candidateTID) - GetActorX (tid), GetActorY (candidateTID) - GetActorY (tid));
+                int screenAngle = (vang - GetActorAngle(tid) + 1.0) % 1.0;
+                int orientationAngle = (GetActorAngle(candidateTID) - GetActorAngle(tid) + 1.0) % 1.0;
+
+                //if ((screenAngle < 0.075 || screenAngle > 0.925) && 
+                if ((screenAngle < 0.072 || screenAngle > 0.877) && 
+                        //(orientationAngle < 0.1 || orientationAngle > 0.9)) {
+                        (orientationAngle < 0.13 || orientationAngle > 0.87)) {
+//                    Print(s:"In range!");
+                    selected = i;
+					break;
+                    //minDistance = distance;
+                }
+            }
+        }
+    }
+
+    return selected;
+}
+
+function int wdi_scoreplayer (void) // Scoring
+{
+	int score = 0;
+	
+	// Add points
+	score += (12 * tallycounts[0]); // Kills by YOU
+	score += (8 * tallycounts[1]); // TK/Other Kills
+	
+	score += (2 * murdinfo[7]);		// Backstab kills bonus
+	
+	score += 5;			// 5 free points for balance
+	
+	// Then deduct points
+	score -= (2 * murdinfo[1]);
+	score -= (2 * murdinfo[2]);
+	score -= ((1 * murdinfo[3]) / 2);
+	score -= (2 * murdinfo[4]);
+	score -= ((1 * murdinfo[5]) / 2);
+	score -= (1 * murdinfo[6]);
+	
+	if(tallycounts[2] == 0) score -= (5 * WDI_CountInnocents());
+	else if(tallycounts[2] > 0) score -= (2 * WDI_CountInnocents());
+	
+	score = min(score, 10 * playinfo[1]);
+	
+	return score;
+}
+
+function int min (int a, int b)
+{
+	if(a < b)
+		return a;
+
+	return b;
+}
+
+function int max (int a, int b)
+{
+	if(a > b)
+		return a;
+
+	return b;
+}
+
+function int clamp(int i, int a, int b)
+{
+	if(i < a) return a;
+	else if(i > b) return b;
+	return i;
+}
+
+function int int2fix(int value)
+{
+    return value * 1.0;
+}
+
+function void wdi_showmedalrank (int percent)
+{
+	if(percent >= 100)
+		setfont("MEDALS");
+		
+	if(percent >= 81 && percent <= 99)
+		setfont("MEDALA");
+
+	if(percent >= 61 && percent <= 80)
+		setfont("MEDALB");
+		
+	if(percent >= 41 && percent <= 60)
+		setfont("MEDALC");
+		
+	if(percent >= 21 && percent <= 40)
+		setfont("MEDALD");
+
+	if(percent >= 0 && percent <= 20)
+		setfont("MEDALF");
+		
+	if(percent < 0)
+		setfont("MEDALEF");
+	
+	HudMessageBold(s:"a"; HUDMSG_FADEOUT, 0, CR_UNTRANSLATED, 960.0, 860.0, 120.0, 1.0);
+}
+
+function void wdi_dropplayerweapon(int id)
+{
+	if(CheckWeapon("PoolCue"))
+		GiveActorInventory(id, "DeathDropper_PoolCue", 1);
+		
+	else if(CheckWeapon("PipeWrench"))
+		GiveActorInventory(id, "DeathDropper_Wrench", 1);
+		
+	else if(CheckWeapon("LeadPipe"))
+		GiveActorInventory(id, "DeathDropper_Pipe", 1);
+		
+	else if(CheckWeapon("Shovel"))
+		GiveActorInventory(id, "DeathDropper_Shovel", 1);
+		
+	else if(CheckWeapon("LChainsaw"))
+		GiveActorInventory(id, "DeathDropper_Chainsaw", 1);
+		
+	else if(CheckWeapon("Beretta"))
+		GiveActorInventory(id, "DeathDropper_Beretta", 1);
+		
+	else if(CheckWeapon("Crossbow"))
+		GiveActorInventory(id, "DeathDropper_Crossbow", 1);
+		
+	else if(CheckWeapon("M1Carbine"))
+		GiveActorInventory(id, "DeathDropper_M1", 1);
+		
+	else if(CheckWeapon("Shotgun2"))
+		GiveActorInventory(id, "DeathDropper_Shotgun", 1);
+		
+	else if(CheckWeapon("Brick"))
+		GiveActorInventory(id, "DeathDropper_Brick", 1);
+		
+	else if(CheckWeapon("Molotov"))
+		GiveActorInventory(id, "DeathDropper_Molly", 1);
+		
+	else if(CheckWeapon("NailedPlank"))
+		GiveActorInventory(id, "DeathDropper_NailedPlank", 1);
+		
+	else if(CheckWeapon("Plank"))
+		GiveActorInventory(id, "DeathDropper_Plank", 1);
+		
+	else if(CheckWeapon("Twig"))
+		GiveActorInventory(id, "DeathDropper_Twig", 1);
+}
+
+function void wdi_dropplayerweapon_live(int id)
+{
+	TakeActorInventory(id, "IsDropping", 1);
+
+	if(CheckWeapon("PoolCue"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "PoolCue", 1);
+		GiveActorInventory(id, "Dropper_PoolCue", 1);
+	}
+		
+	else if(CheckWeapon("PipeWrench"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "PipeWrench", 1);
+		GiveActorInventory(id, "Dropper_Wrench", 1);
+	}
+		
+	else if(CheckWeapon("LeadPipe"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "LeadPipe", 1);
+		GiveActorInventory(id, "Dropper_Pipe", 1);
+	}
+		
+	else if(CheckWeapon("Shovel"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Shovel", 1);
+		GiveActorInventory(id, "Dropper_Shovel", 1);
+	}
+		
+	else if(CheckWeapon("LChainsaw"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "LChainsaw", 1);
+		GiveActorInventory(id, "Dropper_Chainsaw", 1);
+	}
+		
+	else if(CheckWeapon("Beretta"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Beretta", 1);
+		GiveActorInventory(id, "Dropper_Beretta", 1);
+	}
+		
+	else if(CheckWeapon("Crossbow"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Crossbow", 1);
+		GiveActorInventory(id, "Dropper_Crossbow", 1);
+	}
+		
+	else if(CheckWeapon("M1Carbine"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "M1Carbine", 1);
+		GiveActorInventory(id, "Dropper_M1", 1);
+	}
+		
+	else if(CheckWeapon("Shotgun2"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Shotgun2", 1);
+		GiveActorInventory(id, "Dropper_Shotgun", 1);
+	}
+		
+	else if(CheckWeapon("Brick"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Brick", 1);
+		GiveActorInventory(id, "Dropper_Brick", 1);
+	}
+		
+	else if(CheckWeapon("Molotov"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Molotov", 1);
+		GiveActorInventory(id, "Dropper_Molly", 1);
+	}
+	
+	else if(CheckWeapon("NailedPlank"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "NailedPlank", 1);
+		GiveActorInventory(id, "Dropper_NailedPlank", 1);
+	}
+	
+	else if(CheckWeapon("Plank"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Plank", 1);
+		GiveActorInventory(id, "Dropper_Plank", 1);
+	}
+	
+	else if(CheckWeapon("Twig"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Twig", 1);
+		GiveActorInventory(id, "Dropper_Twig", 1);
+	}
+}
+
+function void wdi_dropplayerweapon_tk(int id)
+{
+	TakeActorInventory(id, "IsDropping", 1);
+
+	if(CheckActorInventory(id, "PoolCue"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "PoolCue", 1);
+		GiveActorInventory(id, "Dropper_PoolCue", 1);
+	}
+		
+	else if(CheckActorInventory(id, "PipeWrench"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "PipeWrench", 1);
+		GiveActorInventory(id, "Dropper_Wrench", 1);
+	}
+		
+	else if(CheckActorInventory(id, "LeadPipe"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "LeadPipe", 1);
+		GiveActorInventory(id, "Dropper_Pipe", 1);
+	}
+		
+	else if(CheckActorInventory(id, "Shovel"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Shovel", 1);
+		GiveActorInventory(id, "Dropper_Shovel", 1);
+	}
+		
+	else if(CheckActorInventory(id, "LChainsaw"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "LChainsaw", 1);
+		GiveActorInventory(id, "Dropper_Chainsaw", 1);
+	}
+		
+	else if(CheckActorInventory(id, "Beretta"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Beretta", 1);
+		GiveActorInventory(id, "Dropper_Beretta", 1);
+	}
+		
+	else if(CheckActorInventory(id, "Crossbow"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Crossbow", 1);
+		GiveActorInventory(id, "Dropper_Crossbow", 1);
+	}
+		
+	else if(CheckActorInventory(id, "M1Carbine"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "M1Carbine", 1);
+		GiveActorInventory(id, "Dropper_M1", 1);
+	}
+		
+	else if(CheckActorInventory(id, "Shotgun2"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Shotgun2", 1);
+		GiveActorInventory(id, "Dropper_Shotgun", 1);
+	}
+		
+	else if(CheckActorInventory(id, "Brick"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Brick", 1);
+		GiveActorInventory(id, "Dropper_Brick", 1);
+	}
+		
+	else if(CheckActorInventory(id, "Molotov"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Molotov", 1);
+		GiveActorInventory(id, "Dropper_Molly", 1);
+	}
+	
+	else if(CheckActorInventory(id, "NailedPlank"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "NailedPlank", 1);
+		GiveActorInventory(id, "Dropper_NailedPlank", 1);
+	}
+	
+	else if(CheckActorInventory(id, "Plank"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Plank", 1);
+		GiveActorInventory(id, "Dropper_Plank", 1);
+	}
+	
+	else if(CheckActorInventory(id, "Twig"))
+	{
+		TakeActorInventory(id, "Slot1Filled", 1);
+		TakeActorInventory(id, "Twig", 1);
+		GiveActorInventory(id, "Dropper_Twig", 1);
+	}
+}
+
+function void hudmessageonactor(int tid, int range, str sprite, str text, int id)
+{
+	int dist, ang, vang, pitch, x, y;
+	int HUDX = 1280;
+	int HUDY = 960;
+	int offset = 0;
+
+	if(sprite != -1)
+	{
+		setfont(sprite);
+		text = "A";
+		offset = 0.1;
+	}
+
+	sethudsize(HUDX, HUDY, 1);
+	x = getactorx(tid) - getactorx(0);
+	y = getactory(tid) - getactory(0); 
+
+	vang = vectorangle(x,y);
+	ang = (vang - GetActorAngle(0) + 1.0) % 1.0;
+
+	if(((vang+0.125)%0.5) > 0.25) dist = fixeddiv(y, sin(vang));
+	else dist = fixeddiv(x, cos(vang));
+
+	if ((ang < 0.2 || ang > 0.8) && dist < range)
+	{
+		pitch = vectorangle(dist, getactorz(tid) - (getactorz(0) + 41.0));
+		pitch = (pitch + GetActorPitch(0) + 1.0) % 1.0;
+
+		x = HUDX/2 - ((HUDX/2) * sin(ang) / cos(ang));
+		y = HUDY/2 - ((HUDX/2) * sin(pitch) / cos(pitch));
+
+		if(sprite != -1)
+			setfont(sprite);
+		hudmessage(s:text; HUDMSG_PLAIN, id, CR_UNTRANSLATED, (x<<16)+offset, ((y<<16)+offset)-32.0, 0.1);
+	}
+	else
+		hudmessage(s:" "; HUDMSG_PLAIN, id, CR_UNTRANSLATED, 0, 0, 0.1);
+}
+
+function int abs (int x)
+{
+    if (x < 0)
+        return -x;
+
+    return x;
+}
+
+function int getaspectratio(void)
+{
+	int width = getcvar("vid_defwidth");
+	int height = getcvar("vid_defheight");
+	int nowidescreen = getcvar("vid_nowidescreen");
+	int tft = getcvar("vid_tft");
+	int aspect = getcvar("vid_aspect");
+	switch(aspect)
+	{
+		case 1:	return ASPECT_16_9;
+		case 2:	return ASPECT_16_10;
+		case 3:	return ASPECT_4_3;
+		case 4:	return ASPECT_5_4;
+	}
+	if(nowidescreen)
+	{
+		if(!tft)
+			return ASPECT_4_3;
+		if(fixedmul(height<<16, fixeddiv(5.0, 4.0)) == width<<16)
+			return ASPECT_5_4;
+		else
+			return ASPECT_4_3;
+	}
+	if(abs((abs(fixedmul(height<<16, fixeddiv(16.0, 9.0)))>>16) - width) < 10)
+	{
+		return ASPECT_16_9;
+	}
+	if(abs((abs(fixedmul(height<<16, fixeddiv(16.0, 10.0)))>>16) - width) < 60)
+	{
+		if((width == 320 && height == 200) || (width == 640 && height == 400))
+			return ASPECT_4_3;
+		return ASPECT_16_10;
+	}
+	if(fixedmul(height<<16, fixeddiv(5.0, 4.0))>>16 == width && tft)
+	{
+		return ASPECT_5_4;
+	}
+	return ASPECT_4_3;
+}
+
+function int fdistance (int tid1, int tid2)
+{
+	int len;
+	int y = getactory(tid1) - getactory(tid2);
+	int x = getactorx(tid1) - getactorx(tid2);
+	int z = getactorz(tid1) - getactorz(tid2);
+
+	int ang = vectorangle(x,y);
+	if(((ang+0.125)%0.5) > 0.25) len = fixeddiv(y, sin(ang));
+	else len = fixeddiv(x, cos(ang));
+
+	ang = vectorangle(len, z);
+	if(((ang+0.125)%0.5) > 0.25) len = fixeddiv(z, sin(ang));
+	else len = fixeddiv(len, cos(ang));
+
+	return len;
+}
+				
+//#include "p_init.acs"
+//#include "p_tips.acs"
+//#include "p_functions.acs"
+#include "p_client.acs"
+#include "p_extern.acs"
+
+//Synert's random colour changing wad
+//Now with even more colours!
+
+int colour, colour2;
+
+Script 995 Open
+{
+	if(GetCVar("wdi_disable_autoconfig") <= 0)
+	{
+		ConsoleCommand("set wdi_disable_autoconfig 0");
+		ConsoleCommand("archivecvar wdi_disable_autoconfig");
+	}
+}
+
+script 999 (void) NET CLIENTSIDE
+{
+colour = random(1,21);
+if (colour == colour2) { restart; }
+If (colour == 1) { ConsoleCommand("color FF0000"); Log(s:"\cgRed"); } //red
+Else if (colour == 2) { ConsoleCommand("color 00FF00"); Log(s:"\cdGreen"); } //green
+Else if (colour == 3) { ConsoleCommand("color 0000FF"); Log(s:"\cnBlue"); } //blue
+Else if (colour == 4) { ConsoleCommand("color FFFF00"); Log(s:"\cfYellow"); } //yellow
+Else if (colour == 5) { ConsoleCommand("color FFFFFF"); Log(s:"\ccWhite"); } //white
+Else if (colour == 6) { ConsoleCommand("color 000000"); Log(s:"\cmBlack"); } //black
+Else if (colour == 7) { ConsoleCommand("color BEBEBE"); Log(s:"\cuLight gray"); } //light grey
+Else if (colour == 8) { ConsoleCommand("color 7E7E7E"); Log(s:"\cuGray"); } //grey
+Else if (colour == 9) { ConsoleCommand("color 2E2E2E"); Log(s:"\cmDark grey"); } //dark grey
+Else if (colour == 10) { ConsoleCommand("color 00FFFF"); Log(s:"\cvCyan"); } //cyan
+Else if (colour == 11) { ConsoleCommand("color FF00FF"); Log(s:"\caPink"); } //pink
+Else if (colour == 12) { ConsoleCommand("color 7F00FF"); Log(s:"\ctPurple"); } //purple
+Else if (colour == 13) { ConsoleCommand("color FF7400"); Log(s:"\ciOrange"); } //orange
+Else if (colour == 14) { ConsoleCommand("color A55A2A"); Log(s:"\ceBrown"); } //brown
+Else if (colour == 15) { ConsoleCommand("color 640000"); Log(s:"\crDark red"); } //dark red
+Else if (colour == 16) { ConsoleCommand("color 006400"); Log(s:"\cqDark green"); } //dark green
+Else if (colour == 17) { ConsoleCommand("color 000064"); Log(s:"\chDark blue"); } //dark blue
+Else if (colour == 18) { ConsoleCommand("color FF007F"); Log(s:"\caMagenta"); } //magenta
+Else if (colour == 19) { ConsoleCommand("color C57A4A"); Log(s:"\ceLight brown"); } //light brown
+Else if (colour == 20) { ConsoleCommand("color 00C07F"); Log(s:"\cvTurqoise"); } //turqoise
+Else if (colour == 21) { ConsoleCommand("color 652A00"); Log(s:"\csDark brown"); } //dark brown
+colour2 = colour;
+delay(40);
+}
