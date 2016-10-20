@@ -1,0 +1,82 @@
+Lock 1
+{
+	BarKey
+	Message "You do not have the key for the Bar!"
+	RemoteMessage "You do not have the key for the Bar!"
+	Mapcolor 64 64 0
+	LOCKEDSOUND "Door/DoorFail"
+}
+
+//Murderer Key
+Lock 4
+{
+	MurdererKey
+	Message "" //No message
+	RemoteMessage "" //Burrhurr
+	Mapcolor 255 255 255 //White on the automap.
+	LOCKEDSOUND "DSNULL" //No sound
+}
+
+
+//Trap door (inside)
+Lock 20
+{
+	TrapKey //Murderer Only
+	Message "It doesn't open from this side!" 
+	RemoteMessage "It doesn't open from this side!" 
+	Mapcolor 0 0 0 //Black on automap
+	LOCKEDSOUND "Door/DoorKnock" 
+}
+
+Lock 55
+{
+		BasementKey
+		Message "You need the Basement Key to open this door"
+		Mapcolor 255 0 0
+		LOCKEDSOUND "Door/DoorFail"
+}
+
+Lock 121
+{
+	SafeKey
+	Message "You do not have the key for the Safe!"
+	RemoteMessage "You do not have the key for the Safe!"
+	Mapcolor 64 64 0
+	LOCKEDSOUND "Door/DoorFail"
+}
+
+Lock 144
+{
+	SecurityKey
+	Message "You do not have the key for the Security Room!"
+	RemoteMessage "You do not have the key for the Security Room!"
+	Mapcolor 64 64 0
+	LOCKEDSOUND "Door/DoorFail"
+}
+
+Lock 150
+{
+	Room1Key
+	Message "You do not have the key for room 1!"
+	RemoteMessage "You do not have the key for room 1!"
+	Mapcolor 64 64 0
+	LOCKEDSOUND "Door/DoorFail"
+}
+
+Lock 151
+{
+	Room8Key
+	Message "You do not have the key for room 8!"
+	RemoteMessage "You do not have the key for room 8!"
+	Mapcolor 64 64 0
+	LOCKEDSOUND "Door/DoorFail"
+}
+
+Lock 118
+{
+	SafeKeyBlaBla
+	Message "You do not have the key for the Safe!"
+	RemoteMessage "You do not have the key for the Safe!"
+	Mapcolor 64 64 0
+	LOCKEDSOUND "Door/DoorFail"
+}

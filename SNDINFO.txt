@@ -1,0 +1,939 @@
+$random Ouchie
+{
+	P2Pain1
+	P2Pain7
+	P2Pain5
+	P2Pain2
+	P1Pain1
+	P1Pain7
+	P1Pain5
+	P1Pain2
+}
+
+$ambient 31 misc/drip POINT 1.0 CONTINUOUS 1.0
+misc/drip		DRIP
+
+tubes/break TSTTB
+env/screams1 AMBSCR1
+env/screams2 AMBSCR2
+env/screams3 AMBSCR3
+env/bells BELLS
+env/voices1 vox1
+env/voices2 vox2
+env/voices3 vox3
+
+warehouse/caralarm CALARM
+warehouse/wolf woof
+warehouse/manwhore MANHO
+warehouse/presssound PRESSM
+warehouse/pressfinal FINALS
+warehouse/pop POP
+warehouse/chinese CHINESE
+
+misc/spawn DSNULL
+
+weapons/sgclick DSCLICK
+
+//Enviroment
+$random waves/waves { Waves/Waves1 Waves/Waves2 Waves/Waves3 Waves/Waves4 }
+$random wind/wind { Wind/Wind1 Wind/Wind2 }
+$ambient 60 waves/waves POINT 0.5 periodic 7  1.0
+$ambient 61 wind/wind POINT 0.5 random 15 30 2.0
+$ambient 62 Creak/wood POINT 0.5 random 15 45 0.3
+$ambient 64 Water/Fall POINT 0.5 continuous 0.2
+
+DSTRANCL           DSTRANCL
+DSTRAIN1           DSTRAIN1
+DSTRNHRN           DSTRNHRN
+
+$AMBIENT 51 DSTRANCL POINT CONTINUOUS 0.5
+$AMBIENT 52 DSTRAIN1 POINT CONTINUOUS 0.5
+
+World/Waves WAVES1
+
+//Lake waves
+Waves/Waves1  WAVE1
+Waves/Waves2  WAVE2
+Waves/Waves3  WAVE3
+Waves/Waves4  WAVE4
+
+//Deep wind
+Wind/Wind1 WIND1
+Wind/Wind2 WIND2
+
+//Snow
+$random floor/snow { floor/snow1  floor/snow2 floor/snow3 }
+floor/snow1 SNOW1
+floor/snow2 SNOW2
+floor/snow3 SNOW3
+
+$limit floor/snow 1
+
+//Creaking Wood
+$random Creak/wood { Creak/Wood1 Creak/Wood2 Creak/Wood3 }
+Creak/Wood1 WOOD1
+Creak/Wood2 WOOD2
+Creak/Wood3 WOOD3
+
+Water/Fall WATERFL
+
+//Enviroment sounds
+$random whisper/whisper { Whisper/Whisper1 Whisper/Whisper2 Whisper/Whisper3 Whisper/Whisper4 } //Sounds by TheMisterCat
+$ambient 20 World/Cricket POINT 1.5 random 1 30 0.2
+$ambient 21 World/PoolPump POINT 1.0 CONTINUOUS 2.0
+$ambient 22 DSGEN POINT 1.0 CONTINUOUS 1.0
+$ambient 23 DSCRY POINT 3.0 random 60 120 1.0
+$ambient 24 whisper/whisper POINT 3.5 random 35 85 0.2
+$ambient 25 Ambient/Rain POINT 0.75 CONTINUOUS 2.0
+
+World/Cricket	CRICKET1
+World/PoolPump	POOLPUMP
+World/Whispers  WHISPER1
+Ambient/Rain	AMBRAIN
+World/owl1	OWLCALL1
+
+$random Twig/Hit { Twig/Hit1 Twig/Hit2 }
+
+PIANOC PIANOC
+PIANOD PIANOD
+PIANOE PIANOE
+PIANOF PIANOF
+PIANOG PIANOG
+PIANOB PIANOB
+PIANC2 PIANC2
+PIAND2 PIAND2
+PIANE2 PIANE2
+
+Twig/Hit1 TWIGERS
+Twig/Hit2 TWIGERS2
+
+$random Plank/Wall { Plank/Wall1 Plank/Wall2 Plank/Wall3 }
+
+Plank/Wall1 WOODW1
+Plank/Wall2 WOODW2
+Plank/Wall3 WOODW3
+
+D_FATE	D_FATE
+
+//Zeberpal sounds
+LockJam5	LOCKJAM5
+LockJam6	LOCKJAM6
+LockJam7	LOCKJAM7
+DSCHAFIR    DSCHAFIR
+JBOXSND1    JBOXSND1
+EVILJBOX    EVILJBOX
+
+sicamore/jukesong JUKESONG
+
+//Peanut sounds
+DSGEN  DSGEN1
+DSCRY DSCRY1
+Whisper/Whisper1 DSWHIS1
+Whisper/Whisper2 DSWHIS2
+Whisper/Whisper3 DSWHIS3
+Whisper/Whisper4 DSWHIS4
+
+//Smokebomb
+Smokebomb/Hiss	SMOKEHIS
+Smokebomb/Bang	SMOKEBAG
+
+//gui
+menu/click1 MCLICK1
+menu/mouseover MENUMO1
+
+//Healing eeeee
+Items/Healtiny HEALTINY
+Items/Healteam HEALTEAM
+
+Items/BigKitWarn BKITWARN
+Items/BigKitActivate BKITACTI
+Items/BigKitOpen BKITOPEN
+Items/BigKitHum BKITHUM
+
+//Lever Rifle
+Weapons/RifleBang RIFLBANG
+
+
+//Oh god I'm going to fucking PRISON!
+COPYRITE	COPYRITE
+
+DISCO DISCO
+
+//Tallyboard shit
+D_CTTAL1 D_CTTAL1
+D_CTTAL2 D_CTTAL2
+
+// Door Sounds
+Door/Start1 DOpen1
+Door/Start2 DOpen2
+Door/Start3 DOpen3
+Door/Start4 DOpen4
+Door/Mid1 DMid1
+Door/Mid2 DMid2
+Door/Mid3 DMid3
+Door/Mid4 DMid4
+Door/End1 DClose1
+Door/End2 DClose2
+Door/End3 DClose3
+Door/End4 DClose4
+
+// Elevator
+Lift/Start LIFTSTAR
+Lift/Loop LIFTLOOP
+Lift/Stop LIFTSTOP
+Lift/OpenDoor LIFTDOR1
+Lift/CloseDoor LIFTDOR2
+Lift/Button ELEVBUTT
+Lift/OHSHIT OHSHIT
+Mary/Laugh MARYLAFF
+
+$volume Lift/Start 15.0
+$volume Lift/Loop 15.0
+$volume Lift/Stop 15.0
+
+
+$random doors/dr1_open		{ Door/Start1 Door/Start2 Door/Start3 Door/Start4 }
+$random doors/dr2_open		{ Door/Start1 Door/Start2 Door/Start3 Door/Start4 }
+
+$random Door/Middle		{ Door/Mid1 Door/Mid2 Door/Mid3 Door/Mid4 }
+
+$random doors/dr1_clos	{ Door/End1 Door/End2 Door/End3 Door/End4 }
+$random doors/dr2_clos		{ Door/End1 Door/End2 Door/End3 Door/End4 }
+
+//doors/dr1_open			"Door/Open"
+//doors/dr1_clos			"Door/Close"
+//doors/dr2_open			"Door/Open"
+//doors/dr2_clos			"Door/Close"
+Door/DoorFail			DOORJAM
+Door/DoorKnock			DSKNOCK
+
+//Lift Sounds
+plats/pt1_strt			DORSTP3
+plats/pt1_stop			DORSTP1B
+plats/pt1_mid			STNMV4
+
+
+//Switch Sounds
+
+//Light Switch
+Light/On1	LITEON1
+Light/On2	LITEON2
+Light/Off1	LITEOFF1
+Light/Off2	LITEOFF2
+
+FIZZLE FIZZLE
+MATCH MATCH
+
+$volume FIZZLE 0.2
+$volume MATCH 0.7
+
+$random LightOn		{Light/On1 Light/On2}
+$random LightOff	{Light/Off1 Light/Off2}
+
+//TMC Sounds (Soundset 1)
+//Use
+UsefailA1	plyrspk1	
+UsefailB1	plyrspk2
+UsefailC1	plyrspk3
+
+//death
+P1Death		DeathA1
+P1Xdeath	P1Xdeath
+
+//P1 Pain
+P1Light1	PAIN100A	
+P1Light2	PAIN100B
+P1Light3	PAIN100C
+
+P1Medium1	PAIN75A
+P1Medium2	PAIN75B
+P1Medium3	PAIN75C	
+
+P1Heavy1	PAIN50A
+P1Heavy2	PAIN50B
+P1Heavy3	PAIN50C
+
+P1Mortal1	PAIN25A
+P1Mortal2	PAIN25B
+P1Mortal3	PAIN25C
+
+$random P1Use { DSNULL DSNULL DSNULL } 
+$random P1Pain1 { P1Light1 P1Light2 P1Light3 } 
+$random P1Pain7 { P1Medium1 P1Medium2 P1Medium3 } 
+$random P1Pain5 { P1Heavy1 P1Heavy2 P1Heavy3 } 
+$random P1Pain2 { P1Mortal1 P1Mortal2 P1Mortal3 } 
+$random P1Taunt { P1Help1 P1Help2 P1Help3 P1Help4 P1Help5 } 
+
+$PlayerAlias TMC male *Usefail P1Use
+$PlayerAlias TMC male *Puzzfail P1Puzz
+$PlayerAlias TMC male *pain100 P1Pain1
+$PlayerAlias TMC male *pain75 P1Pain7
+$PlayerAlias TMC male *pain50 P1Pain5
+$PlayerAlias TMC male *pain25 P1Pain2
+$PlayerAlias TMC male *death P1Death
+$PlayerAlias TMC male *crazydeath P1XDeath
+$PlayerAlias TMC male *taunt P1Taunt
+
+
+//Firewolf Sounds (Soundset 2)
+//Use
+UsefailA2	P1NO1	
+UsefailB2	P1NO2
+UsefailC2	P1NO3
+
+//death
+P2Death		P2DEATH
+P2Xdeath	P2XDEATH
+
+//P1 Pain
+P1LightA1	PANA100A	
+P1LightA2	PANA100B
+P1LightA3	PANA100C
+
+P1MediumA1	PANA75A
+P1MediumA2	PANA75B
+P1MediumA3	PANA75C	
+
+P1HeavyA1	PANA50A
+P1HeavyA2	PANA50B
+P1HeavyA3	PANA50C
+
+P1MortalA1	PANA25A
+P1MortalA2	PANA25B
+P1MortalA3	PANA25C
+
+$random P2Use { DSNULL DSNULL DSNULL } 
+$random P2Pain1 { P1LightA1 P1LightA2 P1LightA3 } 
+$random P2Pain7 { P1MediumA1 P1MediumA2 P1MediumA3 } 
+$random P2Pain5 { P1HeavyA1 P1HeavyA2 P1HeavyA3 } 
+$random P2Pain2 { P1MortalA1 P1MortalA2 P1MortalA3 } 
+$random P2Taunt { P1Help1 P1Help2 P1Help3 P1Help4 P1Help5 } 
+
+$PlayerAlias Firewolf male *Usefail P2Use
+$PlayerAlias Firewolf male *pain100 P2Pain1
+$PlayerAlias Firewolf male *pain75 P2Pain7
+$PlayerAlias Firewolf male *pain50 P2Pain5
+$PlayerAlias Firewolf male *pain25 P2Pain2
+$PlayerAlias Firewolf male *death P2Death
+$PlayerAlias Firewolf male *crazydeath P2XDeath
+$PlayerAlias Firewolf male *taunt P2Taunt
+
+
+//Weapon sounds
+//============================
+//General
+weapons/weaponup                DSWEPUP
+weapons/weapondown              DSWEPDWN
+
+$random weapons/gundrop { gd1 gd2 gd3 }
+gd1 dsgundp1
+gd2 dsgundp2
+gd3 dsgundp3
+
+pickups/ammo ammoup
+pickups/weapon weaponup
+
+//Chlorine Gas
+Gas/Pop1	GLASS2
+Gas/Pop2	GLASS3
+Gas/Pop3	GLASS4
+
+$Volume Gas/Pop1 1.8
+$Volume Gas/Pop2 1.8
+$Volume Gas/Pop3 1.8
+
+$Random weapons/Gasbreak
+{
+ Gas/Pop1
+ Gas/Pop2
+ Gas/Pop3
+}
+
+$limit molly/burn 1
+$limit molly/flame 1
+
+molly/land	CORKPOP
+molly/burn	FLAMEBRN
+molly/flame	MOLLYBRN
+molly/burst	DSBOTTLE
+weapons/lighteropen DSZOPEN
+weapons/lighter	DSZIP
+weapons/lighterclose DSZCLOSE
+
+
+//Crossbow
+Weapons/Crossbowfire	DSXBOW
+
+//Fists
+Weapons/Fistswing1     DSLZSW1
+Weapons/Fistswing2     DSLZSW2
+Weapons/Fistswing3     DSLZSW3
+
+$Random Weapons/Fistswing
+{
+ Weapons/Fistswing1
+ Weapons/Fistswing2
+ Weapons/Fistswing3
+}
+
+Weapons/Fistshit1     DSPUNCH
+Weapons/Fistshit2     DSSKEPCH
+
+$Random Weapons/Fistshits
+{
+ Weapons/Fistshit1
+ Weapons/Fistshit2
+}
+
+//Pipe and wrench
+pipe/swing pipswing
+$random pipe/hit { ph1 ph2 ph3 ph4 }
+ph1 piphit1
+ph2 piphit2
+ph3 piphit3
+ph4 piphit4
+pipe/wall pipwall
+
+$random wrench/swing { wrench/swing1 wrench/swing2 }
+$random wrench/hitwall { wrench/hitwall1 wrench/hitwall2 wrench/hitwall3 }
+$random wrench/hitbody { wrench/hitbody1 wrench/hitbody2 wrench/hitbody3 wrench/hitbody4 }
+wrench/swing1 pipmiss1
+wrench/swing2 pipmiss2
+wrench/hitwall1 hitwall1
+wrench/hitwall2 hitwall2
+wrench/hitwall3 hitwall3
+wrench/hitbody1 hitbody1
+wrench/hitbody2 hitbody2
+wrench/hitbody3 hitbody3
+wrench/hitbody4 hitbody4
+
+//Poolcue
+$random cue/swing { cue/swing1 cue/swing2 cue/swing3 cue/swing4 cue/swing5 cue/swing6 }
+
+cue/swing1	SWISH1
+cue/swing2	SWISH2
+cue/swing3	SWISH3	
+cue/swing4	SWISH4
+cue/swing5	SWISH5
+cue/swing6	SWISH6
+
+cue/hit POOLHIT
+cue/wall POOLWALL
+
+$limit cue/hit 1
+$limit cue/wall 1
+
+//Shovel
+$random Shovel/swing { Shovel/swing1 Shovel/swing2 Shovel/swing3 }
+$random Shovel/wall { Shovel/Hit1 Shovel/Hit2 }
+$random Shovel/hit { Shovel/wall1 Shovel/wall2 Shovel/wall3 }
+
+Shovel/swing1	DSSHVW1
+Shovel/swing2	DSSHVW2
+Shovel/swing3	DSSHVW3	
+
+$limit Shovel/swing 1
+$limit Shovel/swing1 1
+$limit Shovel/swing2 1
+$limit Shovel/swing3 1
+
+$limit Shovel/hit 1
+$limit Shovel/Hit1 1
+$limit Shovel/Hit2 1
+$limit Shovel/wall 1
+$limit Shovel/wall1 1
+$limit Shovel/wall2 1
+$limit Shovel/wall3 1
+
+Shovel/Hit1	DSSHVI2
+Shovel/Hit2	DSSHVI3
+
+Shovel/wall1	SHVWALL1
+Shovel/wall2	SHVWALL2
+Shovel/wall3	SHVWALL3	
+
+brick/land	DSBKDROP
+
+//Chainsaw
+//------------------------------
+Weapons/Sawpull        dssawpul
+Weapons/Sawzip         dssawzip
+Weapons/Sawready       dssawidl
+Weapons/Sawdown        dssawdwn
+Weapons/Sawup          dssawwup
+Weapons/Sawfull        dssawful
+Weapons/Sawrevdown     dssawwdn
+Weapons/Saw0           dssaw0
+Weapons/Saw1           dssaw1
+Weapons/Saw2           dssaw2
+Weapons/Saw3           dssaw3
+Weapons/Saw4           dssaw4
+Weapons/Saw5           dssaw5
+Weapons/Saw6           dssaw6
+Weapons/Saw7           dssaw7
+Weapons/Saw8           dssaw8
+Weapons/Saw9           dssaw9
+Weapons/Sawwall1       dssawal1
+Weapons/Sawwall2       dssawal2
+Weapons/Sawwall3       dssawal3
+Weapons/Sawwall4       dssawal4
+
+$Random Weapons/Sawhit
+{
+ Weapons/Saw0
+ Weapons/Saw1
+ Weapons/Saw2
+ Weapons/Saw3
+ Weapons/Saw4
+ Weapons/Saw5
+ Weapons/Saw6
+ Weapons/Saw7
+ Weapons/Saw8
+ Weapons/Saw9
+}
+
+$Random Weapons/Sawwall
+{
+Weapons/Sawwall1
+Weapons/Sawwall2
+Weapons/Sawwall3
+Weapons/Sawwall4
+}
+
+//Trip Turret (Shares some with shotgun)
+weapons/turretready DSEYE
+weapons/turretfired TURCLICK
+weapons/turretdie	DSELEC1
+
+//Fake Stim
+Weapons/Aw_FFS		STIMHISS
+
+//Noise EMitter
+weapons/noiseready	DSELEC2
+
+//Shotgun
+weapons/Shotguncock	XMSGCOCK
+weapons/Shotgunfire	XMSHOTGN
+weapons/Shotgunopen	XMDBOPN
+weapons/Shotgunclose XMDBCLS
+weapons/Shotgunload	XMDBLOAD
+
+//Luger
+weapons/lugerfire               DSLUGFIR
+weapons/Lugerout 				dsglkou2
+weapons/Lugerin 				dsglkin2
+weapons/lugerempty				pistolmt
+
+//Beretta
+$random weapons/BerettaFire 	{weapons/BerettaShot1 weapons/BerettaShot2 weapons/BerettaShot3}
+weapons/BerettaShot1	PISTOL01
+weapons/BerettaShot2	PISTOL02
+weapons/BerettaShot3	PISTOL03
+
+//Casings
+$random weapons/casing2		{weapons/shell1 weapons/shell2 weapons/shell3}
+weapons/shell1			dsshell1
+weapons/shell2			dsshell2
+weapons/shell3			dsshell3
+
+$random weapons/casing1		{weapons/bullet1 weapons/bullet2 weapons/bullet3 weapons/bullet4}
+weapons/bullet1			dscasing
+weapons/bullet2			dscasin2
+weapons/bullet3			dscasin3
+weapons/bullet4			dscasin4
+
+
+//============================
+//Murder Knife
+weapons/KnifeReady	DSKNFEUP
+weapons/KnifeStab	DSKNIFE1
+weapons/KnifeHit	DSKNIFED
+weapons/BackStab	BACKSTAB
+
+$limit weapons/KnifeStab 1
+$limit weapons/KnifeHit 1
+
+Metal/VentCrash	VENTGRAT
+
+Heart/Heart		Heart
+
+//Gamemode sounds
+Game/MurdererChosen	UMURDER
+Game/CountStart		TIMENOTE
+
+$random DeathNote		{Game/DeathNote1 Game/DeathNote2 Game/DeathNote3 Game/DeathNote4}
+Game/DeathNote1		DEATHKE1
+Game/DeathNote2		DEATHKE2
+Game/DeathNote3		DEATHKE3
+Game/DeathNote4		DEATHKE4
+
+$random generic/floor		{ generic/floor01  generic/floor02 generic/floor03 generic/floor04  generic/floor05 generic/floor06 }
+generic/floor01	dshard1
+generic/floor02	dshard2
+generic/floor03	dshard3
+generic/floor04	dshard4
+generic/floor05	dshard5
+generic/floor06	dshard6
+
+$volume generic/floor 0.75
+$volume generic/floor01 0.75
+$volume generic/floor02 0.75
+$volume generic/floor03 0.75
+$volume generic/floor04 0.75
+$volume generic/floor05 0.75
+$volume generic/floor06 0.75
+
+
+//Terrain crap
+NJMT DSEMPTY
+
+//Sounds for my extra switch definitions
+
+switches/electri2		dselec2
+switches/electri3		dselec3
+switches/eclunk			dseclunk
+switches/clunk			dsclunk
+switches/china			dschina1
+switches/eye			dseye
+switches/bige			dsbige
+switches/keycard		dskeyc
+switches/gargoyle		dsgrgyle
+switches/skin			dsskinny
+switches/lever			dslever
+switches/lever2			dslever2
+switches/valve			dsvalve
+
+
+
+
+world/drip			dsempty
+world/watersplash		dssplash
+world/watersplashsmall		dssplsml
+world/sludgegloop		dsploosh
+world/sludgegloopsmall		dsplosml
+world/lavasizzle		dslvsiz
+world/lavsiz2			dslvsiz2
+world/lavasizzlesmall		dslavsml
+world/thunder			dsthun
+
+$limit world/drip 1
+$limit world/watersplash 1
+$limit world/watersplashsmall 2
+$limit world/sludgegloop 1
+$limit world/sludgegloopsmall 2
+$limit world/lavasizzle 1
+$limit world/lavsiz2 1
+$limit world/lavasizzlesmall 2
+
+//Aspects Floor Sounds
+
+
+//Carpet - soft ground
+$random floor/carpet		{ floor/carpet01  floor/carpet02 floor/carpet03 }
+floor/carpet01	dscarp1
+floor/carpet02	dscarp2
+floor/carpet03	dscarp3
+
+$limit floor/carpet 1
+
+//Dirt
+$random floor/dirt		{ floor/dirt01  floor/dirt02 floor/dirt03 floor/dirt04  floor/dirt05 floor/dirt06 }
+floor/dirt01	dsdirt1
+floor/dirt02	dsdirt2
+floor/dirt03	dsdirt3
+floor/dirt04	dsdirt4
+floor/dirt05	dsdirt5
+floor/dirt06	dsdirt6
+
+$limit floor/dirt 1
+
+//Gravel - loose crunchy surface
+$random floor/gravel		{ floor/grav01  floor/grav02 floor/grav03 floor/grav04 }
+floor/grav01	dsgrav1
+floor/grav02	dsgrav2
+floor/grav03	dsgrav3
+floor/grav04	dsgrav4
+
+$limit floor/gravel 1
+
+//Metal - hard metal
+$random floor/metal		{ floor/metl01  floor/metl02 floor/metl03 floor/metl04  floor/metl05 floor/metl06 }
+floor/metl01	dsmet01
+floor/metl02	dsmet02
+floor/metl03	dsmet03
+floor/metl04	dsmet04
+floor/metl05	dsmet05
+floor/metl06	dsmet06
+
+$limit floor/metal 1
+
+//Metal2 - clanky metal
+$random floor/met2		{ floor/met201  floor/met202 floor/met203 floor/met204 }
+floor/met201	dsmet201
+floor/met202	dsmet202
+floor/met203	dsmet203
+floor/met204	dsmet204
+
+$limit floor/met2 1
+
+//Rock - Hard outdoor type floor
+$random floor/rock		{ floor/rock01  floor/rock02 floor/rock03 floor/rock04  floor/rock05 floor/rock06 floor/rock07 floor/rock08 }
+floor/rock01	dsrock1
+floor/rock02	dsrock2
+floor/rock03	dsrock3
+floor/rock04	dsrock4
+floor/rock05	dsrock5
+floor/rock06	dsrock6
+floor/rock07	dsrock7
+floor/rock08	dsrock8
+
+$limit floor/rock 1
+
+//Snow
+$random floor/snow		{ floor/snow01  floor/snow02 floor/snow03 floor/snow04  floor/snow05 floor/snow06 }
+floor/snow01	dssnow1
+floor/snow02	dssnow2
+floor/snow03	dssnow3
+floor/snow04	dssnow4
+floor/snow05	dssnow5
+floor/snow06	dssnow6
+
+$limit floor/snow 1
+
+//Hard - generic hard floor
+$random floor/hard		{ floor/hard01  floor/hard02 floor/hard03 floor/hard04  floor/hard05 floor/hard06 }
+floor/hard01	dshard1
+floor/hard02	dshard2
+floor/hard03	dshard3
+floor/hard04	dshard4
+floor/hard05	dshard5
+floor/hard06	dshard6
+
+$limit floor/hard 1
+
+//Tile - Hard indoor floor
+$random floor/tile		{ floor/tile01  floor/tile02 floor/tile03 floor/tile04  floor/tile05 floor/tile06 }
+floor/tile01	dstile01
+floor/tile02	dstile02
+floor/tile03	dstile03
+floor/tile04	dstile04
+floor/tile05	dstile05
+floor/tile06	dstile06
+
+$limit floor/tile 1
+
+//Tile2 - More echoey traditional tile
+$random floor/tile2		{ floor/tile201  floor/tile202 floor/tile203 floor/tile204  floor/tile205 floor/tile206 floor/tile207 floor/tile208 }
+floor/tile201	dstile21
+floor/tile202	dstile22
+floor/tile203	dstile23
+floor/tile204	dstile24
+floor/tile205	dstile25
+floor/tile206	dstile26
+floor/tile207	dstile27
+floor/tile208	dstile28
+
+$limit floor/tile2 1
+
+//Wood
+$random floor/wood		{ floor/wood01  floor/wood02 floor/wood03 floor/wood04 }
+floor/wood01	dswood1
+floor/wood02	dswood2
+floor/wood03	dswood3
+floor/wood04	dswood4
+
+$limit floor/wood 1
+
+//Slimy - for the Doom snake floors
+$random floor/slimy		{ floor/slimy01  floor/slimy02 floor/slimy03 floor/slimy04 }
+floor/slimy01	dsslimy1
+floor/slimy02	dsslimy2
+floor/slimy03	dsslimy3
+floor/slimy04	dsslimy4
+
+$limit floor/slimy 1
+
+//Piano - OMFG IT'S BOBBY
+$random floor/piano		{ floor/piano1  floor/piano2 floor/piano3 floor/piano4 floor/piano5  floor/piano6 floor/piano7 floor/piano8  floor/piano9}
+floor/piano1	PSTEP1
+floor/piano2	PSTEP2
+floor/piano3	PSTEP3
+floor/piano4	PSTEP4
+floor/piano5	PSTEP5
+floor/piano6	PSTEP6
+floor/piano7	PSTEP7
+floor/piano8	PSTEP8
+floor/piano9	PSTEP9
+
+//Fans and electrical stuff
+floor/elec1	dselec1
+
+$limit floor/elec1 1
+
+
+//TMC stuff hahahahaha
+pot/break POTBRK1
+glass/break GLASS5
+
+$volume rat/1 0.6
+$volume rat/2 0.6
+$volume rat/3 0.6
+$volume rat/die 0.6
+
+$random rat/squeak {rat/1 rat/2 rat/3}
+rat/1 RAT1
+rat/2 RAT2
+rat/3 RAT3
+rat/die RATDIE
+
+$random world/thunder {env/thunder1 env/thunder2 env/thunder3 env/thunder4 env/thunder5 env/thunder6 env/thunder7 env/thunder8 env/thunder9}
+env/thunder1 THUND1
+env/thunder2 THUND2
+env/thunder3 THUND3
+env/thunder4 THUND5
+env/thunder5 THUND5
+env/thunder6 THUND6
+env/thunder7 THUND7
+env/thunder8 THUND8
+env/thunder9 THUND9
+
+
+$ambient 10 fire/fire point 2.0 continuous 60
+$ambient 30 World/Whispers point 6.0 random 30 120 60
+$ambient 63 COPYRITE point 1.0 continuous 80
+$volume COPYRITE 20.0
+
+drip drip
+comphum comphum
+torch torch
+machine machine
+thunder thunder
+rain rain
+swon swon
+swoff swoff
+scman1 scman1
+scman2 scman2
+scwom1 scwom1
+scwom2 scwom2
+scmon1 scmon1
+thun1 thun1
+thun2 thun2
+thun3 thun3
+thun4 thun4
+thun5 thun5
+thun6 thun6
+thun7 thun7
+
+$AMBIENT 1 drip POINT CONTINUOUS 0.1
+$AMBIENT 2 comphum POINT CONTINUOUS 0.1
+$AMBIENT 3 torch POINT CONTINUOUS 0.1
+$AMBIENT 4 rain POINT CONTINUOUS 0.5
+
+fire/fire FIRE1
+
+
+EASTERTIME ETIET
+LABORDAY LDILD
+CHRISTMAS CTICT
+HALLOWEEN HIH
+
+
+// WEAPON SOUNDS
+
+M1/cock M1COCK
+M1/Fire M1fire
+M1/CLIPIN M1IN
+M1/CLIPOUT M1OUT
+
+$random weapons/Casing2 {weapons/case 1 weapons/case2 weapons/case3 weapons/case4}
+
+weapons/case1          DSCASE1
+weapons/case2          DSCASE2
+weapons/case3          DSCASE3
+weapons/case4          DSCASE4
+
+weapons/NOAMMO	NOAMMO
+
+Glass				dsglass
+
+rumble rumble
+lowbeep lowbeep
+door1 door1
+doorend doorend
+null null
+
+reactor reactor
+fuzz fuzz
+zap1 zap1
+zap2 zap2
+zap3 zap3
+zap4 zap4
+compwobb compwobb
+ooze ooze
+factbuzz factbuzz
+factlift factlift
+factlif2 factlif2
+factlif3 factlif3
+twarmup twarmup
+tdrain tdrain
+piperoom piperoom
+
+wflow wflow
+wdrips wdrips
+wdrip1 wdrip1
+wdrip2 wdrip2
+wdrip3 wdrip3
+wdrip4 wdrip4
+$volume wdrip1 0.1
+$volume wdrip2 0.1
+$volume wdrip3 0.1
+$volume wdrip4 0.1
+$rolloff wdrip1 16 256
+$rolloff wdrip2 16 256
+$rolloff wdrip3 16 256
+$rolloff wdrip4 16 256
+
+creak1 creak1
+creak2 creak2
+creak3 creak3
+creak4 creak4
+creak5 creak5
+lights elecbuz1
+compbuzz elecbuz2
+crackle crackle
+
+vstep1 vstep1
+vstep2 vstep2
+vstep3 vstep3
+vstep4 vstep4
+
+
+$pitchshift factlift 0
+$pitchshift factlif2 0
+$pitchshift factlif3 0
+
+$pitchshift wdrip1 3
+$pitchshift wdrip2 3
+$pitchshift wdrip3 4
+$pitchshift wdrip4 3
+
+$ambient 41 lowbeep point 2.0 continuous 0.15
+$ambient 42 rumble point 0.8 continuous 0.3
+$ambient 43 fuzz point 1.0 continuous 0.1
+$ambient 44 compwobb point 1.8 continuous 0.05
+$ambient 45 reactor point 1.0 continuous 0.3
+$ambient 46 ooze point 0.8 continuous 0.4
+$ambient 47 creak point 0.6 random 6.0 60.0 0.5
+$ambient 48 lights point 2.0 continuous 0.8
+$ambient 49 compbuzz point 2.0 continuous 0.8
+$ambient 50 crackle point 2.0 continuous 0.6
+$ambient 51 wflow point 1.5 continuous 0.2
+$ambient 52 wdrips point 1.5 continuous 0.2
+$ambient 53 piperoom point 1.5 continuous 0.3
+
+$random wdrip { wdrip1 wdrip2 wdrip3 wdrip4 }
+$random floor/vent { vstep1 vstep2 vstep3 vstep4 null null null}
+$random zap { zap1 zap2 zap3 zap4 }
+$random creak { creak1 creak2 creak3 creak5 }
+
+

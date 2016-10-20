@@ -1,0 +1,38 @@
+//Silent Door
+:SilentDoor
+   door 60
+   playuntildone DSNULL
+   playrepeat DSNULL
+   stopsound DSNULL
+end
+
+//Silent Platform
+:SilentPlatform
+   platform 61
+   playuntildone DSNULL
+   playrepeat DSNULL
+   stopsound DSNULL
+end
+
+
+//Elevator
+:Elevator
+   platform 62
+   playuntildone Lift/Start
+   playrepeat Lift/Loop
+   stopsound Lift/Stop
+end
+
+//FactoryLift
+:FactoryLift
+   platform 63
+   playuntildone factlif3
+   playrepeat factlift
+   stopsound factlif2
+end
+
+//SewageDrain
+:SewageDrain
+	platform 16
+	playrepeat tdrain
+end

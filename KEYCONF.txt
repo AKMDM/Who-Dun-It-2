@@ -1,0 +1,51 @@
+ClearPlayerClasses 
+AddPlayerClass "Innocent"
+AddPlayerClass "Innocent2"
+
+
+weaponsection "Whodunit"
+setslot 0 MurderKnife
+setslot 1 NewFist PoolCue PipeWrench LeadPipe Shovel LChainsaw Beretta Shotgun2 Crossbow M1Carbine Brick Molotov Twig Plank NailedPlank
+
+addkeysection "Who Dun It?" whodunit
+   
+   addmenukey "Drop Weapon" +dropweapon
+   addmenukey "Use Medkit" "Use SmallKit"
+   addmenukey "Admin Vote Yes" wdi_voteyes
+   addmenukey "Admin Vote No" wdi_voteno
+
+addkeysection "Murderer Controls" whodunit2
+   addmenukey "Wield Knife" "use murderknife"
+   addmenukey "Drop Smokebomb" "Use Smokebomb"
+   //addmenukey "Quick Color" Colormescotty
+   
+   alias +dropweapon "use Action_DropWeapon"
+   alias -dropweapon "use Action_DropWeaponCancel"
+   alias Usesmallkit "Use SmallKit"
+   alias UseSmokeBomb "Use Smokebomb"
+   alias Knife "use murderknife"
+   alias wdi_voteyes "puke -830"
+   alias wdi_voteno "puke -835"
+
+   alias admin_wdi_punish "puke 866 %1 %2 %3"
+   alias admin_wdi_login "puke 863 %1"
+   //alias Colormescotty "puke 662"
+   
+   //Server console commands (No longer needed)
+   //alias WDI_Safetytime "set Safetytime %1"
+   //alias WDI_Resettime "set Resettime %1"
+   
+   defaultbind Q Usesmallkit
+   defaultbind G Knife
+   defaultbind F UseSmokeBomb
+   defaultbind V dropweapon
+
+   bind pgup "vote_yes;wdi_voteyes"
+   bind pgdn "vote_no;wdi_voteno"
+
+   //defaultbind X Colormescotty
+
+addkeysection "Colour Changer" colourchanger
+addmenukey "Change colour" changecolour
+alias changecolour "puke 999"
+defaultbind c changecolour

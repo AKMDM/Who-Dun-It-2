@@ -1,0 +1,123 @@
+{
+name = ShotgunSkin
+class = "Voice: Thick"
+sprite = PLA3
+CrouchSprite = PL3C
+}
+
+{
+name = TwigSkin
+class = "Voice: Thick"
+sprite = PLTW
+}
+
+{
+name = PistolSkin
+class = "Voice: Thick"
+sprite = PLA2
+CrouchSprite = PL2C
+}
+
+{
+name = ChainsawSkin
+class = "Voice: Thick"
+sprite = PLA0
+CrouchSprite = PL8C
+}
+
+{
+name = MurderSkin
+class = "Voice: Thick"
+sprite = PKNI
+CrouchSprite = PLYC //Default crouch sprite
+}
+
+{
+name = FistSkin
+class = "Voice: Thick"
+sprite = PLA1
+CrouchSprite = PLYC //Default crouch sprite
+}
+
+{
+name = WrenchSkin
+class = "Voice: Thick"
+sprite = PLA6
+CrouchSprite = PLYC //Default crouch sprite
+}
+
+{
+name = PipeSkin
+class = "Voice: Thick"
+sprite = PLA7
+CrouchSprite = PLYC //Default crouch sprite
+}
+
+{
+name = M1Skin
+class = "Voice: Thick"
+sprite = PSNP
+CrouchSprite = PSPC
+}
+
+{
+name = ShotgunSkin
+class = "Voice: Wimpy"
+sprite = PLA3
+CrouchSprite = PL3C
+}
+
+{
+name = PistolSkin
+class = "Voice: Wimpy"
+sprite = PLA2
+CrouchSprite = PL2C
+}
+
+{
+name = ChainsawSkin
+class = "Voice: Wimpy"
+sprite = PLA0
+CrouchSprite = PL8C
+}
+
+{
+name = MurderSkin
+class = "Voice: Wimpy"
+sprite = PKNI
+CrouchSprite = PLYC //Default crouch sprite
+}
+
+{
+name = TwigSkin
+class = "Voice: Wimpy"
+sprite = PLTW
+}
+
+{
+name = FistSkin
+class = "Voice: Wimpy"
+sprite = PLA1
+CrouchSprite = PLYC //Default crouch sprite
+}
+
+{
+name = WrenchSkin
+class = "Voice: Wimpy"
+sprite = PLA6
+CrouchSprite = PLYC //Default crouch sprite
+}
+
+{
+name = PipeSkin
+class = "Voice: Wimpy"
+sprite = PLA7
+CrouchSprite = PLYC //Default crouch sprite
+}
+
+{
+name = M1Skin
+class = "Voice: Wimpy"
+sprite = PSNP
+CrouchSprite = PSPC
+}

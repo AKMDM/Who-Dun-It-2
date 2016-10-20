@@ -1,0 +1,187 @@
+gameinfo
+{
+	titlepage = "TITLEPIC"
+	creditpage = "CREDIT"
+	titlemusic = "$MUSIC_DM2TTL"
+	titletime = 11
+	advisorytime = 0
+	pagetime = 5
+	chatsound = "misc/chat"
+	finalemusic = "$MUSIC_READ_M"
+	finaleflat = "SLIME16"
+	finalepage = "CREDIT"
+	infopage = "WDIHELP1", "WDIHELP2", "WDIHELP3", "WDIHELP4"
+	quitsound = "menu/quit2"
+	borderflat = "GRNROCK"
+	border = DoomBorder
+	telefogheight = 0
+	defkickback = 100
+	skyflatname = "F_SKY1"
+	translator = "xlat/doom.txt"
+	defaultbloodcolor = "68 00 00"
+	defaultbloodparticlecolor = "ff 00 00"
+	backpacktype = "Backpack"
+	intermissionmusic = "$MUSIC_DM2INT"
+	drawreadthis = true
+}
+
+defaultmap
+{
+	allowcrouch 
+	allowjump
+	checkswitchrange 
+	fallingdamage 
+	forcefallingdamage 
+	TeamDamage = 1.0
+	nointermission 
+	f1 = ""
+}
+
+map TITLEMAP "Oye! Get out!"
+{
+	sky1 = "STSKY2", 0.0
+	smoothlighting 
+	lightning 
+	nointermission 
+	levelnum = 99
+}
+
+map WDI01 "Asylum"
+{
+	levelnum = 1
+	//cluster = 1
+	music = D_SPOOK
+	sky1 = "SKYB", 0.0
+	next = WDI02
+	horizwallshade = 8
+	vertwallshade = 0
+}
+
+map WDI02 "Now Museum, Now You Don't!"
+{
+	levelnum = 2
+	next = WDI03
+	sky1 = "STSKY8B", 0.0
+	music = D_LEVEL1
+	lightning 
+	smoothlighting 
+}
+
+map WDI03 "Clock Town"
+{
+	levelnum = 3
+	next = WDI04
+	sky1 = "OVERCAST", 0.0
+	music = WDIZEB1M
+	evenlighting 
+}
+
+map WDI04 "Confinement"
+{
+	levelnum = 4
+	next = WDI05
+	sky1 = "STSKY8B", 0.0
+	music = D_HLMS01
+	evenlighting 
+}
+
+map WDI05 "Men's Night Out"
+{
+	levelnum = 5
+	next = WDI06
+	sky1 = "STSKY8B", 0.0
+	music = D_SPOOK
+	smoothlighting
+	lightning 
+}
+
+map WDI06 "Surrounded"
+{
+	levelnum = 6
+	sky1 = "STSKY8B", 0.0
+	music = D_LEVEL1
+	next = WDI07
+	lightning 
+	smoothlighting 
+}
+
+map WDI07 "Cradle Under The Star"
+{
+	levelnum = 7
+	next = WDI08
+	sky1 = "TWILIGHT", 0.0
+	music = D_LEVEL1
+	evenlighting
+}
+
+map WDI08 "St. Mercy Hospital"
+{
+	levelnum = 8
+	next = WDI09
+	sky1 = "STSKY8", 0.0
+	music = D_SPOOK
+	evenlighting
+}
+
+map WDI09 "Applesauce Factory" //THERE TMC ARE YOU HAPPY!?
+{
+	levelnum = 9
+	next = WDI10
+	sky1 = "CSKY", 0.0
+	music = D_SEWER
+	fallingdamage
+}
+
+map WDI10 "Slaughter Seminar"
+{
+	levelnum = 10
+	next = WDI11
+	sky1 = "STSKY8B", 0.0
+	music = D_SPOOK
+	evenlighting 
+}
+
+map WDI11 "Bunker Down"
+{
+	levelnum = 11
+	next = WDI12
+	music = BASSRUMB
+	SKY1 = "STSKY10", 0.0
+	evenlighting
+}
+
+map WDI12 "Where-house"
+{
+	levelnum = 12
+	next = WDI13
+	sky1 = "SICASKY2", 0.0
+	music = D_SICA
+	
+	allowcrouch 
+	allowjump
+	checkswitchrange 
+	fallingdamage 
+	forcefallingdamage 
+	TeamDamage = 1.0
+	nointermission 
+}
+
+map WDI13 "Echo Ridge"
+{
+	levelnum = 13
+	music = D_ECHO
+	sky1 = "SKYFOG", 0.0
+	next = WDI01
+
+	TeamDamage = 1.0
+	fogdensity = 100
+	skyfog = 255
+	horizwallshade = 8
+	vertwallshade = 0
+
+	nointermission
+	allowcrouch
+	checkswitchrange
+	fallingdamage
+	forcefallingdamage
+}
