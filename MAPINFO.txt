@@ -38,6 +38,14 @@ defaultmap
 	next = WDI01
 }
 
+map TITLEMAP "Oye! Get out!"
+{
+	sky1 = "STSKY2", 0.0
+	smoothlighting 
+	lightning 
+	levelnum = 99
+}
+
 map WDI01 "Asylum"
 {
 	levelnum = 1
