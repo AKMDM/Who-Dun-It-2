@@ -27,32 +27,23 @@ gameinfo
 
 defaultmap
 {
-	allowcrouch 
+	allowcrouch
 	allowjump
-	checkswitchrange 
-	fallingdamage 
-	forcefallingdamage 
+	checkswitchrange
+	fallingdamage
+	forcefallingdamage
 	TeamDamage = 1.0
-	nointermission 
+	nointermission
 	f1 = ""
-}
-
-map TITLEMAP "Oye! Get out!"
-{
-	sky1 = "STSKY2", 0.0
-	smoothlighting 
-	lightning 
-	nointermission 
-	levelnum = 99
+	next = WDI01
 }
 
 map WDI01 "Asylum"
 {
 	levelnum = 1
-	//cluster = 1
-	music = D_SPOOK
-	sky1 = "SKYB", 0.0
 	next = WDI02
+	sky1 = "SKYB", 0.0
+	music = D_SPOOK
 	horizwallshade = 8
 	vertwallshade = 0
 }
@@ -76,20 +67,11 @@ map WDI03 "Clock Town"
 	evenlighting 
 }
 
-map WDI04 "Confinement"
-{
-	levelnum = 4
-	next = WDI05
-	sky1 = "STSKY8B", 0.0
-	music = D_HLMS01
-	evenlighting 
-}
-
 map WDI05 "Men's Night Out"
 {
 	levelnum = 5
 	next = WDI06
-	sky1 = "STSKY8B", 0.0
+	sky1 = "BLACKSK", 0.0 //old "STSKY8B", 0.0
 	music = D_SPOOK
 	smoothlighting
 	lightning 
@@ -105,7 +87,7 @@ map WDI06 "Surrounded"
 	smoothlighting 
 }
 
-map WDI07 "Cradle Under The Star"
+map WDI07 "Cradle Under The Star" //not Included
 {
 	levelnum = 7
 	next = WDI08
@@ -123,13 +105,12 @@ map WDI08 "St. Mercy Hospital"
 	evenlighting
 }
 
-map WDI09 "Applesauce Factory" //THERE TMC ARE YOU HAPPY!?
+map WDI09 "Applesauce Factory"
 {
 	levelnum = 9
 	next = WDI10
 	sky1 = "CSKY", 0.0
 	music = D_SEWER
-	fallingdamage
 }
 
 map WDI10 "Slaughter Seminar"
@@ -141,13 +122,14 @@ map WDI10 "Slaughter Seminar"
 	evenlighting 
 }
 
+
 map WDI11 "Bunker Down"
 {
 	levelnum = 11
 	next = WDI12
+	sky1 = "YZSKY2", 0.15
 	music = BASSRUMB
-	SKY1 = "STSKY10", 0.0
-	evenlighting
+	fade = "black"	
 }
 
 map WDI12 "Where-house"
@@ -156,32 +138,86 @@ map WDI12 "Where-house"
 	next = WDI13
 	sky1 = "SICASKY2", 0.0
 	music = D_SICA
-	
-	allowcrouch 
-	allowjump
-	checkswitchrange 
-	fallingdamage 
-	forcefallingdamage 
-	TeamDamage = 1.0
-	nointermission 
 }
 
 map WDI13 "Echo Ridge"
 {
 	levelnum = 13
+	next = WDI14
+	sky1 = "GCLOU", 0.03
 	music = D_ECHO
-	sky1 = "SKYFOG", 0.0
-	next = WDI01
+	horizwallshade = 6
+	vertwallshade = 0
+}
 
-	TeamDamage = 1.0
-	fogdensity = 100
-	skyfog = 255
+map WDI14 "Cold Night"
+{
+	levelnum = 14
+	next = WDI15
+	music = D_MIDN
+ }  
+ 
+map WDI15 "Halls Of Silence"
+{
+	levelnum = 15
+	next = WDI16
+	Music= D_KIWI01
+    evenlighting
+ }      
+
+map WDI16 "Castaway"
+{
+	levelnum = 16
+	next = WDI17
+	SKY1 = "DAWNCLOD", 0.0
+	music = D_OCEAN
+	evenlighting
+}
+
+map WDI17 "The Tomb of Ramses II"
+{
+	levelnum = 17
+	next = WDI18
+	sky1 = "SKYB", 0.0
+	music = D_SICA
 	horizwallshade = 8
 	vertwallshade = 0
+}
 
+map WDI18 "Stormy Night"
+{
+	levelnum = 18
+	next= WDI19
+	sky1 = STSKY8
+	music = "meduamb"
+	horizwallshade = 8
+	vertwallshade = 0
+	evenlighting	
+}
+
+map WDI19 "Whodunit Mansion"
+{
+	levelnum = 19
+	next= WDI20 
+	sky1 = "SRISE", 0.00
+	sky2 = "SLSKY", 0.00
+	Music="D_MANSI"
+	SkyStretch
+}
+
+map WDI20 "Insomnia"
+{
+	levelnum = 20
+	sky1 = "SKYB", 0.0
+	UsePlayerStartZ
+	next = WDI01
 	nointermission
-	allowcrouch
-	checkswitchrange
-	fallingdamage
-	forcefallingdamage
+}
+
+Map WDI21 "Knee-Deep in The Murder"
+{
+	levelnum = 21
+	Music = "D_E1M1_"
+	Next = "WDI01"
+	AllowMonsterTelefrags
 }
