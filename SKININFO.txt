@@ -72,7 +72,7 @@ CrouchSprite = PL8C
 name = ShovelSkin
 class = "Voice: Wimpy"
 sprite = PLSH
-CrouchSprite = PSHC //NEW SPRITES
+CrouchSprite = PSHC 
 }
 
 {
@@ -82,14 +82,11 @@ sprite = PLSH
 CrouchSprite = PSHC
 }
 
-//FIXED SPRITES ////////////
-//Note :reloading all the skins again from wdimain the only way to fix this shit without touch whodunit_fixed2.pk3
-//WRENCH,KNIFE,FIST,M1 
 {
 name = MurderSkin
 class = "Voice: Thick"
 sprite = PKNI
-CrouchSprite = PKNC //NEW SPRITES
+CrouchSprite = PKNC 
 }
 
 {
@@ -103,7 +100,7 @@ CrouchSprite = PKNC
 name = FistSkin
 class = "Voice: Thick"
 sprite = PLA1
-CrouchSprite = PL1C //NEW SPRITES
+CrouchSprite = PL1C 
 }
 
 {
@@ -117,7 +114,7 @@ CrouchSprite = PL1C
 name = M1Skin
 class = "Voice: Thick"
 sprite = PCBN
-CrouchSprite = PCBC //NEW SPRITES
+CrouchSprite = PCBC 
 }
 
 {
@@ -131,7 +128,7 @@ CrouchSprite = PCBC
 name = WrenchSkin
 class = "Voice: Thick"
 sprite = PLA6
-CrouchSprite = PWNC //NEW SPRITES
+CrouchSprite = PWNC 
 }
 
 {
