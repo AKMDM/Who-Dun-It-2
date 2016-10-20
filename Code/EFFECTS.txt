@@ -1,0 +1,785 @@
+actor Footstep
+{
+- SOLID
++NOBLOCKMAP
+//+CORPSE
+States
+{
+Spawn:
+TNT1 A 8
+Stop
+
+//Crash:
+//TNT1 A 1 A_PlaySound("generic/floor")
+//Stop
+}
+}
+
+ACTOR NoFlash
+{
+ // SeeSound "mysounds/myflashsound"
+ RenderStyle None
+ States
+ {
+ Spawn:
+  TNT1 A 1
+  Stop
+ }
+}
+
+//Lightning credit to Lazureus (from JRift)
+actor LightningStrike
+{
+	obituary "$OB_LIGHTNING"
+	renderstyle Add
+	scale 2.0
+	height 60
+	radius 3
+	speed 0
+	PROJECTILE
+	+FLOORHUGGER
+	+NOCLIP
+	states
+	{
+		Spawn:
+			LTNG A 1 bright
+		Death:
+			LTNG A 2 bright
+			LTNG B 2 bright
+			LTNG C 2 bright
+			IVVY A 3
+			LTNG B 2 bright
+			IVVY A 1
+			LTNG C 1 bright
+			stop
+	}
+}
+
+actor LightningStrikeSmall : LightningStrike
+{
+	xscale 0.7
+	yscale 2.0
+}
+
+Actor FogFiller 26666
+{
+radius 8
+height 8
++NOGRAVITY
+  //$Category WDI Effects
+  //$Sprite XSMKA0
+  //$Title "Fog Filler (Spawner)"
+states
+	{
+	Spawn:
+	 TNT1 A 0
+	 TNT1 AAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("SexyFog", random(-Args[0], Args[0]), random(-Args[0], Args[0]), random(-Args[0], Args[0]), random(-Args[1], Args[1]), random(-Args[1], Args[1]), random(-Args[1], Args[1]), random(0, 360), SXF_CLIENTSIDE, 0)
+	 stop
+	}
+}
+
+Actor SexyFog : Smokecloud 26667
+{
+  //$Category WDI Effects
+  //$Sprite XSMKA0
+  //$Title "Fog (Sexy)"
+speed 1
+scale 0.35
+states
+	{
+	Spawn:
+	 XSMK A 1 
+	  loop
+	}
+}
+
+
+actor BloodDrop
+{
+radius 4
+height 2
++MISSILE
++DONTSPLASH
++CLIENTSIDEONLY
++MOVEWITHSECTOR
+-NOGRAVITY
+-SOLID
+
+States
+	{
+	Spawn:
+	 BLDR A 0 
+	 DBLD A 1 A_JumpIf(waterlevel == 3, "WaterDeath")
+	  loop
+
+	Death:
+	 BLDR H 1 A_JumpIf(waterlevel == 3, "WaterDeath")
+	 TNT1 A 1 A_SpawnItemEx("BloodTrail", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE|SXF_NOCHECKPOSITION, 0)
+	  stop
+
+	WaterDeath:
+	 WBLD A 0 A_ChangeFlag("NOGRAVITY", 1)	
+	 WBLD A 0 A_ChangeFlag("FORCEXYBILLBOARD", 1)	
+	 WBLD A 8 A_JumpIf(waterlevel == 2, "Vanish")
+	 WBLD A 0 A_Stop 
+	 WBLD A 26 A_JumpIf(waterlevel == 2, "Vanish")
+	 WBLD A 1 A_JumpIf(waterlevel == 2, "Vanish")
+	 WBLD A 1050 A_JumpIf(waterlevel == 2, "Vanish")
+	  goto Vanish
+
+	Vanish:
+	 WBLD A 1 A_FadeOut(0.01)
+	  loop
+	}
+}
+
+actor BloodDropSmall : BloodDrop
+{
+scale 0.25
+States
+	{
+
+	Death:
+	 BLDR H 1 A_JumpIf(waterlevel == 3, "WaterDeath")
+	 TNT1 A 1 A_SpawnItemEx("BloodTrailSmall", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE|SXF_NOCHECKPOSITION, 0)
+	  stop
+
+	WaterDeath:
+	 WBLD A 0 A_ChangeFlag("NOGRAVITY", 1)	
+	 WBLD A 0 A_ChangeFlag("FORCEXYBILLBOARD", 1)	
+	 WBLD A 8
+	 WBLD A 0 A_Stop 
+	 WBLD A 26
+	 WBLD A 1 
+	 WBLD A 1050
+	  goto Vanish
+	}
+}
+
+
+
+actor ActionMarkerWhite 16070
+{
+- SOLID
++NOBLOCKMAP
++NOGRAVITY
++CLIENTSIDEONLY
++ALLOWCLIENTSPAWN
+Radius 2
+Height 2
+Renderstyle Add
+Alpha 0.45
+VisibleToTeam 1
+  //$Category WDI Murderer Stuff
+  //$Sprite ACTIA0
+  //$Title "Action Marker (White)"
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 0 //Thing_ChangeTID(0,256)
+TNT1 A 0
+Goto On
+//Goto Off
+
+Active:
+ACTI A 1 BRIGHT A_UnHideThing
+ACTI A 1 BRIGHT 
+Wait
+
+InActive:
+TNT1 A 1 A_HideThing
+TNT1 A 1
+Wait
+
+Off:
+TNT1 A 1
+Wait
+
+On:
+ACTI A 1 BRIGHT
+Wait
+}
+}
+
+actor ActionMarkerBlue : ActionMarkerWhite 16071
+{
+  //$Category WDI Murderer Stuff
+  //$Sprite ACTIB0
+  //$Title "Action Marker (Blue)"
+Alpha 0.45
+VisibleToTeam 1
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 0 //Thing_ChangeTID(0,257)
+TNT1 A 0
+Goto On
+//Goto Off
+
+Active:
+ACTI A 1 BRIGHT A_UnHideThing
+ACTI A 1 BRIGHT 
+Wait
+
+InActive:
+TNT1 A 1 A_HideThing
+TNT1 A 1
+Wait
+
+Off:
+TNT1 A 1
+Wait
+
+On:
+ACTI B 1 BRIGHT
+Wait
+}
+}
+
+Actor YellowHaloSpawner : CustomInventory
+{
+ Inventory.Amount 1
+ Inventory.MaxAmount 0
+ +INVENTORY.AUTOACTIVATE
+ +INVENTORY.ALWAYSPICKUP
+ +INVENTORY.UNDROPPABLE
+ -INVENTORY.INVBAR
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("YellowHalo", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE|SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor RedHaloSpawner : CustomInventory
+{
+ Inventory.Amount 1
+ Inventory.MaxAmount 0
+ +INVENTORY.AUTOACTIVATE
+ +INVENTORY.ALWAYSPICKUP
+ +INVENTORY.UNDROPPABLE
+ -INVENTORY.INVBAR
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("RedHalo", 0, 0, 0, 0, 0, 0, 0, SXF_CLIENTSIDE|SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor YellowHalo
+{
+	Radius 4
+	Height 32
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+CLIENTSIDEONLY
+	-SOLID
+	-SHOOTABLE
+	+DROPOFF
+	+NOTELEPORT
+	States
+	{
+	Spawn:
+		WARN A 2 BRIGHT
+		Stop
+	}
+}
+
+Actor RedHalo : YellowHalo
+{
+	States
+	{
+	Spawn:
+		WARN B 2 BRIGHT
+		Stop
+	}
+}
+
+ACTOR Breath
+{
+	PROJECTILE
+	scale 0.02
+	Damage 0
+	Radius 8
+	Height 8
+	Speed 0
+	+THRUGHOST
+	DeathSound ""
+	RenderStyle Add
+	Alpha 0.5
+	States
+	{
+	Spawn:
+		SMOK ABCDEFGHIJKLMNOPQ 1 A_FadeOut(0.03)
+		Loop
+	Death:
+		TNT1 A 1
+		TNT1 A 0
+		stop
+	}
+}
+
+ACTOR BreathTest
+{
+	scale 0.02
+	Damage 0
+	Radius 8
+	Height 8
+	Speed 0
+	DeathSound ""
+	RenderStyle NONE
+	Alpha 1.0
+	States
+	{
+	Spawn:
+		TNT1 AAAAAAAAAAAAAAA 1 A_SpawnItemEx ("Breath", 1, 0, 48, random(0.5, 1.0), 0, random(-0.1, 0.1), random(-8.0, 8.0), 0, 0)
+		Loop
+	Death:
+		TNT1 A 1
+		TNT1 A 0
+		stop
+	}
+}
+
+//Bullet cases
+ACTOR ShotgunCasing
+{
+	Height 12
+	Radius 9
+	Speed 4
+	Scale 0.20
+	Mass 0
+	PROJECTILE
+	+DOOMBOUNCE
+	- NOGRAVITY
+	SeeSound "weapons/casing2"
+	States
+	{
+	Spawn:
+	   D3S1 A 0 A_PlaySound("NULL")
+	   D3S1 ACBHEGFD 1
+	   Goto Spawn+1
+	Death:
+	   D3S1 A 0 A_Jump(32,8)
+	   D3S1 A 0 A_Jump(37,8)
+	   D3S1 A 0 A_Jump(43,8)
+	   D3S1 A 0 A_Jump(51,8)
+	   D3S1 A 0 A_Jump(64,8)
+	   D3S1 A 0 A_Jump(85,8)
+	   D3S1 A 0 A_Jump(128,8)
+	   D3S1 A 200 A_SpawnItem ("Poof")
+	   Stop
+	   D3S1 B 200 A_SpawnItem ("Poof2")
+	   Stop
+	   D3S1 C 200 A_SpawnItem ("Poof")
+	   Stop
+	   D3S1 D 200 A_SpawnItem ("Poof2")
+	   Stop
+	   D3S1 E 200 A_SpawnItem ("Poof")
+	   Stop
+	   D3S1 F 200 A_SpawnItem ("Poof2")
+	   Stop
+	   D3S1 G 200 A_SpawnItem ("Poof")
+	   Stop
+	   D3S1 H 200 A_SpawnItem ("Poof2")
+	   Stop
+	}
+}
+
+ACTOR Poof
+{
+RenderStyle Normal
++NOGRAVITY
+scale 0.5	
+States
+{
+Spawn:
+TNT1 A 0
+Goto death
+Death:
+POOF ABCDEFGHIJKLMNOP 1
+Stop
+}
+}
+ACTOR Poof2
+{
+RenderStyle Normal
++NOGRAVITY
+scale 0.2	
+States
+{
+Spawn:
+TNT1 A 0
+Goto death
+Death:
+POOF ABCDEFGHIJKLMNOP 1
+Stop
+}
+}
+
+Actor FreezerFan 15061
+{
++NOGRAVITY
++NOBLOCKMAP
+  //$Category WDI Effects
+  //$Sprite SMOKQ0
+  //$Title "Freezer Fan (Spawns Clouds)"
+States
+	{
+	Spawn:
+		TNT1 A 1 A_SpawnItemEx ("FanCloud", 0, 0, 0, random(5, 15), 0, random(-2, 2), random(-8.0, 8.0), SXF_CLIENTSIDE, 0)
+		loop
+	}
+}
+
+ACTOR FanCloud
+{
+	PROJECTILE
+	-NOGRAVITY
+	+LOWGRAVITY
+	+DONTSPLASH
+	+LOOKALLAROUND
+	scale 0.5
+	Damage 0
+	Radius 8
+	Height 8
+	Speed 0
+	DamageType "Ice"
+	DeathSound ""
+	Translation Ice
+	RenderStyle Add
+	Alpha 0.5
+	States
+	{
+	Spawn:
+	    SMOK QPONMLKJIHGFEDBC 1 A_FadeOut(0.03)
+		goto Death
+	Death:
+		//TNT1 A 1 A_Jump(235, 2)
+		TNT1 A 1 //A_Explode(2, 32, 1)
+		TNT1 A 0
+		stop
+	}
+}
+
+ACTOR ColdCloud 15060
+{
+  Translation Ice
+  Radius 20
+  Height 30
+  Mass 1
+  Speed 1
+  DamageType "Ice"
+  +DROPOFF
+  +NODAMAGETHRUST
+  +DONTSPLASH
+  +FOILINVUL
+  +BLOODLESSIMPACT
+  +SLIDESONWALLS
+  RenderStyle Add
+  Obituary "%o went north."
+  HitObituary "%o went north."
+  Alpha 0.25
+  DeathSound "PoisonShroomDeath"
+  //$Category WDI Effects
+  //$Sprite PSBGD0
+  //$Title "Freezer Cloud"
+  States
+  {
+  Spawn:
+    PSBG D 1
+    PSBG D 1 A_Scream
+    PSBG DEFH 4
+	PSBG H 1 
+ 	Goto Float
+  
+  Float:
+	PSBG H 1 A_Wander 
+	PSBG H 8  
+    PSBH H 1 A_Jump(255, "Float")
+	goto Explode
+	
+	Explode:
+	PSBG H 350 
+	PSBG H 1 A_Explode(4,256)
+	goto Float
+
+
+Death:
+    PSBG HG 7
+    PSBG FD 6 A_FadeOut(0.1)
+    goto Death + 1
+  }
+}
+
+
+ACTOR BloodTrail
+{
+  Radius 20
+  Height 1
+  Scale 0.45
+  +NOBLOCKMAP
+  +DONTSPLASH
+  +NOCLIP
+  +MOVEWITHSECTOR
+  +CLIENTSIDEONLY
+  States
+  {
+  Spawn:
+    POB2 A 0
+    POB2 A 1 A_JumpIf(waterlevel == 3, "WaterDeath")
+    POB2 A 6300
+    goto Death
+
+	WaterDeath:
+	 WBLD A 0 A_ChangeFlag("NOGRAVITY", 1)	
+	 WBLD A 0 A_ChangeFlag("FORCEXYBILLBOARD", 1)	
+	 WBLD A 8 A_JumpIf(waterlevel == 2, "Vanish")
+	 WBLD A 0 A_Stop 
+	 WBLD A 26 A_JumpIf(waterlevel == 2, "Vanish")
+	 WBLD A 1 A_JumpIf(waterlevel == 2, "Vanish")
+	 WBLD A 1050 A_JumpIf(waterlevel == 2, "Vanish")
+	  goto Vanish
+
+	Vanish:
+	 WBLD A 1 A_FadeOut(0.01)
+	  loop
+	
+  Death:
+	POB2 A 1 A_FadeOut(0.01)
+	loop
+  }
+}
+
+ACTOR BloodTrailSmall
+{
+  Radius 20
+  Height 1
+  Scale 0.25
+  +NOBLOCKMAP
+  +DONTSPLASH
+  +NOCLIP
+  +MOVEWITHSECTOR
+  +CLIENTSIDEONLY
+  States
+  {
+Spawn:
+    POB2 A 0
+    POB2 A 1 A_JumpIf(waterlevel == 3, "WaterDeath")
+    POB2 A 1050
+    goto Death
+
+	WaterDeath:
+	 WBLD A 0 A_ChangeFlag("NOGRAVITY", 1)	
+	 WBLD A 0 A_ChangeFlag("FORCEXYBILLBOARD", 1)	
+	 WBLD A 8 A_JumpIf(waterlevel == 2, "Vanish")
+	 WBLD A 0 A_Stop 
+	 WBLD A 26 A_JumpIf(waterlevel == 2, "Vanish")
+	 WBLD A 1 A_JumpIf(waterlevel == 2, "Vanish")
+	 WBLD A 1050 A_JumpIf(waterlevel == 2, "Vanish")
+	  goto Vanish
+
+
+	Vanish:
+	 WBLD A 1 A_FadeOut(0.01)
+	  loop
+	
+  Death:
+	POB2 A 1 A_FadeOut(0.01)
+	loop
+  }
+}
+
+Actor HealSparkleSmall
+{
++NOGRAVITY
++CLIENTSIDEONLY
++NOINTERACTION
+Radius 32
+Height 32
+Scale 0.65
+Renderstyle Add
+
+	States
+	{
+		Spawn:
+		 HEAL A 0 BRIGHT 
+		 HEAL A 0 BRIGHT A_SpawnItemEx("HealSparkleSmall2", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+		 HEAL A 0 BRIGHT A_SpawnItemEx("HealSparkleSmall2", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+		 HEAL A 0 BRIGHT ThrustThingZ (0, 32, 0, 0)
+		  goto Death
+
+		Death:
+		 HEAL A 0 BRIGHT A_SpawnItemEx("HealSparkleTrail", 0, 0, -24, 0, 0, 0, 0, 0, 0)
+		 HEAL A 1 BRIGHT A_Fadeout(0.1)
+		 loop
+
+	}
+
+}
+
+Actor HealSparkleSmall2 : HealSparkleSmall
+{
+
+	States
+	{
+		Spawn:
+		 HEAL A 0 BRIGHT 
+		 HEAL A 0 BRIGHT ThrustThingZ (0, 32, 0, 0)
+		  goto Death
+	}
+
+}
+
+Actor BigKitHealSparkle : HealSparkleSmall
+{
+Renderstyle Normal
+Scale 1.0
+States
+	{
+		Spawn:
+		 KITS A 0 BRIGHT 
+		 KITS A 1 BRIGHT ThrustThingZ (0, 32, 0, 0)
+		  goto Death
+
+		Death:
+		 KITS A 1 BRIGHT A_Fadeout(0.1)
+		 loop
+
+	}
+}
+
+Actor BigKitHealSparkleThing 
+{
+states
+	{
+	Spawn:
+	TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
+	TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
+	TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
+	TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
+	TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
+	stop
+	}
+}
+
+Actor HealSparkleTrail
+{
++NOGRAVITY
++CLIENTSIDEONLY
++NOINTERACTION
+Radius 1
+Height 1
+Scale 0.25
+Renderstyle Add
+
+	States
+	{
+		Spawn:
+		 HEAL A 1 BRIGHT 
+		  goto Death
+
+		Death:
+		 HEAL A 1 BRIGHT A_Fadeout(0.15)
+		 loop
+
+	}
+
+}
+
+Actor HealSparkleTrailRed
+{
++NOGRAVITY
++CLIENTSIDEONLY
+Radius 1
+Height 1
+Scale 0.85
+Renderstyle Add
+
+	States
+	{
+		Spawn:
+		 HEAL B 0 BRIGHT 
+		 HEAL B 1 BRIGHT A_Fadeout(0.08)
+		  goto Spawn + 1
+
+		Death:
+		 TNT1 A 0
+		 stop
+
+	}
+
+}
+
+
+Actor BigKitOrbit
+{
+  Radius 6
+  Height 8
+  Speed 10
+  Damage 5
+  SpawnID 250
+  Scale 0.55
+  Projectile
+  SeeSound ""
+  +NOINTERACTION
+  +CLIENTSIDEONLY
+  +NOGRAVITY
+  +NOCLIP
+  Scale 0.85
+  RenderStyle Add
+  States
+  {
+  Spawn:
+    HEAL B 0 
+    HEAL B 0 Thing_ChangeTID(0, 2000)
+    HEAL B 0 Thing_Hate(0, 2001, 5)
+    HEAL BBBBBB 1 Bright //A_CustomRailgun (0, 0, none, red, RGF_NOPIERCING, 1, 0, 0) //The flags are 2.5.0? God dammit!
+    HEAL B 0 A_CustomMissile("BigKitOrbit", 0, 0, 75)
+    //HEAL B 0 A_SpawnItemEx("HealSparkleTrailRed", 0, 0, 0, 0, 0, 0, 0, 128)
+    Stop
+  Death:
+    HEAL B 0 Bright //A_SpawnItemEx("Insertprettythinghere", 0, 0, 0, 0, 0, 0, 0, 128)
+    stop
+  }
+}
+
+Actor BigKitOrbit2 : BigKitOrbit
+{
+States
+  {
+  Spawn:
+    HEAL B 0 
+    HEAL B 0 Thing_ChangeTID(0, 2001)
+    HEAL BBBBBB 1 Bright //A_SpawnItemEx("HealSparkleTrailRed", 0, 0, 0, 0, 0, 0, 0, 128)
+    HEAL B 0 A_CustomMissile("BigKitOrbit", 0, 0, 75)
+    //HEAL B 0 A_SpawnItemEx("HealSparkleTrailRed", 0, 0, 0, 0, 0, 0, 0, 128)
+    stop
+  }
+}
+
+Actor BigKitLight
+{
+Radius 4
+Height 4
+states 
+{ 
+Spawn: 
+TNT1 A 360
+stop
+}
+}
+

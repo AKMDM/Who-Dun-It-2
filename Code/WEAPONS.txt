@@ -1,0 +1,2742 @@
+//===========================================
+//Lol friendly fire hacks.
+//For guns.
+actor FFBulletPuff : BulletPuff
+{
+DamageType "friendlygun"
+Decal "BulletChip"
+}
+
+//For melee attacks. 
+actor FMBulletPuff : BulletPuff
+{
+DamageType "friendlymelee"
+}
+
+//This fixes the fist damage
+actor FMBulletPuff2 : BulletPuff
+{
+}
+
+actor FMSawPuff : BulletPuff
+{
+DamageType "SawMelee"
+}
+
+
+//Weapon slot hacks (Wildweasel)
+ACTOR IsDropping : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
+ACTOR Action_DropWeapon : CustomInventory
+{
+   Inventory.Amount 1
+   Inventory.MaxAmount 1
+   -INVBAR
+
+   States
+   {
+       Use:
+       TNT1 A 0 A_GiveInventory("IsDropping",1)
+       Fail
+   }
+}
+
+ACTOR Action_DropWeaponCancel : CustomInventory
+{
+   Inventory.Amount 1
+   Inventory.MaxAmount 1
+   -INVBAR
+
+   States
+   {
+       Use:
+       TNT1 A 0 A_TakeInventory("IsDropping",1)
+       Fail
+   }
+}
+
+ACTOR Slot1Filled : Inventory //Melee
+{
+	Inventory.MaxAmount 1
+}
+
+ACTOR Slot2Filled : Inventory //Ranged
+{
+	Inventory.MaxAmount 1
+}
+
+//============================================
+// Weapon/Ammo spawners
+actor GunSpawner : RandomSpawner 32050
+{
+  //$Category WDI Weapons
+  //$Sprite TNT1A0
+  //$Title "Gun Spawner"
+    DropItem "FakeBeretta" 
+	DropItem "FakeShotgun" 
+	DropItem "ABigNothing"
+}
+
+actor MeleeSpawner : RandomSpawner 32051
+{
+  //$Category WDI Weapons
+  //$Sprite TNT1A0
+  //$Title "Melee Spawner"
+    //DropItem "LChainsaw"
+	DropItem "FakeWrench" 
+	DropItem "FakePipe"
+	DropItem "ABigNothing" 
+}
+
+actor AmmoSpawner : RandomSpawner 32060
+{
+  //$Category WDI Ammo
+  //$Sprite TNT1A0
+  //$Title "Ammo Spawner"
+    DropItem "NewShell"
+    DropItem "NewShell"
+    DropItem "NewShell"
+    DropItem "PistolClip"
+    DropItem "PistolClip"
+	//DropItem "ABigNothing" 255 1
+}
+
+//============================================
+//Shotgun
+//Actor ShotgunSpawn : Shotgun2 {}
+
+ACTOR ShotgunOnce : Inventory
+{
+	Inventory.MaxAmount 1
+	-INVBAR
+}
+
+ACTOR FakeShotgun : CustomInventory Replaces Shotgun 30050
+{
+  //$Category WDI Weapons
+  //$Sprite DHSPA0
+  //$Title "Shotgun"
+	Radius 16
+	Height 8
+	Inventory.PickupMessage "Found a Shotgun."
+	Inventory.RespawnTics 3024000 //1 hour
+	//Scale 0.35
+	States
+	{
+	Spawn:
+		DHSP A -1
+		Stop
+	Pickup:
+		DHSP A 0
+		PIST A 0 A_JumpIfInventory("MurderMarker",1, 2)
+		PIST A 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		PIST A 0
+		DHSP A 0 A_JumpIfInventory("Shotgun2",1,"AmmoPickup")		
+		DHSP A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		DHSP A 0 A_PlaySound("pickups/weapon")
+		DHSP A 0 A_GiveInventory("Shotgun2",1)
+		DHSP A 0 A_GiveInventory("Slot1Filled",1)
+		TNT1 A 0 //A_Print("Picked up a Shotgun.")
+		DHSP A 1 ACS_ExecuteAlways(670,0,21)
+		DHSP A 0 A_JumpIfInventory("ShotgunOnce",1,"ForgetIt")
+		DHSP A 0 A_GiveInventory("SuperShells", 1)
+		DHSP A 0 A_GiveInventory("ShotgunOnce",1)
+		Stop
+	NotPickup:
+		DHSP A 0
+		DHSP A 1 ACS_ExecuteAlways(670,0,21)
+		Fail
+	AmmoPickup:
+		DHSP A 0
+		DHSP A 0 //A_JumpIfInventory("NewShell",5,"ForgetIt")
+		DHSP A 0 A_PlaySound("pickups/ammo")
+		TNT1 A 0 //A_Print("Picked up some Shotgun ammo.")
+		DHSP A 1 A_GiveInventory("NewShell", 1)
+		Stop
+	ForgetIt:
+		DHSP A 1
+		Stop
+	}
+}
+
+Actor TKFakeShotgun : FakeShotgun
+{
+states
+	{
+		Pickup:
+		DHSP A 0
+		DHSP A 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		DHSP A 0 A_JumpIfInventory("Shotgun2",1,"AmmoPickup")		
+		DHSP A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		DHSP A 0 A_PlaySound("pickups/weapon")
+		DHSP A 0 A_GiveInventory("Shotgun2",1)
+		DHSP A 0 A_GiveInventory("Slot1Filled",1)
+		TNT1 A 0 //A_Print("Picked up a Shotgun.")
+		DHSP A 1 ACS_ExecuteAlways(670,0,21)
+		DHSP A 0 A_JumpIfInventory("ShotgunOnce",1,"ForgetIt")
+		DHSP A 0 A_GiveInventory("SuperShells",1)
+		DHSP A 0 A_GiveInventory("ShotgunOnce",1)
+		Stop
+	NotPickup:
+		DHSP A 0
+		DHSP A 1 ACS_ExecuteAlways(670,0,21)
+		Fail
+	 
+	}
+}
+
+ACTOR DroppedShotgun
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+	DeathSound "weapons/gundrop"
+	States
+	{
+	Spawn:
+		DHSP A 1
+		Loop
+	Death:
+		DHSP A 35
+		DHSP A 1 A_SpawnItemEx("FakeShotgun",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+Actor Shotgun2 : Weapon 
+ {
+	+AMMO_OPTIONAL
+	+ALT_AMMO_OPTIONAL
+    +INVENTORY.UNDROPPABLE
+   +NOAUTOAIM
+    Weapon.SelectionOrder 3000
+    Weapon.AmmoGive1 0
+    Weapon.AmmoGive2 0
+    Weapon.Ammouse 1
+    Weapon.Ammouse2 1
+    Weapon.Ammotype1 "SuperShells"
+    Weapon.Ammotype2 "NewShell"
+	Weapon.preferredSkin "ShotgunSkin"
+    Obituary "%o caught some buck."
+    Inventory.Pickupmessage "Found a Shotgun."
+    AttackSound "weapons/Shotgunfire"
+
+    States
+    {
+	Spawn:
+       DHSP A 1
+       goto Death
+    Ready:
+	   DHSG A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
+       DHSG A 1 A_WeaponReady
+		Loop
+	  WeaponDrop:
+		TNT1 A 0
+		DHSG A 1
+		TNT1 A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+       Goto Ready
+    Deselect:
+       DHSG A 0 A_Playsound ("weapons/weapondown")
+       DHSG A 0 A_Lower
+       DHSG A 1 A_Lower
+       goto deselect+1
+    Select:
+       DHSG A 0 A_Raise
+       DHSG A 1 A_Raise
+       DHSG A 0 A_Raise
+       DHSG A 1 A_Raise
+       DHSG A 0 A_Raise
+       DHSG A 1 A_Raise
+       DHSG A 0 A_Raise
+       DHSG A 1 A_Raise
+       DHSG A 0 A_Raise
+       DHSG A 1 A_Raise
+       DHSG A 0 A_Raise
+       DHSG A 1 A_Raise
+       DHSG A 0 A_Raise
+       DHSG C 6 A_Playsound ("weapons/weaponup")
+       DHSG D 3
+       DHSG E 8 A_Playsound ("weapons/Shotguncock")   
+       DHSG C 3
+       DHSG B 3
+       Goto Ready
+    Fire:
+       DHSG A 0 A_JumpIfNoAmmo ("EmptyFire")
+       DHSF A 3 A_GunFlash
+       DHSF B 4
+       DHSG B 4
+       DHSG C 5
+       DHSG D 6
+       DHSG E 0 A_FireCustomMissile ("ShotgunCasing",-70+random(-8,8),0,1,1)
+       DHSG E 1 A_PlaySound ("weapons/Shotguncock", CHAN_WEAPON, 2.0)
+       DHSG E 10
+       DHSG D 4
+       DHSG C 4
+       DHSG B 3
+       DHSG A 2
+       DHSG A 0
+       Goto Ready
+    EmptyFire:
+       DHSG A 0 A_PlaySound ("weapons/sgclick")
+       DHSG A 20
+       DHSG A 0
+       Goto Ready
+    AltFire:
+       DHSG A 0 A_JumpIfNoAmmo (22)
+       DHSG A 0 A_JumpIfInventory ("SuperShells",4,21)
+       DHSG F 4
+       DHSG G 4
+       DHSR G 12
+       DHSR G 0
+       DHSR A 0 A_JumpIfNoAmmo (10)
+       DHSR A 0 A_JumpIfInventory ("SuperShells",4,9)
+       DHSR A 2
+       DHSR B 2
+       DHSR C 2 A_PlayWeaponSound ("weapons/Shotgunload")
+       DHSR C 0 A_TakeInventory ("NewShell",1)
+       DHSR C 0 A_GiveInventory ("SuperShells",1)
+       DHSR D 2
+       DHSR E 2
+       DHSR F 2
+       Goto Altfire+4
+       DHSR G 5
+       DHSR H 9 A_Playweaponsound ("weapons/Shotguncock")
+       DHSR G 5
+       DHSG G 4
+       DHSG F 4
+       DHSG A 4
+       DHSG A 0 
+       Goto Ready
+    Flash:
+       DHSF A 3 BRIGHT A_FireBullets (5, 5, 8, 4, "FFBulletPuff")
+       DHSF A 0 A_Recoil(2)
+       DHSF B 4 BRIGHT
+       stop
+	Death:
+	   DHSP A 0 A_SpawnItem("DroppedShotgun",0,0,0,0)
+	   TNT1 A 0 A_FadeOut(1.0)
+	   goto death + 1
+	}
+}       
+
+ACTOR SuperShells : Ammo
+{
+Inventory.Amount 0
+Inventory.MaxAmount 4
+Inventory.Icon "DHSPA0"
++INVENTORY.UNDROPPABLE
+States
+{
+Spawn:
+TNT1 A -1
+LOOP
+}
+}    
+
+//Actor ShellSpawn : NewShell {}
+
+ACTOR NewShell : Ammo 30061
+{
+  //$Category WDI Ammo
+  //$Sprite D3S1E0
+  //$Title "Shotgun Shell"
+  Game Doom
+  SpawnID 12
+  Scale 0.2
+  Inventory.PickupMessage "Found a shotgun shell." 
+  Inventory.Amount 1
+  Inventory.MaxAmount 4
+  Inventory.RespawnTics 21000 //10 minutes 
+  Ammo.BackpackAmount 1
+  Ammo.BackpackMaxAmount 4
+  +INVENTORY.INVBAR 
+  -INVENTORY.INTERHUBSTRIP
+  Inventory.Icon "ARTISHEL"
+  States
+  {
+  Spawn: 
+    D3S1 E -1
+    Stop
+  }
+}
+//=========================================
+
+//Knife (Murderer only weapon!)
+
+actor MurderKnife : Weapon
+{
+  Weapon.SelectionOrder 100
+  Weapon.Kickback 100
+  Weapon.UpSound "weapons/KnifeReady" 
+  Weapon.preferredSkin "MurderSkin"
+  +WEAPON.MELEEWEAPON
+  +WEAPON.BFG
+  +WEAPON.NO_AUTO_SWITCH
+  +WEAPON.NOAUTOFIRE
+  +INVENTORY.UNDROPPABLE
+   +NOAUTOAIM
+  Obituary "" 
+  States
+  {
+  Ready:
+  	KNIF A 0
+  	KNIF A 1 A_WeaponReady
+    loop
+
+  Deselect:
+    KNIF A 0 
+    KNIF A 1 A_Lower
+    loop
+  Select: 
+  	KNIF A 0 //A_PlaySound ("weapons/KnifeReady")
+	KNIF A 1 A_Raise 
+	loop
+  Fire:
+    KNIF B 0 A_JumpIf (ACS_ExecuteWithResult(555), "BackStab") 	
+    KNIF B 1 A_CustomPunch (10, 1, 0, "StabPuff2", 54)
+    KNIF C 1 A_CustomPunch (10, 1, 0, "StabPuff2", 64)
+    KNIF C 0 A_Recoil(-2)
+    KNIF D 2 A_CustomPunch (5, 1, 0, "StabPuff", 72)
+    KNIF DDD 2 A_CustomPunch (5, 1, 0, "StabPuff2", 72)
+    KNIF C 4
+    KNIF B 4 
+	KNIF A 15
+	KNIF A 1 A_ReFire
+    goto Ready
+
+  BackStab:
+    KNIF C 1 Offset(4, 32) A_CustomPunch (666, 1, 0, "BackStabPuff", 64)
+	KNIF C 1 Offset(36, 32)
+	KNIF C 1 Offset(72, 32)
+	KNIF C 1 Offset(108, 32)
+	KNIF C 1 Offset(144, 32)
+    KNIF E 1 Offset(178, 32) A_PlaySound ("weapons/KnifeStab")
+	KNIF E 1 Offset(144, 32)
+	KNIF E 1 Offset(108, 32)
+	KNIF E 1 Offset(72, 32)
+	//Stabbing
+	KNIF E 1 Offset(36, 40) //A_CustomPunch (666, 1, 0, "BackStabPuff", 72)
+	KNIF E 1 Offset(32, 48) //A_CustomPunch (666, 1, 0, "BackStabPuff", 72)
+	KNIF E 1 Offset(28, 56) //A_CustomPunch (666, 1, 0, "BackStabPuff", 72)
+	KNIF E 1 Offset(24, 74) //A_CustomPunch (666, 1, 0, "BackStabPuff", 72)
+	KNIF E 1 Offset(20, 82) //A_CustomPunch (666, 1, 0, "BackStabPuff", 72)
+	//Redraw
+	KNIF E 1 Offset(16, 90)
+	KNIF E 1 Offset(12, 100)
+	KNIF E 1 Offset(8, 110)
+	KNIF E 1 Offset(4, 120)
+	KNIF E 1 Offset(0, 130)
+	KNIF E 8 Offset(0, 152)
+	KNIF A 2 Offset(0, 130)
+	KNIF A 2 Offset(0, 100)
+	KNIF A 2 Offset(0, 70)
+	KNIF A 2 Offset(0, 40)
+	KNIF A 2 Offset(0, 32)
+    goto Ready
+  }
+}
+
+
+actor StabPuff
+{
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +PUFFONACTORS
+  DamageType "Default"
+  activesound "weapons/KnifeStab"
+  attacksound ""
+  seesound "weapons/KnifeHit"
+  Obituary "" 
+  states
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 1
+    stop
+  Crash:
+  	TNT1 A 0
+  	TNT1 A 1
+  	stop
+  Melee:
+  	TNT1 A 0
+  	TNT1 A 1
+  	stop
+  }
+}
+
+actor StabPuff2 : StabPuff //The Silent puff
+{
+SeeSound ""
+ActiveSound ""
+}
+
+actor BackStabPuff
+{
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +PUFFONACTORS
+  DamageType "Backstab"
+  activesound "weapons/KnifeStab"
+  attacksound ""
+  seesound "weapons/BackStab"
+  Obituary "" 
+  states
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 1
+    stop
+  Crash:
+  	TNT1 A 0
+  	TNT1 A 1
+  	stop
+  Melee:
+  	TNT1 A 0
+  	TNT1 A 1
+  	stop
+  }
+}
+
+//============================================
+//ChainSaw -------------------------------------------
+//Sprites from Zero Tolerance Weapons Mod ------------ Special thanks to LoganMtM for letting us use it.
+//Actor ChainsawSpawn : LChainsaw {}
+
+ACTOR ChainsawOnce : Inventory
+{
+	Inventory.MaxAmount 1
+	-INVBAR
+}
+
+ACTOR FakeChainsaw : CustomInventory Replaces Chainsaw 2011
+{
+  //$Category WDI Weapons
+  //$Sprite CSAWA0
+  //$Title "Chainsaw"
+	Radius 16
+	Height 8
+	Inventory.PickupMessage "Found a chainsaw."
+	Inventory.RespawnTics 21000 //10 Minutes
+	//Scale 0.35
+	States
+	{
+	Spawn:
+		CSAW A -1
+		Stop
+	Pickup:
+		CSAW A 0
+		CSAW A 0 A_JumpIfInventory("LChainsaw",1,"AmmoPickup")		
+		CSAW A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		CSAW A 0 A_PlaySound("pickups/weapon")
+		CSAW A 0 A_GiveInventory("LChainsaw",1)
+		CSAW A 0 A_GiveInventory("Slot1Filled",1)
+		TNT1 A 0 //A_Print("Picked up a Shotgun.")
+		CSAW A 1 ACS_ExecuteAlways(670,0,12)
+		CSAW A 0 A_JumpIfInventory("ChainsawOnce",1,"ForgetIt")
+		CSAW A 0 A_GiveInventory("Gasoline",random(150,500))
+		CSAW A 0 A_GiveInventory("ChainsawOnce",1)
+		Stop
+	NotPickup:
+		CSAW A 0
+		CSAW A 1 ACS_ExecuteAlways(670,0,12)
+		Fail
+	AmmoPickup:
+		CSAW A 0
+		CSAW A 0 A_JumpIfInventory("Gasoline",500,"ForgetIt")
+		CSAW A 0 A_PlaySound("pickups/ammo")
+		TNT1 A 0 //A_Print("Picked up some Shotgun ammo.")
+		CSAW A 1 A_GiveInventory("Gasoline",random(150,500))
+		Stop
+	ForgetIt:
+		CSAW A 1
+		Stop
+	}
+}
+
+Actor TKFakeChainsaw : FakeChainsaw
+{
+states
+	{
+	Pickup:
+		CSAW A 0
+		CSAW A 0 A_JumpIfInventory("TKToken",1,"NotPickup")	
+		CSAW A 0 A_JumpIfInventory("LChainsaw",1,"AmmoPickup")		
+		CSAW A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		CSAW A 0 A_PlaySound("pickups/weapon")
+		CSAW A 0 A_GiveInventory("LChainsaw",1)
+		CSAW A 0 A_GiveInventory("Slot1Filled",1)
+		TNT1 A 0 //A_Print("Picked up a Shotgun.")
+		CSAW A 1 ACS_ExecuteAlways(670,0,12)
+		CSAW A 0 A_JumpIfInventory("ChainsawOnce",1,"ForgetIt")
+		CSAW A 0 A_GiveInventory("Gasoline",random(150,500))
+		CSAW A 0 A_GiveInventory("ChainsawOnce",1)
+		Stop
+	NotPickup:
+		CSAW A 0
+		CSAW A 1 ACS_ExecuteAlways(670,0,12)
+		Fail
+	}
+}
+
+ACTOR DroppedChainsaw
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+	DeathSound "weapons/gundrop"
+	States
+	{
+	Spawn:
+		CSAW A 1
+		Loop
+	Death:
+		CSAW A 35
+		CSAW A 1 A_SpawnItemEx("FakeChainsaw",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+ACTOR LChainsaw : Weapon 
+{
+Obituary ""
+Radius 20
+Height 16
+Inventory.pickupmessage "Found a Chainsaw."
+Weapon.selectionorder 998
+AttackSound "weapons/sawhit"
+Weapon.preferredSkin "ChainsawSkin"
+Weapon.AmmoType1 "Gasoline"
+//Weapon.AmmoType2 "Gasoline"
+//Weapon.AmmoGive1 1000
+Weapon.AmmoUse1 1
+//Weapon.AmmoUse2 1
++WEAPON.MELEEWEAPON
++INVENTORY.UNDROPPABLE
+   +NOAUTOAIM
+
+States
+ {
+ Spawn:
+ CSAW A 0
+ goto Death
+ 
+WeaponDrop:
+	TNT1 A 0
+		SAWR A 1
+	TNT1 A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+       Goto SawReady
+	
+ NoAmmoReady:
+ 	TNT1 A 0 A_JumpIfInventory("SawOn", 1, "TurnOff")
+	TNT1 A 0 ACS_ExecuteAlways(654, 0, 0, 0, 0)
+	TNT1 A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
+ 	SAWF A 0 A_StopSoundEx("SoundSlot6")	
+	SAWF A 0 A_StopSoundEx("SoundSlot7")
+	SAWF A 1 A_WeaponReady
+	SAWF A 0 //A_JumpIfInventory("Gasoline", 1, "Ready")
+	Goto OffReady
+	
+ OffReady:
+	TNT1 A 0 A_JumpIfInventory("IsDropping", 1,"WeaponDrop")
+ 	SAWF A 0 A_StopSoundEx("SoundSlot6")	
+	SAWF A 0 A_StopSoundEx("SoundSlot7")
+	SAWF A 1 A_WeaponReady
+	SAWF A 0 A_JumpIfInventory("SawOn", 1, "Ready")
+	loop
+	
+ Ready:
+ TNT1 A 0 A_JumpIfInventory("Gasoline", 1, 2)
+ TNT1 A 0
+ Goto OffReady
+ TNT1 A 15 A_PlaySound("weapons/sawzip")
+ TNT1 A 15 A_PlayWeaponSound("weapons/sawpull")
+ TNT1 A 5 A_JumpIf(Random(0,10) > 8, 6)
+ TNT1 A 15 A_PlaySound("weapons/sawzip")
+ TNT1 A 15 A_PlayWeaponSound("weapons/sawpull")
+ TNT1 A 5 A_JumpIf(Random(0,10) > 8, 3)
+ TNT1 A 15 A_PlaySound("weapons/sawzip")
+ TNT1 A 15 A_PlayWeaponSound("weapons/sawpull")
+ TNT1 A 5 
+ SAWD E 1
+ SAWD D 1
+ SAWD C 1
+ SAWD B 1
+ SAWD A 1 A_JumpIfNoAmmo ("NoAmmoReady")
+
+ SawReady:
+ TNT1 A 0 A_JumpIfNoAmmo("TurnOff")
+ TNT1 A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
+ TNT1 A 0 A_PlaySoundEx("weapons/sawidle","SoundSlot6",0)	
+ SAWR ABCDEF 1 A_WeaponReady 
+ TNT1 A 0 A_TakeInventory("Gasoline", 1)  
+ TNT1 A 0 A_JumpIfNoAmmo("TurnOff")
+ TNT1 A 0 A_PlaySoundEx("weapons/sawidle","SoundSlot6",0)
+ SAWR ABCDEF 1 A_WeaponReady 
+ TNT1 A 0 //A_TakeInventory("Gasoline", 1) 
+ TNT1 A 0 A_JumpIfNoAmmo("TurnOff")
+ TNT1 A 0 A_FireCustomMissile("LSawSmoke",250,0,20,-5,0) 
+ TNT1 A 0 A_PlaySoundEx("weapons/sawidle","SoundSlot6",0)
+ SAWR ABCDEF 1 A_WeaponReady 
+ TNT1 A 0 A_TakeInventory("Gasoline", 1) 
+ TNT1 A 0 A_JumpIfNoAmmo("TurnOff")
+ TNT1 A 0 A_FireCustomMissile("LSawSmoke",250,0,20,-5,0)
+ TNT1 A 0 A_PlaySoundEx("weapons/sawidle","SoundSlot6",0)
+ SAWR ABCDEF 1 A_WeaponReady 
+ TNT1 A 0 A_FireCustomMissile("LSawSmoke",250,0,20,-5,0) 
+ Loop
+ 
+ Select:
+ TNT1 A 0 A_JumpIfInventory("SawOn", 1, "OnSelect")
+ SAWF A 1 A_Raise 
+ Wait
+
+ OnSelect:
+ TNT1 A 0
+ TNT1 A 1 A_Raise 
+ Wait
+ 
+
+ Deselect:
+ TNT1 A 0 A_StopSoundEx("SoundSlot6")
+ TNT1 A 0 A_StopSoundEx("SoundSlot7")
+ SAWR A 0 A_JumpIfInventory("SawOn", 1, "OnLower")
+ SAWR A 0
+ SAWD ABCDE 1
+ TNT1 A 15
+ TNT1 A 1 A_Lower
+ Wait
+
+ OnLower:
+ SAWR A 1 A_PlaySoundEx("weapons/sawdown","weapon",0)
+ SAWR BC 3 //A_TakeInventory("SawOff",1)
+ SAWR DE 4 //A_TakeInventory("SawOn",1)
+ SAWR F 6           
+ SAWD ABCDE 1
+ TNT1 A 20
+ TNT1 A 1 A_Lower
+ Wait
+
+ Fire: 
+ TNT1 A 0 A_JumpIfNoAmmo ("NoAmmoReady")
+ //TNT1 A 0 A_JumpIfInventory ("SawOff", 1, "AltFire")
+ SAWF ABCDEFG 1 
+ TNT1 A 0 A_ReFire
+ SAWF GFEDCBA 1       
+ Goto SawReady
+    
+ Hold:
+ SAWF F 0 A_StopSoundEx("SoundSlot6")	
+ SAWF F 0 A_JumpIfNoAmmo ("NoAmmoReady")
+ SAWF F 2 A_PlaySoundEx("weapons/sawfull","SoundSlot7",0)   
+ SAWF G 2
+ TNT1 A 0 A_CustomPunch(0,0,0,"FMSawPuff", 52) 
+ TNT1 AAA 0 A_CustomPunch(4,1,0,"FMSawPuff", 52)
+ SAWA D 0 A_TakeInventory("Gasoline", 3)
+ SAWF G 0 A_FireCustomMissile("LSawSmoke",250,0,20,-5,0)
+ SAWF F 2 A_Refire
+ SAWF EDCB 1
+ TNT1 A 0 A_FireCustomMissile("LSawSmoke",250,0,20,-5,0)
+ TNT1 A 0 A_StopSoundEx("SoundSlot7")     
+ Goto SawReady
+
+ AltFire:
+ SAWF A 0 A_JumpIfInventory("SawOn", 1, "TurnOff")
+ SAWD A 0 
+ SAWD A 1 ACS_ExecuteAlways(654, 0, 0, 0, 0)
+ SAWD ABCDE 1
+ goto Ready
+ 
+ TurnOff:
+ SAWF F 0 A_StopSoundEx("SoundSlot6")
+ SAWF F 0 A_PlaySoundEx("weapons/sawdown","weapon",0)
+ SAWR ABC 1
+ SAWR DEF 2
+ SAWR ABC 3
+ SAWR DEF 4
+ SAWR A 1 
+ SAWF A 1 ACS_ExecuteAlways(654, 0, 0, 0, 0)
+ goto Ready
+
+Death:
+	   DHSP A 0 A_SpawnItem("DroppedChainsaw",0,0,0,0)
+	   TNT1 A 0 A_FadeOut(1.0)
+	   goto death + 1
+ }
+}
+
+//Actor GasolineSpawn : Gasoline {}
+
+ACTOR Gasoline : Ammo
+{
+  Game Doom
+  SpawnID 12
+  Inventory.PickupMessage "Found a can of gasoline." 
+  Inventory.Amount 500
+  Inventory.MaxAmount 500
+  Inventory.RespawnTics 21000 //10 minutes
+  Ammo.BackpackAmount 0
+  Ammo.BackpackMaxAmount 500
+  Inventory.Icon "SHELA0"
+  +INVENTORY.UNDROPPABLE
+  States
+  {
+  Spawn:
+    SHEL A -1
+    Stop
+  }
+}
+
+Actor SawOn : Inventory
+{
+Inventory.Amount 1
+Inventory.MaxAmount 1
+}
+
+Actor SawOff : Inventory
+{
+Inventory.Amount 1
+Inventory.MaxAmount 1
+}
+
+ACTOR SawCombo : Inventory
+{
+Inventory.Amount 1
+Inventory.MaxAmount 1
+}
+
+ACTOR LSawSmoke
+{
+Radius 1
+Height 1
+Speed 1
+Damage 0
+RenderStyle Add
+Alpha 0.8
+Scale 0.35
+PROJECTILE
++NOGRAVITY
+
+States
+ {
+ Spawn:
+ SMOK QPONM 1
+ SMOK LKJIH 2 A_SetTranslucent(0.2,1)
+ SMOK GFEDEDCBA 3 A_FadeOut
+ Goto Death
+ 
+ Death:
+ TNT1 A 1 
+ Stop
+ }
+}
+
+ACTOR SawAlt
+{
+Radius 2
+Height 2
+Speed 10
+Damage 30
+PROJECTILE
+DamageType SuperSaw
+  
+States
+ {
+ Spawn:
+ TNT1 A 1 
+ Goto Death
+
+ Death:
+ TNT1 A 1
+ Stop
+ }
+}
+//==========================================
+//New Fist
+ACTOR NewFist : Weapon
+{
+Weapon.SelectionOrder 1
+Weapon.preferredSkin "FistSkin"
+Inventory.Pickupmessage ""
++NOALERT
++WEAPON.WIMPY_WEAPON
++INVENTORY.UNDROPPABLE
+   +NOAUTOAIM
+States
+{
+Spawn:
+TNT1 A -1
+LOOP
+Ready:
+FIST A 1 A_WeaponReady
+LOOP
+Deselect:
+//FIST A 0 A_TakeInventory ("Sequence",99)
+FIST A 0 A_Lower
+FIST A 1 A_Lower
+LOOP
+Select:
+FIST A 0 A_Raise
+FIST A 1 A_Raise
+LOOP
+Fire:
+FIST D 2
+FIST E 0 A_PlaySound("Weapons/Fistswing")
+FIST E 4 A_CustomPunch(3,1,0,"FMBulletPuff2")
+FIST D 2
+FIST A 6 //A_TakeInventory ("Sequence",1)
+Goto Ready
+AltFire:
+FIST A 1
+FIST B 2
+FIST C 0 A_PlaySound("Weapons/Fistswing")
+FIST C 2 OffSet(0,32) 
+FIST C 3 OffSet(16,32) A_CustomPunch(8,1,0,"FMBulletPuff2")
+FIST C 5 OffSet(32,32)
+FIST C 3 OffSet(16,32)
+FIST C 2 OffSet(0,32) 
+FIST B 5
+FIST A 8 //A_GiveInventory ("Sequence",1)
+Goto Ready
+}
+}
+
+ACTOR Sequence : Ammo
+{
+Inventory.Amount 0
+Inventory.MaxAmount 1
+Inventory.Icon "TNT1A0"
+States
+{
+Spawn:
+TNT1 A -1
+Loop
+}
+}
+//===========================================
+//Beretta
+
+Actor Beretta : Weapon  //Rename this!!!
+{
+  Scale 0.7
+  Obituary ""
+  Radius 20
+  Height 16
+  AttackSound "weapons/BerettaFire"
+  Inventory.pickupmessage "Picked up a Beretta"
+  Weapon.preferredSkin "PistolSkin"
+  Weapon.SelectionOrder 400
+  Weapon.SlotNumber 1
+  Weapon.kickback 100
+  Weapon.ammotype "PistolAmmo"
+  Weapon.ammotype2 "PistolClip"
+  Weapon.ammouse 1 
+	+AMMO_OPTIONAL
+	+ALT_AMMO_OPTIONAL
+  +INVENTORY.UNDROPPABLE
+   +NOAUTOAIM
+  States
+  {
+  Spawn:
+    PIST A -1
+    Loop
+
+  Ready:
+    2PIS A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
+    2PIS A 0 A_JumpIfNoAmmo("EmptyReady")
+    2PIS A 1 A_WeaponReady
+    goto Ready
+
+  EmptyReady:
+     2PIS A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
+     2PIS C 3 A_WeaponReady
+     goto EmptyReady
+
+  EmptyLul:
+    2PIS C 1 A_PlaySound("weapons/lugerempty")
+    2PIS C 11 
+     goto EmptyReady
+
+  Deselect:
+    2PIS D 1 A_Lower
+    Loop
+
+  Select:
+    2PIS A 1 A_Raise
+    Loop
+
+  Fire:
+    2PIS A 0 A_JumpIfNoAmmo ("EmptyLul")  
+    2PIS A 4    
+    2PIS B 2 bright A_FireBullets(1.75, 1.75, -1, 12, "FFBulletPuff")
+    2PIS B 0 A_FireCustomMissile ("PistolSmokeSpawner", 0, 0, 8, 12, 0, 0) 
+    2PIS B 0 A_FireCustomMissile ("PisCaseSpawn", 0, 0, 8, 10, 0, 0) 
+    2PIS C 2 A_JumpIfNoAmmo ("EmptyLul")
+    2PIS D 2
+    2PIS A 2
+    2PIS F 0 A_ReFire
+    2PIS A 4 A_ReFire
+    Goto Ready 
+ 
+  Reload:
+    2PIS C 0 A_JumpIfInventory("PistolAmmo", 12, "Ready")
+    2PIS C 0 A_TakeInventory("PistolClip", 1)
+    2PIS C 0 A_PlaySound("weapons/Lugerout")
+    2PIS FGHIJK 2
+    2PIS K 0 A_FireCustomMissile ("SpentClip5", 0, 0, 8, 12, 0, 0) 
+    2PIS K 24
+    2PIS K 0 A_PlaySound("weapons/Lugerin")
+    2PIS LMNOPA 2
+    2PIS Q 0 A_GiveInventory("PistolAmmo", 12)
+    goto Ready 
+
+  AltFire:
+    goto AltFire2
+
+  AltFire2:
+    2PIS A 0 A_JumpIfInventory("PistolClip", 1, "Reload")
+    2PIS A 0 A_JumpIfNoAmmo(1)
+    goto Ready
+    goto EmptyReady
+ 
+  WeaponDrop:
+    TNT1 A 0
+		2PIS A 1
+    TNT1 A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+       Goto Ready
+
+
+  }
+}
+
+
+
+ACTOR PistolClip : Ammo 30062
+{
+  //$Category WDI Ammo
+  //$Sprite CLP4A0
+  //$Title "Pistol Magazine"
+   Scale 0.35	
+   Inventory.MaxAmount 2
+   +INVENTORY.INVBAR 
+   -INVENTORY.INTERHUBSTRIP
+   Inventory.Icon "ARTICLIP"
+   Inventory.Pickupmessage "Picked up some Pistol ammo"
+   Inventory.RespawnTics 21000 //10 minutes
+   States
+   {
+   Spawn:
+   CLP4	A -1
+   stop
+   }
+}
+
+ACTOR PistolOnce : Inventory
+{
+	Inventory.MaxAmount 1
+	-INVBAR
+}
+
+ACTOR FakeBeretta : CustomInventory Replaces Pistol 5010
+{
+  //$Category WDI Weapons
+  //$Sprite PISTA0
+  //$Title "Beretta"
+	Radius 16
+	Height 8
+	Inventory.PickupMessage "Found a Beretta."
+	Inventory.RespawnTics 3024000 //1 hour
+ 	Scale 0.7
+	States
+	{
+	Spawn:
+		PIST A -1
+		Stop
+	Pickup:
+		PIST A 0
+		PIST A 0 A_JumpIfInventory("MurderMarker",1, 2)
+		PIST A 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		PIST A 0
+		PIST A 0 A_JumpIfInventory("Beretta",1,"AmmoPickup")		
+		PIST A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		PIST A 0 A_PlaySound("pickups/weapon")
+		PIST A 0 A_GiveInventory("Beretta",1)
+		PIST A 0 A_GiveInventory("Slot1Filled",1)
+		TNT1 A 0 //A_Print("Picked up a Beretta.")
+		PIST A 1 ACS_ExecuteAlways(670,0,20)
+		PIST A 0 A_JumpIfInventory("PistolOnce",1,"ForgetIt")
+		PIST A 0 A_GiveInventory("PistolAmmo",random(1,8))
+		PIST A 0 A_GiveInventory("PistolOnce",1)
+		Stop
+	NotPickup:
+		PIST A 0
+		PIST A 1 ACS_ExecuteAlways(670,0,20)
+		Fail
+	AmmoPickup:
+		PIST A 0
+		PIST A 0 A_JumpIfInventory("PistolAmmo",7,"ForgetIt")
+		PIST A 0 A_PlaySound("pickups/ammo")
+		TNT1 A 0 //A_Print("Picked up some Pistol ammo.")
+		PIST A 1 A_GiveInventory("PistolAmmo",random(1,8))
+		Stop
+	ForgetIt:
+		LUGP A 1
+		Stop
+	}
+}
+
+Actor TKFakeBeretta : FakeBeretta
+{
+states
+	{
+	Pickup:
+		PIST A 0
+		PIST A 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		PIST A 0 A_JumpIfInventory("Beretta",1,"AmmoPickup")		
+		PIST A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		PIST A 0 A_PlaySound("pickups/weapon")
+		PIST A 0 A_GiveInventory("Beretta",1)
+		PIST A 0 A_GiveInventory("Slot1Filled",1)
+		TNT1 A 0 //A_Print("Picked up a Beretta.")
+		PIST A 1 ACS_ExecuteAlways(670,0,20)
+		PIST A 0 A_JumpIfInventory("PistolOnce",1,"ForgetIt")
+		PIST A 0 A_GiveInventory("PistolAmmo",random(1,8))
+		PIST A 0 A_GiveInventory("PistolOnce",1)
+		Stop
+	NotPickup:
+		PIST A 0
+		PIST A 1 ACS_ExecuteAlways(670,0,20)
+		Fail
+	}
+}
+
+ACTOR DroppedBeretta
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+  	Scale 0.7
+	DeathSound "weapons/gundrop"
+	States
+	{
+	Spawn:
+		PIST A 1
+		Loop
+	Death:
+		PIST A 35
+		PIST A 1 A_SpawnItemEx("FakeBeretta",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+
+ACTOR PistolAmmo : Ammo
+{
+	Inventory.MaxAmount 12
+	+INVENTORY.UNDROPPABLE
+	Inventory.Icon "PHUDA0"
+}
+
+
+
+ACTOR PisCaseSpawn     //Borrowed from the in-limbo ZNew mod (WildWeasel)
+{
+	Speed 15
+	PROJECTILE
+	+NOCLIP
+	States
+	{
+	Spawn:
+		TNT1 AA 1 A_CustomMissile("PistolCasing",0,0,random(-100,-80),2,random(-15,15))
+		Stop
+	}
+}      
+
+ACTOR PistolSmokeSpawner
+{
+    Radius 1
+    Height 1
+    Speed 25
+    PROJECTILE
+    States
+    {
+    Spawn:
+        TNT1 A 1
+        TNT1 A 0 A_Die
+        Goto Death
+    Death:
+        TNT1 A 0 A_CustomMissile("PistolSmoke",-2,0,0)
+        Stop
+    }
+}
+
+ACTOR PistolSmoke
+{
+	Radius		1
+	Height		1
+	RenderStyle ADD
+	Alpha		.6
+	Scale		.1
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+FLOORCLIP
+	States
+	{
+	Spawn:
+		SMOK ABCDEFGHIJKLMNOPQ 1 
+		Stop
+	}
+}
+
+ACTOR PistolCasing
+{
+	Height 2
+	Radius 2
+	Speed 10
+	Scale 0.15	
+	BounceFactor 0.4
+	Mass 4
+	PROJECTILE                    
+	+DOOMBOUNCE
+	- NOGRAVITY  
+	- NOBLOCKMAP
+	Seesound "weapons/casing1"
+	States
+	{
+	Spawn:
+	   SCAC A 0 A_Playsound("NULL")
+	   SCAC ABCDE 2 A_CustomMissile("PisCaseSmoke",0,0,0,2,0)
+	   Goto Spawn+1
+	Death:
+	   SCAC A 0 A_Jump(64,4)
+	   SCAC A 0 A_Jump(85,4)
+	   SCAC A 0 A_Jump(128,4)
+	   SCAC A 350
+	   Stop
+	   SCAC B 350
+	   Stop
+	   SCAC C 350
+	   Stop
+	   SCAC E 350
+	   Stop
+	}
+}       
+
+ACTOR PisCaseSmoke
+{
+   Radius 1
+   Height 1
+   PROJECTILE
+   +NOCLIP
+   Scale 0.125
+   Speed 0
+   RENDERSTYLE TRANSLUCENT
+   ALPHA 0.25
+   States
+   {
+   Spawn:
+      SMKE ABCDEFGH 1 
+      Stop
+   }
+}
+
+ACTOR SpentClip5 //pistol-type clip
+{ 
+    Scale 0.35
+    Radius 3
+    Height 3
+    Speed 0
+    Mass 5
+    +NOBLOCKMAP +DROPOFF +MISSILE +NOTELEPORT +FLOORCLIP
+    DeathSound "weapons/smallclip"
+    States
+    {
+    Spawn:
+      CLP4 ABCDEF 3
+      Loop
+    Death:
+      CLP4 A 1000
+      CLP4 AAAAAAAAAAAAAAAAAAAA 1 A_FadeOut(0.05)
+      Stop
+    }
+}
+
+
+//==============================================
+//Lead Pipe (Wildweasel)
+//Actor PipeSpawn : LeadPipe {}
+ACTOR FakePipe : CustomInventory 30071
+{
+  //$Category WDI Weapons
+  //$Sprite PIPPA0
+  //$Title "Pipe"
+	Radius 16
+	Height 8
+	Inventory.PickupMessage "Found a plumbing-grade pipe." 
+	Inventory.RespawnTics 3150 //1 minute 30 seconds
+	States
+	{
+	Spawn:
+		PIPP A 1
+		Loop
+	Pickup: 
+		PIPP A 0 
+		PIPP A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		PIPP A 0 A_PlaySound("pickups/weapon")
+		PIPP A 0 A_GiveInventory("LeadPipe",1)
+		PIPP A 0 A_GiveInventory("Slot1Filled",1)
+		PIPP A 1 ACS_ExecuteAlways(670,0,10)
+		Stop
+	NotPickup:
+		PIPP A 0
+		PIPP A 1 ACS_ExecuteAlways(670,0,10)
+		Fail						  
+	}
+
+}
+
+ACTOR DroppedPipe
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+	DeathSound "pipe/wall"
+	States
+	{
+	Spawn:
+		PIPP A 1
+		Loop
+	Death:
+		PIPP A 35
+		PIPP A 1 A_SpawnItemEx("FakePipe",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+ACTOR PipePuff
+{ 
+   DamageType "friendlymelee"
+   ActiveSound ""
+   AttackSound "pipe/wall"
+   SeeSound "pipe/hit"
+   Scale 0.75
+   RenderStyle Add
+   Alpha 0.9
+   +NOGRAVITY
+   +NOEXTREMEDEATH
+   +PUFFONACTORS
+   States
+   {
+   Spawn:
+   	 POOF ABCDE 3 
+      Stop
+	  Melee:
+   	 POOF ABCDE 3 
+      Stop
+	  Crash:
+   	 POOF ABCDE 3 
+      Stop
+   }
+}
+
+ACTOR PipeSeq : Inventory
+{
+	Inventory.MaxAmount 2
+}
+
+ACTOR LeadPipe : Weapon 
+{
+   Weapon.SelectionOrder 999
+   Weapon.Kickback 20
+   Weapon.preferredSkin "PipeSkin"
+   +NOALERT
+   +NOAUTOFIRE
+   +NOAUTOAIM
+   +INVENTORY.UNDROPPABLE
+   States
+   {
+  Spawn:
+	PIPP A 0
+	Goto Death
+   Ready:
+   	PIPE A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+      PIPE A 1 A_WeaponReady
+      Loop
+	DropWeapon:
+		TNT1 A 0
+		PIPE A 1
+		TNT1 A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+       Goto Ready
+   Deselect:
+      PIPE A 1 A_Lower
+      Loop
+   Select:
+      PIPE A 1 A_Raise
+      Loop
+   Fire:
+   	PIPE A 0 A_JumpIfInventory("PipeSeq",2,"Fire3")
+   	PIPE A 0 A_JumpIfInventory("PipeSeq",1,"Fire2")
+      PIPE BC 1
+      	TNT1 A 1 A_ReFire
+      TNT1 A 3
+      PIPE D 1 A_PlaySound("pipe/swing")
+      PIPE EF 1
+      PIPE G 1 A_CustomPunch(10,1,0,"PipePuff", 72)
+      PIPE HI 1
+	  PIPE J 1 A_GiveInventory("PipeSeq",1)
+	  TNT1 A 1
+      TNT1 AAAAAAAAAAAA 1 A_WeaponReady
+	  PIPE TUV 2
+	  PIPE W 2 A_TakeInventory("PipeSeq",999)
+	  Goto Ready
+
+	Hold:
+	TNT1 A 1
+      	TNT1 A 1 A_ReFire
+      TNT1 A 2
+      PIPE D 1 A_PlaySound("pipe/swing")
+      PIPE EF 1
+      PIPE G 1 A_CustomPunch(10,1,0,"PipePuff", 72)
+      PIPE HI 1
+	  PIPE J 1 A_GiveInventory("PipeSeq",1)
+	  TNT1 A 2
+      TNT1 AAAAAAAAAAAA 1 A_WeaponReady
+	  PIPE TUV 2
+	  PIPE W 2 A_TakeInventory("PipeSeq",999)
+	  Goto Ready
+
+	Fire2:
+	  TNT1 A 2
+      PIPE K 1 A_PlaySound("pipe/swing")
+      PIPE LMN 1
+      PIPE O 1 A_CustomPunch(15,1,0,"PipePuff", 72)
+      PIPE PQR 1
+	  PIPE S 1 A_GiveInventory("PipeSeq",1)
+	  TNT1 A 2
+      TNT1 AAAAAAAAAAAA 1 A_WeaponReady
+      PIPE CB 2
+	  PIPE A 2 A_TakeInventory("PipeSeq",999)
+      Goto Ready
+	Fire3:
+      TNT1 A 2
+      PIPE D 1 A_PlaySound("pipe/swing")
+      PIPE EF 1
+      PIPE G 1 A_CustomPunch(20,1,0,"PipePuff", 72) 
+      PIPE HI 1
+	  PIPE J 1 A_TakeInventory("PipeSeq",1)
+	  TNT1 A 2
+      TNT1 AAAAAAAAAAAA 1 A_WeaponReady
+	  PIPE TUV 2
+	  PIPE W 2 A_TakeInventory("PipeSeq",999)
+	  Goto Ready
+	Death:
+	   DHSP A 0 A_SpawnItem("DroppedPipe",0,0,0,0)
+	   TNT1 A 0 A_FadeOut(1.0)
+	   goto death + 1
+   }
+}
+
+//Wrench (Wildweasel)
+//Actor WrenchSpawn : PipeWrench {}
+ACTOR FakeWrench : CustomInventory 30072
+{
+  //$Category WDI Weapons
+  //$Sprite PIPPB0
+  //$Title "Wrench"
+	Radius 16
+	Height 8
+	Scale 0.5
+	Inventory.PickupMessage "Found a heavy wrench." 
+	Inventory.RespawnTics 3150 //1 minute 30 seconds
+	States
+	{
+	Spawn:
+		PIPP B 1
+		Loop
+	Pickup: 
+		PIPP B 0 
+		PIPP B 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		PIPP B 0 A_PlaySound("pickups/weapon")
+		PIPP B 0 A_GiveInventory("PipeWrench",1)
+		PIPP B 0 A_GiveInventory("Slot1Filled",1)
+		PIPP B 1 ACS_ExecuteAlways(670,0,11)
+		Stop
+	NotPickup:
+		PIPP B 0
+		PIPP B 1 ACS_ExecuteAlways(670,0,11)
+		Fail						  
+	}
+}
+
+ACTOR DroppedWrench
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+	Scale 0.5
+	DeathSound "wrench/hitwall"
+	States
+	{
+	Spawn:
+		PIPP B 1
+		Loop
+	Death:
+		PIPP B 35
+		PIPP B 1 A_SpawnItemEx("FakeWrench",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+ACTOR PipeWrench : Weapon 
+{
+	SpawnID 32
+	Radius 20
+	Height 12
+	Inventory.PickupMessage "Found a heavy wrench."
+	Weapon.SelectionOrder 2200
+        Weapon.preferredSkin "WrenchSkin"
+	+WEAPON.MeleeWeapon
+	+WEAPON.NoAutoFire
+	+INVENTORY.UNDROPPABLE
+   +NOAUTOAIM
+	States
+	{
+	Spawn:
+		PIPP B 0
+		goto Death
+	Pickup: 
+	Select:
+		PIPW A 1 A_Raise
+		Loop
+	Deselect:
+		PIPW A 1 A_Lower
+		Loop
+	Ready:
+		PIPE A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		PIPW A 1 A_WeaponReady
+		Loop
+	DropWeapon:
+		TNT1 A 0
+		PIPW A 1
+		TNT1 A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+       Goto Ready
+	Fire:
+		PIPW A 0 A_JumpIfInventory("PipeSeq",2,"Fire3")
+		PIPW A 0 A_JumpIfInventory("PipeSeq",1,"Fire2")
+		PIPW ABC 1
+		TNT1 A 1 A_ReFire
+		TNT1 A 10 A_GiveInventory("PipeSeq",1)
+		PIPW DEF 1
+		PIPW G 1 A_CustomPunch(25,1,0,"WrenchPuff", 72)
+		PIPW HI 1
+		TNT1 A 4
+		TNT1 AAAAAAAAAAAA 1 A_WeaponReady
+		PIPW C 1 A_TakeInventory("PipeSeq",999)
+		PIPW BA 1
+		Goto Ready
+	Hold:
+		TNT1 A 1
+		TNT1 A 1 A_ReFire
+		TNT1 A 10 A_GiveInventory("PipeSeq",1)
+		PIPW DEF 1
+		PIPW G 1 A_CustomPunch(25,1,0,"WrenchPuff", 72)
+		PIPW HI 1
+		TNT1 A 4
+		TNT1 AAAAAAAAAAAA 1 A_WeaponReady
+		PIPW C 1 A_TakeInventory("PipeSeq",999)
+		PIPW BA 1
+		Goto Ready
+	Fire2:
+		TNT1 A 10 A_GiveInventory("PipeSeq",1)
+		PIPW JKL 1
+		PIPW M 1 A_CustomPunch(25,1,0,"WrenchPuff", 72)
+		PIPW NO 1
+		TNT1 A 8
+		TNT1 AAAAAAAAAAAA 1 A_WeaponReady
+		PIPW C 1 A_TakeInventory("PipeSeq",999)
+		PIPW BA 1
+		Goto Ready
+	Fire3:
+		TNT1 A 10 A_TakeInventory("PipeSeq",1)
+		PIPW DEF 1
+		PIPW G 1 A_CustomPunch(35,1,0,"WrenchPuff", 72)
+		PIPW HI 1
+		TNT1 A 12
+		PIPW C 1 A_TakeInventory("PipeSeq",999)
+		PIPW BA 1
+		Goto Ready
+	Death:
+	   DHSP A 0 A_SpawnItem("DroppedWrench",0,0,0,0)
+	   TNT1 A 0 A_FadeOut(1.0)
+	   goto death + 1
+	}
+}
+
+actor WrenchPuff
+{
+  DamageType "friendlymelee"
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +PUFFONACTORS
+  activesound "wrench/swing"
+  attacksound "wrench/hitwall"
+  seesound "wrench/hitbody"
+  states
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 1
+    stop
+  Crash:
+  	TNT1 A 0
+  	TNT1 A 1
+  	stop
+  Melee:
+  	TNT1 A 0
+  	TNT1 A 1
+  	stop
+  }
+}
+
+//=================
+//Crossbow (Sprites by Mooseknuckle, Decorate by Firewolf)
+
+ACTOR CrossbowOnce : Inventory
+{
+	Inventory.MaxAmount 1
+	-INVBAR
+}
+
+ACTOR FakeCrossbow : CustomInventory 30055
+{
+  //$Category WDI Weapons
+  //$Sprite XBPUA0
+  //$Title "Crossbow"
+	Radius 16
+	Height 8
+	Inventory.PickupMessage "Found a crossbow."
+	Inventory.RespawnTics 3024000 //1 hour
+	//Scale 0.35
+	States
+	{
+	Spawn:
+		XBPU A -1
+		Stop
+	Pickup:
+		XBPU A 0
+		PIST A 0 A_JumpIfInventory("MurderMarker",1, 2)
+		PIST A 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		PIST A 0
+		XBPU A 0 A_JumpIfInventory("Crossbow",1,"AmmoPickup")		
+		XBPU A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		XBPU A 0 A_PlaySound("pickups/weapon")
+		XBPU A 0 A_GiveInventory("Crossbow",1)
+		XBPU A 0 A_GiveInventory("Slot1Filled",1)
+		TNT1 A 0 //A_Print("Picked up a Crossbow.")
+		XBPU A 1 ACS_ExecuteAlways(670,0,22)
+		XBPU A 0 A_JumpIfInventory("CrossbowOnce",1,"ForgetIt")
+		XBPU A 0 A_GiveInventory("LoadedBolts",random(1,3))
+		XBPU A 0 A_GiveInventory("CrossbowOnce",1)
+		Stop
+	NotPickup:
+		XBPU A 0
+		XBPU A 1 ACS_ExecuteAlways(670,0,22)
+		Fail
+	AmmoPickup:
+		XBPU A 0
+		XBPU A 0 //A_JumpIfInventory("Bolts",2,"ForgetIt")
+		XBPU A 0 A_PlaySound("pickups/ammo")
+		TNT1 A 0 //A_Print("Picked up some Crossbow Bolts.")
+		XBPU A 1 A_GiveInventory("LoadedBolts",random(1,3))
+		Stop
+	ForgetIt:
+		XBPU A 1
+		Stop
+	}
+}
+
+Actor TKFakeCrossbow : FakeCrossbow
+{
+states
+	{
+	Pickup:
+		XBPU A 0
+		XBPU A 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		XBPU A 0 A_JumpIfInventory("Crossbow",1,"AmmoPickup")		
+		XBPU A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		XBPU A 0 A_PlaySound("pickups/weapon")
+		XBPU A 0 A_GiveInventory("Crossbow",1)
+		XBPU A 0 A_GiveInventory("Slot1Filled",1)
+		TNT1 A 0 //A_Print("Picked up a Crossbow.")
+		XBPU A 1 ACS_ExecuteAlways(670,0,22)
+		XBPU A 0 A_JumpIfInventory("CrossbowOnce",1,"ForgetIt")
+		XBPU A 0 A_GiveInventory("LoadedBolts",random(1,3))
+		XBPU A 0 A_GiveInventory("CrossbowOnce",1)
+		Stop
+	NotPickup:
+		XBPU A 0
+		XBPU A 1 ACS_ExecuteAlways(670,0,22)
+		Fail
+	}
+}
+
+ACTOR DroppedCrossbow
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+	DeathSound "weapons/gundrop"
+	States
+	{
+	Spawn:
+		XBPU A 1
+		Loop
+	Death:
+		XBPU A 35
+		XBPU A 1 A_SpawnItemEx("FakeCrossbow",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+ 
+Actor Crossbow : Weapon 
+ {
+	Weapon.SelectionOrder 3000
+    Weapon.AmmoGive1 0
+    Weapon.AmmoGive2 0
+    Weapon.Ammouse 1
+    Weapon.Ammouse2 1
+    Weapon.Ammotype1 "LoadedBolts"
+    //Weapon.Ammotype2 "Bolt"
+	//Weapon.preferredSkin ""
+    Obituary "%o got a new piercing."
+    Inventory.Pickupmessage "Found a Repeating Crossbow"
+    //AttackSound "weapons/Shotgunfire"
+	+INVENTORY.UNDROPPABLE
+   +NOAUTOAIM
+
+    States
+    {
+	Spawn:
+       XBPU A 0
+       goto Death
+	NoAmmoReady:
+	   CBOW B 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
+	   CBOW B 0 A_JumpIfInventory("LoadedBolts",1,"Ready")
+       CBOW B 1 A_WeaponReady
+		Loop
+    Ready:
+	   CBOW A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
+	   CBOW A 0 A_JumpIfNoAmmo("NoAmmoReady")
+	   CBOW CD 4
+	   CBOW E 16
+	   CBOW FG 4
+	   CBOW A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
+	   CBOW A 0 A_JumpIfNoAmmo("NoAmmoReady")
+       CBOW A 1 A_WeaponReady
+	   goto Ready + 7
+
+	  WeaponDrop:
+		TNT1 A 0
+		CBOW B 1
+		TNT1 A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+       Goto Ready
+
+    Deselect:
+       CBOW B 0 A_Playsound ("weapons/weapondown")
+       CBOW B 0 A_Lower
+       CBOW B 1 A_Lower
+       goto deselect+1
+    Select:
+		CBOW B 1 A_Raise
+		Loop
+    Fire:
+	   CBOW A 0 A_JumpIfNoAmmo("NoAmmoReady")
+	   CBOW A 0 A_PlaySound ("weapons/Crossbowfire")
+       CBOW A 0 A_FireCustomMissile ("FlyingBolt",0,1,1,12)
+       CBOW B 8
+	   CBOW A 0 A_JumpIfNoAmmo ("NoAmmoReady")
+       CBOW CD 4
+	   CBOW E 16
+	   CBOW FG 4
+       Goto Ready + 7
+    Death:
+	   DHSP A 0 A_SpawnItem("DroppedCrossbow",0,0,0,0)
+	   TNT1 A 0 A_FadeOut(1.0)
+	   goto death + 1
+  }
+}      
+
+actor FlyingBolt : FastProjectile
+{
+  Radius 3
+  Height 4
+  Speed 180
+  Damage 4
+  DamageType "friendlygun"
+  Projectile
+  -NOGRAVITY
+  +STRIFEDAMAGE
+  +RIPPER
+  SeeSound ""
+  DeathSound ""
+  Obituary ""
+  States
+  {
+  Spawn:
+    ARWP A 1 A_LowGravity
+	ARWP A 2 A_NoGravity
+    loop
+  Death:
+    ARWP A 1 A_SpawnItemEx("LoadedBolts2",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+    stop
+  }
+} 
+
+ACTOR LoadedBolts : Ammo 30065
+{
+  //$Category WDI Ammo
+  //$Sprite ARWPA7A3
+  //$Title "Crossbow Bolt"
+  Game Doom
+  SpawnID 12
+  +NOGRAVITY
+  +INVBAR
+  -INVENTORY.INTERHUBSTRIP
+  Inventory.PickupMessage "Found a Crossbow bolt" 
+  Inventory.RespawnTics 3024000 //1 hour
+  Inventory.Amount 1
+  Inventory.MaxAmount 3
+  Ammo.BackpackAmount 1
+  Ammo.BackpackMaxAmount 3
+  Inventory.Icon "ARWHUD"
+  States
+  {
+  Spawn:
+    ARWP A -1
+    Stop
+  }
+}
+
+ACTOR LoadedBolts2 : LoadedBolts
+{
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    ARWP A 350
+    ARWP AAAAAAAAAAAAA 1 A_Gravity
+    ARWP A -1
+    Wait
+  }
+}
+
+
+///Poolcue || Sprites by Punisher, code by Firewolf
+
+ACTOR FakeCue : CustomInventory 30073
+{
+  //$Category WDI Weapons
+  //$Sprite POOLA0
+  //$Title "Pool Cue"
+	Radius 16
+	Height 8
+	Scale 0.5
+	Inventory.PickupMessage "Found a pool cue." 
+	Inventory.RespawnTics 3150 //1 minute 30 seconds
+	States
+	{
+	Spawn:
+		POOL A 1
+		Loop
+	Pickup: 
+		POOL A 0 
+		POOL A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		POOL A 0 A_PlaySound("pickups/weapon")
+		POOL A 0 A_GiveInventory("PoolCue",1)
+		POOL A 0 A_GiveInventory("Slot1Filled",1)
+		POOL A 1 ACS_ExecuteAlways(670,0,13)
+		Stop
+	NotPickup:
+		POOL A 0
+		POOL A 1 ACS_ExecuteAlways(670,0,13)
+		Fail						  
+	}
+}
+
+ACTOR FakeCueY : CustomInventory 3258
+{
+  //$Category WDI Weapons
+  //$Sprite POOZA0
+  //$Title "Pool Cue (Standing)"
+	Radius 16
+	Height 8
+	Scale 0.35
+	Inventory.PickupMessage "Found a pool cue." 
+	Inventory.RespawnTics 3150 //1 minute 30 seconds
+	States
+	{
+	Spawn:
+		POOZ A 1
+		Loop
+	Pickup: 
+		POOZ A 0 
+		POOZ A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		POOZ A 0 A_PlaySound("pickups/weapon")
+		POOZ A 0 A_GiveInventory("PoolCue",1)
+		POOZ A 0 A_GiveInventory("Slot1Filled",1)
+		POOZ A 1 ACS_ExecuteAlways(670,0,13)
+		Stop
+	NotPickup:
+		POOZ A 0
+		POOZ A 1 ACS_ExecuteAlways(670,0,13)
+		Fail						  
+	}
+}
+
+ACTOR DroppedCue
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+	Scale 0.5
+	DeathSound "cue/wall"
+	States
+	{
+	Spawn:
+		POOL A 1
+		Loop
+	Death:
+		POOL A 35
+		POOL A 1 A_SpawnItemEx("FakeCue",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+
+Actor PoolCue : Weapon
+{
+	Radius 8
+	Height 32
+	Scale 0.5
+	Inventory.PickupMessage "Found a pool cue."
+	Weapon.SelectionOrder 2200
+	+WEAPON.MeleeWeapon
+	+WEAPON.NoAutoFire
+	+INVENTORY.UNDROPPABLE
+   +NOAUTOAIM
+	
+	States
+	{
+	Spawn:
+		POOL A 0
+		goto Death
+	Pickup: 
+	
+	Select:
+		POCU A 1 A_Raise
+		Loop
+		
+	Deselect:
+		POCU A 1 A_Lower
+		Loop
+		
+	Ready:
+		POCU A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		POCU A 1 A_WeaponReady
+		Loop
+		
+	DropWeapon:
+		TNT1 A 0
+		POCU A 1
+		TNT1 A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+       Goto Ready
+		
+	Fire:
+        POCU BCD 2 
+		TNT1 A 3
+		TNT1 A 1 A_Refire
+		POCU DCBA 1
+		POCU E 1 A_CustomPunch(2, 1, 1, "CuePuff", 80)
+		POCU FGHI 1 A_CustomPunch(2, 1, 1, "CuePuff2", 80)
+		POCU JKL 1 A_CustomPunch(5, 1, 1, "CuePuff2", 88)
+		POCU M 2
+		POCU NOPQRSTA 2
+		Goto Ready
+
+	Hold:
+	TNT1 A 1
+		TNT1 A 1 A_Refire
+		POCU DCBA 1
+		POCU E 1 A_CustomPunch(2, 1, 1, "CuePuff", 80)
+		POCU FGHI 1 A_CustomPunch(2, 1, 1, "CuePuff2", 80)
+		POCU JKL 1 A_CustomPunch(5, 1, 1, "CuePuff2", 88)
+		POCU M 2
+		POCU NOPQRSTA 2
+		Goto Ready
+	
+	Death:
+	   POOL A 0 A_SpawnItem("DroppedCue",0,0,0,0)
+	   TNT1 A 0 A_FadeOut(1.0)
+	   goto death + 1
+	}
+}
+
+actor CuePuff
+{
+  DamageType "CueMelee"
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +PUFFONACTORS
+  activesound "cue/swing"
+  attacksound "cue/swing"
+  seesound "cue/swing"
+  states
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 1
+    stop
+  Crash:
+  	TNT1 A 0
+  	TNT1 A 1
+  	stop
+  Melee:
+  	TNT1 A 0
+  	TNT1 A 1
+  	stop
+  }
+}
+
+actor CuePuff2
+{
+  DamageType "CueMelee"
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +PUFFONACTORS
+  activesound ""
+  attacksound "cue/wall"	// Hit wall
+  seesound "cue/hit"		// Hit player
+  states
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 1
+    stop
+  Crash:
+  	TNT1 A 0
+  	TNT1 A 1
+  	stop
+  Melee:
+  	TNT1 A 0
+  	TNT1 A 1
+  	stop
+  }
+}
+
+///Shovel || Sprites and Sounds by Marty Kirra, code by Firewolf
+ACTOR FakeShovel : CustomInventory 30074
+{
+  //$Category WDI Weapons
+  //$Sprite SHOVA0
+  //$Title "Shovel"
+	Radius 16
+	Height 8
+	Scale 0.48
+	Inventory.PickupMessage "Found a Shovel. Classy!"
+	Inventory.RespawnTics 10500 //5 Minutes
+	States
+	{
+	Spawn:
+		SHOV A 1
+		Loop
+	Pickup: 
+		SHOV A 0 
+		SHOV A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		SHOV A 0 A_PlaySound("pickups/weapon")
+		SHOV A 0 A_GiveInventory("Shovel",1)
+		SHOV A 0 A_GiveInventory("Slot1Filled",1)
+		SHOV A 1 ACS_ExecuteAlways(670,0,14)
+		Stop
+	NotPickup:
+		SHOV A 0
+		SHOV A 1 ACS_ExecuteAlways(670,0,14)
+		Fail						  
+	}
+}
+
+ACTOR DroppedShovel
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+	Scale 0.48
+	DeathSound "shovel/wall"
+	States
+	{
+	Spawn:
+		SHOV A 1
+		Loop
+	Death:
+		SHOV A 35
+		SHOV A 1 A_SpawnItemEx("FakeShovel",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+Actor Shovel : Weapon
+{
+	Radius 8
+	Height 32
+	Scale 0.48
+	Inventory.PickupMessage "Found a Shovel. Classy!"
+	Weapon.SelectionOrder 2200
+	+WEAPON.MeleeWeapon
+	+WEAPON.NoAutoFire
+	+INVENTORY.UNDROPPABLE
+   +NOAUTOAIM
+	
+	States
+	{
+	Spawn:
+		SHOV A 0
+		goto Death
+	Pickup: 
+	
+	Select:
+		SHLR ABC 2
+		goto Ready
+		
+	Deselect:
+		SHLG A 1 A_Lower
+		loop
+		
+	Ready:
+		SHLG A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		SHLG A 1 A_WeaponReady
+		Loop
+		
+	DropWeapon:
+		SHLG A 0
+		SHLG A 1
+		SHLG A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+       Goto Ready
+		
+	Fire:
+		SHLR CBA 2
+		TNT1 A 3
+		TNT1 A 1 A_Refire
+        SHLR ABC 1
+		SHLG ABC 1
+		SHLG DE 1 A_CustomPunch(20, 1, 1, "ShovelPuff", 72)
+		SHLG FGHI 1
+		TNT1 A 16
+		SHLR ABC 2
+		Goto Ready
+
+        Hold:
+	TNT1 A 1
+		TNT1 A 1 A_Refire
+        SHLR ABC 1
+		SHLG ABC 1
+		SHLG DE 1 A_CustomPunch(20, 1, 1, "ShovelPuff", 72)
+		SHLG FGHI 1
+		TNT1 A 16
+		SHLR ABC 2
+		Goto Ready
+		
+	Death:
+	   POOL A 0 A_SpawnItem("DroppedShovel",0,0,0,0)
+	   TNT1 A 0 A_FadeOut(1.0)
+	   goto death + 1
+	}
+}
+
+actor ShovelPuff
+{
+  DamageType "ShovelMelee"
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +PUFFONACTORS
+  activesound "shovel/swing"
+  attacksound "shovel/wall"
+  seesound "shovel/hit"
+  states
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 1
+    stop
+  Crash:
+  	TNT1 A 0
+  	TNT1 A 1
+  	stop
+  Melee:
+  	TNT1 A 0
+  	TNT1 A 1
+  	stop
+  }
+}
+
+///Brick (Throwing weapon) || Sprites by Mooseknuckle, code by Theshooter7
+ACTOR FakeBrick : CustomInventory 30075
+{
+  //$Category WDI Weapons
+  //$Sprite BRKPU0
+  //$Title "Brick (Throwable)"
+	Radius 16
+	Height 8
+	Inventory.PickupMessage "Picked up a dry brick. Stolen from Sicamore's house."
+	Inventory.RespawnTics 10500 //5 Minutes
+	States
+	{
+	Spawn:
+		BRKP U 1
+		Loop
+	Pickup: 
+		BRKP U 0 
+		BRKP U 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		BRKP U 0 A_PlaySound("pickups/weapon")
+		BRKP U 0 A_GiveInventory("Brick",1)
+		BRKP U 0 A_GiveInventory("Slot1Filled",1)
+		BRKP U 1 ACS_ExecuteAlways(670,0,24)
+		Stop
+	NotPickup:
+		BRKP U 0
+		BRKP U 1 ACS_ExecuteAlways(670,0,24)
+		Fail						  
+	}
+}
+
+ACTOR DroppedBrick
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+	DeathSound "brick/land"
+	States
+	{
+	Spawn:
+		BRKP U 1
+		Loop
+	Death:
+		BRKP U 35
+		BRKP U 1 A_SpawnItemEx("FakeBrick",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+Actor Brick : Weapon
+{
+	Radius 8
+	Height 32
+	Inventory.PickupMessage "Picked up a dry brick. Good for throwing!"
+	Weapon.SelectionOrder 2200
+	+WEAPON.NoAutoFire
+	+INVENTORY.UNDROPPABLE
+	+NOAUTOAIM
+	
+	States
+	{
+	Spawn:
+		BRKP U 0
+		goto Death
+	Pickup: 
+	
+	Select:
+		BRIK A 0 A_Raise
+		BRIK A 0 A_Raise
+		BRIK A 1 A_Raise
+		Loop
+		
+	Deselect:
+		BRIK A 0 A_Lower
+		BRIK A 0 A_Lower
+		BRIK A 1 A_Lower
+		Loop
+		
+	Ready:
+		BRIK A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		BRIK A 1 A_WeaponReady
+		Loop
+		
+	DropWeapon:
+		BRIK A 0
+		BRIK A 1
+		BRIK A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+       Goto Ready
+		
+	Fire:
+		BRIK BCDEF 1
+		TNT1 A 2
+		TNT1 A 1 A_Refire
+		THRW I 2 A_FireCustomMissile("ThrownBrick", 0, 0, 6, 10, 0, 8)
+        	THRW JK 2
+		THRW LMNOPQ 2
+		TNT1 A 4
+		//TNT1 A 0 A_TakeInventory("Slot1Filled",1)
+		//TNT1 A 0 A_TakeInventory("Brick",1)
+		TNT1 A 0 ACS_ExecuteAlways(653, 0, 0, 0, 0)
+		TNT1 A 2
+		BRIK A 0
+		Goto Ready
+
+        Hold:
+		TNT1 A 1
+		TNT1 A 1 A_Refire
+		THRW I 2 A_FireCustomMissile("ThrownBrick", 0, 0, 6, 10, 0, 8)
+        	THRW JK 2
+		THRW LMNOPQ 2
+		TNT1 A 4
+		//TNT1 A 0 A_TakeInventory("Slot1Filled",1)
+		//TNT1 A 0 A_TakeInventory("Brick",1)
+		TNT1 A 0 ACS_ExecuteAlways(653, 0, 0, 0, 0)
+		TNT1 A 2
+		BRIK A 0
+		Stop
+	}
+}
+
+actor ThrownBrick
+{
+  Radius 6
+  Height 4
+  Speed 30
+  Damage (27)
+  DamageType "friendlythrown"
+  Projectile
+  -NOGRAVITY
+  +DOOMBOUNCE
+  //+BOUNCEONACTORS
+  +BLOODSPLATTER
+  +EXPLODEONWATER
+  +SKYEXPLODE
+  Bouncecount 3
+  //SeeSound "shovel/hit"
+  SeeSound "brick/land"
+  AttackSound "shovel/hit"
+  DeathSound "brick/land"
+  //BounceSound "brick/land"
+  BounceFactor 0.2
+  Obituary ""
+  Gravity 0.8
+  States
+  {
+  Spawn:
+    BRKT IGFEDCBA 2
+    Loop
+
+  Death:
+    BRKP U 1 A_SpawnItem("FakeBrick",0,0,0,0)
+    stop
+  }
+} 
+
+
+///Molotov (Throwing weapon) || Sprites by Lightman and Mooseknuckle, code by Theshooter7
+ACTOR FakeMolly : CustomInventory 30076
+{
+  //$Category WDI Weapons
+  //$Sprite MOLPA0
+  //$Title "Molotov (Throwable)"
+	Radius 16
+	Height 8
+  Scale 0.45
+	Inventory.PickupMessage "Picked up a Molotov."
+	Inventory.RespawnTics 21000 //10 Minutes
+	States
+	{
+	Spawn:
+		MOLP A 1
+		Loop
+	Pickup: 
+		MOLP A 0 
+		MOLP A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		MOLP A 0 A_PlaySound("pickups/weapon")
+		MOLP A 0 A_GiveInventory("Molotov",1)
+		MOLP A 0 A_GiveInventory("Slot1Filled",1)
+		MOLP A 1 ACS_ExecuteAlways(670,0,25)
+		Stop
+	NotPickup:
+		MOLP A 0
+		MOLP A 1 ACS_ExecuteAlways(670,0,25)
+		Fail						  
+	}
+}
+
+ACTOR DroppedMolly
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+  Scale 0.45
+	Speed 9
+	DeathSound "molly/land"
+	States
+	{
+	Spawn:
+		MOLP A 1
+		Loop
+	Death:
+		MOLP A 35
+		MOLP A 1 A_SpawnItemEx("FakeMolly",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+Actor Molotov : Weapon
+{
+	Radius 8
+	Height 32
+  Scale 0.45
+	Inventory.PickupMessage "Picked up a Molotov."
+	Weapon.SelectionOrder 2200
+	+WEAPON.NoAutoFire
+	+INVENTORY.UNDROPPABLE
+	+NOAUTOAIM
+	
+	States
+	{
+	Spawn:
+		MOLP A 1
+		goto Death
+	Pickup: 
+	
+	Deselect:
+		MOLO AAAA 1 Bright A_Lower
+		MOLO BBBB 1 Bright A_Lower
+		MOLO CCCC 1 Bright A_Lower
+		Loop
+		
+	Select:
+		TNT1 A 3
+		TNT1 A 15 A_PlaySound("weapons/lighteropen")
+		TNT1 A 20 A_PlayWeaponSound("weapons/lighter")
+		TNT1 A 5 A_JumpIf(Random(0,10) > 8, "SelectPre")
+		TNT1 A 20 A_PlayWeaponSound("weapons/lighter")
+		TNT1 A 5 A_JumpIf(Random(0,10) > 6, "SelectPre")
+		TNT1 A 20 A_PlayWeaponSound("weapons/lighter")
+		TNT1 A 5 
+	SelectPre:
+		TNT1 A 5 A_PlaySound("weapons/lighterclose")
+	SelectLoop:
+		MOLO AAAA 1 Bright A_Raise
+		MOLO BBBB 1 Bright A_Raise
+		MOLO CCCC 1 Bright A_Raise
+		Goto SelectLoop
+		
+	Ready:
+		MOLO A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO A 1 Bright A_WeaponReady
+		MOLO A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO A 1 Bright A_WeaponReady
+		MOLO A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO A 1 Bright A_WeaponReady
+		MOLO A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO A 1 Bright A_WeaponReady
+
+		MOLO B 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO B 1 Bright A_WeaponReady
+		MOLO B 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO B 1 Bright A_WeaponReady
+		MOLO B 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO B 1 Bright A_WeaponReady
+		MOLO B 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO B 1 Bright A_WeaponReady
+
+		MOLO C 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO C 1 Bright A_WeaponReady
+		MOLO C 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO C 1 Bright A_WeaponReady
+		MOLO C 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO C 1 Bright A_WeaponReady
+		MOLO C 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO C 1 Bright A_WeaponReady
+		Loop
+		
+	DropWeapon:
+		MOLO A 0
+		MOLO A 1
+		MOLO A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+       Goto Ready
+		
+	Fire:
+		MOLO DEFGHIJ 1 Bright
+		TNT1 A 2
+		TNT1 A 1 A_Refire
+		THRW I 2 A_FireCustomMissile("ThrownMolly", 0, 0, 6, 10, 0, 8)
+        	THRW JK 2
+		THRW LMNOPQ 2
+		TNT1 A 4
+		//TNT1 A 0 A_TakeInventory("Slot1Filled",1)
+		//TNT1 A 0 A_TakeInventory("Molotov",1)
+		TNT1 A 0 ACS_ExecuteAlways(653, 0, 0, 0, 0)
+		TNT1 A 2
+		MOLO A 0
+		Goto Ready
+
+        Hold:
+		TNT1 A 2
+		TNT1 A 1 A_Refire
+		THRW I 2 A_FireCustomMissile("ThrownMolly", 0, 0, 6, 10, 0, 8)
+        	THRW JK 2
+		THRW LMNOPQ 2
+		TNT1 A 4
+		//TNT1 A 0 A_TakeInventory("Slot1Filled",1)
+		//TNT1 A 0 A_TakeInventory("Molotov",1)
+		TNT1 A 0 ACS_ExecuteAlways(653, 0, 0, 0, 0)
+		TNT1 A 2
+		MOLO A 0
+		Stop
+	}
+}
+
+actor ThrownMolly
+{
+  Radius 6
+  Height 4
+  Speed 20
+  Damage 0
+  Scale 0.45
+  DamageType "friendlythrown"
+  Projectile
+  -NOGRAVITY
+  -BOUNCEONACTORS
+  -BLOODSPLATTER
+  -EXPLODEONWATER
+  +NOBLOOD
+  +SKYEXPLODE
+  SeeSound "molly/flame"
+  DeathSound "molly/burst"
+  Obituary ""
+  Gravity 0.85
+  States
+  {
+  Spawn:
+    MOLT HGFEDCBA 2 Bright
+    Loop
+
+  Death:
+    TNT1 A 0 A_JumpIf(waterlevel >= 2, "InWater")
+    TNT1 A 0 A_Explode(10, 64, 1)
+    TNT1 AAAAAAAAAAAA 0 A_CustomMissile("MollyShard",1,0,Random(0,360), 2, Random(5, 45))
+    TNT1 AAAAAAAAAAAAA 0 A_CustomMissile("MollyFireSpawn",1,0,Random(0,360), 2, Random(5, 30))
+    TNT1 AAAA 0 A_CustomMissile("MollyFireSpawn3",1,0,Random(0,360), 2, Random(5, 30))
+    TNT1 AAA 0 A_CustomMissile("MollyFireSpawn2",1,0,Random(0,360), 2, Random(30, 70))
+    TNT1 A 1
+    stop
+
+  InWater:
+    TNT1 A 1
+    Stop
+  }
+} 
+
+Actor MollyFireSpawn
+{
+  Radius 3
+  Height 4
+  Speed 9
+  Projectile
+  Damage 0
+  Scale 0.8
+  Alpha 1.0
+  Gravity 0.9
+  Renderstyle Add
+  DamageType "Burn"
+  -NOGRAVITY
+  -BLOODSPLATTER
+  +RIPPER
+  +FLOORHUGGER
+  //+CEILINGHUGGER
+  +DONTSPLASH
+  +NOBLOOD
+  +NODAMAGETHRUST
+  States
+  {
+  Spawn:
+    TNT1 A 6
+    Goto Death
+
+  Death:
+    TNT1 A 0 A_Stop
+    TNT1 A 1 A_SpawnItemEx("MollyFire", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+    Stop
+  }
+}
+
+Actor MollyFireSpawn2 : MollyFireSpawn
+{
+  Speed 25
+  Gravity 0.8
+  -FLOORHUGGER
+  States
+  {
+  Spawn:
+    CFFX CDEFGHI 2 Bright
+    Goto Death
+
+  Death:
+    TNT1 A 0 A_Stop
+    TNT1 A 1 A_SpawnItemEx("MollyFire", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+    Stop
+  }
+}
+
+Actor MollyFireSpawn3 : MollyFireSpawn
+{
+  States
+  {
+  Spawn:
+    TNT1 A 3
+    Goto Death
+
+  Death:
+    TNT1 A 0 A_Stop
+    TNT1 A 1 A_SpawnItemEx("MollyFire", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+    Stop
+  }
+}
+
+Actor MollyFire
+{
+  Radius 3
+  Height 4
+  Speed 8
+  Projectile
+  Damage 0
+  Scale 0.8
+  Alpha 0.0
+  Gravity 1.5
+  ReactionTime 60 // About 1 minute
+  Renderstyle Add
+  ActiveSound "molly/burn"
+  DamageType "Burn"
+  -NOGRAVITY
+  +DONTSPLASH
+  +SLIDESONWALLS
+  -BLOODSPLATTER
+  +FLOORHUGGER
+  //+CEILINGHUGGER
+  +RIPPER
+  +NOBLOOD
+  +NODAMAGETHRUST
+  States
+  {
+  Spawn:
+    TNT1 A 0 
+    TNT1 A 0 A_JumpIf(waterlevel >= 2, "InWater")
+    TNT1 A 0 A_PlaySound("molly/burn", CHAN_VOICE, 1.0, 1)
+    CFFX CDEFGHICDE 3 Bright A_FadeIn(0.1)
+    Goto Ignited
+
+  Ignited:
+    TNT1 A 0 A_JumpIf(waterlevel >= 2, "InWater")
+    TNT1 A 0 A_PlaySound("molly/burn", CHAN_VOICE, 1.0, 1)
+    CFFX CDEFGHICDEF 3 Bright A_Explode(2, 64, 1)
+    TNT1 A 0 A_CountDown
+    Loop
+
+  Death:
+    TNT1 A 0 A_StopSound(CHAN_AUTO)
+    CFFX CDEFGHICDEF 3 Bright A_FadeOut(0.1)
+    Wait
+
+  InWater:
+    TNT1 A 1
+    Stop
+  }
+}
+
+Actor MollyShard
+{
+  Radius 6
+  Height 4
+  Speed 20
+  Projectile
+  Damage 0
+  Bouncecount 2
+  Scale 0.5
+  Alpha 0.75
+  Gravity 0.95
+  Renderstyle Add
+  +DONTSPLASH
+  -NOGRAVITY
+  +DOOMBOUNCE
+  +RIPPER
+  -BLOODSPLATTER
+  +NOBLOOD
+  States
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 0 A_Jump(256, "Shard1", "Shard2", "Shard3", "Shard4")
+    TNT1 A 1
+    Stop
+
+  Shard1:
+    ICEC A 350
+    ICEC A 35 A_FadeOut(0.05)
+    Wait
+
+  Shard2:
+    ICEC B 350
+    ICEC B 35 A_FadeOut(0.05)
+    Wait
+
+  Shard3:
+    ICEC C 350
+    ICEC C 35 A_FadeOut(0.05)
+    Wait
+
+  Shard4:
+    ICEC D 350
+    ICEC D 35 A_FadeOut(0.05)
+    Wait
+
+  Death: 
+    TNT1 A 0 A_Jump(256, "Shard1", "Shard2", "Shard3", "Shard4")
+    TNT1 A 1
+    Stop
+  }
+}
