@@ -1,6 +1,27 @@
 {
+name = AxeSkin
+class = "Voice: Wimpy"
+sprite = PLAX
+CrouchSprite = PLAX
+}
+
+{
+name = AxeSkin
+class = "Voice: Thick"
+sprite = PLAX
+CrouchSprite = PLAX
+}
+
+{
 name = ShotgunSkin
 class = "Voice: Thick"
+sprite = PLA3
+CrouchSprite = PL3C
+}
+
+{
+name = ShotgunSkin
+class = "Voice: Wimpy"
 sprite = PLA3
 CrouchSprite = PL3C
 }
@@ -9,11 +30,26 @@ CrouchSprite = PL3C
 name = TwigSkin
 class = "Voice: Thick"
 sprite = PLTW
+CrouchSprite = PLTW
+}
+
+{
+name = TwigSkin
+class = "Voice: Wimpy"
+sprite = PLTW
+CrouchSprite = PLTW
 }
 
 {
 name = PistolSkin
 class = "Voice: Thick"
+sprite = PLA2
+CrouchSprite = PL2C
+}
+
+{
+name = PistolSkin
+class = "Voice: Wimpy"
 sprite = PLA2
 CrouchSprite = PL2C
 }
@@ -26,55 +62,6 @@ CrouchSprite = PL8C
 }
 
 {
-name = MurderSkin
-class = "Voice: Thick"
-sprite = PKNI
-CrouchSprite = PLYC //Default crouch sprite
-}
-
-{
-name = FistSkin
-class = "Voice: Thick"
-sprite = PLA1
-CrouchSprite = PLYC //Default crouch sprite
-}
-
-{
-name = WrenchSkin
-class = "Voice: Thick"
-sprite = PLA6
-CrouchSprite = PLYC //Default crouch sprite
-}
-
-{
-name = PipeSkin
-class = "Voice: Thick"
-sprite = PLA7
-CrouchSprite = PLYC //Default crouch sprite
-}
-
-{
-name = M1Skin
-class = "Voice: Thick"
-sprite = PSNP
-CrouchSprite = PSPC
-}
-
-{
-name = ShotgunSkin
-class = "Voice: Wimpy"
-sprite = PLA3
-CrouchSprite = PL3C
-}
-
-{
-name = PistolSkin
-class = "Voice: Wimpy"
-sprite = PLA2
-CrouchSprite = PL2C
-}
-
-{
 name = ChainsawSkin
 class = "Voice: Wimpy"
 sprite = PLA0
@@ -82,42 +69,125 @@ CrouchSprite = PL8C
 }
 
 {
-name = MurderSkin
+name = ShovelSkin
 class = "Voice: Wimpy"
-sprite = PKNI
-CrouchSprite = PLYC //Default crouch sprite
+sprite = PLSH
+CrouchSprite = PSHC //NEW SPRITES
 }
 
 {
-name = TwigSkin
+name = ShovelSkin
+class = "Voice: Thick"
+sprite = PLSH
+CrouchSprite = PSHC
+}
+
+//FIXED SPRITES ////////////
+//Note :reloading all the skins again from wdimain the only way to fix this shit without touch whodunit_fixed2.pk3
+//WRENCH,KNIFE,FIST,M1 
+{
+name = MurderSkin
+class = "Voice: Thick"
+sprite = PKNI
+CrouchSprite = PKNC //NEW SPRITES
+}
+
+{
+name = MurderSkin
 class = "Voice: Wimpy"
-sprite = PLTW
+sprite = PKNI
+CrouchSprite = PKNC
+}
+
+{
+name = FistSkin
+class = "Voice: Thick"
+sprite = PLA1
+CrouchSprite = PL1C //NEW SPRITES
 }
 
 {
 name = FistSkin
 class = "Voice: Wimpy"
 sprite = PLA1
-CrouchSprite = PLYC //Default crouch sprite
+CrouchSprite = PL1C
+}
+
+{
+name = M1Skin
+class = "Voice: Thick"
+sprite = PCBN
+CrouchSprite = PCBC //NEW SPRITES
+}
+
+{
+name = M1Skin
+class = "Voice: Wimpy"
+sprite = PCBN
+CrouchSprite = PCBC
+}
+
+{
+name = WrenchSkin
+class = "Voice: Thick"
+sprite = PLA6
+CrouchSprite = PWNC //NEW SPRITES
 }
 
 {
 name = WrenchSkin
 class = "Voice: Wimpy"
 sprite = PLA6
-CrouchSprite = PLYC //Default crouch sprite
+CrouchSprite = PWNC
+}
+
+{
+name = PipeSkin
+class = "Voice: Thick"
+sprite = PLA7
+CrouchSprite = PIPC
 }
 
 {
 name = PipeSkin
 class = "Voice: Wimpy"
 sprite = PLA7
-CrouchSprite = PLYC //Default crouch sprite
+CrouchSprite = PIPC 
+}
+
+//WDIEXSKINS/////////////////////////////////////
+{
+name = JenniferSkin
+sprite = JENN
+class = "voice: thick"
+CrouchSprite = JENN
+//scale = 0.3
+gender = male
 }
 
 {
-name = M1Skin
-class = "Voice: Wimpy"
-sprite = PSNP
-CrouchSprite = PSPC
+name = JenniferSkin
+sprite = JENN
+class = "voice: wimpy"
+//scale = 0.3
+CrouchSprite = JENN
+gender = male
+}
+
+{
+name = ScissormanSkin
+sprite = SCIS
+class = "voice: thick"
+CrouchSprite = JENN
+//scale = 0.3
+gender = male
+}
+
+{
+name = ScissormanSkin
+sprite = SCIS
+class = "voice: wimpy"
+//scale = 0.3
+CrouchSprite = JENN
+gender = male
 }
