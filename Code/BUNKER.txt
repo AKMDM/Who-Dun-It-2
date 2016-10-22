@@ -719,7 +719,7 @@ ACTOR glassgrey 10435
   }
 }
 
-ACTOR flaskshard1 10436
+Actor flaskshard1 10436
 {
 	//$Category WDI Props
 	//$Sprite TSR1A0
@@ -745,7 +745,7 @@ ACTOR flaskshard1 10436
     TSR1 ABC 4
     TSR1 D 4
     TSR1 ABC 4
-    TSR1 D 4 A_Jump (24, "DeatB")
+    TSR1 D 4 A_Jump (24, "DeathB")
     Loop
   DeathA:
     TSR1 C 5 A_Jump (80, "DeathA2")
@@ -763,8 +763,7 @@ ACTOR flaskshard1 10436
     TSR1 D 5 A_Jump (24, "DeathB2")
     NULL A 1
     Stop
-  }
-}
+}}
 
 ACTOR flaskshard2 10437
 {
