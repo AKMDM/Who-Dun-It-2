@@ -4,8 +4,9 @@ AddPlayerClass "Innocent2"
 
 
 weaponsection "Whodunit"
+setslot 2 magnum FistWithLighter FistWithFlashlight FireAxe FlashlightZ Soulcube BaseballBat SprayCanBLU SprayCanRED 20Dollars NO_WEAPON Scissors Murd_Vanish
 setslot 0 MurderKnife
-setslot 1 NewFist PoolCue PipeWrench LeadPipe Shovel LChainsaw Beretta Shotgun2 Crossbow M1Carbine Brick Molotov Twig Plank NailedPlank
+setslot 1 NewFist PoolCue PipeWrench LeadPipe Shovel LChainsaw Beretta WDIBeretta Shotgun2 Crossbow M1Carbine Brick Molotov Twig Plank NailedPlank
 
 addkeysection "Who Dun It?" whodunit
    
