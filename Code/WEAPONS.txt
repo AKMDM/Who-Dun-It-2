@@ -2652,6 +2652,7 @@ Actor MollyFire
   Renderstyle Add
   ActiveSound "molly/burn"
   DamageType "Burn"
+  +BLOODLESSIMPACT
   -NOGRAVITY
   +DONTSPLASH
   +SLIDESONWALLS
@@ -2685,8 +2686,7 @@ Actor MollyFire
   InWater:
     TNT1 A 1
     Stop
-  }
-}
+ }}
 
 Actor MollyShard
 {
