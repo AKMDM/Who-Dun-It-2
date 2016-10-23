@@ -485,12 +485,12 @@ Radius 24
 States
 {
 Spawn:
-TRIP A 1
-TRIP A 1 A_SpawnItemEx("TripodLightBulb", 0, 0, 0, 0, 0, 0, 0, 0, 0)
-TRIP A 0 A_SpawnItemEx("TripodLightBeam", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+TRIB A 1
+TRIB A 1 A_SpawnItemEx("TripodLightBulb", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+TRIB A 0 A_SpawnItemEx("TripodLightBeam", 0, 0, 0, 0, 0, 0, 0, 0, 0)
 Stay:
-TRIP A -1
-loop
+TRIB A -1
+Stop
 }}
 
 Actor TripodLightBulb {
@@ -500,7 +500,7 @@ States
 {
 Spawn:
 TRPA A -1 bright
-loop
+Stop
 }}
 
 Actor TripodLightBeam {
@@ -512,7 +512,7 @@ States
 {
 Spawn:
 TRPA B -1
-loop
+Stop
 }}
 
 Actor TripodLightStanding 22012 {
@@ -531,7 +531,7 @@ TRIP A 1 A_SpawnItemEx("TripodLightStandingBulb", 0, 0, 0, 0, 0, 0, 0, 0, 0)
 TRIP A 0 A_SpawnItemEx("TripodLightStandingBeam", 0, 0, 0, 0, 0, 0, 0, 0, 0)
 Stay:
 TRIP A -1
-loop
+Stop
 }}
 
 Actor TripodLightStandingBulb {
@@ -541,7 +541,7 @@ States
 {
 Spawn:
 TRPA A -1 bright
-loop
+Stop
 }}
 
 Actor TripodLightStandingBeam {
@@ -553,7 +553,7 @@ States
 {
 Spawn:
 TRPA B -1
-loop
+Stop
 }}
 
 Actor Screwdriver 22006 {
@@ -564,7 +564,7 @@ STates
 {
 Spawn:
 SCRW A -1
-loop
+stop
 }}
 
 Actor DeadBody 22016 {

@@ -1,0 +1,405 @@
+//============================================
+//ChainSaw -------------------------------------------
+//Sprites from Zero Tolerance Weapons Mod ------------ Special thanks to LoganMtM for letting us use it.
+//Actor ChainsawSpawn : LChainsaw {}
+
+
+
+Actor FakeChainsaw : CustomInventory Replaces Chainsaw 2005  
+{
+  //$Category WDI Weapons
+  //$Sprite CSAWA0
+  //$Title "Chainsaw"
+	Radius 16
+	Height 8
+	Inventory.PickupMessage "Found a chainsaw."
+	Inventory.RespawnTics 21000 //10 Minutes
+	//Scale 0.35
+	States
+	{
+	Spawn:
+		CSAW A -1
+		Stop
+	Pickup:
+		CSAW A 0
+		CSAW A 0 A_JumpIfInventory("LChainsaw",1,"AmmoPickup")		
+		CSAW A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		CSAW A 0 A_PlaySound("pickups/weapon")
+		CSAW A 0 A_GiveInventory("LChainsaw",1)
+		CSAW A 0 A_GiveInventory("Slot1Filled",1)
+		TNT1 A 0 //A_Print("Picked up a Shotgun.")
+		CSAW A 1 ACS_ExecuteAlways(670,0,12)
+		CSAW A 0 A_JumpIfInventory("ChainsawOnce",1,"ForgetIt")
+		CSAW A 0 A_GiveInventory("Gasoline",random(150,500))
+		CSAW A 0 A_GiveInventory("ChainsawOnce",1)
+		Stop
+	NotPickup:
+		CSAW A 0
+		CSAW A 1 ACS_ExecuteAlways(670,0,12)
+		Fail
+	AmmoPickup:
+		CSAW A 0
+		CSAW A 0 A_JumpIfInventory("Gasoline",500,"ForgetIt")
+		CSAW A 0 A_PlaySound("pickups/ammo")
+		TNT1 A 0 //A_Print("Picked up some Shotgun ammo.")
+		CSAW A 1 A_GiveInventory("Gasoline",random(150,500))
+		Stop
+	ForgetIt:
+		CSAW A 1
+		Stop
+	}
+}
+
+
+Actor TKFakeChainsaw : FakeChainsaw
+{
+states
+	{
+	Pickup:
+		CSAW A 0
+		CSAW A 0 A_JumpIfInventory("TKToken",1,"NotPickup")	
+		CSAW A 0 A_JumpIfInventory("LChainsaw",1,"AmmoPickup")		
+		CSAW A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		CSAW A 0 A_PlaySound("pickups/weapon")
+		CSAW A 0 A_GiveInventory("LChainsaw",1)
+		CSAW A 0 A_GiveInventory("Slot1Filled",1)
+		TNT1 A 0 //A_Print("Picked up a Shotgun.")
+		CSAW A 1 ACS_ExecuteAlways(670,0,12)
+		CSAW A 0 A_JumpIfInventory("ChainsawOnce",1,"ForgetIt")
+		CSAW A 0 A_GiveInventory("Gasoline",random(150,500))
+		CSAW A 0 A_GiveInventory("ChainsawOnce",1)
+		Stop
+	NotPickup:
+		CSAW A 0
+		CSAW A 1 ACS_ExecuteAlways(670,0,12)
+		Fail
+	}
+}
+
+
+Actor LChainsaw : Weapon
+{
+Obituary ""
+Radius 20
+Height 16
+Inventory.pickupmessage "Found a Chainsaw."
+AttackSound "weapons/sawhit"
+Weapon.selectionorder 998
+Weapon.preferredSkin "ChainsawSkin"
+Weapon.AmmoType1 "Gasoline"
+Weapon.AmmoUse1 1
+//Weapon.AmmoType2 "Gasoline"
+//Weapon.AmmoGive1 1000
+//Weapon.AmmoUse2 1
++WEAPON.MELEEWEAPON
++WEAPON.NOAUTOFIRE
++INVENTORY.UNDROPPABLE
++NOAUTOAIM
+
+States
+ {
+ Drop:
+ CSAW A 0 A_StopSoundEx("SoundSlot6")
+ Stop
+
+ Spawn:
+ CSAW A 0
+ goto Death
+
+WeaponDrop:
+	TNT1 A 0
+		SAWR A 1
+	TNT1 A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+       Goto SawReady
+
+ NoAmmoReady:
+ 	TNT1 A 0 A_JumpIfInventory("SawOn", 1, "TurnOff")
+	TNT1 A 0 ACS_ExecuteAlways(654, 0, 0, 0, 0)
+	TNT1 A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
+ 	SAWF A 0 A_StopSoundEx("SoundSlot6")
+	SAWF A 0 A_StopSoundEx("SoundSlot7")
+	SAWF A 1 A_WeaponReady
+	SAWF A 0 //A_JumpIfInventory("Gasoline", 1, "Ready")
+	Goto OffReady
+
+ OffReady:
+	TNT1 A 0 A_JumpIfInventory("IsDropping", 1,"WeaponDrop")
+ 	SAWF A 0 A_StopSoundEx("SoundSlot6")
+	SAWF A 0 A_StopSoundEx("SoundSlot7")
+	SAWF A 1 A_WeaponReady
+	SAWF A 0 A_JumpIfInventory("SawOn", 1, "Ready")
+	loop
+
+ Ready:
+ TNT1 A 0 A_JumpIfInventory("Gasoline", 1, "Pull")
+ TNT1 A 0
+ Goto OffReady
+
+ PullStart:
+ CHSW A 2
+ CHSW B 1
+ 
+ Pull:
+ CHSW C 0 A_JumpIfInventory("Pulled",4,"Success")
+ CHSW C 0 A_Jump(90,"Success")
+ CHSW C 0 A_GiveInventory("Pulled",1)
+ CHSW C 9
+ CHSW D 0 A_PlaySound("CHANPULL",CHAN_WEAPON)
+ CHSW DEF 1
+ CHSW G 3
+ CHSW FED 2
+ CHSW C 8
+ Loop
+
+ Success:
+ //CHSW C 0 //A_JumpIfInventory("Pulled",1,1)
+ //Goto Pull+1
+ CHSW C 0 A_JumpIfNoAmmo("Failure")
+ CHSW C 9
+ CHSW D 0 A_GiveInventory("SawOn",1)
+ CHSW D 0 A_TakeInventory("Pulled",4)
+ CHSW D 0 A_PlaySound("CHANPUL4",CHAN_WEAPON)
+ CHSW DEF 1
+ CHSW G 3
+ CHSW FED 2
+ CHSW CBA 1
+ CHSW A 0
+ Goto SawReady
+
+ Failure:
+ CHSW C 9
+ CHSW D 0 A_PlaySound("CHANPULL",CHAN_WEAPON)
+ CHSW DEF 1
+ CHSW G 3
+ CHSW FED 2
+ CHSW CBA 1
+ CHSW A 0
+ Goto NoAmmoReady
+
+ SawReady:
+ TNT1 A 0 A_JumpIfNoAmmo("TurnOff")
+ TNT1 A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
+ TNT1 A 0 A_PlaySoundEx("CHANIDLE","SoundSlot6",0)
+ SAWR ABCDEF 1 A_WeaponReady
+ TNT1 A 0 A_TakeInventory("Gasoline", 1)
+ TNT1 A 0 A_JumpIfNoAmmo("TurnOff")
+ TNT1 A 0 //A_PlaySoundEx("weapons/sawidle","SoundSlot6",0)
+ SAWR ABCDEF 1 A_WeaponReady
+ TNT1 A 0 //A_TakeInventory("Gasoline", 1)
+ TNT1 A 0 A_JumpIfNoAmmo("TurnOff")
+ TNT1 A 0 A_FireCustomMissile("LSawSmoke",250,0,20,-5,0)
+ TNT1 A 0 A_PlaySoundEx("CHANIDLE","SoundSlot6",0)
+ SAWR ABCDEF 1 A_WeaponReady
+ TNT1 A 0 A_TakeInventory("Gasoline", 1)
+ TNT1 A 0 A_JumpIfNoAmmo("TurnOff")
+ TNT1 A 0 A_FireCustomMissile("LSawSmoke",250,0,20,-5,0)
+ TNT1 A 0 //A_PlaySoundEx("weapons/sawidle","SoundSlot6",0)
+ SAWR ABCDEF 1 A_WeaponReady
+ TNT1 A 0 A_FireCustomMissile("LSawSmoke",250,0,20,-5,0)
+ Loop
+
+ Select:
+ TNT1 A 0 A_JumpIfInventory("SawOn", 1, "OnSelect")
+ SAWF A 0 A_Raise
+ SAWF A 1 A_Raise
+ Wait
+
+ OnSelect:
+ TNT1 A 0
+ TNT1 A 1 A_Raise
+ Wait
+
+ Deselect:
+ TNT1 A 0 A_TakeInventory("Pulled",4)
+ TNT1 A 0 A_StopSoundEx("SoundSlot6")
+ TNT1 A 0 A_StopSoundEx("SoundSlot7")
+ SAWR A 0 A_JumpIfInventory("SawOn", 1, "OnLower")
+ SAWR A 0
+ SAWD A 0 A_PlaySound("CHANOFF",CHAN_WEAPON)
+ SAWD ABCDE 1
+ TNT1 A 15
+ TNT1 A 0 A_Lower
+ TNT1 A 1 A_Lower
+ Wait
+
+ OnLower:
+ SAWR A 1 A_PlaySoundEx("CHANOFF","weapon",0)
+ SAWR BC 3 //A_TakeInventory("SawOff",1)
+ SAWR DE 4 //A_TakeInventory("SawOn",1)
+ SAWR F 6
+ SAWD ABCDE 1
+ TNT1 A 20
+ TNT1 A 1 A_Lower
+ Wait
+
+ Fire:
+ TNT1 A 0 A_JumpIfInventory("SawOn",1,1)
+ Goto OffReady
+ TNT1 A 0 A_JumpIfNoAmmo ("NoAmmoReady")
+ //TNT1 A 0 A_JumpIfInventory ("SawOff", 1, "AltFire")
+ SAWF ABC 1
+ SAWF A 0 A_PlaySoundEx("CHANSTRT","SoundSlot6",1)
+ SAWF DEFG 1
+ TNT1 A 0 A_ReFire
+ SAWF G 0 A_StopSoundEx("SoundSlot6")
+ SAWF G 0 A_PlaySoundEx("CHANSTOP","SoundSlot6")
+ SAWF GFEDCBA 1
+ Goto SawReady
+
+ Hold:
+ SAWF F 0 A_StopSoundEx("SoundSlot6")
+ SAWF F 0 A_JumpIfNoAmmo ("NoAmmoReady")
+ SAWF F 2 A_PlaySoundEx("weapons/sawfull","SoundSlot7",0)
+ SAWF G 2
+ TNT1 A 0 A_CustomPunch(0,0,0,"FMSawPuff", 52)
+ TNT1 AAA 0 A_CustomPunch(4,1,0,"FMSawPuff", 52)
+ SAWA D 0 A_TakeInventory("Gasoline", 3)
+ SAWF G 0 A_FireCustomMissile("LSawSmoke",250,0,20,-5,0)
+ SAWF F 2 A_Refire
+ TNT1 A 0 A_StopSoundEx("SoundSlot7")
+ SAWF E 0 A_PlaySoundEx("CHANSTOP","SoundSlot7",0)
+ SAWF EDCB 1
+ TNT1 A 0 A_FireCustomMissile("LSawSmoke",250,0,20,-5,0)
+ Goto SawReady
+
+ AltFire:
+ SAWF A 0 A_JumpIfInventory("SawOn", 1, "TurnOff")
+ SAWD A 0 A_TakeInventory("Pulled",4)
+ goto PullStart
+
+ TurnOff:
+ SAWD A 0 A_TakeInventory("SawOn",1)
+ SAWF F 0 A_StopSoundEx("SoundSlot6")
+ SAWF F 0 A_PlaySoundEx("CHANOFF","weapon",0)
+ CHSW A 3
+ CHSW A 5 A_WeaponReady(WRF_NOFIRE)
+ goto OffReady
+
+Death:
+	   DHSP A 0 A_SpawnItem("DroppedChainsaw",0,0,0,0)
+	   TNT1 A 0 A_FadeOut(1.0)
+	   goto death + 1
+ }
+}
+
+Actor DroppedChainsaw
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+	DeathSound "weapons/gundrop"
+	States
+	{
+	Spawn:
+		CSAW A 1
+		Loop
+	Death:
+		CSAW A 35
+		CSAW A 1 A_SpawnItemEx("FakeChainsaw",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+//Actor GasolineSpawn : Gasoline {}
+
+Actor Gasoline : Ammo
+{
+  Game Doom
+  SpawnID 12
+  Inventory.PickupMessage "Found a can of gasoline." 
+  Inventory.Amount 500
+  Inventory.MaxAmount 500
+  Inventory.RespawnTics 21000 //10 minutes
+  Ammo.BackpackAmount 0
+  Ammo.BackpackMaxAmount 500
+  Inventory.Icon "SHELA0"
+  +INVENTORY.UNDROPPABLE
+  States
+  {
+  Spawn:
+    SHEL A -1
+    Stop
+  }
+}
+
+
+Actor ChainsawOnce : Inventory
+{
+	Inventory.MaxAmount 1
+	-INVBAR
+}
+
+Actor Pulled : Inventory
+{
+Inventory.MaxAmount 4
+}
+
+
+Actor SawOn : Inventory
+{
+Inventory.Amount 1
+Inventory.MaxAmount 1
+}
+
+Actor SawOff : Inventory
+{
+Inventory.Amount 1
+Inventory.MaxAmount 1
+}
+
+Actor SawCombo : Inventory
+{
+Inventory.Amount 1
+Inventory.MaxAmount 1
+}
+
+Actor LSawSmoke
+{
+Radius 1
+Height 1
+Speed 1
+Damage 0
+RenderStyle Add
+Alpha 0.8
+Scale 0.35
+PROJECTILE
++NOGRAVITY
+
+States
+ {
+ Spawn:
+ SMOK QPONM 1
+ SMOK LKJIH 2 A_SetTranslucent(0.2,1)
+ SMOK GFEDEDCBA 3 A_FadeOut
+ Goto Death
+ 
+ Death:
+ TNT1 A 1 
+ Stop
+ }
+}
+
+Actor SawAlt
+{
+Radius 2
+Height 2
+Speed 10
+Damage 30
+PROJECTILE
+DamageType SuperSaw
+  
+States
+ {
+ Spawn:
+ TNT1 A 1 
+ Goto Death
+
+ Death:
+ TNT1 A 1
+ Stop
+ }
+}

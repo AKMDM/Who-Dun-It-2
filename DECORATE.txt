@@ -1,7 +1,6 @@
 #Include "code/Players.txt"
-#include "code/SKULLTAG.txt" // SkullTag compat items for Zandronum
 #Include "code/Lights.txt"
-#Include "code/Weapons.txt"
+#Include "code/Weapons.txt"	
 #Include "code/Items.txt"
 #Include "code/Effects.txt"
 #Include "code/Hacks.txt"
@@ -14,7 +13,34 @@
 #Include "code/SURRND.txt"   //XSnake's map
 #Include "code/HSP.txt"      //Capt. J3's map
 #include "code/NIGHTOUT.txt" //Sicamore's map
-#include "code/ISLAND.txt"   //Lightman's weapons that'll be used in "CastAway"
 #include "code/BUNKER.txt"   //Bunker Down related props
 #include "code/SEWERS.txt"   //TheMisterCat sewers map stuff
 #include "code/STAR.txt"   //Cradle Under The Star Decor
+
+
+//=====================================
+//            FOLDERS
+//=====================================
+
+//WEAPONS
+
+#Include "code/Weapons/BATWEP.txt"
+#Include "code/Weapons/BERETTA.txt"
+#Include "code/Weapons/BRICK.txt"
+#Include "code/Weapons/CARBINE.txt"
+#Include "code/Weapons/CHAINSAW.txt"
+#Include "code/Weapons/CROSSBOW.txt"
+#Include "code/Weapons/FLASHLIG.txt"
+#Include "code/Weapons/HATCHET.txt"
+#Include "code/Weapons/KNIFE.txt"
+#Include "code/Weapons/LPIPE.txt"
+#Include "code/Weapons/MOLOTOV.txt"
+#Include "code/Weapons/NEWFIST.txt"
+#Include "code/Weapons/PLANKS.txt"
+#Include "code/Weapons/POOLCUE.txt"
+#Include "code/Weapons/SHOTGUN.txt"
+#Include "code/Weapons/SHOVEL.txt"
+#Include "code/Weapons/SOULC.txt"
+#Include "code/Weapons/TWIG.txt"
+#Include "code/Weapons/WDIBERET.txt"
+#Include "code/Weapons/WRENCH.txt"
