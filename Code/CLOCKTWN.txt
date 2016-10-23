@@ -182,11 +182,9 @@ Actor Chandelier2On 14072
   States
   {
   Spawn:
-    CHAN EFG 2 A_PlaySound("DSCHAFIR")
+    CHAN EFG 2 //A_PlaySound("DSCHAFIR")
     Loop
-  }
-}
-
+ }}
 
 Actor WDIBarrel 13967
 {

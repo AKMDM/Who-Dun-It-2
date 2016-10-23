@@ -1161,7 +1161,7 @@ TNT1 D 0 A_SpawnItemEx("FlareUsed", 0, 0, 37, 12, 0, 4, 0, 0, 0)
 stop
 }}
 
-Actor FlareUsed
+Actor  FlareUsed
 {
 xscale 0.3
 yscale 0.5
@@ -1174,8 +1174,8 @@ ReactionTime 900
 +MOVEWITHSECTOR
 -SOLID
 +NODAMAGETHRUST
++BLOODLESSIMPACT
 DamageType "FlareEffect"
-
 states
 {
 Spawn:
@@ -1270,7 +1270,6 @@ FLAR D 0 A_StopSound(CHAN_BODY)
 FLAR D 1 A_Fadeout(0.01)
 Wait
 }}
-
 
 //=================================================
 

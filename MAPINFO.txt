@@ -75,6 +75,15 @@ map WDI03 "Clock Town"
 	evenlighting 
 }
 
+map WDI04 "Confinement"
+{
+	levelnum = 4
+	next = WDI05
+	sky1 = "STSKY8B", 0.0
+	music = D_HLMS01
+	evenlighting 
+}
+
 map WDI05 "Men's Night Out"
 {
 	levelnum = 5
