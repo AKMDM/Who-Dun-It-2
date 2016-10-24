@@ -1,36 +1,36 @@
 //===========================================
 //Lol friendly fire hacks.
 //For guns.
-actor FFBulletPuff : BulletPuff
+Actor FFBulletPuff : BulletPuff
 {
 DamageType "friendlygun"
 Decal "BulletChip"
 }
 
 //For melee attacks. 
-actor FMBulletPuff : BulletPuff
+Actor FMBulletPuff : BulletPuff
 {
 DamageType "friendlymelee"
 }
 
 //This fixes the fist damage
-actor FMBulletPuff2 : BulletPuff
+Actor FMBulletPuff2 : BulletPuff
 {
 }
 
-actor FMSawPuff : BulletPuff
+Actor FMSawPuff : BulletPuff
 {
 DamageType "SawMelee"
 }
 
 
 //Weapon slot hacks (Wildweasel)
-ACTOR IsDropping : Inventory
+Actor IsDropping : Inventory
 {
 	Inventory.MaxAmount 1
 }
 
-ACTOR Action_DropWeapon : CustomInventory
+Actor Action_DropWeapon : CustomInventory
 {
    Inventory.Amount 1
    Inventory.MaxAmount 1
@@ -44,7 +44,7 @@ ACTOR Action_DropWeapon : CustomInventory
    }
 }
 
-ACTOR Action_DropWeaponCancel : CustomInventory
+Actor Action_DropWeaponCancel : CustomInventory
 {
    Inventory.Amount 1
    Inventory.MaxAmount 1
@@ -58,19 +58,19 @@ ACTOR Action_DropWeaponCancel : CustomInventory
    }
 }
 
-ACTOR Slot1Filled : Inventory //Melee
+Actor Slot1Filled : Inventory //Melee
 {
 	Inventory.MaxAmount 1
 }
 
-ACTOR Slot2Filled : Inventory //Ranged
+Actor Slot2Filled : Inventory //Ranged
 {
 	Inventory.MaxAmount 1
 }
 
 //============================================
 // Weapon/Ammo spawners
-actor GunSpawner : RandomSpawner 32050
+Actor GunSpawner : RandomSpawner 32050
 {
   //$Category WDI Weapons
   //$Sprite TNT1A0
@@ -80,7 +80,7 @@ actor GunSpawner : RandomSpawner 32050
 	DropItem "ABigNothing"
 }
 
-actor MeleeSpawner : RandomSpawner 32051
+Actor MeleeSpawner : RandomSpawner 32051
 {
   //$Category WDI Weapons
   //$Sprite TNT1A0
@@ -91,7 +91,7 @@ actor MeleeSpawner : RandomSpawner 32051
 	DropItem "ABigNothing" 
 }
 
-actor AmmoSpawner : RandomSpawner 32060
+Actor AmmoSpawner : RandomSpawner 32060
 {
   //$Category WDI Ammo
   //$Sprite TNT1A0
@@ -104,7 +104,7 @@ actor AmmoSpawner : RandomSpawner 32060
 	//DropItem "ABigNothing" 255 1
 }
 
-actor PlankSpawner : RandomSpawner 6867
+Actor PlankSpawner : RandomSpawner 6867
 {
   //$Category WDI Weapons
   //$Sprite PLANK0
@@ -115,11 +115,75 @@ actor PlankSpawner : RandomSpawner 6867
 	DropItem "ABigNothing" 
 }
 
-actor TwigSpawner : RandomSpawner 6866
+Actor TwigSpawner : RandomSpawner 6866
 {
   //$Category WDI Weapons
   //$Sprite TWIGZ0
   //$Title "Twig Spawner"
 	DropItem "FakeTwig" 
 	DropItem "ABigNothing" 
+}
+
+///////WDIEX////////////////////////
+//MARSIS
+Actor GunSpawnerX : RandomSpawner 32555
+{
+	//$Category Marsis_map_ONLY
+    DropItem "FakeBeretta" 
+	DropItem "FakeShotgun" 
+}
+
+// Always spawn
+Actor GunSpawnerX2 : RandomSpawner 28351
+{
+	//$Category Marsis_map_ONLY
+    DropItem "FakeBeretta" 
+	DropItem "FakeShotgun"
+	DropItem "FakeCrossbow"
+	DropItem "FakeM1"
+	DropItem "ABigNothing"
+}
+
+//TORN
+
+// Always spawn
+Actor GunSpawnerBSM : RandomSpawner 22780
+{
+	//$Category Retorn_map_ONLY
+    DropItem "FakeBeretta" 
+	DropItem "FakeShotgun"
+	DropItem "FakeM1" 
+}
+
+Actor AmmoSpawnerBSM : RandomSpawner 22781
+{
+  //$Category WDI Ammo
+  //$Sprite TNT1A0
+  //$Title "Ammo Spawner"
+    DropItem "NewShell"
+    DropItem "NewShell"
+    DropItem "NewShell"
+    DropItem "PistolClip"
+	DropItem "PistolClip"
+    DropItem "M1Ammo"
+	DropItem "M1Ammo"
+	//DropItem "ABigNothing" 255 1
+}
+
+Actor GunSpawnerBSM2 : RandomSpawner 22782
+{
+	//$Category Retorn_map_ONLY
+    DropItem "FakeBeretta" 
+	DropItem "FakeShotgun"
+	DropItem "FakeM1" 
+	DropItem "ABigNothing"
+}
+
+Actor SPRAYSPAWNA : RandomSpawner 22141
+{
+	//$Category Retorn_map_ONLY
+    DropItem "FakeSprayCanRED" 
+	DropItem "FakeSprayCanBLU"
+	DropItem "FakeSprayCanYRED"
+	DropItem "FakeSprayCanYBLU"
 }
