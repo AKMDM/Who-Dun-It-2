@@ -143,3 +143,3058 @@ sprite NPIPA0, 1, 1 { patch NULL, 0, 0 }
 sprite NPIPB0, 1, 1 { patch NULL, 0, 0 }
 sprite NPIPC0, 1, 1 { patch NULL, 0, 0 }
 sprite PAGEA0, 1, 1 { patch NULL, 0, 0 }
+
+
+
+
+//==================================================================
+///////////////////      GRAPHICS         ///////////////////////////
+//=================================================================
+
+//THIS IS A SUGGEST ALL THE GRAPHICS HERE
+
+
+
+
+//==================================================================
+///////////////////      TEXTURES         ///////////////////////////
+//=================================================================
+
+//THIS IS A SUGGEST ALL THE TEXTURES HERE
+
+
+
+
+
+
+
+
+//==================================================================
+///////////////////      SPRITES         ///////////////////////////
+//=================================================================
+
+///////////// WEAPONS//////////////////////////////
+
+Sprite "CBOWA0", 460, 211
+{
+	Offset 60, 0
+	Patch "CBOWA0", 38, 34
+}
+
+Sprite "CBOWB0", 460, 211
+{
+	Offset 60, 0
+	Patch "CBOWB0", 38, 34
+}
+
+Sprite "CBOWC0", 460, 211
+{
+	Offset 60, 0
+	Patch "CBOWC0", 58, 56
+}
+
+Sprite "CBOWD0", 460, 211
+{
+	Offset 60, 0
+	Patch "CBOWD0", 77, 74
+}
+
+Sprite "CBOWE0", 460, 211
+{
+	Offset 60, 0
+	Patch "CBOWE0", 93, 99
+}
+
+Sprite "CBOWF0", 460, 211
+{
+	Offset 60, 0
+	Patch "CBOWF0", 102, 142
+}
+
+Sprite "CBOWG0", 460, 211
+{
+	Offset 60, 0
+	Patch "CBOWG0", 107, 108
+}
+
+Sprite "CBOWH0", 460, 211
+{
+	Offset 60, 0
+	Patch "CBOWH0", 94, 84
+}
+
+Sprite "CBOWI0", 460, 211
+{
+	Offset 60, 0
+	Patch "CBOWI0", 84, 66
+}
+
+Sprite "CBOWJ0", 460, 211
+{
+	Offset 60, 0
+	Patch "CBOWJ0", 74, 56
+}
+
+Sprite "CBOWK0", 460, 211
+{
+	Offset 60, 0
+	Patch "CBOWK0", 54, 45
+}
+
+Sprite "CHSWA0", 400, 200
+{
+	Offset 40, 0
+	Patch "CHASB0", 188, 170
+	{
+		Style Translucent
+	}
+	Patch "CHASA0", 201, 114
+	{
+		Style Translucent
+	}
+}
+
+Sprite "CHSWB0", 400, 200
+{
+	Offset 40, 0
+	Patch "CHASB0", 188, 170
+	{
+		Style Translucent
+	}
+	Patch "CHASA0", 201, 114
+	{
+		Style Translucent
+	}
+	Patch "CHASC0", 65, 159
+	{
+		Style Translucent
+	}
+}
+
+Sprite "CHSWC0", 400, 200
+{
+	Offset 40, 0
+	Patch "CHASB0", 188, 170
+	{
+		Style Translucent
+	}
+	Patch "CHASA0", 201, 114
+	{
+		Style Translucent
+	}
+	Patch "CHASC0", 84, 141
+	{
+		Style Translucent
+	}
+}
+
+Sprite "CHSWD0", 400, 200
+{
+	Offset 40, 0
+	Patch "CHASB0", 183, 165
+	{
+		Style Translucent
+	}
+	Patch "CHASA0", 201, 114
+	{
+		Style Translucent
+	}
+	Patch "CHASC0", 79, 136
+	{
+		Style Translucent
+	}
+}
+
+Sprite "CHSWE0", 400, 200
+{
+	Offset 40, 0
+	Patch "CHASB0", 176, 157
+	{
+		Style Translucent
+	}
+	Patch "CHASA0", 201, 114
+	{
+		Style Translucent
+	}
+	Patch "CHASC0", 72, 128
+	{
+		Style Translucent
+	}
+}
+
+Sprite "CHSWF0", 400, 200
+{
+	Offset 40, 0
+	Patch "CHASB0", 153, 135
+	{
+		Style Translucent
+	}
+	Patch "CHASA0", 203, 116
+	{
+		Style Translucent
+	}
+	Patch "CHASC0", 49, 106
+	{
+		Style Translucent
+	}
+}
+
+Sprite "CHSWG0", 400, 200
+{
+	Offset 40, 0
+	Patch "CHASB0", 145, 127
+	{
+		Style Translucent
+	}
+	Patch "CHASA0", 208, 120
+	{
+		Style Translucent
+	}
+	Patch "CHASC0", 41, 98
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHTA0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTA0", 198, 95
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHTB0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTA0", 200, 97
+	{
+		Style Translucent
+	}
+	Patch "GSHTB0", 193, 73
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHTC0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTA0", 202, 99
+	{
+		Style Translucent
+	}
+	Patch "GSHTC0", 200, 76
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHTD0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTA0", 202, 92
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHTE0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTH0", 190, 82
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHTF0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTH0", 199, 75
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHTG0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTH0", 206, 65
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHTH0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTG0", 201, 51
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHTI0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTG0", 203, 43
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHTJ0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTD0", 258, 16
+	{
+		Style Translucent
+	}
+	Patch "GSHTE0", 205, 57
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHTK0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTD0", 260, 19
+	{
+		Style Translucent
+	}
+	Patch "GSHTE0", 208, 69
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHTL0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTD0", 262, 25
+	{
+		Style Translucent
+	}
+	Patch "GSHTE0", 212, 87
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHTM0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTD0", 264, 30
+	{
+		Style Translucent
+	}
+	Patch "GSHTE0", 216, 103
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRA0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTA0", 198, 95
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRB0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTA0", 193, 89
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRC0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTF0", 160, 69
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRD0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTF0", 151, 58
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRE0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTF0", 145, 50
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRF0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTF0", 134, 44
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRG0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTF0", 124, 41
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRH0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTF0", 112, 41
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRI0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTL0", -10, 40
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRJ0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTL0", -18, 29
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRK0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTJ0", -3, 103
+	{
+		Style Translucent
+	}
+	Patch "GSHTI0", 96, 0
+	{
+		Style Translucent
+	}
+	Patch "GSHTK0", 150, 42
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRL0", 400, 200
+{
+	Offset 40, 0
+	Patch "CHASC0", 255, 165
+	{
+		FlipX
+		Style Translucent
+	}
+	Patch "GSHTJ0", -3, 103
+	{
+		Style Translucent
+	}
+	Patch "GSHTI0", 96, 0
+	{
+		Style Translucent
+	}
+	Patch "GSHTK0", 150, 42
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRM0", 400, 200
+{
+	Offset 40, 0
+	Patch "CHASC0", 225, 159
+	{
+		FlipX
+		Style Translucent
+	}
+	Patch "GSHTJ0", -3, 103
+	{
+		Style Translucent
+	}
+	Patch "GSHTI0", 96, 0
+	{
+		Style Translucent
+	}
+	Patch "GSHTK0", 150, 34
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRN0", 400, 200
+{
+	Offset 40, 0
+	Patch "CHASC0", 193, 147
+	{
+		FlipX
+		Style Translucent
+	}
+	Patch "GSHTJ0", -3, 103
+	{
+		Style Translucent
+	}
+	Patch "GSHTI0", 96, 0
+	{
+		Style Translucent
+	}
+	Patch "GSHTK0", 150, 42
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRO0", 400, 200
+{
+	Offset 40, 0
+	Patch "CHASC0", 151, 146
+	{
+		FlipX
+		Style Translucent
+	}
+	Patch "GSHTJ0", -3, 103
+	{
+		Style Translucent
+	}
+	Patch "GSHTI0", 96, 0
+	{
+		Style Translucent
+	}
+	Patch "GSHTK0", 150, 42
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRP0", 400, 200
+{
+	Offset 40, 0
+	Patch "CHASC0", 120, 140
+	{
+		FlipX
+		Style Translucent
+	}
+	Patch "GSHTJ0", -7, 103
+	{
+		Style Translucent
+	}
+	Patch "GSHTI0", 92, 0
+	{
+		Style Translucent
+	}
+	Patch "GSHTK0", 146, 42
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRQ0", 400, 200
+{
+	Offset 40, 0
+	Patch "CHASC0", 116, 140
+	{
+		FlipX
+		Style Translucent
+	}
+	Patch "GSHTJ0", -10, 103
+	{
+		Style Translucent
+	}
+	Patch "GSHTI0", 89, 0
+	{
+		Style Translucent
+	}
+	Patch "GSHTK0", 143, 42
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRR0", 400, 200
+{
+	Offset 40, 0
+	Patch "CHASC0", 117, 159
+	{
+		FlipX
+		Style Translucent
+	}
+	Patch "GSHTJ0", -6, 103
+	{
+		Style Translucent
+	}
+	Patch "GSHTI0", 93, 0
+	{
+		Style Translucent
+	}
+	Patch "GSHTK0", 147, 42
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRS0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTJ0", -4, 113
+	{
+		Style Translucent
+	}
+	Patch "GSHTI0", 95, 2
+	{
+		Style Translucent
+	}
+	Patch "GSHTK0", 148, 52
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRT0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTJ0", -8, 121
+	{
+		Style Translucent
+	}
+	Patch "GSHTI0", 93, 0
+	{
+		Style Translucent
+	}
+	Patch "GSHTK0", 144, 60
+	{
+		Style Translucent
+	}
+}
+
+Sprite "NSHRU0", 400, 200
+{
+	Offset 40, 0
+	Patch "GSHTJ0", -13, 142
+	{
+		Style Translucent
+	}
+	Patch "GSHTI0", 90, 7
+	{
+		Style Translucent
+	}
+	Patch "GSHTK0", 140, 81
+	{
+		Style Translucent
+	}
+	Patch "GSHTM0", 114, 130
+	{
+		Style Translucent
+	}
+}
+
+Sprite "FLSGA0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIA0", 237, 127
+	{
+		Style Translucent
+	}
+}
+
+Sprite "FLSGB0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIA0", 238, 128
+	{
+		Style Translucent
+	}
+}
+
+Sprite "FLSGC0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIA0", 243, 133
+	{
+		Style Translucent
+	}
+}
+
+Sprite "FLSGD0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIA0", 256, 146
+	{
+		Style Translucent
+	}
+}
+
+Sprite "FLSGE0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIA0", 268, 162
+	{
+		Style Translucent
+	}
+}
+
+Sprite "FLSGF0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIB0", 445, 30
+}
+
+Sprite "FLSGG0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIB0", 413, 33
+}
+
+Sprite "FLSGH0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIB0", 378, 38
+}
+
+Sprite "FLSGI0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIB0", 341, 44
+}
+
+Sprite "FLSGJ0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIB0", 311, 50
+}
+
+Sprite "FLSGK0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIB0", 281, 54
+}
+
+Sprite "FLSGL0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIB0", 242, 59
+}
+
+Sprite "FLSGM0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIC0", 222, 65
+}
+
+Sprite "FLSGN0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIC0", 194, 73
+}
+
+Sprite "FLSGO0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLID0", 155, 91
+}
+
+Sprite "FLSGP0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLID0", 125, 103
+}
+
+Sprite "FLSGQ0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIE0", 101, 123
+}
+
+Sprite "FLSGR0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIE0", 74, 135
+}
+
+Sprite "FLSGS0", 400, 200
+{
+	Offset 40, 0
+	Patch "FLLIE0", 56, 155
+}
+
+Sprite "FLSGY0", 51, 9
+{
+	Offset 9, 9
+	Patch "FLLIF0", 0, 0
+	{
+		Style Translucent
+	}
+}
+
+Sprite "FLSGZ0", 51, 9
+{
+	Offset 9, 9
+	Patch "FLLIG0", 0, 0
+	{
+		Style Translucent
+	}
+}
+
+Sprite "FLSFA0", 400, 200
+{
+	Offset 40, 0
+	Patch "FISTA0", 41, -30
+}
+
+Sprite "FLSFB0", 400, 200
+{
+	Offset 40, -10
+	Patch "FISTA0", 41, -30
+}
+
+Sprite "FLSFC0", 400, 200
+{
+	Offset 40, -20
+	Patch "FISTA0", 41, -30
+}
+
+Sprite "FLSFD0", 400, 200
+{
+	Offset 40, -30
+	Patch "FISTA0", 41, -30
+}
+
+Sprite "MLTVA0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVB0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	Patch "MOLVB0", 31, 159
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVC0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	Patch "MOLVB0", 48, 126
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVD0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	Patch "MOLVB0", 64, 100
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVE0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	Patch "MOLVB0", 80, 72
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVF0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	Patch "MOLVC0", 80, 67
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVG0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	Patch "MOLVD0", 80, 67
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVZ0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	Patch "MOLVD0", 80, 67
+	{
+		Style Translucent
+	}
+	Patch "MOLVH0", 165, 63
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVH0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	Patch "MOLVE0", 80, 67
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVI0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	Patch "MOLVE0", 80, 67
+	{
+		Style Translucent
+	}
+	Patch "MOLVF0", 165, 61
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVJ0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	Patch "MOLVE0", 80, 67
+	{
+		Style Translucent
+	}
+	Patch "MOLVG0", 165, 65
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVK0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	Patch "MOLVE0", 80, 67
+	{
+		Style Translucent
+	}
+	Patch "MOLVH0", 165, 63
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVL0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	Patch "MOLVE0", 99, 71
+	{
+		Style Translucent
+	}
+	Patch "MOLVF0", 184, 65
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVM0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	Patch "MOLVE0", 123, 82
+	{
+		Style Translucent
+	}
+	Patch "MOLVF0", 208, 76
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVN0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 206, 37
+	Patch "MOLVE0", 123, 82
+	{
+		Style Translucent
+	}
+	Patch "MOLVG0", 208, 80
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVO0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 238, 68
+	Patch "MOLVB0", 95, 89
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVP0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 289, 119
+	Patch "MOLVB0", 60, 97
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVQ0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 313, 145
+	Patch "MOLVB0", 31, 127
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MLTVR0", 400, 200
+{
+	Offset 40, 0
+	Patch "MOLVA0", 334, 159
+	Patch "MOLVB0", 1, 158
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MOPPA0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1A0", 13, 0
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MOPPB0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1B0", 0, 0
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MOPPC0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1C0", 1, 0
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MOPPD0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1D0", 0, 0
+	{
+		Style Translucent
+	}
+}
+
+Sprite "MOPPE0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1A0", 0, 14
+	{
+		Rotate -90
+		Style Translucent
+	}
+}
+
+Sprite "MOPPF0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1B0", 0, 0
+	{
+		Rotate -90
+		Style Translucent
+	}
+}
+
+Sprite "MOPPG0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1C0", 1, 0
+	{
+		Rotate -90
+		Style Translucent
+	}
+}
+
+Sprite "MOPPH0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1D0", 0, 0
+	{
+		Rotate -90
+		Style Translucent
+	}
+}
+
+Sprite "MOPPI0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1A0", 10, 0
+	{
+		Rotate 180
+		Style Translucent
+	}
+}
+
+Sprite "MOPPJ0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1B0", 0, 0
+	{
+		Rotate 180
+		Style Translucent
+	}
+}
+
+Sprite "MOPPK0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1C0", 1, 0
+	{
+		Rotate 180
+		Style Translucent
+	}
+}
+
+Sprite "MOPPL0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1D0", 0, 0
+	{
+		Rotate 180
+		Style Translucent
+	}
+}
+
+Sprite "MOPPM0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1A0", 1, 9
+	{
+		Rotate 90
+		Style Translucent
+	}
+}
+
+Sprite "MOPPN0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1B0", 1, 0
+	{
+		Rotate 90
+		Style Translucent
+	}
+}
+
+Sprite "MOPPO0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1C0", 1, 0
+	{
+		Rotate 90
+		Style Translucent
+	}
+}
+
+Sprite "MOPPP0", 44, 44
+{
+	Offset 22, 22
+	Patch "MOP1D0", 0, 0
+	{
+		Rotate 90
+		Style Translucent
+	}
+}
+
+Sprite "M1TSA0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 104, 150
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 137, 197
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 145, 219
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 48, 225
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TSB0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 119, 134
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 152, 181
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 160, 203
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 63, 209
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TSC0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 137, 122
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 170, 169
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 178, 191
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 81, 197
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TSD0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 158, 108
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 191, 155
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 199, 177
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 102, 183
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TSE0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 177, 95
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 210, 142
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 218, 164
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 117, 158
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TSF0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 194, 85
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 227, 132
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 235, 154
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 128, 131
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TUA0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 208, 79
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 241, 126
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 249, 148
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 138, 113
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TUB0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 209, 81
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 244, 131
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 250, 150
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 139, 115
+	{
+		Style Translucent
+	}
+	Patch "M1TPI0", 190, 60
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TUC0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 211, 84
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 249, 138
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 252, 153
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 141, 118
+	{
+		Style Translucent
+	}
+	Patch "M1TPI0", 192, 63
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TUD0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 213, 88
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 254, 148
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 254, 157
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 143, 122
+	{
+		Style Translucent
+	}
+	Patch "M1TPL0", 193, 65
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TUE0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 215, 92
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 261, 158
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 256, 161
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 145, 126
+	{
+		Style Translucent
+	}
+	Patch "M1TPL0", 195, 69
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TUF0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 217, 95
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 263, 161
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 258, 164
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 147, 129
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TUG0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 215, 90
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 258, 151
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 256, 159
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 145, 124
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TUH0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 212, 85
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 251, 139
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 253, 154
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 142, 119
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TUI0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPB0", 208, 79
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 241, 126
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 249, 148
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 138, 113
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TRA0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPD0", 265, 159
+	{
+		Style Translucent
+	}
+	Patch "M1TPB0", 208, 79
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 241, 126
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 249, 148
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 138, 113
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TRB0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPD0", 253, 140
+	{
+		Style Translucent
+	}
+	Patch "M1TPB0", 208, 79
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 241, 126
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 249, 148
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 138, 113
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TRC0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPD0", 244, 119
+	{
+		Style Translucent
+	}
+	Patch "M1TPB0", 208, 79
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 241, 126
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 249, 148
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 138, 113
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TRD0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPG0", 251, 140
+	{
+		Style Translucent
+	}
+	Patch "M1TPB0", 208, 79
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 241, 126
+	{
+		Style Translucent
+	}
+	Patch "M1TPF0", 264, 114
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 249, 148
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 138, 113
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TRE0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPG0", 256, 147
+	{
+		Style Translucent
+	}
+	Patch "M1TPB0", 210, 82
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 246, 133
+	{
+		Style Translucent
+	}
+	Patch "M1TPF0", 269, 121
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 251, 151
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 140, 116
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TRF0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPG0", 261, 155
+	{
+		Style Translucent
+	}
+	Patch "M1TPB0", 211, 84
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 251, 141
+	{
+		Style Translucent
+	}
+	Patch "M1TPF0", 274, 129
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 252, 153
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 141, 118
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TRG0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPG0", 266, 163
+	{
+		Style Translucent
+	}
+	Patch "M1TPB0", 212, 86
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 256, 149
+	{
+		Style Translucent
+	}
+	Patch "M1TPF0", 279, 137
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 253, 155
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 142, 120
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TRH0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPG0", 269, 168
+	{
+		Style Translucent
+	}
+	Patch "M1TPB0", 213, 88
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 259, 154
+	{
+		Style Translucent
+	}
+	Patch "M1TPF0", 282, 142
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 254, 157
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 143, 122
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TRI0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPG0", 269, 168
+	{
+		Style Translucent
+	}
+	Patch "M1TPB0", 213, 88
+	{
+		Style Translucent
+	}
+	Patch "M1TPK0", 258, 152
+	{
+		FlipX
+		Style Translucent
+	}
+	Patch "M1TPC0", 259, 154
+	{
+		Style Translucent
+	}
+	Patch "M1TPF0", 282, 142
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 254, 157
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 143, 122
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TRJ0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPG0", 266, 163
+	{
+		Style Translucent
+	}
+	Patch "M1TPB0", 212, 86
+	{
+		Style Translucent
+	}
+	Patch "M1TPK0", 255, 146
+	{
+		FlipX
+		Style Translucent
+	}
+	Patch "M1TPC0", 256, 149
+	{
+		Style Translucent
+	}
+	Patch "M1TPF0", 279, 137
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 253, 155
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 142, 120
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TRK0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPG0", 261, 155
+	{
+		Style Translucent
+	}
+	Patch "M1TPB0", 211, 84
+	{
+		Style Translucent
+	}
+	Patch "M1TPK0", 250, 138
+	{
+		FlipX
+		Style Translucent
+	}
+	Patch "M1TPC0", 251, 141
+	{
+		Style Translucent
+	}
+	Patch "M1TPF0", 274, 129
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 252, 153
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 141, 118
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TRL0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPG0", 256, 147
+	{
+		Style Translucent
+	}
+	Patch "M1TPB0", 210, 82
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 246, 133
+	{
+		Style Translucent
+	}
+	Patch "M1TPF0", 269, 121
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 251, 151
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 140, 116
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TVA0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPN0", 238, 186
+	{
+		Style Translucent
+	}
+	Patch "M1TPO0", 208, 79
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 241, 126
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 249, 148
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 138, 113
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TVB0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPN0", 234, 179
+	{
+		Style Translucent
+	}
+	Patch "M1TPO0", 204, 72
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 237, 119
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 245, 141
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 140, 123
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TVC0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPN0", 227, 169
+	{
+		Style Translucent
+	}
+	Patch "M1TPO0", 197, 62
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 230, 109
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 238, 131
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 139, 129
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TVD0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPN0", 221, 158
+	{
+		Style Translucent
+	}
+	Patch "M1TPO0", 191, 51
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 224, 98
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 232, 120
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 140, 142
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TVE0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPN0", 217, 151
+	{
+		Style Translucent
+	}
+	Patch "M1TPO0", 187, 44
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 220, 91
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 228, 113
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 139, 148
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TVF0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPN0", 211, 160
+	{
+		Style Translucent
+	}
+	Patch "M1TPO0", 188, 45
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 221, 92
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 229, 114
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 133, 157
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TVG0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPN0", 200, 168
+	{
+		Style Translucent
+	}
+	Patch "M1TPO0", 187, 44
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 220, 91
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 228, 113
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 122, 165
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TVH0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPO0", 187, 44
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 220, 91
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 228, 113
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TVI0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPO0", 187, 44
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 220, 91
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 228, 113
+	{
+		Style Translucent
+	}
+	Patch "M1TPM0", 208, 169
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 129, 175
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TVJ0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPO0", 187, 44
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 220, 91
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 228, 113
+	{
+		Style Translucent
+	}
+	Patch "M1TPM0", 213, 160
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 134, 166
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TVK0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPN0", 219, 150
+	{
+		Style Translucent
+	}
+	Patch "M1TPO0", 189, 43
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 222, 90
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 230, 112
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 141, 147
+	{
+		Style Translucent
+	}
+}
+
+Sprite "M1TVL0", 400, 200
+{
+	Offset 40, 0
+	Patch "M1TPN0", 221, 149
+	{
+		Style Translucent
+	}
+	Patch "M1TPO0", 191, 42
+	{
+		Style Translucent
+	}
+	Patch "M1TPC0", 224, 89
+	{
+		Style Translucent
+	}
+	Patch "M1TPE0", 232, 111
+	{
+		Style Translucent
+	}
+	Patch "M1TPA0", 143, 146
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPSA0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTA0", 286, 204
+	{
+		Style Translucent
+	}
+	Patch "REPTB0", 277, 166
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPSB0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTA0", 276, 192
+	{
+		Style Translucent
+	}
+	Patch "REPTB0", 267, 154
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPSC0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTA0", 264, 176
+	{
+		Style Translucent
+	}
+	Patch "REPTB0", 255, 138
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPSD0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTA0", 252, 162
+	{
+		Style Translucent
+	}
+	Patch "REPTB0", 243, 124
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPSE0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTA0", 240, 146
+	{
+		Style Translucent
+	}
+	Patch "REPTB0", 231, 108
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPAA0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTA0", 225, 130
+	{
+		Style Translucent
+	}
+	Patch "REPTB0", 216, 92
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPFA0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTG0", 187, 73
+	{
+		Style Translucent
+	}
+	Patch "REPTA0", 225, 130
+	{
+		Style Translucent
+	}
+	Patch "REPTE0", 216, 96
+	{
+		Style Translucent
+	}
+	Patch "REPTC0", 216, 92
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPFB0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTF0", 255, 122
+	{
+		Style Translucent
+	}
+	Patch "REPTA0", 227, 132
+	{
+		Style Translucent
+	}
+	Patch "REPTE0", 218, 98
+	{
+		Style Translucent
+	}
+	Patch "REPTD0", 236, 111
+	{
+		Style Translucent
+	}
+	Patch "REPTC0", 220, 96
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPFC0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTF0", 259, 126
+	{
+		Style Translucent
+	}
+	Patch "REPTA0", 229, 134
+	{
+		Style Translucent
+	}
+	Patch "REPTE0", 220, 100
+	{
+		Style Translucent
+	}
+	Patch "REPTD0", 238, 112
+	{
+		Style Translucent
+	}
+	Patch "REPTC0", 224, 100
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPFD0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTF0", 263, 130
+	{
+		Style Translucent
+	}
+	Patch "REPTA0", 231, 136
+	{
+		Style Translucent
+	}
+	Patch "REPTE0", 222, 102
+	{
+		Style Translucent
+	}
+	Patch "REPTC0", 228, 104
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPFE0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTF0", 255, 122
+	{
+		Style Translucent
+	}
+	Patch "REPTA0", 227, 132
+	{
+		Style Translucent
+	}
+	Patch "REPTE0", 218, 98
+	{
+		Style Translucent
+	}
+	Patch "REPTD0", 234, 110
+	{
+		Style Translucent
+	}
+	Patch "REPTC0", 220, 96
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRA0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTA0", 225, 130
+	{
+		Style Translucent
+	}
+	Patch "REPTB0", 216, 92
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRB0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTA0", 229, 126
+	{
+		Style Translucent
+	}
+	Patch "REPTE0", 220, 92
+	{
+		Style Translucent
+	}
+	Patch "REPTC0", 220, 88
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRC0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTA0", 233, 122
+	{
+		Style Translucent
+	}
+	Patch "REPTE0", 224, 88
+	{
+		Style Translucent
+	}
+	Patch "REPTC0", 224, 84
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRD0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTM0", 227, 114
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 220, 90
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRE0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTM0", 231, 110
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 224, 86
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRF0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTM0", 235, 106
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 228, 82
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRG0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTM0", 239, 102
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 232, 78
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRH0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTM0", 243, 98
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 236, 74
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRI0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTM0", 247, 94
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 240, 70
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRJ0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTL0", 209, 163
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 247, 94
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 240, 70
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRK0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTL0", 210, 160
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 247, 94
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 240, 70
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRL0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTL0", 211, 156
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 247, 94
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 240, 70
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRM0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTL0", 212, 151
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 247, 94
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 240, 70
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRN0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTL0", 214, 146
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 247, 94
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 240, 70
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRO0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTL0", 219, 136
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 247, 94
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 240, 70
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRP0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTL0", 223, 127
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 247, 94
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 240, 70
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRQ0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTL0", 227, 119
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 247, 94
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 240, 70
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRR0", 400, 200
+{
+	Offset 40, 0
+	Patch "ACTMC0", 218, 140
+	{
+		Style Translucent
+	}
+	Patch "REPTK0", 246, 113
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 247, 94
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 240, 70
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRS0", 400, 200
+{
+	Offset 40, 0
+	Patch "ACTMC0", 222, 129
+	{
+		Style Translucent
+	}
+	Patch "REPTK0", 250, 102
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 247, 94
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 240, 70
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRT0", 400, 200
+{
+	Offset 40, 0
+	Patch "ACTMC0", 224, 122
+	{
+		Style Translucent
+	}
+	Patch "REPTK0", 252, 95
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 247, 94
+	{
+		Style Translucent
+	}
+	Patch "REPTI0", 240, 70
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRU0", 400, 200
+{
+	Offset 40, 0
+	Patch "ACTMC0", 232, 108
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 248, 93
+	{
+		Style Translucent
+	}
+	Patch "REPTJ0", 241, 66
+	{
+		Style Translucent
+	}
+	Patch "ACTMB0", 232, 108
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRV0", 400, 200
+{
+	Offset 40, 0
+	Patch "ACTMC0", 234, 108
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 250, 93
+	{
+		Style Translucent
+	}
+	Patch "REPTJ0", 243, 66
+	{
+		Style Translucent
+	}
+	Patch "ACTMB0", 234, 108
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRW0", 400, 200
+{
+	Offset 40, 0
+	Patch "ACTMC0", 226, 118
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 248, 93
+	{
+		Style Translucent
+	}
+	Patch "REPTJ0", 241, 66
+	{
+		Style Translucent
+	}
+	Patch "ACTMB0", 226, 118
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRX0", 400, 200
+{
+	Offset 40, 0
+	Patch "ACTMC0", 220, 130
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 244, 97
+	{
+		Style Translucent
+	}
+	Patch "REPTJ0", 237, 70
+	{
+		Style Translucent
+	}
+	Patch "ACTMB0", 220, 130
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRY0", 400, 200
+{
+	Offset 40, 0
+	Patch "ACTMC0", 212, 143
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 240, 101
+	{
+		Style Translucent
+	}
+	Patch "REPTJ0", 233, 74
+	{
+		Style Translucent
+	}
+	Patch "ACTMB0", 212, 143
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPRZ0", 400, 200
+{
+	Offset 40, 0
+	Patch "ACTMC0", 207, 156
+	{
+		Style Translucent
+	}
+	Patch "REPTM0", 236, 105
+	{
+		Style Translucent
+	}
+	Patch "REPTJ0", 229, 78
+	{
+		Style Translucent
+	}
+	Patch "ACTMB0", 207, 156
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPUA0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTM0", 232, 109
+	{
+		Style Translucent
+	}
+	Patch "REPTJ0", 225, 82
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPUB0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTM0", 228, 113
+	{
+		Style Translucent
+	}
+	Patch "REPTJ0", 221, 86
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPUC0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTA0", 232, 123
+	{
+		Style Translucent
+	}
+	Patch "REPTB0", 223, 85
+	{
+		Style Translucent
+	}
+}
+
+Sprite "REPUD0", 400, 200
+{
+	Offset 40, 0
+	Patch "REPTA0", 228, 127
+	{
+		Style Translucent
+	}
+	Patch "REPTB0", 219, 89
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXS1A0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGA0", 308, 152
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXS1B0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGA0", 291, 120
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXS1C0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGA0", 268, 88
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3A0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGA0", 242, 66
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3B0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGA0", 272, 65
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3C0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGB0", 300, 71
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3D0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGC0", 336, 87
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3E0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGC0", 373, 115
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3F0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGC0", 385, 138
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3G0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGD0", 131, 27
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3H0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGD0", 95, 6
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3I0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGE0", 173, 54
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3J0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGF0", 222, 49
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3K0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGG0", 123, 55
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3L0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGH0", 84, 75
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3M0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGH0", 40, 103
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3N0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGH0", 18, 128
+	{
+		Style Translucent
+	}
+}
+
+Sprite "AXE3O0", 500, 200
+{
+	Offset 40, 0
+	Patch "AXEGH0", -4, 151
+	{
+		Style Translucent
+	}
+}
+
+
+//////////////PROPS /////////////
+
+Sprite "CBOXA0", 39, 24
+{
+	Offset 0, 25
+	Patch "BOX1A0", 0, 0
+}
