@@ -1,6 +1,7 @@
-//===========================================
-//Beretta
-
+//==================================================================
+/////////////////////    BERETTA   /////////////////////////////////
+//=================================================================
+//Tweaks by Zedek
 Actor FakeBeretta : CustomInventory Replaces Pistol 5010
 {
   //$Category WDI Weapons
@@ -46,12 +47,11 @@ Actor FakeBeretta : CustomInventory Replaces Pistol 5010
 	ForgetIt:
 		LUGP A 1
 		Stop
-	}
-}
+}}
 
 Actor TKFakeBeretta : FakeBeretta
 {
-states
+States
 	{
 	Pickup:
 		PIST A 0
@@ -71,9 +71,7 @@ states
 		PIST A 0
 		PIST A 1 ACS_ExecuteAlways(670,0,20)
 		Fail
-	}
-}
-
+}}
 
 Actor Beretta : Weapon
 {
@@ -178,8 +176,7 @@ Actor Beretta : Weapon
 	REPA A 8 A_WeaponReady(WRF_NOFIRE)
 	REPF E 0 A_ReFire
     Goto Ready+6
-  }
-}
+}}
 
 Actor DroppedBeretta
 {
@@ -200,15 +197,13 @@ Actor DroppedBeretta
 		PIST A 35
 		PIST A 1 A_SpawnItemEx("FakeBeretta",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		Stop
-	}
-}
+}}
 
 Actor PistolOnce : Inventory
 {
 	Inventory.MaxAmount 1
 	-INVBAR
 }
-
 
 Actor PistolAmmo : Ammo
 {
@@ -233,10 +228,8 @@ Actor PistolClip : Ammo 30062
    {
    Spawn:
    CLP4	A -1
-   stop
-   }
-}
-
+   Stop
+}}
 
 Actor PisCaseSpawn     //Borrowed from the in-limbo ZNew mod (WildWeasel)
 {
@@ -248,9 +241,8 @@ Actor PisCaseSpawn     //Borrowed from the in-limbo ZNew mod (WildWeasel)
 	Spawn:
 		TNT1 AA 1 A_CustomMissile("PistolCasing",0,0,random(-100,-80),2,random(-15,15))
 		Stop
-	}
-}      
-
+}} 
+     
 Actor PistolSmokeSpawner
 {
     Radius 1
@@ -266,8 +258,7 @@ Actor PistolSmokeSpawner
     Death:
         TNT1 A 0 A_CustomMissile("PistolSmoke",-2,0,0)
         Stop
-    }
-}
+}}
 
 Actor PistolSmoke
 {
@@ -284,8 +275,7 @@ Actor PistolSmoke
 	Spawn:
 		SMOK ABCDEFGHIJKLMNOPQ 1 
 		Stop
-	}
-}
+}}
 
 Actor PistolCasing
 {
@@ -318,8 +308,7 @@ Actor PistolCasing
 	   Stop
 	   SCAC E 350
 	   Stop
-	}
-}       
+}}     
 
 Actor PisCaseSmoke
 {
@@ -336,8 +325,7 @@ Actor PisCaseSmoke
    Spawn:
       SMKE ABCDEFGH 1 
       Stop
-   }
-}
+}}
 
 Actor SpentClip5 //pistol-type clip
 { 
@@ -357,5 +345,4 @@ Actor SpentClip5 //pistol-type clip
       CLP4 A 1000
       CLP4 AAAAAAAAAAAAAAAAAAAA 1 A_FadeOut(0.05)
       Stop
-    }
-}
+}}

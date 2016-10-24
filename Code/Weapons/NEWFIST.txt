@@ -1,6 +1,7 @@
-//==========================================
-//New Fist
-ACTOR NewFist : Weapon
+//==================================================================
+////////////////////      NEW FIST     /////////////////////////////
+//=================================================================
+Actor NewFist : Weapon
 {
 Weapon.SelectionOrder 1
 Weapon.preferredSkin "FistSkin"
@@ -45,10 +46,9 @@ FIST C 2 OffSet(0,32)
 FIST B 5
 FIST A 8 //A_GiveInventory ("Sequence",1)
 Goto Ready
-}
-}
+}}
 
-ACTOR Sequence : Ammo
+Actor Sequence : Ammo
 {
 Inventory.Amount 0
 Inventory.MaxAmount 1
@@ -58,5 +58,4 @@ States
 Spawn:
 TNT1 A -1
 Loop
-}
-}
+}}

@@ -1,3 +1,6 @@
+//==================================================================
+/////////////////////    BRICK   ///////////////////////////////////
+//=================================================================
 //Brick (Throwing weapon) || Sprites by Mooseknuckle, code by Theshooter7
 
 Actor FakeBrick : CustomInventory 30075
@@ -26,8 +29,7 @@ Actor FakeBrick : CustomInventory 30075
 		BRKP U 0
 		BRKP U 1 ACS_ExecuteAlways(670,0,24)
 		Fail						  
-	}
-}
+}}
 
 Actor Brick : Weapon
 {
@@ -43,7 +45,7 @@ Actor Brick : Weapon
 	{
 	Spawn:
 		BRKP U 0
-		goto Death
+		Goto Death
 	Pickup: 
 	
 	Select:
@@ -98,8 +100,7 @@ Actor Brick : Weapon
 		TNT1 A 2
 		BRIK A 0
 		Stop
-	}
-}
+}}
 
 Actor ThrownBrick
 {
@@ -132,9 +133,8 @@ Actor ThrownBrick
 
   Death:
     BRKP U 1 A_SpawnItem("FakeBrick",0,0,0,0)
-    stop
-  }
-}
+    Stop
+}}
 
 Actor DroppedBrick
 {
@@ -154,5 +154,4 @@ Actor DroppedBrick
 		BRKP U 35
 		BRKP U 1 A_SpawnItemEx("FakeBrick",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		Stop
-	}
-}
+}}

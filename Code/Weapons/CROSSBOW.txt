@@ -1,5 +1,6 @@
-
-//=================
+//==================================================================
+///////////////////      CROSSBOW       ////////////////////////////
+//=================================================================
 //Crossbow (Sprites by Mooseknuckle,Decorate by prepper)
 
 Actor FakeCrossbow : CustomInventory 30055
@@ -47,12 +48,11 @@ Actor FakeCrossbow : CustomInventory 30055
 	ForgetIt:
 		XBPU A 1
 		Stop
-	}
-}
+}}
 
 Actor TKFakeCrossbow : FakeCrossbow
 {
-states
+States
 	{
 	Pickup:
 		XBPU A 0
@@ -72,8 +72,7 @@ states
 		XBPU A 0
 		XBPU A 1 ACS_ExecuteAlways(670,0,22)
 		Fail
-	}
-}
+}}
 
 Actor Crossbow: Weapon 
 {
@@ -95,7 +94,7 @@ Weapon.SelectionOrder 3000
 	{
 		Spawn:
 		XBPU A  -1
-		goto Death
+		Goto Death
 		
 		Select:
 	        TNT1 A 0 A_Raise
@@ -103,14 +102,14 @@ Weapon.SelectionOrder 3000
 		Deselect:  
 			TNT1 A 0 A_JumpIfNoAmmo(7)	
 			CBOW KJIHGF 1 //CON BOLT
-			goto Deselected
+			Goto Deselected
 			CBOW BCDEF 1
-			goto Deselected
+			Goto Deselected
 			
          Deselected: 
             TNT1 A 1 A_Playsound ("weapons/weapondown")
 	        TNT1 A 1 A_Lower
-            goto Deselected +1
+            Goto Deselected +1
  
 	     Ready:
 		    CBOW F 1 A_JumpIfInventory("LoadedBolts",1,6)
@@ -118,13 +117,13 @@ Weapon.SelectionOrder 3000
 			CBOW B 1 A_JumpIfNoAmmo("FakeReady")
 			CBOW GHIJK 1
 			CBOW A 1 
-			goto RealReady
+			Goto RealReady
 			
 	     FakeReady:
 		    CBOW B 0 A_JumpIfInventory("LoadedBolts",1,"RealReady")
 			CBOW B 1 A_WeaponReady
 			CBOW B 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
-			loop		
+			Loop		
 	 
 	     RealReady:
 			CBOW A 1 A_WeaponReady
@@ -153,9 +152,8 @@ Fire:
 		Death:
 	   DHSP A 0 A_SpawnItem("DroppedCrossbow",0,0,0,0)
 	   TNT1 A 0 A_FadeOut(1.0)
-	   goto death + 1	
-	}	
-}
+	   Goto death + 1	
+}}	
 
 Actor DroppedCrossbow
 {
@@ -175,8 +173,7 @@ Actor DroppedCrossbow
 		XBPU A 35
 		XBPU A 1 A_SpawnItemEx("FakeCrossbow",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		Stop
-	}
-}
+}}
 
 Actor CrossbowOnce : Inventory
 {
@@ -203,12 +200,11 @@ Actor FlyingBolt : FastProjectile
   Spawn:
     ARWP A 1 A_LowGravity
 	ARWP A 2 A_NoGravity
-    loop
+    Loop
   Death:
     ARWP A 0 A_SpawnItemEx("LoadedBolts2",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-    stop
-  }
-} 
+    Stop
+}}
 
 Actor LoadedBolts : Ammo 30065
 {
@@ -232,8 +228,7 @@ Actor LoadedBolts : Ammo 30065
   Spawn:
     ARWP A -1
     Stop
-  }
-}
+}}
 
 Actor LoadedBolts2 : LoadedBolts
 {
@@ -245,5 +240,4 @@ Actor LoadedBolts2 : LoadedBolts
     ARWP AAAAAAAAAAAAA 1 A_Gravity
     ARWP A -1
     Wait
-  }
-}
+}}

@@ -1,14 +1,14 @@
-//============================================
-//Shotgun
-//Actor ShotgunSpawn : Shotgun2 {}
-
-ACTOR ShotgunOnce : Inventory
+//==================================================================
+/////////////////////    SHOTGUN   ////////////////////////////////
+//=================================================================
+//Version edited by Zedek
+Actor ShotgunOnce : Inventory
 {
 	Inventory.MaxAmount 1
 	-INVBAR
 }
 
-ACTOR FakeShotgun : CustomInventory Replaces Shotgun 30050
+Actor FakeShotgun : CustomInventory Replaces Shotgun 30050
 {
   //$Category WDI Weapons
   //$Sprite DHSPA0
@@ -53,12 +53,11 @@ ACTOR FakeShotgun : CustomInventory Replaces Shotgun 30050
 	ForgetIt:
 		DHSP A 1
 		Stop
-	}
-}
+}}
 
 Actor TKFakeShotgun : FakeShotgun
 {
-states
+States
 	{
 		Pickup:
 		DHSP A 0
@@ -77,12 +76,10 @@ states
 	NotPickup:
 		DHSP A 0
 		DHSP A 1 ACS_ExecuteAlways(670,0,21)
-		Fail
-	 
-	}
-}
+		Fail 
+}}
 
-ACTOR DroppedShotgun
+Actor DroppedShotgun
 {
 	PROJECTILE
 	-NOGRAVITY
@@ -100,18 +97,7 @@ ACTOR DroppedShotgun
 		DHSP A 35
 		DHSP A 1 A_SpawnItemEx("FakeShotgun",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		Stop
-	}
-}
-
-
-
-
-
-
-
-
-
-
+}}
 
 Actor Shotgun2 : Weapon
  {
@@ -135,7 +121,7 @@ Actor Shotgun2 : Weapon
     {
 	Spawn:
        DHSP A 1
-       goto Death
+       Goto Death
     Ready:
 	   DHSG A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
        NSHT A 1 A_WeaponReady
@@ -150,7 +136,7 @@ Actor Shotgun2 : Weapon
        DHSG A 0 A_Playsound ("weapons/weapondown")
        DHSG A 0 A_Lower
        NSHT A 1 A_Lower
-       goto deselect+1
+       Goto deselect+1
     Select:
        DHSG A 0 A_Raise
        NSHT A 1 A_Raise
@@ -249,15 +235,14 @@ Actor Shotgun2 : Weapon
        DHSF A 3 BRIGHT
        DHSF A 0 A_Recoil(2)
        DHSF B 4 BRIGHT
-       stop
+       Stop
 	Death:
 	   DHSP A 0 A_SpawnItem("DroppedShotgun",0,0,0,0)
 	   TNT1 A 0 A_FadeOut(1.0)
-	   goto death + 1
-	}
-}
+	   Goto death + 1
+}}
 
-ACTOR SuperShells : Ammo
+Actor SuperShells : Ammo
 {
 Inventory.Amount 0
 Inventory.MaxAmount 4
@@ -268,12 +253,9 @@ States
 Spawn:
 TNT1 A -1
 LOOP
-}
-}    
-
-//Actor ShellSpawn : NewShell {}
-
-ACTOR NewShell : Ammo 30061
+}}
+    
+Actor NewShell : Ammo 30061
 {
   //$Category WDI Ammo
   //$Sprite D3S1E0
@@ -295,5 +277,4 @@ ACTOR NewShell : Ammo 30061
   Spawn: 
     D3S1 E -1
     Stop
-  }
-}
+}}

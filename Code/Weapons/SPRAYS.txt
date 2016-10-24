@@ -1,4 +1,6 @@
-//////////////////////////////////SPRAYCAN BLUE//////////////////////////////7
+//==================================================================
+/////////////////////   SPRAYCAN BLUE   ////////////////////////////
+//=================================================================
 
 Actor SprayCanBLU : Weapon
 {
@@ -49,10 +51,8 @@ Actor SprayCanBLU : Weapon
 		Death:
 	   BBAT A 0 A_SpawnItem("DroppedSprayCanBLU",0,0,0,0)
 	   TNT1 A 0 A_FadeOut(1.0)
-	   goto death + 1
-	
-  }
-}
+	   Goto death + 1
+}}
 
 Actor SprayAmmo : Ammo 22116
 {
@@ -68,8 +68,7 @@ Actor SprayAmmo : Ammo 22116
   Spawn:
     TNT1 A -1
     Stop
-  }
-}
+}}
 
 Actor PaintSprayBLU
 {
@@ -96,15 +95,14 @@ Actor PaintSprayBLU
     SPRA A 0
     SPRA A 0 A_Jump(128,"Spawn2") 
     SPRA AAABBBCCCDDDEEE 2 A_FadeOut(0.05)
-    stop
+    Stop
   Spawn2:
     SPRA FFFGGGHHHIIIJJJ 2 A_FadeOut(0.05)
-    stop
+    Stop
   Death:
     NULL A 1
-    stop
-  }
-}
+    Stop
+}}
 
 Actor FakeSprayCanBLU : CustomInventory 22475
 {
@@ -137,12 +135,11 @@ Actor FakeSprayCanBLU : CustomInventory 22475
 	ForgetIt:
 		SPRY B 1
 		Stop
-	}
-}
+}}
 
 Actor TKFakeSprayCanBLU : FakeSprayCanBLU
 {
-states
+States
 	{
 	Pickup:
 		SPRY B 0
@@ -162,35 +159,7 @@ states
 		SPRY B 0
 		SPRY B 1 ACS_Execute(669,0,14)
 		Fail
-	}
-}
-Actor SprayCanOnce : Inventory
-{
-	Inventory.MaxAmount 1
-	-INVBAR
-}
-
-Actor DroppedSprayCanBLU
-{
-	PROJECTILE
-	-NOGRAVITY
-	Damage 0
-	Radius 4
-	Height 12
-	Speed 9
-	Scale 0.2
-	DeathSound "weapons/gundrop"
-	States
-	{
-	Spawn:
-		SPRY B -1
-		Stop
-	Death:
-		SPRY D 35
-		SPRY D 1 A_SpawnItem("FakeSprayCanYBLU",0,0,0,0)
-		Stop
-	}
-}
+}}
 
 Actor FakeSprayCanYBLU : CustomInventory 22476
 {
@@ -223,10 +192,38 @@ Actor FakeSprayCanYBLU : CustomInventory 22476
 	ForgetIt:
 		SPRY D 1
 		Stop
-	}
+}}
+
+Actor SprayCanOnce : Inventory
+{
+	Inventory.MaxAmount 1
+	-INVBAR
 }
 
-//////////////////////////////////SPRAYCAN RED////////////////////////////////////////////////////7777
+Actor DroppedSprayCanBLU
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 4
+	Height 12
+	Speed 9
+	Scale 0.2
+	DeathSound "weapons/gundrop"
+	States
+	{
+	Spawn:
+		SPRY B -1
+		Stop
+	Death:
+		SPRY D 35
+		SPRY D 1 A_SpawnItem("FakeSprayCanYBLU",0,0,0,0)
+		Stop
+}}
+
+//==================================================================
+/////////////////////   SPRAYCAN RED   ////////////////////////////
+//=================================================================
 
 Actor SprayCanRED : Weapon
 {
@@ -277,9 +274,8 @@ Actor SprayCanRED : Weapon
 			Death:
 	   BBAT A 0 A_SpawnItem("DroppedSprayCanBLU",0,0,0,0)
 	   TNT1 A 0 A_FadeOut(1.0)
-	   goto death + 1
-  }
-}
+	   Goto death + 1
+}}
 
 Actor PaintSprayRED
 {
@@ -306,15 +302,14 @@ Actor PaintSprayRED
     SPRB A 0
     SPRB A 0 A_Jump(128,"Spawn2") 
     SPRB AAABBBCCCDDDEEE 2 A_FadeOut(0.05)
-    stop
+    Stop
   Spawn2:
     SPRB FFFGGGHHHIIIJJJ 2 A_FadeOut(0.05)
-    stop
+    Stop
   Death:
     NULL A 1
-    stop
-  }
-}
+    Stop
+}}
 
 Actor FakeSprayCanRED : CustomInventory 22142
 {
@@ -347,12 +342,11 @@ Actor FakeSprayCanRED : CustomInventory 22142
 	ForgetIt:
 		SPRY B 1
 		Stop
-	}
-}
+}}
 
 Actor TKFakeSprayCanRED : FakeSprayCanRED
 {
-states
+States
 	{
 	Pickup:
 		SPRY B 0
@@ -372,10 +366,7 @@ states
 		SPRY B 0
 		SPRY B 1 ACS_Execute(669,0,15)
 		Fail
-	}
-}
-
-
+}}
 
 Actor DroppedSprayCanRED
 {
@@ -396,8 +387,7 @@ Actor DroppedSprayCanRED
 		SPRY D 35
 		SPRY D 1 A_SpawnItem("FakeSprayCanYRED",0,0,0,0)
 		Stop
-	}
-}
+}}
 
 Actor FakeSprayCanYRED : CustomInventory 22143
 {
@@ -430,5 +420,4 @@ Actor FakeSprayCanYRED : CustomInventory 22143
 	ForgetIt:
 		SPRY D 1
 		Stop
-	}
-}
+}}
