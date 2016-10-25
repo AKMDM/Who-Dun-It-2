@@ -1,0 +1,64 @@
+
+//=====================================
+//            FOLDERS
+//=====================================
+
+//DECORATE
+#Include "code/Decorate/ENVIRO.txt"
+#Include "code/Decorate/GORE.txt"
+#Include "code/Decorate/PROPS.txt"
+
+
+//ITEMS
+
+#Include "code/Items/EGGS.txt"
+#Include "code/Items/INVTORY.txt"
+
+//KEYS
+#Include "code/keys/KEYS.txt"
+
+//MODELS
+#Include "code/Models/MODELS.txt"
+
+//MONSTERS
+#Include "code/Monsters/MONSTERS.txt"
+
+//MURDER
+#Include "code/Murder/D_DROP.txt"
+#Include "code/Murder/DROP.txt"
+#Include "code/Murder/HACKS.txt"
+#Include "code/Murder/PLAYERS.txt"
+
+//SFX
+
+#Include "code/Sfx/EFFECTS.txt"
+#Include "code/Sfx/LIGHTS.txt"
+#Include "code/Sfx/PUFFS.txt"
+#Include "code/Sfx/SPAWNERS.txt"
+
+//WEAPONS
+
+#Include "code/Weapons/BATWEP.txt"
+#Include "code/Weapons/BERETTA.txt"
+#Include "code/Weapons/BRICK.txt"
+#Include "code/Weapons/CARBINE.txt"
+#Include "code/Weapons/CHAINSAW.txt"
+#Include "code/Weapons/CROSSBOW.txt"
+#Include "code/Weapons/D_KNIFE.txt"
+#Include "code/Weapons/FLASHLIG.txt"
+#Include "code/Weapons/HATCHET.txt"
+#Include "code/Weapons/KNIFE.txt"
+#Include "code/Weapons/LIGHTER.txt"
+#Include "code/Weapons/LPIPE.txt"
+#Include "code/Weapons/MOLOTOV.txt"
+#Include "code/Weapons/NEWFIST.txt"
+#Include "code/Weapons/PLANKS.txt"
+#Include "code/Weapons/POOLCUE.txt"
+#Include "code/Weapons/SHOTGUN.txt"
+#Include "code/Weapons/SHOVEL.txt"
+#Include "code/Weapons/SOULC.txt"
+#Include "code/Weapons/SPRAYS.txt"
+#Include "code/Weapons/TWIG.txt"
+#Include "code/Weapons/WDIBERET.txt"
+#Include "code/Weapons/WRENCH.txt"
+#Include "code/Weapons/WEAPONS.txt"
