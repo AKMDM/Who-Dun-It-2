@@ -1,5 +1,7 @@
+//==================================================================
+///////////////////      MURDERKNIFE     ///////////////////////////
+//=================================================================
 //Knife (Murderer only weapon!)
-
 Actor MurderKnife : Weapon
 {
   Weapon.SelectionOrder 100
@@ -20,30 +22,30 @@ Ready:
 		KNIF B 0 A_JumpIfInventory("StabbedAPerson", 1, "Ready2")
 		KNIF A 0
 		KNIF A 1 A_WeaponReady
-		loop	
+		Loop	
 Ready2:
 		KNIB A 0
 		KNIB A 1 A_WeaponReady
-		loop
+		Loop
 
 Deselect:
 		KNIF B 0 A_JumpIfInventory("StabbedAPerson", 1, "Deselect2")
 		KNIF A 0 
 		KNIF A 1 A_Lower
-		loop
+		Loop
 Deselect2:
 		KNIB A 0 
 		KNIB A 1 A_Lower
-		loop
+		Loop
 Select: 
 		KNIF B 0 A_JumpIfInventory("StabbedAPerson", 1, "Select2")
 		KNIF A 0 
 		KNIF A 1 A_Raise 
-		loop
+		Loop
 Select2: 
 		KNIB A 0 
 		KNIB A 1 A_Raise 
-		loop		
+		Loop		
 Fire:
 		KNIF B 0 A_JumpIfInventory("StabbedAPerson", 1, "BloodyStab")
 		KNIF B 0 A_JumpIf (ACS_ExecuteWithResult(555), "BackStab") 	
@@ -57,14 +59,14 @@ Fire:
 		KNIF B 4 
 		KNIF A 15
 		KNIF A 1 A_ReFire
-		goto Ready		
+		Goto Ready		
 		
 KnifeNowBloody:
 		KNIB C 4
 		KNIB B 4 
 		KNIB A 15
 		KNIB A 1 A_ReFire
-		goto Ready
+		Goto Ready
 		
 BloodyStab:		
 		KNIB B 0 A_JumpIf (ACS_ExecuteWithResult(555), "BackStab2") 	
@@ -77,7 +79,7 @@ BloodyStab:
 		KNIB B 4 
 		KNIB A 15
 		KNIB A 1 A_ReFire
-		goto Ready
+		Goto Ready
 
 BackStab:
 		KNIF C 1 Offset(4, 32) A_CustomPunch (666, 1, 0, "BackStabPuff", 64)
@@ -107,7 +109,7 @@ BackStab:
 		KNIF A 2 Offset(0, 70)
 		KNIF A 2 Offset(0, 40)
 		KNIF A 2 Offset(0, 32)
-		goto Ready
+		Goto Ready
 		
 BackStab2:
 		KNIB C 1 Offset(4, 32) A_CustomPunch (666, 1, 0, "BackStabPuff", 64)
@@ -137,7 +139,7 @@ BackStab2:
 		KNIB A 2 Offset(0, 70)
 		KNIB A 2 Offset(0, 40)
 		KNIB A 2 Offset(0, 32)
-		goto Ready2
+		Goto Ready2
 }}
 
 Actor StabbedAPerson : Inventory
@@ -157,22 +159,21 @@ Actor BackStabPuff
 	attacksound ""
 	seesound "weapons/BackStab"
 	Obituary "" 
-	states
+	States
 	{
 Spawn:
 		TNT1 A 0
 		TNT1 A 1
-		stop
+		Stop
 Crash:
 		TNT1 A 0
 		TNT1 A 1
-		stop
+		Stop
 Melee:
 		TNT1 A 0
 		TNT1 A 1 A_Givetotarget("StabbedAPerson",1)
-		stop
-	}
-}
+		Stop
+}}
 
 Actor StabPuff
 {
@@ -184,22 +185,21 @@ Actor StabPuff
   attacksound ""
   seesound "weapons/KnifeHit"
   Obituary "" 
-  states
+  States
   {
   Spawn:
     TNT1 A 0
     TNT1 A 1
-    stop
+    Stop
   Crash:
   	TNT1 A 0
   	TNT1 A 1
-  	stop
+  	Stop
   Melee:
   	TNT1 A 0
   	TNT1 A 1
-  	stop
-  }
-}
+  	Stop
+}}
 
 Actor StabPuff2 : StabPuff //The Silent puff
 {

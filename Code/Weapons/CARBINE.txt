@@ -1,4 +1,8 @@
-// M1 Carbine || Original Sprites and code by Capt. J3, sprite edits by Mooseknuckle, code edits by Theshooter7, zedek and prepper
+//==================================================================
+/////////////////////    M1 CARABINE  //////////////////////////////
+//=================================================================
+//Original Sprites and code by Capt. J3, sprite edits by Mooseknuckle, code edits by Theshooter7, zedek and prepper
+
 Actor FakeM1 : CustomInventory 31011
 {
   //$Category WDI Weapons
@@ -44,12 +48,11 @@ Actor FakeM1 : CustomInventory 31011
 	ForgetIt:
 		M1GN Y 1
 		Stop
-	}
-}
+}}
 
 Actor TKFakeM1 : FakeM1
 {
-states
+States
 	{
 	Pickup:
 		PIST A 0
@@ -69,8 +72,7 @@ states
 		PIST A 0
 		M1GN Y 1 ACS_Execute(670,0,23)
 		Fail
-	}
-}
+}}
 
 Actor M1Once : Inventory
 {
@@ -108,7 +110,7 @@ Actor M1Carbine : Weapon
       2PIS A 0 A_JumpIfInventory("M1Raised",1,"Raising")
       2PIS A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
       M1TU A 1 A_WeaponReady
-      goto ready+2
+      Goto ready+2
 
    Deselect:
       M1TU A 1 A_Lower
@@ -139,7 +141,7 @@ Actor M1Carbine : Weapon
 	  M1TR D 3
 	  M1TR CBA 1
 	  M1TU A 2
-	  goto Ready+1
+	  Goto Ready+1
 
    Fire:
       M1TU A 0 A_JumpIfInventory("M1CarbineClipIn",1,1)
@@ -257,8 +259,7 @@ Actor M1Carbine : Weapon
 		M1GN A 0 A_TakeInventory("IsDropping",1)
 		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
        Goto Ready+1
-     }
-}
+}}
 
 Actor DroppedM1
 {
@@ -279,14 +280,12 @@ Actor DroppedM1
 		M1GN Y 35
 		M1GN Y 1 A_SpawnItem("FakeM1",0,0,0,0)
 		Stop
-	}
-}
+}}
 
 Actor M1Raised : Inventory
 {
 Inventory.MaxAmount 1
 }
-
 
 Actor M1Ammo : Ammo 31013
 {
@@ -304,9 +303,8 @@ Actor M1Ammo : Ammo 31013
    {
    Spawn:
    CLP3	A -1
-   stop
-   }
-}
+   Stop
+}}
 
 Actor M1CarbineClipIn : Ammo
 {
@@ -317,8 +315,7 @@ Actor M1CarbineClipIn : Ammo
    Spawn:
    CLP1 C 1
    Loop
-   }
-}
+}}
 
 Actor M1ClipCasing
 {
@@ -370,8 +367,7 @@ Actor CaseSpawn2
 	Spawn:
 		NULL AA 1 A_CustomMissile("BulletCasing2",0,0,random(-85,-95),2,random(-10,30))
 		Stop
-	}
-}
+}}
 
 Actor BulletCasing2
 {
@@ -411,5 +407,4 @@ Actor BulletCasing2
 	   Stop
 	   CAS2 A 900
 	   Stop
-	}
-}
+}}

@@ -1,3 +1,6 @@
+//==================================================================
+/////////////////////     SOULCUBE   //////////////////////////////
+//================================================================= 
  Actor FakeSoulcube : CustomInventory 28467
 {
     //$Category Marsis_map_ONLY
@@ -42,22 +45,22 @@ Actor SoulCube : weapon
    { 
    Spawn: 
 	 SCUF ABCD 5
-	 loop
+	 Loop
 		
    Select:
       SCUB A 0 A_PlaySound("YZVVSOUL")
       SCUB A 0 A_Raise 
-      goto ready
+      Goto ready
 	  
      Deselect: 
       SCUB C 1 A_Lower 
-      loop
+      Loop
 	  
    Ready:
       SCUB A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
       SCUB A 1 A_PlaySound ("YZCUBLOP")
       SCUB ABCD 3 A_WeaponReady
-    loop
+    Loop
 		
 	WeaponDrop:
 	  SCUB A 0
@@ -76,5 +79,5 @@ Actor SoulCube : weapon
 	Death:
 	   TNT1 A 0 A_SpawnItem("DroppedSoulcube",0,0,0,0)
 	   TNT1 A 1 A_FadeOut(1.0)
-	   goto death + 1
+	   Goto death + 1
 }}

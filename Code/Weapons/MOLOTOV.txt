@@ -1,4 +1,7 @@
-///Molotov (Throwing weapon) || Sprites by Lightman and Mooseknuckle, code by Theshooter7
+//==================================================================
+/////////////////////      MOLOTOV     /////////////////////////////
+//=================================================================
+//Molotov (Throwing weapon) || Sprites by Lightman and Mooseknuckle, code by Theshooter7
 
 Actor FakeMolly : CustomInventory 30076
 {
@@ -27,8 +30,7 @@ Actor FakeMolly : CustomInventory 30076
 		MOLP A 0
 		MOLP A 1 ACS_ExecuteAlways(670,0,25)
 		Fail
-	}
-}
+}}
 
 Actor Molotov : Weapon
 {
@@ -45,7 +47,7 @@ Actor Molotov : Weapon
 	{
 	Spawn:
 		MOLP A 1
-		goto Death
+		Goto Death
 	Pickup:
 
 	Deselect:
@@ -134,8 +136,7 @@ Actor Molotov : Weapon
 		TNT1 A 2
 		MOLO A 0
 		Stop
-	}
-}
+}}
 
 Actor ThrownMolly
 {
@@ -170,13 +171,12 @@ Actor ThrownMolly
     TNT1 AAAA 0 A_CustomMissile("MollyFireSpawn3",1,0,Random(0,360), 2, Random(5, 30))
     TNT1 AAA 0 A_CustomMissile("MollyFireSpawn2",1,0,Random(0,360), 2, Random(30, 70))
     TNT1 A 1
-    stop
+    Stop
 
   InWater:
     TNT1 A 1
     Stop
-  }
-}
+}}
 
 Actor MollyFireSpawn
 {
@@ -208,8 +208,7 @@ Actor MollyFireSpawn
     TNT1 A 0 A_Stop
     TNT1 A 1 A_SpawnItemEx("MollyFire", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
     Stop
-  }
-}
+}}
 
 Actor MollyFireSpawn2 : MollyFireSpawn
 {
@@ -226,8 +225,7 @@ Actor MollyFireSpawn2 : MollyFireSpawn
     TNT1 A 0 A_Stop
     TNT1 A 1 A_SpawnItemEx("MollyFire", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
     Stop
-  }
-}
+}}
 
 Actor MollyFireSpawn3 : MollyFireSpawn
 {
@@ -241,8 +239,7 @@ Actor MollyFireSpawn3 : MollyFireSpawn
     TNT1 A 0 A_Stop
     TNT1 A 1 A_SpawnItemEx("MollyFire", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
     Stop
-  }
-}
+}}
 
 Actor MollyFire
 {
@@ -344,8 +341,7 @@ Actor MollyShard
     TNT1 A 0 A_Jump(256, "Shard1", "Shard2", "Shard3", "Shard4")
     TNT1 A 1
     Stop
-  }
-} 
+}}
  
 Actor DroppedMolly
 {
@@ -366,8 +362,7 @@ Actor DroppedMolly
 		MOLP A 35
 		MOLP A 1 A_SpawnItemEx("FakeMolly",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		Stop
-	}
-}
+}}
 
 Actor MolotovLit : Inventory
 {

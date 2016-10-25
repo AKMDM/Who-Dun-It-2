@@ -1,6 +1,8 @@
-// FLASHLIGHT
+//==================================================================
+///////////////////      FLASHLIGHT       //////////////////////////
+//=================================================================
 
-ACTOR FakeFlashlightZ : CustomInventory 30999
+Actor FakeFlashlightZ : CustomInventory 30999
 {
     //$Category Marsis_map_ONLY
     Scale 0.7
@@ -12,7 +14,7 @@ ACTOR FakeFlashlightZ : CustomInventory 30999
 	{
 	Spawn:
 		FLSG Y -1
-		stop
+		Stop
 	Pickup:
 		FLSH A 0
 		FLSH A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
@@ -29,8 +31,8 @@ ACTOR FakeFlashlightZ : CustomInventory 30999
 
 Actor FlashlightZ : Weapon
 {
-  radius 16
-  height 16
+  Radius 16
+  Height 16
   inventory.pickupmessage "You got the flashlight!"
   inventory.pickupsound "pickups/weapons"
   +INVENTORY.UNDROPPABLE
@@ -38,13 +40,13 @@ Actor FlashlightZ : Weapon
   weapon.selectionorder 31000
   weapon.ammouse 0
   weapon.ammogive 0
-  states
+  States
   {
   Pickup:
   Ready:
 	FL01 A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
 	FLSG A 1 A_WeaponReady
-    loop
+    Loop
   DropWeapon:
 	FL01 A 0
 	FLSG A 1
@@ -54,11 +56,11 @@ Actor FlashlightZ : Weapon
   Deselect:
 	FL01 A 0 A_Lower
     FLSG A 1 A_Lower
-    loop
+    Loop
   Select:
 	FL01 A 0 A_Raise
     FLSG A 1 A_Raise
-    loop
+    Loop
   Fire:
 	FL03 A 0 A_Light0
 	FLSG CDE 1
@@ -77,17 +79,17 @@ Actor FlashlightZ : Weapon
     FL01 A 0 A_SpawnItemEx("Lightbeam2", 128.0 * (cos(pitch) * 2), -6.0, (128.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
     FL01 A 0 A_SpawnItemEx("Lightbeam3", 160.0 * (cos(pitch) * 2), -6.0, (160.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
     FLSG A 1 A_SpawnItemEx("Lightbeam3", 192.0 * (cos(pitch) * 2), -6.0, (192.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
-    goto Ready
+    Goto Ready
 	Death:
 	DHSP A 0 A_SpawnItem("DroppedFlashlightZ",0,0,0,0)
 	TNT1 A 0 A_FadeOut(1.0)
-	goto death + 1
+	Goto death + 1
 	Spawn:
 		FLSH A 0
-		goto Death
+		Goto Death
 }}
 
-ACTOR DroppedFlashlightZ
+Actor DroppedFlashlightZ
 {
 	PROJECTILE
 	-NOGRAVITY
@@ -101,14 +103,14 @@ ACTOR DroppedFlashlightZ
 	{
 	Spawn:
 		FLSG Y -1
-		stop
+		Stop
 	Death:
 		FLSG Y 35
 		FLSG Y 1 A_SpawnItem("FakeFlashlightZ",0,0,0,0)
 		Stop
 }}
 
-ACTOR FlashlightBeam
+Actor FlashlightBeam
 {
 +NOINTERACTION
 Renderstyle Add
@@ -117,13 +119,36 @@ States
 {
 Spawn:
 FLSG Z 2 bright
-stop
-}
+Stop
+}}
+
+Actor Lightbeam1
+{
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +NOCLIP
+  +ALLOWCLIENTSPAWN
+  renderstyle none
+  States
+  {
+  Spawn:
+  TNT1 A 1
+  Death:
+   JTLB A 1    
+   Stop
+}}
+
+Actor Lightbeam2 : Lightbeam1 {
 }
 
-// FIST WITH FLASHLIGHT
+Actor Lightbeam3 : Lightbeam1 {
+}
 
-ACTOR FistWithFlashlight : Weapon
+//==================================================================
+///////////////////   FIST WITH  FLASHLIGHT ////////////////////////
+//=================================================================
+
+Actor FistWithFlashlight : Weapon
 {
 Weapon.SelectionOrder 1
 Weapon.preferredSkin "FistSkin2"
@@ -175,7 +200,7 @@ FLSG EDC 1
     FL01 A 0 A_SpawnItemEx("Lightbeam3", 160.0 * (cos(pitch) * 2), -6.0, (160.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
     FLSG A 1 A_SpawnItemEx("Lightbeam3", 192.0 * (cos(pitch) * 2), -6.0, (192.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
 	FLSG A 0 A_ReFire
-    goto AltEnd
+    Goto AltEnd
   AltEnd:
 	FLSG CDE 1
 	FLSF DCBA 1
