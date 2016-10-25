@@ -3,9 +3,9 @@
 
 Actor FakeBeretta : CustomInventory Replaces Pistol 5010
 {
-  //$Category WDI Weapons
-  //$Sprite PISTA0
-  //$Title "Beretta"
+  	//$Category WDI Weapons
+  	//$Sprite PISTA0
+  	//$Title "Beretta"
 	Radius 16
 	Height 8
 	Inventory.PickupMessage "Found a Beretta."
@@ -51,7 +51,7 @@ Actor FakeBeretta : CustomInventory Replaces Pistol 5010
 
 Actor TKFakeBeretta : FakeBeretta
 {
-states
+	States
 	{
 	Pickup:
 		PIST A 0
@@ -77,108 +77,108 @@ states
 
 Actor Beretta : Weapon
 {
-  Scale 0.7
-  Obituary ""
-  Radius 20
-  Height 16
-  //AttackSound "weapons/BerettaFire"
-  Weapon.preferredSkin "PistolSkin"
-  Weapon.SelectionOrder 400
-  Weapon.SlotNumber 1
-  Weapon.kickback 100
-  Weapon.ammotype "PistolAmmo"
-  Weapon.ammotype2 "PistolClip"
-  Weapon.ammouse 0
-  +WEAPON.NOAUTOFIRE
-  Inventory.Pickupmessage "You find an M1911." // "Picked up a pistol."
-  States
-  {
-  Ready:
-    REPR A 0 A_PlaySound("newpistol/raise")
-	REPS ABCDE 1
-    REPA A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
-    REPA A 1 A_WeaponReady
-    Goto Ready+6
-  WeaponDrop:
-    TNT1 A 0
-	TNT1 A 0
-    TNT1 A 0 A_TakeInventory("IsDropping",1)
-	TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
-    Goto Ready
-   Deselect:
-     REPS EDCBA 1
-     TNT1 AAAAAAAAAA 0 A_Lower
-	 TNT1 A 1 A_Lower
-     Goto Deselect+5
-   Select:
-     TNT1 A 0 A_Raise
-     Wait
-  Fire:
-	TNT1 A 0 A_JumpIfInventory("PistolAmmo",1,2)
-	Goto ToReady+2
-	TNT1 AAA 0
-    BDPI B 0 bright A_Takeinventory("PistolAmmo",1)
-	BDPI B 0 A_Jumpifcloser(120,"Closeshot")
-	REPR AA 0 A_FireCustomMissile ("PistolSmokeSpawner", 0, 0, 8,12, 0, 0)
-    PISG B 0 A_FireBullets(1.75, 1.75, -1, 11, "FFBulletPuff")
-	PISG B 0 A_FireCustomMissile ("PisCaseSpawn", 0, 0, 8, 10, 0, 0)
-    PISG B 0 A_PlaySound("newpistol/fire",CHAN_WEAPON)
-	PISG B 0 A_AlertMonsters
-    REPF A 1 bright A_WeaponReady(WRF_NOFIRE)
-	REPF BCD 1 A_WeaponReady(WRF_NOFIRE)
-	REPF CE 1 A_WeaponReady(WRF_NOFIRE)
-	REPA A 8 A_WeaponReady(WRF_NOFIRE)
-	REPF E 0 A_ReFire
-    Goto Ready+6
-  ToReady:
-    NULL A 0
-	Goto Ready+6
-	 REPR AAA 0
-	 REPR A 0 A_PlaySound("DRYFIRE")
-	 Goto Ready+6
-  AltFire:
-	BDRI A 0 A_JumpIfInventory("PistolAmmo",10,"ToReady")
-    BDRI A 0 A_JumpIfInventory("PistolClip",1,"Reload")
-	Goto ToReady+2
+  	Scale 0.7
+  	Obituary ""
+  	Radius 20
+  	Height 16
+  	//AttackSound "weapons/BerettaFire"
+  	Weapon.preferredSkin "PistolSkin"
+  	Weapon.SelectionOrder 400
+  	Weapon.SlotNumber 1
+  	Weapon.kickback 100
+  	Weapon.ammotype "PistolAmmo"
+  	Weapon.ammotype2 "PistolClip"
+  	Weapon.ammouse 0
+  	+WEAPON.NOAUTOFIRE
+  	Inventory.Pickupmessage "You find an M1911." // "Picked up a pistol."
+  	States
+  	{
+  	Ready:
+    		REPR A 0 A_PlaySound("newpistol/raise")
+		REPS ABCDE 1
+    		REPA A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
+    		REPA A 1 A_WeaponReady
+    		Goto Ready+6
+  	WeaponDrop:
+    		TNT1 A 0
+		TNT1 A 0
+    		TNT1 A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+    		Goto Ready
+   	Deselect:
+     		REPS EDCBA 1
+     		TNT1 AAAAAAAAAA 0 A_Lower
+	 	TNT1 A 1 A_Lower
+     		Goto Deselect+5
+   	Select:
+     		TNT1 A 0 A_Raise
+     		Wait
+  	Fire:
+		TNT1 A 0 A_JumpIfInventory("PistolAmmo",1,2)
+		Goto ToReady+2
+		TNT1 AAA 0
+    		BDPI B 0 bright A_Takeinventory("PistolAmmo",1)
+		BDPI B 0 A_Jumpifcloser(120,"Closeshot")
+		REPR AA 0 A_FireCustomMissile ("PistolSmokeSpawner", 0, 0, 8,12, 0, 0)
+    		PISG B 0 A_FireBullets(1.75, 1.75, -1, 11, "FFBulletPuff")
+		PISG B 0 A_FireCustomMissile ("PisCaseSpawn", 0, 0, 8, 10, 0, 0)
+    		PISG B 0 A_PlaySound("newpistol/fire",CHAN_WEAPON)
+		PISG B 0 A_AlertMonsters
+    		REPF A 1 bright A_WeaponReady(WRF_NOFIRE)
+		REPF BCD 1 A_WeaponReady(WRF_NOFIRE)
+		REPF CE 1 A_WeaponReady(WRF_NOFIRE)
+		REPA A 8 A_WeaponReady(WRF_NOFIRE)
+		REPF E 0 A_ReFire
+    		Goto Ready+6
+  	ToReady:
+    		NULL A 0
+		Goto Ready+6
+	 	REPR AAA 0
+	 	REPR A 0 A_PlaySound("DRYFIRE")
+	 	Goto Ready+6
+  	AltFire:
+		BDRI A 0 A_JumpIfInventory("PistolAmmo",10,"ToReady")
+    		BDRI A 0 A_JumpIfInventory("PistolClip",1,"Reload")
+		Goto ToReady+2
 	
-  Reload:
-	TNT1 AA 0
-	REPR ABC 1
-	REPR A 0 A_PlaySound("newpistol/clipout")
-	REPR DEFGH 1
-	REPR I 16
-	REPR LMNOP 1
-	REPR Q 0 A_PlaySound("newpistol/clipin")
-	REPR QRST 2
-	REPR U 0 A_PlaySound("newpistol/bolt")
-	REPR U 2
-	REPR V 5
-	REPR WXYZ 1
-	REPU ABCD 1
-   CalcAmmo:
-     REPR A 0 A_JumpIfInventory("PistolClip",1,2)
- Goto ToReady
-	 REPR AAA 0
-	 REPR A 0 A_TakeInventory("PistolClip",1)
-	 REPR A 0 A_GiveInventory("PistolAmmo",10)
- Goto ToReady
-  Spawn:
-    PIST A -1
-    Stop
+  	Reload:
+		TNT1 AA 0
+		REPR ABC 1
+		REPR A 0 A_PlaySound("newpistol/clipout")
+		REPR DEFGH 1
+		REPR I 16
+		REPR LMNOP 1
+		REPR Q 0 A_PlaySound("newpistol/clipin")
+		REPR QRST 2
+		REPR U 0 A_PlaySound("newpistol/bolt")
+		REPR U 2
+		REPR V 5
+		REPR WXYZ 1
+		REPU ABCD 1
+   	CalcAmmo:
+     		REPR A 0 A_JumpIfInventory("PistolClip",1,2)
+ 		Goto ToReady
+	 	REPR AAA 0
+	 	REPR A 0 A_TakeInventory("PistolClip",1)
+	 	REPR A 0 A_GiveInventory("PistolAmmo",10)
+ 		Goto ToReady
+	Spawn:
+    		PIST A -1
+    		Stop
 	
-   Closeshot:
-	REPR AA 0 A_FireCustomMissile ("PistolSmokeSpawner", 0, 0, 8, 12, 0, 0)
-    PISG B 0 A_FireBullets(1.70, 1.70, -1, 9, "FFBulletPuff")  //nerfed with distance added aim
-	PISG B 0 A_FireCustomMissile ("PisCaseSpawn", 0, 0, 8, 12, 0, 0)
-    PISG B 0 A_PlaySound("newpistol/fire",CHAN_WEAPON)
-	PISG B 0 A_AlertMonsters
-    REPF A 1 bright A_WeaponReady(WRF_NOFIRE)
-	REPF BCD 1 A_WeaponReady(WRF_NOFIRE)
-	REPF CE 1 A_WeaponReady(WRF_NOFIRE)
-	REPA A 8 A_WeaponReady(WRF_NOFIRE)
-	REPF E 0 A_ReFire
-    Goto Ready+6
-  }
+   	Closeshot:
+		REPR AA 0 A_FireCustomMissile ("PistolSmokeSpawner", 0, 0, 8, 12, 0, 0)
+    		PISG B 0 A_FireBullets(1.70, 1.70, -1, 9, "FFBulletPuff")  //nerfed with distance added aim
+		PISG B 0 A_FireCustomMissile ("PisCaseSpawn", 0, 0, 8, 12, 0, 0)
+    		PISG B 0 A_PlaySound("newpistol/fire",CHAN_WEAPON)
+		PISG B 0 A_AlertMonsters
+    		REPF A 1 bright A_WeaponReady(WRF_NOFIRE)
+		REPF BCD 1 A_WeaponReady(WRF_NOFIRE)
+		REPF CE 1 A_WeaponReady(WRF_NOFIRE)
+		REPA A 8 A_WeaponReady(WRF_NOFIRE)
+		REPF E 0 A_ReFire
+    		Goto Ready+6
+  	}
 }
 
 Actor DroppedBeretta
@@ -219,22 +219,22 @@ Actor PistolAmmo : Ammo
 
 Actor PistolClip : Ammo 30062
 {
-  //$Category WDI Ammo
-  //$Sprite CLP4A0
-  //$Title "Pistol Magazine"
-   Scale 0.35	
-   Inventory.MaxAmount 2
-   +INVENTORY.INVBAR 
-   -INVENTORY.INTERHUBSTRIP
-   Inventory.Icon "ARTICLIP"
-   Inventory.Pickupmessage "Picked up some Pistol ammo"
-   Inventory.RespawnTics 21000 //10 minutes
-   States
-   {
-   Spawn:
-   CLP4	A -1
-   stop
-   }
+  	//$Category WDI Ammo
+  	//$Sprite CLP4A0
+  	//$Title "Pistol Magazine"
+   	Scale 0.35	
+   	Inventory.MaxAmount 2
+   	+INVENTORY.INVBAR 
+   	-INVENTORY.INTERHUBSTRIP
+   	Inventory.Icon "ARTICLIP"
+   	Inventory.Pickupmessage "Picked up some Pistol ammo"
+   	Inventory.RespawnTics 21000 //10 minutes
+   	States
+   	{
+   	Spawn:
+   		CLP4	A -1
+   		stop
+   	}
 }
 
 
@@ -253,20 +253,20 @@ Actor PisCaseSpawn     //Borrowed from the in-limbo ZNew mod (WildWeasel)
 
 Actor PistolSmokeSpawner
 {
-    Radius 1
-    Height 1
-    Speed 25
-    PROJECTILE
-    States
-    {
-    Spawn:
-        TNT1 A 1
-        TNT1 A 0 A_Die
-        Goto Death
-    Death:
-        TNT1 A 0 A_CustomMissile("PistolSmoke",-2,0,0)
-        Stop
-    }
+    	Radius 1
+    	Height 1
+    	Speed 25
+    	PROJECTILE
+    	States
+    	{
+    	Spawn:
+        	TNT1 A 1
+        	TNT1 A 0 A_Die
+        	Goto Death
+    	Death:
+        	TNT1 A 0 A_CustomMissile("PistolSmoke",-2,0,0)
+        	Stop
+    	}
 }
 
 Actor PistolSmoke
@@ -303,59 +303,63 @@ Actor PistolCasing
 	States
 	{
 	Spawn:
-	   SCAC A 0 A_Playsound("NULL")
-	   SCAC ABCDE 2 A_CustomMissile("PisCaseSmoke",0,0,0,2,0)
-	   Goto Spawn+1
+	   	SCAC A 0 A_Playsound("NULL")
+	   	SCAC ABCDE 2 A_CustomMissile("PisCaseSmoke",0,0,0,2,0)
+	   	Goto Spawn+1
 	Death:
-	   SCAC A 0 A_Jump(64,4)
-	   SCAC A 0 A_Jump(85,4)
-	   SCAC A 0 A_Jump(128,4)
-	   SCAC A 350
-	   Stop
-	   SCAC B 350
-	   Stop
-	   SCAC C 350
-	   Stop
-	   SCAC E 350
-	   Stop
+	   	SCAC A 0 A_Jump(64,4)
+	   	SCAC A 0 A_Jump(85,4)
+	   	SCAC A 0 A_Jump(128,4)
+	   	SCAC A 350
+	   	Stop
+	   	SCAC B 350
+	   	Stop
+	   	SCAC C 350
+	   	Stop
+	   	SCAC E 350
+	   	Stop
 	}
 }       
 
 Actor PisCaseSmoke
 {
-   Radius 1
-   Height 1
-   PROJECTILE
-   +NOCLIP
-   Scale 0.125
-   Speed 0
-   RENDERSTYLE TRANSLUCENT
-   ALPHA 0.25
-   States
-   {
-   Spawn:
-      SMKE ABCDEFGH 1 
-      Stop
-   }
+   	Radius 1
+   	Height 1
+   	PROJECTILE
+   	+NOCLIP
+   	Scale 0.125
+   	Speed 0
+   	RENDERSTYLE TRANSLUCENT
+   	ALPHA 0.25
+   	States
+   	{
+   	Spawn:
+      		SMKE ABCDEFGH 1 
+      		Stop
+   	}
 }
 
 Actor SpentClip5 //pistol-type clip
 { 
-    Scale 0.35
-    Radius 3
-    Height 3
-    Speed 0
-    Mass 5
-    +NOBLOCKMAP +DROPOFF +MISSILE +NOTELEPORT +FLOORCLIP
-    DeathSound "weapons/smallclip"
-    States
-    {
-    Spawn:
-      CLP4 ABCDEF 3
-      Loop
-    Death:
-      CLP4 A 1000
-      CLP4 AAAAAAAAAAAAAAAAAAAA 1 A_FadeOut(0.05)
-      Stop
+    	Scale 0.35
+    	Radius 3
+    	Height 3
+    	Speed 0
+    	Mass 5
+    	+NOBLOCKMAP 
+	+DROPOFF 
+	+MISSILE 
+	+NOTELEPORT 
+	+FLOORCLIP
+    	DeathSound "weapons/smallclip"
+    	States
+    	{
+    	Spawn:
+      		CLP4 ABCDEF 3
+      		Loop
+    	Death:
+      		CLP4 A 1000
+      		CLP4 AAAAAAAAAAAAAAAAAAAA 1 A_FadeOut(0.05)
+      		Stop
     }
 }
