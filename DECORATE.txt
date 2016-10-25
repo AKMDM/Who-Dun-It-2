@@ -1,26 +1,40 @@
-#Include "code/Players.txt"
-#Include "code/Lights.txt"
-#Include "code/Weapons.txt"	
-#Include "code/Items.txt"
-#Include "code/Effects.txt"
-#Include "code/Hacks.txt"
-#Include "code/Murderer.txt"
-#Include "code/Keys.txt"
-#Include "code/Decor.txt"
-#Include "code/Dump.txt"
-#Include "code/DROPS.txt"
-#Include "code/CLOCKTWN.txt" //Unoffical map made offical.
-#Include "code/SURRND.txt"   //XSnake's map
-#Include "code/HSP.txt"      //Capt. J3's map
-#include "code/NIGHTOUT.txt" //Sicamore's map
-#include "code/BUNKER.txt"   //Bunker Down related props
-#include "code/SEWERS.txt"   //TheMisterCat sewers map stuff
-#include "code/STAR.txt"   //Cradle Under The Star Decor
-
 
 //=====================================
 //            FOLDERS
 //=====================================
+
+//DECORATE
+#Include "code/Decorate/ENVIRO.txt"
+#Include "code/Decorate/GORE.txt"
+#Include "code/Decorate/PROPS.txt"
+
+
+//ITEMS
+
+#Include "code/Items/EGGS.txt"
+#Include "code/Items/INVTORY.txt"
+
+//KEYS
+#Include "code/keys/KEYS.txt"
+
+//MODELS
+#Include "code/Models/MODELS.txt"
+
+//MONSTERS
+#Include "code/Monsters/MONSTERS.txt"
+
+//MURDER
+#Include "code/Murder/D_DROP.txt"
+#Include "code/Murder/DROP.txt"
+#Include "code/Murder/HACKS.txt"
+#Include "code/Murder/PLAYERS.txt"
+
+//SFX
+
+#Include "code/Sfx/EFFECTS.txt"
+#Include "code/Sfx/LIGHTS.txt"
+#Include "code/Sfx/PUFFS.txt"
+#Include "code/Sfx/SPAWNERS.txt"
 
 //WEAPONS
 
@@ -47,3 +61,4 @@
 #Include "code/Weapons/TWIG.txt"
 #Include "code/Weapons/WDIBERET.txt"
 #Include "code/Weapons/WRENCH.txt"
+#Include "code/Weapons/WEAPONS.txt"

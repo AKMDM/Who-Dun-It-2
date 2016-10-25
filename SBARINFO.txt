@@ -70,10 +70,34 @@ drawnumber 3, HUDFONT_DOOM, red, health, -104, 156;
 //DrawMugShot 1, disablegrin, disableouch, disablerampage, 0, 0; 
 /////////////////////////////////////////////////////////////////
 
-	//IsSelected FistWithLighter 
-	//{
-	//	DrawBar "LITFRONT", "LITBACK", Lighterammo, Vertical, 432, 142;
-	//}
+	IsSelected NO_WEAPON
+	{
+	    drawnumber 3, HUDFONT_DOOM, red, health, -34, 164;
+	DrawImage translatable "CTCOLOR", -154, 140; 
+		DrawImage "JENFACE", -144, 142;
+        //drawbar "STAMBAR", "STAMBAR2", RunStamina, horizontal, 314, 159;
+		DrawImage translatable "STAMWORD", 334, 160;
+	}
+	
+	
+	IsSelected Murd_Vanish
+	{
+	    drawnumber 3, HUDFONT_DOOM, red, health, -34, 164;
+	DrawImage translatable "CTCOLOR", -154, 140; 
+		DrawImage "JENFACEX", -144, 142;
+        //drawbar "STAMBAR", "STAMBAR2", RunStamina, horizontal, 314, 159;
+		DrawImage translatable "CTVANISH", 188, 144;
+	}
+	
+		IsSelected Scissors
+	{
+	    drawnumber 3, HUDFONT_DOOM, red, health, -34, 164;
+	DrawImage  "CTMURDCR", -158, 137; 
+		DrawImage "SCIMARK", -140, 147;
+        //drawbar "STAMBAR", "STAMBAR2", RunStamina, horizontal, 314, 159;
+		//DrawImage translatable "STAMWORD", 334, 160;
+	}
+	
 
 	IsSelected Shotgun2
 	{
@@ -109,6 +133,36 @@ drawnumber 3, HUDFONT_DOOM, red, health, -104, 156;
 	{
 		DrawBar "GASFRONT", "GASBACK", Gasoline, Vertical, 432, 142;
 	}
+	
+		IsSelected FistWithLighter 
+	{
+		DrawBar "LITFRONT", "LITBACK", Lighterammo, Vertical, 380, 142;
+	}
+	
+	IsSelected FistWithFlashlight 
+	{
+		drawimage "LITFLASH", 380, 142;
+	}
+	
+	IsSelected FlashlightZ 
+	{
+		drawimage "LITFLASH", 380, 142;
+	}
+	
+	IsSelected SprayCanBLU 
+	{
+		DrawBar "CANFRONB", "CANBACK", Sprayammo, Vertical, 420, 142;
+	}
+	
+	IsSelected SprayCanRED
+	{
+		DrawBar "CANFRONR", "CANBACK", Sprayammo, Vertical, 420, 142;
+	}
+	
+	IsSelected Soulcube
+	{
+		drawimage "FUCKCUBE", 320, 180, centerbottom;
+	}
 
 //drawnumber 4, BIGFONT, yellow, PowerupTime MeleeSlower, whennotzero, 166, 64;
 
@@ -128,13 +182,9 @@ drawselectedinventory SMALLFONT, 462, 100, 528, 116;
 }
 
 
-
-
 statusbar inventoryfullscreen
 {
 	//drawinventorybar Doom, 7, INDEXFON, 50, 100;
 	DrawInventoryBar Strife, alwaysshowcounter, noarrows, translucent, 6, SMALLFONT, -42, 50, -1, 120;
 	//DrawString SMALLFONT, Gold, inventorytag, , <y> [, <spacing> [, <flags>]] //For when Skulltag goes to 2.5.0 :(
 }
-
-

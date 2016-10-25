@@ -1,0 +1,101 @@
+//==================================================================
+/////////////////////    MONSTERS    //////////////////////////////
+//=================================================================
+
+Actor Rat 28674
+{
+MONSTER
+-ISMONSTER
++ALWAYSRESPAWN
+-TELESTOMP
+-CANPASS
++DONTFALL
++PUSHABLE
++NODROPOFF
++DONTSPLASH
+-CANUSEWALLS
+-COUNTKILL
+-CANPUSHWALLS
+health 10
+	DamageFActor "Gas", 0.0
+	DamageFActor "FlareEffect", 0.0
+maxstepheight 4
+radius 4
+height 6
+speed 13
+activesound "rat/squeak"
+deathsound "rat/die"
+  //$Category WDI Creatures
+  //$Sprite RATTA2A8
+  //$Title "Rat (Gives Sanity on death)"
+states
+{
+Spawn:
+RATT A 1 A_Chase
+RATT A 8 A_Jump(60, "Walk", "TryAgain")
+loop
+TryAgain:
+RATT B 8 A_Jump(60, "Walk", "Spawn")
+loop
+Walk:
+RATT ABABAB 4 A_Wander
+RATT A 0 A_JumpIfCloser(64, "Scared")
+RATT A 0 A_CheckSight("Spawn")
+loop
+Scared:
+RATT A 1 A_ChangeFlag("FRIGHTENED", 1)
+RATT ABABABAB 3 A_Chase
+RATT A 0 A_CheckSight("Spawn")
+loop
+death:
+RATT A 0 A_GiveToTarget("MadMeter", 40)
+RATT A 1 A_PlaySound("rat/die")
+MEAT R 4 A_Burst("RatMeat")
+MEAT QP 4
+MEAT P -1
+stop
+}}
+
+Actor RatMeat { 
++CLIENTSIDEONLY
++HEXENBOUNCE
++DONTSPLASH
+scale 0.3
+gravity 0.4
+bouncecount 5
+reactiontime 20
+states {
+Spawn:
+MEAT S 1 A_Jump(150, "Two")
+One:
+MEAT S 3 A_Countdown
+loop
+Two:
+MEAT T 3 A_Countdown
+loop
+Death:
+stop
+}}
+
+
+Actor Gonefishing 14254
+{
+  speed 24
+  MaxStepHeight 16
+  MaxDropoffHeight 32
+  MONSTER
+  +FRIENDLY
+  -SHOOTABLE
+  //$Category WDI Easter Eggs
+  //$Sprite GNFIA2A8
+  //$Title "GONE FISHING"
+  states
+  {
+  Spawn:
+    GNFI A 1 A_Look2
+    loop
+  See:
+    GNFI ABCD 4 A_Wander
+    loop
+}}
+
