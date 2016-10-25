@@ -1,0 +1,173 @@
+//==================================================================
+///////////////////       FIREAXE       ////////////////////////////
+//=================================================================
+Actor FakeAxe : CustomInventory 2716
+{
+    //$Category Marsis_map_ONLY
+	Radius 16
+	Height 8
+	Scale 1.0
+	Inventory.PickupMessage "Found a hatchet."
+	Inventory.RespawnTics 21000 //10 Minutes
+	States
+	{
+	Spawn:
+		AXEZ A -1
+		Stop
+	Pickup:
+		AXET A 0
+		AXET A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		AXET A 0 A_PlaySound("pickups/weapon")
+		AXET A 0 A_GiveInventory("FireAxe",1)
+		AXET A 0 A_GiveInventory("Slot1Filled",1)
+		AXEZ A 1 ACS_Execute(669,0,10)
+		Stop
+	NotPickup:
+		AXET A 0
+		AXEZ A 1 ACS_Execute(669,0,10)
+		Fail
+}}
+
+Actor DroppedAxe
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+	Scale 1.0
+	DeathSound "shovel/wall"
+	States
+	{
+	Spawn:
+		AXEZ A -1
+		Stop
+	Death:
+		AXEZ A 35
+		AXEZ A 1 A_SpawnItem("FakeAxe",0,0,0,0)
+		Stop
+}}
+
+Actor FireAxe : Weapon
+{
+	Radius 8
+	Height 32
+	Scale 1.0
+	Inventory.PickupMessage "You found a hatchet."
+	Weapon.SelectionOrder 2200
+	Weapon.preferredSkin "AxeSkin"
+	+WEAPON.MELEEWEAPON
+	+WEAPON.NOAUTOFIRE
+	+INVENTORY.UNDROPPABLE
+
+	States
+	{
+	Spawn:
+		AXEZ A 0
+		Goto Death
+	Pickup:
+
+   Deselect:
+     AXS1 CBA 1
+     TNT1 AAAAAAAAAA 0 A_Lower
+	 TNT1 A 1 A_Lower
+     Loop
+   Select:
+     TNT1 A 0 A_Raise
+     Wait
+
+	Ready:
+		AXS1 A 0
+		AXS1 ABC 1
+
+		AXE3 A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		AXE3 A 1 A_WeaponReady
+		Goto Ready+4
+
+	DropWeapon:
+		AXES A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(667,0,0,0,0)
+		Goto Ready+4
+	Fire:
+        AXE3 BCDEF 1
+		TNT1 A 1
+		TNT1 A 1 A_Refire
+		AXE3 GH 2
+		AXE3 I 0 A_PlaySound("axe/swing")//,CHAN_WEAPON)
+		AXE3 I 2
+		AXE3 J 2 A_CustomPunch(14,1,0,"FirstAxePuff", 70)
+		AXE3 KLM 1 A_CustomPunch(5,1,0,"AxePuff", 70)
+		AXE3 NN 1 A_CustomPunch(4,1,0,"AxePuff", 70)
+		AXE3 O 2 A_Recoil(-1)
+        TNT1 A 4
+		AXS1 ABC 1
+		Goto Ready+4
+	Hold:
+		TNT1 A 2
+		TNT1 A 1 A_Refire
+		AXE3 GH 2
+		AXE3 I 0 A_PlaySound("axe/swing")//,CHAN_WEAPON)
+		AXE3 I 2
+		AXE3 J 2 A_CustomPunch(11,1,0,"AxePuff", 70)
+		AXE3 KLM 1 A_CustomPunch(4,1,0,"AxePuff",70)
+		AXE3 NN 1 A_CustomPunch(3,1,0,"AxePuff", 70)
+		AXE3 O 2 A_Recoil(-1)
+        TNT1 A 5
+		AXS3 ABC 1
+		Goto Ready
+	Death:
+	    AXEZ A 0 A_SpawnItem("DroppedAxe",0,0,0,0)
+	    TNT1 A 0 A_FadeOut(1.0)
+	    Goto Death+1
+}}
+
+Actor FirstAxePuff 
+{
+ DamageType "friendlymelee"
+   Scale 0.75
+   RenderStyle Add
+   Alpha 0.9
+   +NOGRAVITY
+   +NOEXTREMEDEATH
+   -ALLOWPARTICLES
+   +PUFFONActorS
+  //activesound "axe/swing"
+  attacksound "shovel/wall"
+  seesound "axe/hit"
+	   States
+   {
+   Spawn:
+   	 POOF ABCDE 2
+      Stop
+	  Melee:
+   	 POOF ABCDE 2
+      Stop
+	  Crash:
+   	 POOF ABCDE 2
+      Stop
+}}
+
+Actor AxePuff 
+{
+DamageType "friendlymelee"
+   Scale 0.75
+   RenderStyle None
+   Alpha 0.9
+   +NOGRAVITY
+   +NOEXTREMEDEATH
+   -ALLOWPARTICLES
+   +PUFFONActorS
+  //activesound "shovel/swing"
+	   States
+   {
+   Spawn:
+   	TNT1 A 1
+      Stop
+	  Melee:
+   	 POOF ABCDE 2//TNT1 A 1
+      Stop
+	  Crash:
+   	 POOF ABCDE 2//TNT1 A 1
+      Stop
+}}

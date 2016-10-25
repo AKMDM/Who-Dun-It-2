@@ -1,0 +1,201 @@
+//==================================================================
+/////////////////////     POOLCUE   ///////////////////////////////
+//=================================================================
+//Poolcue || Sprites by Punisher, code by Firewolf
+
+Actor FakeCue : CustomInventory 30073
+{
+  //$Category WDI Weapons
+  //$Sprite POOLA0
+  //$Title "Pool Cue"
+	Radius 16
+	Height 8
+	Scale 0.5
+	Inventory.PickupMessage "Found a pool cue." 
+	Inventory.RespawnTics 3150 //1 minute 30 seconds
+	States
+	{
+	Spawn:
+		POOL A -1
+		Stop
+	Pickup: 
+		POOL A 0 
+		POOL A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		POOL A 0 A_PlaySound("pickups/weapon")
+		POOL A 0 A_GiveInventory("PoolCue",1)
+		POOL A 0 A_GiveInventory("Slot1Filled",1)
+		POOL A 1 ACS_ExecuteAlways(670,0,13)
+		Stop
+	NotPickup:
+		POOL A 0
+		POOL A 1 ACS_ExecuteAlways(670,0,13)
+		Fail						  
+}}
+
+Actor FakeCueY : CustomInventory 3258
+{
+  //$Category WDI Weapons
+  //$Sprite POOZA0
+  //$Title "Pool Cue (Standing)"
+	Radius 16
+	Height 8
+	Scale 0.35
+	Inventory.PickupMessage "Found a pool cue." 
+	Inventory.RespawnTics 3150 //1 minute 30 seconds
+	States
+	{
+	Spawn:
+		POOZ A -1
+		Stop
+	Pickup: 
+		POOZ A 0 
+		POOZ A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		POOZ A 0 A_PlaySound("pickups/weapon")
+		POOZ A 0 A_GiveInventory("PoolCue",1)
+		POOZ A 0 A_GiveInventory("Slot1Filled",1)
+		POOZ A 1 ACS_ExecuteAlways(670,0,13)
+		Stop
+	NotPickup:
+		POOZ A 0
+		POOZ A 1 ACS_ExecuteAlways(670,0,13)
+		Fail						  
+}}
+
+Actor PoolCue : Weapon
+{
+	Radius 8
+	Height 32
+	Scale 0.5
+	Inventory.PickupMessage "Found a pool cue."
+	Weapon.SelectionOrder 2200
+	+WEAPON.MELEEWEAPON
+	+WEAPON.NOAUTOFIRE
+	+INVENTORY.UNDROPPABLE
+   +NOAUTOAIM
+	
+	States
+	{
+	Spawn:
+		POOL A 0
+		Goto Death
+	Pickup: 
+	
+	Select:
+		POCU A 1 A_Raise
+		Loop
+		
+	Deselect:
+		POCU A 1 A_Lower
+		Loop
+		
+	Ready:
+		POCU A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		POCU A 1 A_WeaponReady
+		Loop
+		
+	DropWeapon:
+		TNT1 A 0
+		POCU A 1
+		TNT1 A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+       Goto Ready
+		
+	Fire:
+        POCU BCD 2 
+		TNT1 A 3
+		TNT1 A 1 A_Refire
+		POCU DCBA 1
+		POCU E 1 A_CustomPunch(4, 1, 1, "CuePuff", 80)
+		POCU FGHI 1 A_CustomPunch(6, 1, 1, "CuePuff2", 80)
+		POCU JKL 1 
+		POCU M 2
+		POCU NOPQRSTA 2
+		Goto Ready
+
+	Hold:
+	TNT1 A 1
+		TNT1 A 1 A_Refire
+		POCU DCBA 1
+		POCU E 1 A_CustomPunch(4, 1, 1, "CuePuff", 80)
+		POCU FGHI 1 A_CustomPunch(6, 1, 1, "CuePuff2", 80)
+		POCU JKL 1 
+		POCU M 2
+		POCU NOPQRSTA 2
+		Goto Ready
+	
+	Death:
+	   POOL A 0 A_SpawnItem("DroppedCue",0,0,0,0)
+	   TNT1 A 0 A_FadeOut(1.0)
+	   Goto death + 1
+}}
+
+Actor DroppedCue
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+	Scale 0.5
+	DeathSound "cue/wall"
+	States
+	{
+	Spawn:
+		POOL A 1
+		Loop
+	Death:
+		POOL A 35
+		POOL A 1 A_SpawnItemEx("FakeCue",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+}}
+
+Actor CuePuff
+{
+  DamageType "CueMelee"
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +PUFFONActorS
+  activesound "cue/swing"
+  attacksound "cue/swing"
+  seesound "cue/swing"
+  States
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 1
+    Stop
+  Crash:
+  	TNT1 A 0
+  	TNT1 A 1
+  	Stop
+  Melee:
+  	TNT1 A 0
+  	TNT1 A 1
+  	Stop
+}}
+
+Actor CuePuff2
+{
+  DamageType "CueMelee"
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +PUFFONActorS
+  activesound ""
+  attacksound "cue/wall"	// Hit wall
+  seesound "cue/hit"		// Hit player
+  States
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 1
+    Stop
+  Crash:
+  	TNT1 A 0
+  	TNT1 A 1
+  	Stop
+  Melee:
+  	TNT1 A 0
+  	TNT1 A 1
+  	Stop
+}}

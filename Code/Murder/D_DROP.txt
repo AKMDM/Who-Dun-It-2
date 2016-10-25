@@ -1,0 +1,218 @@
+//==================================================================
+/////////////////////  DEATH DROPPERS //////////////////////////////
+//=================================================================
+Actor DeathDropper : CustomInventory
+{
+ Inventory.Amount 1
+ Inventory.MaxAmount 0
+ +INVENTORY.AUTOACTIVATE
+ +INVENTORY.ALWAYSPICKUP
+ +INVENTORY.UNDROPPABLE
+ -INVENTORY.INVBAR
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 
+	Stop
+ }
+}
+
+Actor DeathDropper_Shotgun : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("FakeShotgun", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor DeathDropper_PoolCue : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("FakeCue", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor DeathDropper_Wrench : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("FakeWrench", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor DeathDropper_Pipe : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("FakePipe", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor DeathDropper_Shovel : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("FakeShovel", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor DeathDropper_Chainsaw : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("FakeChainsaw", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor DeathDropper_Beretta : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("FakeBeretta", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor DeathDropper_Crossbow : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("FakeCrossbow", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor DeathDropper_M1 : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("FakeM1", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor DeathDropper_Brick : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("FakeBrick", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor DeathDropper_Molly : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("ThrownMolly", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor DeathDropper_NailedPlank : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("FakeNailedPlank", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor DeathDropper_Plank : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("FakePlank", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+	Stop
+ }
+}
+
+Actor DeathDropper_Twig : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_SpawnItemEx("FakeTwig", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+	Stop
+ }
+}

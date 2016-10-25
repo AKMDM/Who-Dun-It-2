@@ -1,0 +1,271 @@
+//==================================================================
+/////////////////////     EASTEREGGS  /////////////////////////////
+//=================================================================
+
+Actor EasterEgg : CustomInventory 10400
+{
+  //$Category WDI Easter Eggs
+  //$Sprite EASTA0
+  //$Title "THE EASTER EGG"
+  +INVBAR
+  +FANCYPICKUPSOUND
+  -INVENTORY.INTERHUBSTRIP
+  +INVENTORY.UNDROPPABLE
+  Inventory.DefMaxAmount
+  Inventory.PickupFlash "PickupFlash"
+  Inventory.MaxAmount 1
+  Inventory.Icon "ARTIEAST"
+  Inventory.PickupSound ""
+  Inventory.PickupMessage "???"
+  Inventory.RespawnTics 9999999999999999 //Oh dear god.
+  States
+  {
+  Spawn:
+    EAST A -1
+    Stop
+  Use:
+    TNT1 A 0 A_PlaySound("EASTERTIME", CHAN_VOICE)
+	stop
+}}
+
+Actor TechnoKit : CustomInventory 32767
+{
+  //$Category WDI Easter Eggs
+  //$Sprite DKITA0
+  //$Title "TECHNO KIT (RAVE IN A BOX!)"
+  Health 50
+  DamageType Heal
+  +FLOORCLIP
+  +INVENTORY.INVBAR 
+  -INVENTORY.INTERHUBSTRIP
+  Inventory.MaxAmount 1
+  Inventory.Icon "ARTIRAVE"
+  Inventory.RespawnTics 21000 //10 minutes
+  Inventory.PickupMessage "RAVE IN A BOX!"
+
+	States
+	{
+	Spawn:
+	 DKIT A -1
+
+	Use:
+	 TNT1 A 0 A_SpawnItemEx("DroppedTechnoKit", 32, 0, 42, 0, 0, 0, 0, 0, 0)
+	 stop
+}}
+
+Actor DroppedTechnoKit
+{
+-NOGRAVITY
+Mass 999999999
+  ReactionTime 110
+
+	States
+	{
+	Spawn:
+	 DKIT A 35
+	 DKIT A 0 A_PlaySound("Items/BigKitWarn")
+	 DKIT A 35
+	 DKIT A 0 A_PlaySound("Items/BigKitWarn")
+	 DKIT A 35
+	 DKIT A 0 A_PlaySound("Items/BigKitWarn")
+	 DKIT A 35
+	 DKIT A 15
+	 DKIT A 0 A_PlaySound("Items/BigKitActivate")
+	 DKIT A 35
+	 DKIT A 0 A_PlaySound("Items/BigKitOpen")
+	 MEDI BCD 4
+	 MEDI E 4
+	 MEDI E 15
+	 MEDI E 0 A_SpawnItemEx ("BigKitOrbit", 0, -64, 2, 0, 0, 0, 48, SXF_SETMASTER, 0)//A_CustomMissile("BigKitOrbit", 48, 0, 0, 2, 0)
+	 MEDI E 0 A_SpawnItemEx ("BigKitOrbit", 0, 64, 2, 0, 0, 0, 48, SXF_SETMASTER, 0)//A_CustomMissile("BigKitOrbit2", 48, 0, 180, 2, 0)
+	 MEDI E 4
+	 MEDI E 0 A_SpawnItemEx ("BigKitOrbit", 0, -64, 2, 0, 0, 0, 48, SXF_SETMASTER, 0)//A_CustomMissile("BigKitOrbit", 48, 0, 0, 2, 0)
+	 MEDI E 0 A_SpawnItemEx ("BigKitOrbit", 0, 64, 2, 0, 0, 0, 48, SXF_SETMASTER, 0)//A_CustomMissile("BigKitOrbit2", 48, 0, 180, 2, 0)
+	 MEDI E 4
+	 MEDI E 0 A_SpawnItemEx ("BigKitOrbit", 0, -64, 2, 0, 0, 0, 48, SXF_SETMASTER, 0)//A_CustomMissile("BigKitOrbit", 48, 0, 0, 2, 0)
+	 MEDI E 0 A_SpawnItemEx ("BigKitOrbit", 0, 64, 2, 0, 0, 0, 48, SXF_SETMASTER, 0)//A_CustomMissile("BigKitOrbit2", 48, 0, 180, 2, 0)
+	 MEDI E 4
+	 MEDI E 0 A_SpawnItemEx ("BigKitOrbit", 0, -64, 2, 0, 0, 0, 48, SXF_SETMASTER, 0)//A_CustomMissile("BigKitOrbit", 48, 0, 0, 2, 0)
+	 MEDI E 0 A_SpawnItemEx ("BigKitOrbit", 0, 64, 2, 0, 0, 0, 48, SXF_SETMASTER, 0)//A_CustomMissile("BigKitOrbit2", 48, 0, 180, 2, 0)
+	 MEDI E 4
+	 MEDI E 0 A_SpawnItemEx ("BigKitOrbit", 0, -64, 2, 0, 0, 0, 48, SXF_SETMASTER, 0)//A_CustomMissile("BigKitOrbit", 48, 0, 0, 2, 0)
+	 MEDI E 0 A_SpawnItemEx ("BigKitOrbit", 0, 64, 2, 0, 0, 0, 48, SXF_SETMASTER, 0)//A_CustomMissile("BigKitOrbit2", 48, 0, 180, 2, 0)
+	 MEDI E 4
+	 MEDI E 0 A_SpawnItemEx ("BigKitOrbit", 0, -64, 2, 0, 0, 0, 48, SXF_SETMASTER, 0)//A_CustomMissile("BigKitOrbit", 48, 0, 0, 2, 0)
+	 MEDI E 0 A_SpawnItemEx ("BigKitOrbit", 0, 64, 2, 0, 0, 0, 48, SXF_SETMASTER, 0)//A_CustomMissile("BigKitOrbit2", 48, 0, 180, 2, 0)
+	 MEDI E 4
+	 MEDI E 0 A_SpawnItemEx ("BigKitOrbit", 0, -64, 2, 0, 0, 0, 48, SXF_SETMASTER, 0)//A_CustomMissile("BigKitOrbit", 48, 0, 0, 2, 0)
+	 MEDI E 0 A_SpawnItemEx ("BigKitOrbit", 0, 64, 2, 0, 0, 0, 48, SXF_SETMASTER, 0)//A_CustomMissile("BigKitOrbit2", 48, 0, 180, 2, 0)
+	 MEDI E 1 A_SpawnItemEx("ILoveYouMisterCat", 0, 0, 32, 0, 0, 0, 0, 0, 0)
+	 MEDI E 1 A_SpawnItemEx("ILoveYouMisterCat", 0, 1, 31, 0, 0, 0, 0, 0, 0)
+	 MEDI E 1 A_SpawnItemEx("ILoveYouMisterCat", 0, 2, 30, 0, 0, 0, 0, 0, 0)
+	 MEDI E 0 A_SpawnItemEx("TechnoMusic", 0, 0, 32, 0, 0, 0, 0, 0, 0)
+	  goto HealItUp
+
+	HealItUp:
+	 MEDI E 0 A_SpawnItemEx("RedLight", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	 MEDI E 15 A_CountDown
+	 MEDI E 0 A_SpawnItemEx("GreenLight", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	 MEDI E 15 A_CountDown
+	 MEDI E 0 A_SpawnItemEx("BlueLight", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	 MEDI E 15 A_CountDown
+	 MEDI E 0 A_SpawnItemEx("YellowLight", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	 MEDI E 15 A_CountDown
+	 MEDI E 0 A_SpawnItemEx("PurpleLight", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	 MEDI E 15 A_CountDown 
+	 Loop
+
+	Death:
+	 MEDI E 0 A_StopSound(CHAN_VOICE)
+	 MEDI E 0 A_RemoveChildren
+	 MEDI E 0 A_SpawnItemEx("BigKitFake", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	 stop
+}}
+
+Actor DiscoLight : RandomSpawner 
+{
+    DropItem "RedLight" 255 1
+    DropItem "GreenLight" 255 1
+    DropItem "BlueLight" 255 1
+    DropItem "YellowLight" 255 1
+    DropItem "PurpleLight" 255 1
+}
+
+Actor RedLight 
+{
+states
+{
+spawn:
+TNT1 A 15
+stop
+}}
+
+Actor GreenLight 
+{
+states
+{
+spawn:
+TNT1 A 15
+stop
+}}
+
+Actor BlueLight 
+{
+states
+{
+spawn:
+TNT1 A 15
+stop
+}}
+
+Actor YellowLight 
+{
+states
+{
+spawn:
+TNT1 A 15
+stop
+}}
+
+Actor PurpleLight 
+{
+states
+{
+spawn:
+TNT1 A 15
+stop
+}}
+
+Actor ILoveYouMisterCat
+{
++NOGRAVITY
++NOINTERACTION
+RenderStyle Add
+Alpha 0.75
+ReactionTime 47
+states
+{
+spawn:
+NEWZ A 0 BRIGHT 
+NEWZ A 26 BRIGHT
+NEWZ B 3 BRIGHT
+NEWZ C 3 BRIGHT
+NEWZ D 3 BRIGHT
+NEWZ A 0 BRIGHT A_CountDown
+loop
+
+Death:
+TNT1 A 1 
+stop
+}}
+
+Actor TechnoMusic
+{
+reactiontime 47
+states
+{
+spawn:
+TNT1 A 0
+TNT1 A 0 A_PlaySound ("DISCO", CHAN_VOICE, 3.0, 0) 
+goto buttloop
+
+butloop:
+TNT1 A 35
+TNT1 A 0 A_CountDown
+loop
+
+Death:
+TNT1 A 0 
+stop
+}}
+
+Actor AFUCKINGGNOME 31015
+{
+  //$Category WDI Easter Eggs
+  //$Sprite GNOMA0
+  //$Title "A FUCKING GNOME"
+Radius 8
+Height 32
+Mass 32
+Scale 0.25
+MaxStepHeight 512 //THE ROAMING GNOME KNOWS NO BOUNDS!
+
+-NODROPOFF
+-SOLID
++NOBLOOD
++NOTARGET
++NOTIMEFREEZE
++PUSHABLE
++SLIDESONWALLS
+//+INVULNERABLE
+	states
+	{
+	Spawn:
+	 GNOM A -1
+	  Wait
+}}
+
+Actor WilsonBall : CustomInventory 
+{
+  inventory.pickupmessage "Always wanna be with you... <3"
+  inventory.pickupsound ""
+  Mass 0x7fffffff
+  Radius 8
+  Height 8
+  Scale 0.25
+  DamageFActor "Gas", 0.0
+  DamageFActor "FlareEffect", 0.0
+  states
+  {
+  Spawn:
+    WILS A -1
+    stop  
+
+  Pickup:
+    TNT1 A 0 ACS_Execute(40,0,0,0,0)
+    stop
+
+  Death:
+    TNT1 A 0
+    stop
+}}

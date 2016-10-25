@@ -1,0 +1,152 @@
+//==================================================================
+///////////////////      LIGHTER       //////////////////////////
+//=================================================================
+Actor Lighter : Weapon 9904
+{
+  Weapon.SelectionOrder 32000
+  +NOALERT 
+  +DONTBOB
+  scale 0.2
+  Inventory.PickupMessage "Picked up a Lighter"
+  Inventory.PickupSound "weapons/combogun_open"
+  States
+  {
+  Spawn:
+    LIT1 H 1
+    Loop
+  Ready:
+    LIT1 A 0
+    LIT1 ABC 5
+    LIT1 C 0 A_PlaySoundEx("weapons/combogun_open","Weapon",0)
+    LIT1 C 1 A_WeaponReady
+    Goto Ready+5
+  Select:
+    LIT1 A 1 A_Raise
+    Loop
+  Deselect:
+    LIT1 C 0 A_PlaySoundEx("weapons/combogun_close","Weapon",0)
+    LIT1 CBA 5
+    LIT1 A 1 A_Lower
+    Goto Deselect+4
+  Fire:
+    LIT1 D 5
+    LIT1 EE 5
+    LIT1 F 5 A_PlaySoundEx("weapons/combogun_click","Weapon",0)
+    LIT1 E 5
+    LIT1 F 5 A_PlaySoundEx("weapons/combogun_click","Weapon",0)
+    Goto Hold
+  Hold:
+    LIT1 A 0 A_SpawnItemEx("Lightbeam1", 14.0, -6.0, 32.0, 0.0, 0.0, 0.0, 0.0, 128)
+    LIT1 A 0 A_SpawnItemEx("Lightbeam1", 32.0 * (cos(pitch) * 2), -6.0, (32.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
+    LIT1 A 0 A_SpawnItemEx("Lightbeam1", 64.0 * (cos(pitch) * 2), -6.0, (64.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
+    Goto Loop
+}}
+
+//==================================================================
+///////////////////   FIST WITH LIGHTER   //////////////////////////
+//=================================================================
+
+Actor FistWithLighter : Weapon
+{
+Weapon.SelectionOrder 1
+Weapon.preferredSkin "FistSkin"
+Inventory.Pickupmessage ""
+Weapon.AmmoType2 "Lighterammo"
+Weapon.AmmoUse2 1
++NOALERT
++INVENTORY.UNDROPPABLE
+States
+{
+Spawn:
+TNT1 A -1
+Loop
+Ready:
+FIST A 1 A_WeaponReady
+Loop
+Deselect:
+FIST A 0 A_TakeInventory ("Sequence",99)
+FIST A 0 A_Lower
+FIST A 1 A_Lower
+Loop
+Select:
+FIST A 0 A_Raise
+FIST A 1 A_Raise
+Loop
+Fire:
+FIST A 0 A_JumpIfInventory ("Sequence",1,6)
+FIST B 2
+FIST C 0 A_PlaySound("Weapons/Fistswing")
+FIST C 4 A_CustomPunch(3,1,0,"FMBulletPuff2")
+FIST B 2
+FIST A 6 A_GiveInventory ("Sequence",1)
+Goto Ready
+FIST D 2
+FIST E 0 A_PlaySound("Weapons/Fistswing")
+FIST E 4 A_CustomPunch(3,1,0,"FMBulletPuff2")
+FIST D 2
+FIST A 6 A_TakeInventory ("Sequence",1)
+Goto Ready
+AltFire:
+    LIT1 D 3
+    LIT1 EE 3
+    LIT1 F 3 A_PlaySoundEx("weapons/combogun_click","Weapon",0)
+    Goto AltHold
+  AltHold:
+    LIT1 I 1  BRIGHT
+    LIT1 I 0 A_SpawnItem("Lightprojectile",80,32)
+    LIT1 I 1  BRIGHT
+    LIT1 I 0 A_SpawnItem("Lightprojectile",80,32)
+	LIT1 I 0 A_CustomPunch(1,1,0,"FMBulletPuff2")
+    LIT1 J 1  BRIGHT
+    LIT1 J 0 A_SpawnItem("Lightprojectile",80,32)
+    LIT1 J 1  BRIGHT
+    LIT1 J 0 A_SpawnItem("Lightprojectile",80,32)
+	LIT1 I 1  BRIGHT
+    LIT1 I 0 A_SpawnItem("Lightprojectile",80,32)
+    LIT1 I 1  BRIGHT
+    LIT1 I 0 A_SpawnItem("Lightprojectile",80,32)
+    LIT1 J 1  BRIGHT
+    LIT1 J 0 A_SpawnItem("Lightprojectile",80,32)
+    LIT1 J 1  BRIGHT
+    LIT1 J 0 A_SpawnItem("Lightprojectile",80,32)
+	LIT1 I 1  BRIGHT
+    LIT1 I 0 A_SpawnItem("Lightprojectile",80,32)
+    LIT1 I 1  BRIGHT
+    LIT1 I 0 A_SpawnItem("Lightprojectile",80,32)
+    LIT1 J 1  BRIGHT
+    LIT1 J 0 A_SpawnItem("Lightprojectile",80,32)
+    LIT1 J 1  BRIGHT
+    LIT1 J 0 A_SpawnItem("Lightprojectile",80,32)
+    LIT1 J 0 A_Refire
+    Goto Ready+5
+}}
+
+Actor Lightprojectile
+{
+damage 2
++NOCLIP
+- SOLID
++DONTSPLASH
+States
+{
+Spawn:
+TNT1 A 1
+Stop
+}}
+
+Actor Lighterammo : Ammo 25271
+{
+  Game Doom
+  SpawnID 12
+  Inventory.PickupMessage "Found a can of gasoline." 
+  Inventory.Amount 0
+  Inventory.MaxAmount 490
+  Inventory.RespawnTics 42000 //20 minutes
+  Ammo.BackpackAmount 0
+  Ammo.BackpackMaxAmount 490
+  States
+  {
+  Spawn:
+    TNT1 A -1
+    Stop
+}}

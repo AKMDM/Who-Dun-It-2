@@ -1,0 +1,296 @@
+//==================================================================
+/////////////////////     GORE  /////////////////////////////
+//=================================================================
+//NOTE: FROM PLAYERS OR MONSTERS
+Actor BrainMush
+{
+  Game Doom
+  Radius 16
+  Height 56
+  -SOLID
+  States
+  {
+  Spawn:
+    MUSH A -1
+    Stop
+}}
+
+Actor GoreChunk1
+{
+  Game Doom
+  Radius 16
+  Height 56
+  -SOLID
+  States
+  {
+  Spawn:
+    CHNK A -1
+    Stop
+}}
+
+Actor GoreChunk2
+{
+  Game Doom
+  Radius 16
+  Height 56
+  -SOLID
+  States
+  {
+  Spawn:
+    CHNK B -1
+    Stop
+}}
+
+Actor GoreChunk3
+{
+  Game Doom
+  Radius 16
+  Height 56
+  -SOLID
+  States
+  {
+  Spawn:
+    CHNK C -1
+    Stop
+}}
+
+Actor EyeBall //NO SPRITE IN WDIMAIN CHECK TEXTURES.TXT RENAME OR SKULLTAG
+{
+  Game Doom
+  Radius 16
+  Height 56
+  -SOLID
+  States
+  {
+  Spawn:
+    EYEB A -1
+    Stop
+}}
+
+Actor Organ1
+{
+  Game Doom
+  Radius 16
+  Height 56
+  -SOLID
+  States
+  {
+  Spawn:
+    ORGN A -1
+    Stop
+}}
+
+Actor Organ2
+{
+  Game Doom
+  Radius 16
+  Height 56
+  -SOLID
+  States
+  {
+  Spawn:
+    ORGN B -1
+    Stop
+}}
+
+Actor RibCage //NO SPRITE IN WDIMAIN CHECK TEXTURES.TXT RENAME OR SKULLTAG
+{
+  Game Doom
+  Radius 16
+  Height 56
+  -SOLID
+  States
+  {
+  Spawn:
+    RIBC A -1
+    Stop
+}}
+
+Actor SpinalCord //NO SPRITE IN WDIMAIN CHECK TEXTURES.TXT RENAME OR SKULLTAG
+{
+  Game Doom
+  Radius 16
+  Height 56
+  -SOLID
+  States
+  {
+  Spawn:
+    SPIN A -1
+    Stop
+}}
+
+Actor Organs //NO SPRITE IN WDIMAIN CHECK TEXTURES.TXT RENAME OR SKULLTAG
+{
+  Game Doom
+  Radius 16
+  Height 56
+  -SOLID
+  States
+  {
+  Spawn:
+    ORGS A -1
+    Stop
+}}
+
+Actor Torso
+{
+  Game Doom
+  Radius 16
+  Height 56
+  -SOLID
+  States
+  {
+  Spawn:
+    TRSO A -1
+    Stop
+}}
+
+Actor Head1
+{
+  Radius 20
+  Height 4
+  States
+  {
+  Spawn:
+    HED1 A -1
+    Loop
+}}
+
+Actor Head2
+{
+  Radius 20
+  Height 4
+  States
+  {
+  Spawn:
+    HED2 A -1
+    Loop
+}}
+
+Actor Head3 //USE SKULLTAG MONSTER "A" FRAME ONLY
+{
+  Radius 20
+  Height 4
+  States
+  {
+  Spawn:
+    HED3 A -1
+    Loop
+}}
+
+//////////////////DEAD BODIES
+
+Actor deadguy1 10450
+{
+	//$Category WDI Props
+	//$Sprite DEADA0
+	//$Title "Dead Guy 1"
+  mass 1
+  Radius 12
+  Height 8
+  -SOLID
+  States
+  {
+   Spawn:
+    DEAD A -1
+    loop
+}}
+
+Actor deadguy2 10451
+{
+	//$Category WDI Props
+	//$Sprite DEADB0
+	//$Title "Dead Guy 2"
+  mass 1
+  Radius 12
+  Height 8
+  -SOLID
+  States
+  {
+   Spawn:
+    DEAD B -1
+    loop
+}}
+
+Actor deadguy3 10452
+{
+	//$Category WDI Props
+	//$Sprite DEADC0
+	//$Title "Dead Guy 3"
+  mass 1
+  Radius 12
+  Height 8
+  -SOLID
+  States
+  {
+   Spawn:
+    DEAD C -1
+    loop
+}}
+
+Actor deadguy4 10453
+{
+	//$Category WDI Props
+	//$Sprite DEADD0
+	//$Title "Dead Guy 4"
+  mass 1
+  Radius 12
+  Height 8
+  -SOLID
+  States
+  {
+   Spawn:
+    DEAD D -1
+    loop
+}}
+
+Actor deadguy5 10454
+{
+	//$Category WDI Props
+	//$Sprite DEADE0
+	//$Title "Dead Guy 5"
+  mass 1
+  Radius 12
+  Height 8
+  -SOLID
+  States
+  {
+   Spawn:
+    DEAD E -1
+    loop
+}}
+
+Actor deadguy6 10455
+{
+	//$Category WDI Props
+	//$Sprite DEADF0
+	//$Title "Dead Guy 6"
+  mass 1
+  Radius 12
+  Height 8
+  -SOLID
+  States
+  {
+   Spawn:
+    DEAD F -1
+    loop
+}}
+
+Actor DeadBody 22016 {
+-SOLID
+States
+	{
+		spawn:
+		BODY Z -1
+		stop
+}}
+
+Actor SewerBody 10515
+{
+	-SOLID
+	States
+		{
+			Spawn:
+				BODY Z -1
+				stop
+}}

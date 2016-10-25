@@ -1,0 +1,223 @@
+//==================================================================
+/////////////////////    EFFECTS     //////////////////////////////
+//=================================================================
+/////////////////////////////JUST SPRITE or switch Actor  not spawner/////////////////////////////////////////////
+
+Actor PushUseScript 31999 { // Do something????
+height 24
+radius 24
++GHOST
+-SHOOTABLE
++USESPECIAL
+States {
+Spawn:
+TNT1 A 4
+loop
+}}
+
+Actor CameraWDI 13963
+{
++NOGRAVITY
++SOLID
++SHOOTABLE
++NOBLOOD
+DeathSound "weapons/gundrop"
+height 10
+radius 16
+health 30
+mass 65535
+	DamageFActor "Gas", 0.0
+	DamageFActor "FlareEffect", 0.0
+  //$Category WDI Effects
+  //$Sprite CAMRA2A8
+  //$Title "Camera"
+states
+{
+Spawn:
+CAMR A -1
+loop
+Death:
+CAMR A 1 A_Scream
+stop
+}}
+
+Actor ActionMarkerWhite 16070
+{
+- SOLID
++NOBLOCKMAP
++NOGRAVITY
++CLIENTSIDEONLY
++ALLOWCLIENTSPAWN
+Radius 2
+Height 2
+Renderstyle Add
+Alpha 0.45
+VisibleToTeam 1
+  //$Category WDI Murderer Stuff
+  //$Sprite ACTIA0
+  //$Title "Action Marker (White)"
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 0 //Thing_ChangeTID(0,256)
+TNT1 A 0
+Goto On
+//Goto Off
+
+Active:
+ACTI A 1 BRIGHT A_UnHideThing
+ACTI A 1 BRIGHT 
+Wait
+
+InActive:
+TNT1 A 1 A_HideThing
+TNT1 A 1
+Wait
+
+Off:
+TNT1 A 1
+Wait
+
+On:
+ACTI A 1 BRIGHT
+Wait
+}
+}
+
+Actor ActionMarkerBlue : ActionMarkerWhite 16071
+{
+  //$Category WDI Murderer Stuff
+  //$Sprite ACTIB0
+  //$Title "Action Marker (Blue)"
+Alpha 0.45
+VisibleToTeam 1
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 0 //Thing_ChangeTID(0,257)
+TNT1 A 0
+Goto On
+//Goto Off
+
+Active:
+ACTI A 1 BRIGHT A_UnHideThing
+ACTI A 1 BRIGHT 
+Wait
+
+InActive:
+TNT1 A 1 A_HideThing
+TNT1 A 1
+Wait
+
+Off:
+TNT1 A 1
+Wait
+
+On:
+ACTI B 1 BRIGHT
+Wait
+}
+}
+
+
+Actor CatSmog1 10301
+{
+	YScale 0.5
+	XScale 2
+	+NOINTERACTION
+	+NOGRAVITY
+	RenderStyle Add
+	alpha 0.5
+	states
+	{
+		Spawn:
+		SMOG A -1
+		stop
+	}
+}
+
+Actor CatSmog2 10302
+{
+	+NOINTERACTION
+	+NOGRAVITY
+	RenderStyle Add
+	alpha 0.4
+	states
+	{
+		Spawn:
+		SMOG B -1
+		stop
+	}
+}
+
+Actor CatSmog3 10303
+{
+	+NOINTERACTION
+	+NOGRAVITY
+	RenderStyle Add
+	alpha 0.2
+	states
+	{
+		Spawn:
+		SMOG C -1
+		stop
+	}
+}
+
+
+Actor Fog1 10571
+{
+	+NOINTERACTION
+	RenderStyle Translucent
+	Alpha 0.3
+	
+	States
+	{
+	Spawn:
+	GFOG A -1  /// no sprite
+	stop
+	}
+}
+
+Actor Fog2 : Fog1 10571	{}  //duplicatated id 
+Actor Fog3 : Fog1 10572	{}
+Actor BlueFog1 : Fog1 10573 {}
+Actor BlueFog2 : Fog1 10574 {}
+Actor BlueFog3 : Fog1 10575 {}
+
+
+Actor FireDecorative 20900
+{
++NOINTERACTION
++NOCLIP
++RANDOMIZE
++FORCEYBILLBOARD
++CLIENTSIDEONLY
++DONTSPLASH
+RenderStyle Translucent
+Alpha 0.4
+  //$Category WDI Effects
+  //$Sprite FFLGF0
+  //$Title "Fire Decoration"
+States
+{
+Spawn:
+FFLG F 1 A_PlaySound("fire/fire")
+Loopie:
+FFLG FGHIJKLMNOPQ 3
+FFLG F 0 A_Jump(20, "Random")
+loop
+Random:
+FFLG F 3
+goto Loopie
+}}
+
+Actor FireDecorativeLarge : FireDecorative 20901 { 
+  //$Category WDI Effects
+  //$Sprite FFLGF0
+  //$Title "Fire Decoration (Large)"
+scale 1.5
+}
+
