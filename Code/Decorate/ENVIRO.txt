@@ -178,7 +178,7 @@ height 64
 states {
 Spawn:
 SIC1 A -1
-loop
+Stop
 }}
 
 Actor SICALAMP 3255 {
@@ -191,7 +191,7 @@ height 2
 states {
 Spawn:
 LAM1 A -1
-loop
+Stop
 }}
 
 Actor SICAMIC 3256 {
@@ -204,7 +204,7 @@ height 2
 states {
 Spawn:
 MIC1 A -1
-loop
+Stop
 }}
 
 Actor SICALAMP2 3257 {
@@ -217,7 +217,7 @@ height 2
 states {
 Spawn:
 LAM1 A -1
-loop
+Stop
 }}
 
 Actor SICATREE2 3358 {
@@ -230,7 +230,7 @@ height 64
 states {
 Spawn:
 SIC2 A -1
-loop
+Stop
 }}
 
 Actor SnoTre1 17654
@@ -339,7 +339,7 @@ radius 16
 height 64
 states {
 Spawn:
-TRDT A -1 //fixed
+TRDT A -1 
 Stop 
 }}
 
@@ -349,7 +349,7 @@ Actor TreeB : TreeA 31994 {
   //$Title "Tree 6"
 states { 
 Spawn: 
-TRE1 A -1 //fixed
+TRE1 A -1 
 Stop 
 }}
 
@@ -359,7 +359,7 @@ Actor TreeC : TreeA 31993 {
   //$Title "Tree 7"
 states { 
 Spawn: 
-TRE4 A -1 //fixed
+TRE4 A -1 
 Stop  
 }}
 
@@ -369,7 +369,7 @@ Actor TreeD : TreeA 31992 {
   //$Title "Tree 8"
 states { 
 Spawn: 
-TRE5 A -1  //fixed
+TRE5 A -1  
 Stop 
 }}
 
@@ -417,12 +417,9 @@ Actor TreeX : TreeA 31991
 states
 { 
 Spawn: 
-XMAS A -1   //fixed
+XMAS A -1   
 Stop 
 }}
-
-
-
 
 Actor GrassLarge 31008
 {  Radius 24
@@ -480,7 +477,7 @@ Actor RockA 31990 {
 states
 {
 Spawn:
-RCK4 A -1 //fixed
+RCK4 A -1 
 stop
 }}
 
@@ -492,6 +489,6 @@ Actor RockB 31989 {
 states
 {
 Spawn:
-RCK3 A -1  //fixed
+RCK3 A -1  
 stop
 }}

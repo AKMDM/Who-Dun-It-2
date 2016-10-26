@@ -12,7 +12,7 @@ Actor MinotaurStatue 16134
   States
   {
   Spawn:
-    MTST A -1 //fixed
+    MTST A -1 
     Stop
 }}
 
@@ -37,7 +37,7 @@ Actor DeathStatue 14244
   States
   {
   Spawn:
-    STT1 A -1 //fixed
+    STT1 A -1 
     Stop
   Pain:
     STT1 A 3 A_Pain
@@ -99,7 +99,7 @@ height 48
 radius 16
 states {
 Spawn:
-TREE C -1  //fixed
+TREE C -1  
 Stop
 }}
 
@@ -111,7 +111,7 @@ Actor Pedestal 31988 {
 +SOLID
 radius 24
 height 48
-states {   //fixed
+states {   
 Spawn:
 GMPD B -1
 Stop
@@ -123,7 +123,7 @@ Actor PedestalRuby : Pedestal 31987 {
   //$Title "Pedestal (Ruby)"
 states {
 Spawn:
-GMPD A -1 //fixed
+GMPD A -1 
 Stop
 }}
 
@@ -164,7 +164,7 @@ radius 24
 height 56
   //$Category WDI Props
   //$Sprite SUITA0
-  //$Title "Armor Suit"  //fixed
+  //$Title "Armor Suit"  
 states {
 Spawn:
 SUIT A -1
@@ -485,7 +485,7 @@ Actor PushableChair 13712
   {
   Spawn:
     CHAI A -1
-    Loop
+    Stop
   Death:
     CHAI A -1 A_NoBlocking
     goto Spawn
@@ -499,7 +499,7 @@ Actor Bottle 31981 {
   //$Title "Bottle"
 States {
 Spawn:
-WATR A -1 //fixed
+WATR A -1 
 Stop
 }}
 
@@ -526,7 +526,7 @@ Actor flaskblueA 10418
   {
    Spawn:
     FLKS A -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -567,7 +567,7 @@ Actor flaskblueB 10419
   {
    Spawn:
     FLKS G -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -608,7 +608,7 @@ Actor flaskpurpleA 10420
   {
    Spawn:
     FLKS B -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -649,7 +649,7 @@ Actor flaskpurpleB 10421
   {
    Spawn:
     FLKS H -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -690,7 +690,7 @@ Actor flaskredA 10422
   {
    Spawn:
     FLKS C -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -731,7 +731,7 @@ Actor flaskredB 10423
   {
    Spawn:
     FLKS I -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -772,7 +772,7 @@ Actor flaskgreenA 10424
   {
    Spawn:
     FLKS D -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -813,7 +813,7 @@ Actor flaskgreenB 10425
   {
    Spawn:
     FLKS J -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -854,7 +854,7 @@ Actor flaskyellowA 10426
   {
    Spawn:
     FLKS E -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -895,7 +895,7 @@ Actor flaskyellowB 10427
   {
    Spawn:
     FLKS K -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -936,7 +936,7 @@ Actor flaskgreyA 10428
   {
    Spawn:
     FLKS F -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -977,7 +977,7 @@ Actor flaskgreyB 10429
   {
    Spawn:
     FLKS L -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -1018,7 +1018,7 @@ Actor glassblue 10430
   {
    Spawn:
     BEAK A -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -1054,7 +1054,7 @@ Actor glasspurple 10431
   {
    Spawn:
     BEAK B -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -1089,7 +1089,7 @@ Actor glassred 10432
   {
    Spawn:
     BEAK C -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -1124,7 +1124,7 @@ Actor glassgreen 10433
   {
    Spawn:
     BEAK D -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -1159,7 +1159,7 @@ Actor glassyellow 10434
   {
    Spawn:
     BEAK E -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -1194,7 +1194,7 @@ Actor glassgrey 10435
   {
    Spawn:
     BEAK F -1
-    loop
+    Stop
    Death:
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
     NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
@@ -1332,7 +1332,7 @@ Actor burger1 10438
   {
    Spawn:
     BRGR A -1
-    loop
+    Stop
 }}
 
 Actor burger2 10439
@@ -1349,7 +1349,7 @@ Actor burger2 10439
   {
    Spawn:
     BRGR B -1
-    loop
+    Stop
 }}
 
 Actor burger3 10440
@@ -1366,7 +1366,7 @@ Actor burger3 10440
   {
    Spawn:
     BRGR C -1
-    loop
+    Stop
 }}
 
 Actor burger4 10441
@@ -1383,7 +1383,7 @@ Actor burger4 10441
   {
    Spawn:
     BRGR D -1
-    loop
+    Stop
 }}
 
 Actor fries1 10442
@@ -1400,7 +1400,7 @@ Actor fries1 10442
   {
    Spawn:
     FRES A -1
-    loop
+    Stop
 }}
 
 Actor fries2 10443
@@ -1417,7 +1417,7 @@ Actor fries2 10443
   {
    Spawn:
     FRES B -1
-    loop
+    Stop
 }}
 
 Actor drink 10444
@@ -1434,7 +1434,7 @@ Actor drink 10444
   {
    Spawn:
     DRNK A -1
-    loop
+    Stop
 }}
 
 Actor donuts 10448
@@ -1451,7 +1451,7 @@ Actor donuts 10448
   {
    Spawn:
     DNTS A -1
-    loop
+    Stop
 }}
 
 //BOXES
@@ -1469,7 +1469,7 @@ Actor dbox 10449
   {
    Spawn:
     DBOX A -1
-    loop
+    Stop
 }}
 
 //chairs
@@ -1490,7 +1490,7 @@ Actor CompChair 3247
   {
   Spawn:
     CHIR A -1
-    Loop
+    Stop
   Death:
     CHIR A -1 A_NoBlocking
     goto Spawn
@@ -1517,7 +1517,7 @@ height 20
 states {
 Spawn:
 POT1 A -1
-loop
+Stop
 Death:
 POT1 A 1 A_PlaySound("pot/break")
 POT1 A 1 A_Burst("PotBits") 
@@ -1531,7 +1531,7 @@ Actor PotB : PotA 31997 {
 states {
 Spawn:
 POT2 A -1
-loop
+Stop
 Death:
 POT2 A 1 A_PlaySound("pot/break")
 POT2 A 1 A_Burst("PotBits") 
@@ -1545,7 +1545,7 @@ Actor PotC : PotA 31996 {
 states {
 Spawn:
 POT3 A -1
-loop
+Stop
 Death:
 POT3 A 1 A_PlaySound("pot/break")
 POT3 A 1 A_Burst("PotBits") 
@@ -1559,7 +1559,7 @@ Actor PotD : PotA 31979 {
 states {
 Spawn:
 POT4 A -1
-loop
+Stop
 Death:
 POT4 A 1 A_PlaySound("pot/break")
 POT4 A 1 A_Burst("PotBits") 
@@ -1573,7 +1573,7 @@ Actor PotE : PotA 31980 {
 states {
 Spawn:
 VASE A -1
-loop
+Stop
 Death:
 VASE A 1 A_PlaySound("pot/break")
 VASE A 1 A_Burst("PotBits") 
@@ -1587,7 +1587,7 @@ Actor PotF : PotA 31981 {
 states {
 Spawn:
 VASE B -1
-loop
+Stop
 Death:
 VASE B 1 A_PlaySound("pot/break")
 VASE B 1 A_Burst("PotBits") 

@@ -107,8 +107,8 @@ Actor DroppedTwig
 	States
 	{
 	Spawn:
-		TWIG Z 1
-		Loop
+		TWIG Z -1
+		Stop
 	Death:
 		TWIG Z 35
 		TWIG Z 1 A_SpawnItemEx("FakeTwig",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)

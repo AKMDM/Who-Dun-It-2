@@ -274,8 +274,8 @@ Actor DroppedM1
 	States
 	{
 	Spawn:
-		M1GN Y 1
-		Loop
+		M1GN Y -1
+		Stop
 	Death:
 		M1GN Y 35
 		M1GN Y 1 A_SpawnItem("FakeM1",0,0,0,0)
@@ -313,8 +313,8 @@ Actor M1CarbineClipIn : Ammo
    States
    {
    Spawn:
-   CLP1 C 1
-   Loop
+   CLP1 C -1
+   Stop
 }}
 
 Actor M1ClipCasing
