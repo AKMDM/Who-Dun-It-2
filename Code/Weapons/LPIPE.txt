@@ -134,8 +134,8 @@ Actor DroppedPipe
 	States
 	{
 	Spawn:
-		PIPP A 1
-		Loop
+		PIPP A -1
+		Stop
 	Death:
 		PIPP A 35
 		PIPP A 1 A_SpawnItemEx("FakePipe",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)

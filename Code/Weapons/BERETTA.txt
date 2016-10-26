@@ -191,8 +191,8 @@ Actor DroppedBeretta
 	States
 	{
 	Spawn:
-		PIST A 1
-		Loop
+		PIST A -1
+		Stop
 	Death:
 		PIST A 35
 		PIST A 1 A_SpawnItemEx("FakeBeretta",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)

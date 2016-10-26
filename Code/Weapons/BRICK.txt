@@ -148,8 +148,8 @@ Actor DroppedBrick
 	States
 	{
 	Spawn:
-		BRKP U 1
-		Loop
+		BRKP U -1
+		Stop
 	Death:
 		BRKP U 35
 		BRKP U 1 A_SpawnItemEx("FakeBrick",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)

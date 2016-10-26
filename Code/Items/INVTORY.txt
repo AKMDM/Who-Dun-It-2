@@ -280,8 +280,8 @@ Actor GasCanister
     States
 {
 	Spawn:
-	PSBG A 1
-	loop
+	PSBG A -1
+	Stop
 	
 	Death:
 	PSBG A 35
@@ -501,8 +501,8 @@ Actor ThrownTripShotgun
 	States
 	{
 	Spawn:
-		TURT A 1 
-		Loop
+		TURT A -1 
+		Stop
 	Death:
 		TURT A 0
 		TURT A 1 A_SpawnItemEx("ShotgunTrap", 0, 0, 0, 0, 0, 0, 180, 0, 0)
@@ -697,8 +697,8 @@ Actor DeployingCamera
 	{
 	Spawn:
         CAM2 A 0
-		CAM2 A 1 //Thing_ChangeTID(0, 1336)
-		Loop
+		CAM2 A -1 //Thing_ChangeTID(0, 1336)
+		Stop
 	Death:
 		CAM2 A 0
 		CAM2 A 1 A_SpawnItemEx("DeployedCamera", 0, 0, 0, 0, 0, 0, 180, 0, 0)
@@ -730,11 +730,8 @@ Actor DeployedCamera
 	CAM2 A 72 Thing_ChangeTID(0, 1337)
 	CAM2 A 1 //ACS_Execute(713, 0, 1, 0, 0)
     	CAM2 A 1 A_PlaySound("weapons/noiseready")
-    	goto lolloop
-	
-	LolLoop:
-	CAM2 A 1
-	loop
+	CAM2 A -1
+	Stop
 	
 	Death:
     CAM2 A 0 Acs_Execute(713, 0, 2, 0, 0)
@@ -806,8 +803,8 @@ Actor SoundThingy
 	States
 	{
 	Spawn:
-		BEAC A 1 
-		Loop
+		BEAC A -1 
+		Stop
 	Death:
 		BEAC A 0
 		BEAC A 1 A_SpawnItemEx("SoundThingy2", 0, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -979,8 +976,8 @@ Actor DeployingStimGas
 	States
 	{
 	Spawn:
-		FTIM A 1 
-		Loop
+		FTIM A -1 
+		Stop
 	Death:
 		FTIM A 35
 		FTIM A 1 A_SpawnItemEx("FakeStimActive", 0, 0, 0, 0, 0, 0, 0, 0, 0)

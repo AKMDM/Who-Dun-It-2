@@ -50,8 +50,8 @@ Actor Chandelier2Off 14071
   States
   {
   Spawn:
-    CHAN H 1 
-    Loop
+    CHAN H -1 
+    Stop
   }
 }
 
@@ -83,7 +83,7 @@ Actor TechLanternSmall 14248
 	States
 	{
 	Spawn:
-		HLMP EFGH -1
+		HLMP EFGH -1 //check sprites
 		loop
 	}
 }
@@ -117,11 +117,11 @@ States
 		
 		Active:
 		TNT1 A 1 BRIGHT A_TakeInventory("PowerOff", 1)
-		loop
+		loop //check
 		
 		Inactive:
 		TNT1 B 1 A_GiveInventory("PowerOff", 1)
-		loop
+		loop //check
 	}
 }
 
@@ -150,11 +150,11 @@ States
 		
 		On:
 		ELIT A -1 
-		loop
+		Stop
 		
 		Off:
 		ELIT B -1
-		loop
+		Stop
 	}
 }
 

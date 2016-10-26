@@ -356,8 +356,8 @@ Actor DroppedMolly
 	States
 	{
 	Spawn:
-		MOLP A 1
-		Loop
+		MOLP A -1
+		Stop
 	Death:
 		MOLP A 35
 		MOLP A 1 A_SpawnItemEx("FakeMolly",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)

@@ -142,8 +142,8 @@ Actor DroppedCue
 	States
 	{
 	Spawn:
-		POOL A 1
-		Loop
+		POOL A -1
+		Stop
 	Death:
 		POOL A 35
 		POOL A 1 A_SpawnItemEx("FakeCue",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)

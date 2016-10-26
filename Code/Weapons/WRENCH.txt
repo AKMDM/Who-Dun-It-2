@@ -129,8 +129,8 @@ Actor DroppedWrench
 	States
 	{
 	Spawn:
-		PIPP B 1
-		Loop
+		PIPP B -1
+		Stop
 	Death:
 		PIPP B 35
 		PIPP B 1 A_SpawnItemEx("FakeWrench",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)

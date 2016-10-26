@@ -57,5 +57,5 @@ States
 {
 Spawn:
 TNT1 A -1
-Loop
+Stop
 }}
