@@ -91,8 +91,8 @@ Actor DroppedShotgun
 	States
 	{
 	Spawn:
-		DHSP A 1
-		Loop
+		DHSP A -1
+		Stop
 	Death:
 		DHSP A 35
 		DHSP A 1 A_SpawnItemEx("FakeShotgun",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
@@ -252,7 +252,7 @@ States
 {
 Spawn:
 TNT1 A -1
-LOOP
+Stop
 }}
     
 Actor NewShell : Ammo 30061

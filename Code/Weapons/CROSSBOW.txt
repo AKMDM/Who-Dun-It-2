@@ -167,8 +167,8 @@ Actor DroppedCrossbow
 	States
 	{
 	Spawn:
-		XBPU A 1
-		Loop
+		XBPU A -1
+		Stop
 	Death:
 		XBPU A 35
 		XBPU A 1 A_SpawnItemEx("FakeCrossbow",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)

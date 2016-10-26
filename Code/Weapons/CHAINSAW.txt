@@ -288,8 +288,8 @@ Actor DroppedChainsaw
 	States
 	{
 	Spawn:
-		CSAW A 1
-		Loop
+		CSAW A -1
+		Stop
 	Death:
 		CSAW A 35
 		CSAW A 1 A_SpawnItemEx("FakeChainsaw",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)

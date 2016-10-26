@@ -114,8 +114,8 @@ Actor DroppedShovel
 	States
 	{
 	Spawn:
-		SHOV A 1
-		Loop
+		SHOV A -1
+		Stop
 	Death:
 		SHOV A 35
 		SHOV A 1 A_SpawnItemEx("FakeShovel",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)

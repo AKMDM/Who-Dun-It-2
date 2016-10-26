@@ -35,7 +35,7 @@ states
 {
 Spawn:
 CAMR A -1
-loop
+Stop
 Death:
 CAMR A 1 A_Scream
 stop
@@ -204,7 +204,7 @@ Alpha 0.4
 States
 {
 Spawn:
-FFLG F 1 A_PlaySound("fire/fire")
+FFLG F 1 A_PlaySound("fire/fire") //check tics numbers
 Loopie:
 FFLG FGHIJKLMNOPQ 3
 FFLG F 0 A_Jump(20, "Random")

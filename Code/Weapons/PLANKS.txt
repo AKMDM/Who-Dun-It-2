@@ -111,8 +111,8 @@ Actor DroppedPlank
 	States
 	{
 	Spawn:
-		PLAN K 1
-		Loop
+		PLAN K -1
+		Stop
 	Death:
 		PLAN K 35
 		PLAN K 1 A_SpawnItemEx("FakePlank",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)

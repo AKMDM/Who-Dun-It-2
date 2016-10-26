@@ -153,7 +153,7 @@ Actor Head1
   {
   Spawn:
     HED1 A -1
-    Loop
+    Stop
 }}
 
 Actor Head2
@@ -164,7 +164,7 @@ Actor Head2
   {
   Spawn:
     HED2 A -1
-    Loop
+    Stop
 }}
 
 Actor Head3 //USE SKULLTAG MONSTER "A" FRAME ONLY
@@ -175,7 +175,7 @@ Actor Head3 //USE SKULLTAG MONSTER "A" FRAME ONLY
   {
   Spawn:
     HED3 A -1
-    Loop
+    Stop
 }}
 
 //////////////////DEAD BODIES
@@ -193,7 +193,7 @@ Actor deadguy1 10450
   {
    Spawn:
     DEAD A -1
-    loop
+    Stop
 }}
 
 Actor deadguy2 10451
@@ -209,7 +209,7 @@ Actor deadguy2 10451
   {
    Spawn:
     DEAD B -1
-    loop
+    Stop
 }}
 
 Actor deadguy3 10452
@@ -225,7 +225,7 @@ Actor deadguy3 10452
   {
    Spawn:
     DEAD C -1
-    loop
+    Stop
 }}
 
 Actor deadguy4 10453
@@ -241,7 +241,7 @@ Actor deadguy4 10453
   {
    Spawn:
     DEAD D -1
-    loop
+    Stop
 }}
 
 Actor deadguy5 10454
@@ -257,7 +257,7 @@ Actor deadguy5 10454
   {
    Spawn:
     DEAD E -1
-    loop
+    Stop
 }}
 
 Actor deadguy6 10455
@@ -273,10 +273,10 @@ Actor deadguy6 10455
   {
    Spawn:
     DEAD F -1
-    loop
+    Stop
 }}
 
-Actor DeadBody 22016 {
+Actor DeadBody 22016 { //remove one actor
 -SOLID
 States
 	{
