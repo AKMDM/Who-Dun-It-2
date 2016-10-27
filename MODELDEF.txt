@@ -1,6 +1,6 @@
 Model Chair
 {
-	Path "models/chair"
+	Path "Models/Chair"
 	Model 0 "chair.md3"
 	Skin 0 "chair1.png"
 	Scale 8.0 8.0 8.0
@@ -10,7 +10,7 @@ Model Chair
 
 Model Door
 {
-	Path "models/Door"
+	Path "Models/Door"
 	Model 0 "door.md3"
 	Skin 0 "door.png"
 	Scale 24.5 24.5 28.0
@@ -39,7 +39,7 @@ Model Door
 
 Model DoorMover
 {
-	Path "models/Door"
+	Path "Models/Door"
 	Model 0 "door.md3"
 	Skin 0 "door.png"
 	Scale 24.5 24.5 28.0
@@ -68,7 +68,7 @@ Model DoorMover
 
 Model Dryer
 {
-	Path "models/dryer"
+	Path "Models/Dryer"
 	Model 0 "HANDDRYER.md2"
 	Skin 0 "handdryer.png"
 	Scale 2.0 2.0 2.0
@@ -78,7 +78,7 @@ Model Dryer
 
 Model Sink
 {
-	Path "models/sink"
+	Path "Models/Sink"
 	Model 0 "SINK.md2"
 	Skin 0 "sink.png"
 	Scale 3.0 3.0 3.0
@@ -88,7 +88,7 @@ Model Sink
 
 Model Toilet
 {
-	Path "models/toilet"
+	Path "Models/Toilet"
 	Model 0 "TOILET.md2"
 	Skin 0 "toilet.png"
 	Scale 1.8 1.8 1.8
@@ -98,7 +98,7 @@ Model Toilet
 
 Model Car
 {
-	Path "models/cars"
+	Path "Models/Cars"
 	Model 0 "CAR.md2"
 	Skin 0 "car.png"
 	Scale 0.8 0.8 0.8
@@ -109,7 +109,7 @@ Model Car
 
 Model Soap
 {
-	Path "models/soap"
+	Path "Models/Soap"
 	Model 0 "SOAP.md2"
 	Skin 0 "soap.png"
 	Scale 0.8 0.8 0.8
@@ -121,7 +121,7 @@ Model Soap
 
 Model Tpaper
 {
-	Path "models/tpaper"
+	Path "Models/Tpaper"
 	Model 0 "TPAPER.md2"
 	Skin 0 "tpaper.png"
 	Scale 1.0 1.0 1.0
@@ -131,7 +131,7 @@ Model Tpaper
 /*
 Model Television
 {
-	Path "models/television"
+	Path "Models/television"
 	Model 0 "br_tv2.md3"
 	Skin 0 "br_electronics3.png"
 	Scale 1.3 1.3 1.3
@@ -143,7 +143,7 @@ Model Television
 
 Model Piano
 {
-	Path "models/piano"
+	Path "Models/Piano"
 	Model 0 "PIANO.md3"
 	Skin 0 "piano.png"
 	Scale 0.8 0.8 0.8
@@ -154,7 +154,7 @@ Model Piano
 
 Model Stall
 {
-	Path "models/stall"
+	Path "Models/Stall"
 	Model 0 "stall.md3"
 	Skin 0 "stall.png"
 	Scale 0.8 0.8 0.8
@@ -165,7 +165,7 @@ Model Stall
 
 Model Grate
 {
-	path "models/Grate"
+	path "Models/Grate"
 	Model 0 "grate.md3"
 	Skin 0 "grate.png"
 	Scale 4.0 4.0 4.0
@@ -175,7 +175,7 @@ Model Grate
 
 Model CatBox1
 {
-	path "models/Boxes"
+	path "Models/Boxes"
 	Model 0 "box1.md3"
 	Skin 0 "cbox3.png"
 	Scale 19.0 19.0 19.0
@@ -185,7 +185,7 @@ Model CatBox1
 
 Model CatBox2
 {
-	path "models/Boxes"
+	path "Models/Boxes"
 	Model 0 "box1.md3"
 	Skin 0 "cbox1.png"
 	Scale 19.0 19.0 19.0
@@ -194,7 +194,7 @@ Model CatBox2
 }
 Model CatBox3
 {
-	path "models/Boxes"
+	path "Models/Boxes"
 	Model 0 "box1.md3"
 	Skin 0 "cbox3.png"
 	Scale 19.0 19.0 19.0
@@ -203,7 +203,7 @@ Model CatBox3
 }
 Model CatBox4
 {
-	path "models/Boxes"
+	path "Models/Boxes"
 	Model 0 "box1.md3"
 	Skin 0 "cbox1.png"
 	Scale 19.0 19.0 19.0
@@ -212,7 +212,7 @@ Model CatBox4
 }
 Model CatBox5
 {
-	path "models/Boxes"
+	path "Models/Boxes"
 	Model 0 "box2.md3"
 	Skin 0 "cbox3.png"
 	Scale 19.0 19.0 19.0
@@ -221,7 +221,7 @@ Model CatBox5
 }
 Model CatBox6
 {
-	path "models/Boxes"
+	path "Models/Boxes"
 	Model 0 "box2.md3"
 	Skin 0 "cbox1.png"
 	Scale 19.0 19.0 19.0
@@ -230,7 +230,7 @@ Model CatBox6
 }
 Model CatBoxUnwrapped
 {
-	path "models/Boxes"
+	path "Models/Boxes"
 	Model 0 "box3.md3"
 	Skin 0 "cbox2.png"
 	Scale 13.0 13.0 13.0
@@ -240,7 +240,7 @@ Model CatBoxUnwrapped
 
 Model CatMartiniGlass
 {
-	path "models/Bottles"
+	path "Models/Bottles"
 	Model 0 "martini.md3"
 	Skin 0 "bottle1.png"
 	Scale 3.0 3.0 3.0
@@ -250,7 +250,7 @@ Model CatMartiniGlass
 
 Model CatBottleLabel1
 {
-	path "models/Bottles"
+	path "Models/Bottles"
 	Model 0 "bottlelabel.md3"
 	Skin 0 "bottle1.png"
 	Scale 3.5 3.5 3.5
@@ -259,7 +259,7 @@ Model CatBottleLabel1
 }
 Model CatBottleLabel1
 {
-	path "models/Bottles"
+	path "Models/Bottles"
 	Model 0 "bottlelabel.md3"
 	Skin 0 "bottle1.png"
 	Scale 3.5 3.5 3.5
@@ -268,7 +268,7 @@ Model CatBottleLabel1
 }
 Model CatBottleLabel2
 {
-	path "models/Bottles"
+	path "Models/Bottles"
 	Model 0 "bottlelabel.md3"
 	Skin 0 "bottle2.png"
 	Scale 3.5 3.5 3.5
@@ -277,7 +277,7 @@ Model CatBottleLabel2
 }
 Model CatBottleLabel3
 {
-	path "models/Bottles"
+	path "Models/Bottles"
 	Model 0 "bottlelabel.md3"
 	Skin 0 "bottle3.png"
 	Scale 3.5 3.5 3.5
@@ -286,7 +286,7 @@ Model CatBottleLabel3
 }
 Model CatBottleLabel4
 {
-	path "models/Bottles"
+	path "Models/Bottles"
 	Model 0 "bottlelabel.md3"
 	Skin 0 "bottle4.png"
 	Scale 3.5 3.5 3.5
@@ -297,7 +297,7 @@ Model CatBottleLabel4
 
 Model CatBottle1
 {
-	path "models/Bottles"
+	path "Models/Bottles"
 	Model 0 "bottle.md3"
 	Skin 0 "bglass1.png"
 	Scale 3.5 3.5 3.5
@@ -307,7 +307,7 @@ Model CatBottle1
 
 Model CatBottle2
 {
-	path "models/Bottles"
+	path "Models/Bottles"
 	Model 0 "bottle.md3"
 	Skin 0 "bglass2.png"
 	Scale 3.5 3.5 3.5
@@ -317,7 +317,7 @@ Model CatBottle2
 
 Model CatBottle3
 {
-	path "models/Bottles"
+	path "Models/Bottles"
 	Model 0 "bottle.md3"
 	Skin 0 "bglass3.png"
 	Scale 3.5 3.5 3.5
@@ -334,11 +334,11 @@ Model CatTrashcan
 	
 	FrameIndex BARR A 0 0
 }
-/*
+*/
 
 Model CatBarrel
 {
-	Path "models/Barrel"
+	Path "Models/Barrel"
 	Model 0 "barrel.md3"
 	Skin 0 "barrel.png"
 	Scale 16.0 16.0 16.0
@@ -348,7 +348,7 @@ Model CatBarrel
 
 Model Page1a
 {
-	Path "models/Pages"
+	Path "Models/Pages"
 	Model 0 "page.md3"
 	Skin 0 "page1a.png"
 	Scale 12.0 12.0 1.0
@@ -358,7 +358,7 @@ Model Page1a
 
 Model Page1b
 {
-	Path "models/Pages"
+	Path "Models/Pages"
 	Model 0 "page.md3"
 	Skin 0 "page1b.png"
 	Scale 12.0 12.0 1.0
@@ -368,7 +368,7 @@ Model Page1b
 
 Model Page1c
 {
-	Path "models/Pages"
+	Path "Models/Pages"
 	Model 0 "page.md3"
 	Skin 0 "page1c.png"
 	Scale 12.0 12.0 1.0
@@ -378,7 +378,7 @@ Model Page1c
 
 Model Page1d
 {
-	Path "models/Pages"
+	Path "Models/Pages"
 	Model 0 "page.md3"
 	Skin 0 "page1d.png"
 	Scale 12.0 12.0 1.0
@@ -388,7 +388,7 @@ Model Page1d
 
 Model Page2a
 {
-	Path "models/Pages"
+	Path "Models/Pages"
 	Model 0 "page.md3"
 	Skin 0 "page2a.png"
 	Scale 12.0 12.0 1.0
@@ -398,7 +398,7 @@ Model Page2a
 
 Model Page2b
 {
-	Path "models/Pages"
+	Path "Models/Pages"
 	Model 0 "page.md3"
 	Skin 0 "page2b.png"
 	Scale 12.0 12.0 1.0
@@ -408,7 +408,7 @@ Model Page2b
 
 Model Page2c
 {
-	Path "models/Pages"
+	Path "Models/Pages"
 	Model 0 "page.md3"
 	Skin 0 "page2c.png"
 	Scale 12.0 12.0 1.0
@@ -418,7 +418,7 @@ Model Page2c
 
 Model Page2d
 {
-	Path "models/Pages"
+	Path "Models/Pages"
 	Model 0 "page.md3"
 	Skin 0 "page2d.png"
 	Scale 12.0 12.0 1.0
@@ -428,7 +428,7 @@ Model Page2d
 
 Model Page3
 {
-	Path "models/Pages"
+	Path "Models/Pages"
 	Model 0 "page.md3"
 	Skin 0 "page3.png"
 	Scale 12.0 12.0 1.0
@@ -441,7 +441,7 @@ Model Page3
 
 Model ToolBox
 {
-	Path "models/Toolbox"
+	Path "Models/Toolbox"
 	Model 0 "toolbox.md3"
 	Skin 0 "toolbox.png"
 	Scale 4.0 4.0 4.0
@@ -451,7 +451,7 @@ Model ToolBox
 
 Model Spark
 {
-	Path "models/Spark"
+	Path "Models/Spark"
 	Model 0 "spark.md3"
 	Skin 0 "spark.png"
 	Scale 4.0 4.0 4.0
@@ -471,7 +471,7 @@ Model Spark
 
 Model Spanner
 {
-	Path "models/Spanner"
+	Path "Models/Spanner"
 	Model 0 "spanner.md3"
 	Skin 0 "spanner.png"
 	Scale 2.0 2.0 2.0
@@ -481,7 +481,7 @@ Model Spanner
 
 Model Screwdriver
 {
-	Path "models/Screwdriver"
+	Path "Models/Screwdriver"
 	Model 0 "screwdriver.md3"
 	Skin 0 "screwdriver.png"
 	Scale 3.0 3.0 3.0
@@ -491,7 +491,7 @@ Model Screwdriver
 
 Model PipeSet
 {
-	Path "models/Pipes"
+	Path "Models/Pipes"
 	Model 0 "pipeset.md3"
 	Skin 0 "pipeset.png"
 	Scale 16.0 16.0 16.0
@@ -501,7 +501,7 @@ Model PipeSet
 
 Model PipeHorizontal
 {
-	Path "models/Pipes"
+	Path "Models/Pipes"
 	Model 0 "pipehorz.md3"
 	Skin 0 "pipeset.png"
 	Scale 16.0 16.0 16.0
@@ -511,7 +511,7 @@ Model PipeHorizontal
 
 Model PipeCurved
 {
-	Path "models/Pipes"
+	Path "Models/Pipes"
 	Model 0 "pipecurv.md3"
 	Skin 0 "pipeset.png"
 	Scale 16.0 16.0 16.0
@@ -521,7 +521,7 @@ Model PipeCurved
 
 Model BigPipe1
 {
-	Path "models/Pipes"
+	Path "Models/Pipes"
 	Model 0 "mainpipe.md3"
 	Skin 0 "mainpipe.png"
 	Model 1 "pipeends.md3"
@@ -534,7 +534,7 @@ Model BigPipe1
 
 Model BigPipe1A
 {
-	Path "models/Pipes"
+	Path "Models/Pipes"
 	Model 0 "mainpipe.md3"
 	Skin 0 "mainpipe.png"
 	Model 1 "pipeends.md3"
@@ -550,7 +550,7 @@ Model BigPipe1A
 
 Model BigPipe1B
 {
-	Path "models/Pipes"
+	Path "Models/Pipes"
 	Model 0 "pipeends.md3"
 	Skin 0 "pipeends.png"
 	Model 1 "pipesmal.md3"
@@ -563,7 +563,7 @@ Model BigPipe1B
 
 Model BigPipe1C
 {
-	Path "models/Pipes"
+	Path "Models/Pipes"
 	Model 0 "pipeends.md3"
 	Skin 0 "pipeends.png"
 	Model 1 "pipesmal.md3"
@@ -583,7 +583,7 @@ Model BigPipe1C
 
 Model TripodLightStandingBulb
 {	
-	Path "models/Tripods"
+	Path "Models/Tripods"
 	Model 0 "tripodlightbulb2.md3"
 	Skin 0 "tripodlight.png"
 	Scale 23.0 23.0 23.0
@@ -593,7 +593,7 @@ Model TripodLightStandingBulb
 
 Model TripodLightStandingBeam
 {	
-	Path "models/Tripods"
+	Path "Models/Tripods"
 	Model 0 "tripodlightbeam2.md3"
 	Skin 0 "lightbeam.png"
 	Scale 23.0 23.0 23.0
@@ -603,7 +603,7 @@ Model TripodLightStandingBeam
 
 Model TripodLightStanding
 {
-	Path "models/Tripods"
+	Path "Models/Tripods"
 	Model 0 "tripodlight2.md3"
 	Skin 0 "tripodlight.png"
 	Scale 23.0 23.0 23.0
@@ -613,7 +613,7 @@ Model TripodLightStanding
 
 Model TripodLight
 {
-	Path "models/Tripods"
+	Path "Models/Tripods"
 	Model 0 "tripodlight.md3"
 	Skin 0 "tripodlight.png"
 	Scale 23.0 23.0 23.0
@@ -623,7 +623,7 @@ Model TripodLight
 
 Model TripodLightBulb
 {	
-	Path "models/Tripods"
+	Path "Models/Tripods"
 	Model 0 "tripodlightbulb.md3"
 	Skin 0 "tripodlight.png"
 	Scale 23.0 23.0 23.0
@@ -633,7 +633,7 @@ Model TripodLightBulb
 
 Model TripodLightBeam
 {	
-	Path "models/Tripods"
+	Path "Models/Tripods"
 	Model 0 "lightbeam.md3"
 	Skin 0 "lightbeam.png"
 	Scale 23.0 23.0 23.0
