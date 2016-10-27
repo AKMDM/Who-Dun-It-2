@@ -81,3 +81,23 @@ Actor SoulCube : weapon
 	   TNT1 A 1 A_FadeOut(1.0)
 	   Goto death + 1
 }}
+
+Actor DroppedSoulcube
+{
+	PROJECTILE
+	-NOGRAVITY
+	Scale 0.5
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+	States
+	{
+	Spawn:
+		SCUF ABCD 5
+		Loop
+	Death:
+		SCUF ABCD 5
+		SCUF A 1 A_SpawnItem("FakeSoulcube",0,0,0,0)
+		Stop
+}}
