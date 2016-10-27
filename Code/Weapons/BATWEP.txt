@@ -1,6 +1,60 @@
 //==================================================================
 /////////////////////     BASEBALLBAT  /////////////////////////////
 //=================================================================
+Actor FakeBat : CustomInventory 22473
+{
+//$Category Retorn_map_ONLY
+	Radius 16
+	Height 8
+	Scale 0.5
+	Inventory.PickupMessage "Found a baseball bat" 
+	Inventory.RespawnTics 3150 //1 minute 30 seconds
+	States
+	{
+	Spawn:
+		BBAT A -1
+		Stop
+	Pickup: 
+		BBAT A 0 
+		BBAT A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		BBAT A 0 A_PlaySound("pickups/weapon")
+		BBAT A 0 A_GiveInventory("BaseballBat",1)
+		BBAT A 0 A_GiveInventory("Slot1Filled",1)
+		BBAT A 1 ACS_Execute(669,0,13)
+		Stop
+	NotPickup:
+		BBAT A 0
+		BBAT A 1 ACS_Execute(669,0,13)
+		Fail						  
+}}
+
+Actor FakeBatY : CustomInventory 22474
+{
+//$Category Retorn_map_ONLY
+	Radius 8
+	Height 16
+	Scale 0.5
+	Inventory.PickupMessage "Found a baseball bat" 
+	Inventory.RespawnTics 3150 //1 minute 30 seconds
+	States
+	{
+	Spawn:
+		BBYT A -1
+		Stop
+	Pickup: 
+		BBYT A 0 
+		BBYT A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		BBYT A 0 A_PlaySound("pickups/weapon")
+		BBYT A 0 A_GiveInventory("BaseballBat",1)
+		BBYT A 0 A_GiveInventory("Slot1Filled",1)
+		BBYT A 1 ACS_Execute(669,0,13)
+		Stop
+	NotPickup:
+		BBYT A 0
+		BBYT A 1 ACS_Execute(669,0,13)
+		Fail						  
+}}
+
 Actor BaseballBat : Weapon
 {
 	Radius 8
@@ -131,56 +185,23 @@ Actor BatPuff
   		stop
 }}
 
-Actor FakeBat : CustomInventory 22473
+Actor DroppedBat
 {
-//$Category Retorn_map_ONLY
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
 	Radius 16
 	Height 8
+	Speed 9
 	Scale 0.5
-	Inventory.PickupMessage "Found a baseball bat" 
-	Inventory.RespawnTics 3150 //1 minute 30 seconds
+	DeathSound "bat/hitwall"
 	States
 	{
 	Spawn:
-		BBAT A -1
+		BBAT A 1
+		Loop
+	Death:
+		BBAT A 35
+		BBAT A 1 A_SpawnItem("FakeBat",0,0,0,0)
 		Stop
-	Pickup: 
-		BBAT A 0 
-		BBAT A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		BBAT A 0 A_PlaySound("pickups/weapon")
-		BBAT A 0 A_GiveInventory("BaseballBat",1)
-		BBAT A 0 A_GiveInventory("Slot1Filled",1)
-		BBAT A 1 ACS_Execute(669,0,13)
-		Stop
-	NotPickup:
-		BBAT A 0
-		BBAT A 1 ACS_Execute(669,0,13)
-		Fail						  
-}}
-
-Actor FakeBatY : CustomInventory 22474
-{
-//$Category Retorn_map_ONLY
-	Radius 8
-	Height 16
-	Scale 0.5
-	Inventory.PickupMessage "Found a baseball bat" 
-	Inventory.RespawnTics 3150 //1 minute 30 seconds
-	States
-	{
-	Spawn:
-		BBYT A -1
-		Stop
-	Pickup: 
-		BBYT A 0 
-		BBYT A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		BBYT A 0 A_PlaySound("pickups/weapon")
-		BBYT A 0 A_GiveInventory("BaseballBat",1)
-		BBYT A 0 A_GiveInventory("Slot1Filled",1)
-		BBYT A 1 ACS_Execute(669,0,13)
-		Stop
-	NotPickup:
-		BBYT A 0
-		BBYT A 1 ACS_Execute(669,0,13)
-		Fail						  
 }}
