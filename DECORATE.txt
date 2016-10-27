@@ -8,9 +8,7 @@
 #Include "code/Decorate/GORE.txt"
 #Include "code/Decorate/PROPS.txt"
 
-
 //ITEMS
-
 #Include "code/Items/EGGS.txt"
 #Include "code/Items/INVTORY.txt"
 
@@ -30,14 +28,13 @@
 #Include "code/Murder/PLAYERS.txt"
 
 //SFX
-
 #Include "code/Sfx/EFFECTS.txt"
 #Include "code/Sfx/LIGHTS.txt"
+#Include "code/Sfx/PLAYER.txt"
 #Include "code/Sfx/PUFFS.txt"
 #Include "code/Sfx/SPAWNERS.txt"
 
 //WEAPONS
-
 #Include "code/Weapons/BATWEP.txt"
 #Include "code/Weapons/BERETTA.txt"
 #Include "code/Weapons/BRICK.txt"

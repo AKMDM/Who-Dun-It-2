@@ -216,60 +216,11 @@ object ElevatorLight
 	frame TNT1B {light NoLight}
 }
 
-object Chandelier1Switchable
-{
-        frame CHANA { light Chandelier }
-	frame CHANB { light Chandelier2 }
-	frame CHANC { light Chandelier3 }
-}
-
-object Chandelier1On
-{
-        frame CHANA { light Chandelier }
-	frame CHANB { light Chandelier2 }
-	frame CHANC { light Chandelier3 }
-}
-
-object Chandelier2Switchable
-{
-        frame CHANE { light Chandelier }
-	frame CHANF { light Chandelier2 }
-	frame CHANG { light Chandelier3 }
-}
-
 object Chandelier2On
 {
         frame CHANE { light Chandelier }
 	frame CHANF { light Chandelier2 }
 	frame CHANG { light Chandelier3 }
-}
-
-object Chandelier3Switchable
-{
-        frame CHANI { light Chandelier }
-	frame CHANJ { light Chandelier2 }
-	frame CHANL { light Chandelier3 }
-}
-
-object Chandelier3On
-{
-        frame CHANI { light Chandelier }
-	frame CHANJ { light Chandelier2 }
-	frame CHANL { light Chandelier3 }
-}
-
-object Chandelier4Switchable
-{
-        frame CHANN { light Chandelier }
-	frame CHANO { light Chandelier2 }
-	frame CHANP { light Chandelier3 }
-}
-
-object Chandelier4On
-{
-        frame CHANN { light Chandelier }
-	frame CHANO { light Chandelier2 }
-	frame CHANP { light Chandelier3 }
 }
 
 object FlareUsed { 
