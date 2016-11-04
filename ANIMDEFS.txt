@@ -10,7 +10,7 @@ warp2 texture DWATER-S 1.5
 
 warp2 texture DWATERXS 1.5
 
-texture BSLIM01 range BSLIM07 tics 3
+texture ASLIM01 range ASLIM07 tics 3
 texture FUZZ1 range FUZZ4 tics 3
 
 
