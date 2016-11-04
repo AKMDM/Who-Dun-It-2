@@ -2,8 +2,6 @@
 /////////////////////     KEYS        //////////////////////////////
 //=================================================================
 
-
-
 Actor BarKeySpawner : RandomSpawner 32065
 {
   //$Category WDI Keys
@@ -48,8 +46,7 @@ Actor SafeKey : Key 14257
   Spawn:
     KEY5 A -1
     stop
-  }
-}
+ }}
 
 Actor BarKey : Key replaces RedCard 13
 {
@@ -66,17 +63,7 @@ Actor BarKey : Key replaces RedCard 13
   Spawn:
     KEY1 A -1
     stop
-  }
-}
-
-
-Actor SecurityKey : BarKey 10306
-{
-  Scale 0.35
-  inventory.pickupmessage "Pocketed the Security Room key."
-  inventory.icon "ARTIBAR"
-}
-
+}}
 
 Actor BasementKey : Key 14444
 {
@@ -106,10 +93,7 @@ Actor TrapKey : Key
   Spawn:
     KEY1 A -1
     stop
-  }
-}
-
-
+}}
 
 Actor Room1Key : Key 16555
 {
@@ -123,8 +107,7 @@ Actor Room1Key : Key 16555
   Spawn:
     KEY5 A -1
     stop
-  }
-}
+}}
 
 Actor Room8Key : Key 16556
 {
@@ -138,17 +121,14 @@ Actor Room8Key : Key 16556
   Spawn:
     KEY5 A -1
     stop
-  }
-}
+}}
 
-
-actor SecurityKey : BarKey 10306
+Actor SecurityKey : BarKey 10306
 {
   Scale 0.35
   inventory.pickupmessage "Pocketed the Security Room key."
   inventory.icon "ARTIBAR"
 }
-
 
 Actor MurdererKey : RedSkull replaces RedSkull
 {
