@@ -1,0 +1,6 @@
+//Mod automatically loads DOOM2.wad as the IWAD.
+//Startup displays "Who Dun It" with white text over a black background.
+
+IWAD = "DOOM2.wad"
+STARTUPTITLE = "Who Dun It"
+STARTUPCOLORS = "FF FF FF", "00 00 00"
