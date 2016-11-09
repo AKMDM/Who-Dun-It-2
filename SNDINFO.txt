@@ -611,14 +611,6 @@ PIANE2 		PIANE2
 
 World/owl1	OWLCALL1
 tubes/break TSTTB
-//---------------------------------------
-/* FROM BIGPACK NOT INCLUDED YET
-//prepper sounds-------------------------
-EVILS1  EVILS1
-EVILS2  EVILS2
-DRAGS   DRAGS
-COINFX  COINFX
-*/
 
 //WEAPONS======================================================================
 
@@ -979,4 +971,54 @@ twarmup twarmup //MISSED
 Metal/VentCrash	VENTGRAT //MISSED
 
 Heart/Heart		Heart   //MISSED
+
+//---------BIGPACK ------------------------
+//============CHECK DUPLICATED DEF==============================================================================================
+//SFX
+
+//prepper sounds///////////////////////////
+EVILS1  EVILS1
+EVILS2  EVILS2
+DRAGS   DRAGS
+COINFX  COINFX
+
+//WDI20-------------------
+eight/eight eight
+amb/peron peron
+amb/jazzy barjazz
+amb/avalon avalon
+amb/fog DARKFOG
+music/JIGFINAL JIGFINAL
+
+$pitchshift amb/peron 0
+$pitchshift amb/jazzy 0
+$pitchshift amb/avalon 0
+$pitchshift amb/fog 0
+
+//Riclo sounds//////////////////////////////
+GLASS5 GLASS5
+GLASS4 GLASS4
+GLASS1 GLASS1
+DSLEVER DSLEVER
+DOORJAM DOORJAM
+XAPOS XAPOS
+FINALS FINALS
+POP POP
+PIASONG1 PIASONG1
+GATEBREK GATEBREK
+D_BBLUE D_BBLUE
+D_DCHASE D_DCHASE
+BEEPP1 BEEPP1
+BEEPP2 BEEPP2
+BEEPP3 BEEPP3
+BEEPP4 BEEPP4
+THUNDD1 THUNDD1
+THUNDD2 THUNDD2
+PIFAIL1 PIFAIL1
+PIFAIL2 PIFAIL2
+PIFAIL3 PIFAIL3
+GETHAP GETHAP
+//==========================================================================
+
+
   
