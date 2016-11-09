@@ -8,4 +8,4 @@ server noarchive int wdi_murd_maxbonus = 300;
 
 //Client Variables
 
-client int wdi_filmgrain_level = 0;
+user int wdi_filmgrain_level = 0;
