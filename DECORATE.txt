@@ -11,9 +11,7 @@
 //ITEMS
 #Include "code/Items/EGGS.txt"
 #Include "code/Items/INVTORY.txt"
-
-//KEYS
-#Include "code/keys/KEYS.txt"
+#Include "code/Items/KEYS.txt"
 
 //MODELS
 #Include "code/Models/MODELS.txt"
