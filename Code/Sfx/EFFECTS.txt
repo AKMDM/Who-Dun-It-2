@@ -1,7 +1,51 @@
 //==================================================================
 /////////////////////    EFFECTS     //////////////////////////////
 //=================================================================
-/////////////////////////////JUST SPRITE or switch Actor  not spawner/////////////////////////////////////////////
+//JUST SPRITE or switch Actor  not spawner/////////////////////////////////////////////
+
+Actor ActionMarkerBlueTeleport 181 //this do something in ur map wdi20 jig?????
+{
+- SOLID
++NOBLOCKMAP
++NOGRAVITY
++CLIENTSIDEONLY
++ALLOWCLIENTSpawn
+Radius 2
+Height 2
+Renderstyle Add
+Alpha 0.45
+VisibleToTeam 1
+  //$Category WDI Murderer Stuff
+  //$Sprite ACTBA0
+  //$Title "Action Marker (Blue + Teleport)"
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 0 //Thing_ChangeTID(0,256)
+TNT1 A 0
+Goto On
+//Goto Off
+
+Active:
+ACTB A 1 BRIGHT A_UnHideThing
+ACTB A 1 BRIGHT 
+Wait
+
+InActive:
+TNT1 A 1 A_HideThing
+TNT1 A 1
+Wait
+
+Off:
+TNT1 A 1
+Wait
+
+On:
+ACTB A 1 BRIGHT
+Wait
+}
+}
 
 Actor PushUseScript 31999 { // Do something????
 height 24

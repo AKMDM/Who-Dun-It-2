@@ -492,3 +492,88 @@ Spawn:
 RCK3 A -1  
 stop
 }}
+// Small plants------------------------------------------------
+Actor Flowers1 30001
+{  //$Category WDI Environment
+   //$Title "Flowers 1"
+   Radius 24
+   Height 24
+   scale 0.95
+
+   States
+   {
+   Spawn:
+      FLWA A -1
+	  Stop
+	}
+}
+Actor Flowers2 30002
+{  //$Category WDI Environment
+   //$Title "Flowers 2"
+   Radius 24
+   Height 24
+   scale 0.95
+
+   States
+   {
+   Spawn:
+      FLWB A -1
+	  Stop
+	}
+}
+Actor Flowers3 30003
+{  //$Category WDI Environment
+   //$Title "Flowers 2B"
+   Radius 24
+   Height 24
+   scale 0.95
+
+   States
+   {
+   Spawn:
+      FLWC A -1
+	  Stop
+	}
+}
+Actor Flowers4 30004
+{  //$Category WDI Environment
+   //$Title "Flowers 3"
+   Radius 24
+   Height 24
+   scale 0.95
+
+   States
+   {
+   Spawn:
+      FLWD A -1
+	  Stop
+	}
+}
+Actor Flowers5 30005
+{  //$Category WDI Environment
+   //$Title "Flowers 4"
+   Radius 24
+   Height 24
+   scale 0.95
+
+   States
+   {
+   Spawn:
+      FLWE A -1
+	  Stop
+	}
+}
+Actor Flowers6 30006
+{  //$Category WDI Environment
+   //$Title "Flowers 5"
+   Radius 24
+   Height 24
+   scale 0.95
+
+   States
+   {
+   Spawn:
+      FLWF A -1
+	  Stop
+	}
+}
