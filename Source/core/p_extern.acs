@@ -291,8 +291,7 @@ script 750 ENTER CLIENTSIDE
 {
 	if(GetCVar("wdi_filmgrain_level") <= 0)
 	{
-		ConsoleCommand("set wdi_filmgrain_level 0");
-		ConsoleCommand("archivecvar wdi_filmgrain_level");
+		SetCVar("wdi_filmgrain_level", 0);
 	}
 	
 	while(1)
