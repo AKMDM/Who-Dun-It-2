@@ -279,7 +279,7 @@ Death.Crush:
 	TNT1 A 10 A_NoBlocking
     TNT1 A -1
     Stop
-		
+//Custom bodys////////////////////////////////////////////////////////////////// 		
 Death.Backstab:
 	TNT1 A 0
 	TNT1 A 0 Acs_ExecuteAlways(407, 0, 0, 0)
@@ -287,7 +287,7 @@ Death.Backstab:
 	TNT1 A 0 A_PlaySound("P1XDeath", CHAN_VOICE, 1.0, 0)
     TNT1 A 0 A_SpawnItemEx ("bstabody", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
 	TNT1 A 0 A_GiveInventory ("BackstabHero", 1)
-  	TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath")
+  	TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath2")
 	TNT1 A 0 A_JumpIfInventory ("TKToken", 1, "TKDeath")
     TNT1 A 0 A_GiveToTarget ("InoKill", 1)
     TNT1 A 0 A_GiveToTarget ("BackStabCount", 1)
@@ -296,8 +296,7 @@ Death.Backstab:
     TNT1 A 10 A_NoBlocking
     TNT1 A -1
     Stop
-	
-//Custom bodys////////////////////////////////////////////////////////////////// 	
+		
 Death.Drowning:  	
 	TNT1 A 0
 	TNT1 A 0 Acs_ExecuteAlways(407, 0, 0, 0)
@@ -338,7 +337,6 @@ Deathtrips:
 TNT1 A 0 A_SpawnItemEx ("gunbody2", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
 Goto  Death.ShotgunTrap +6	
 
-
 Death.Gas:
 	TNT1 A 0
 	TNT1 A 0 Acs_ExecuteAlways(407, 0, 0, 0)
@@ -357,8 +355,6 @@ Deathgas2:
 TNT1 A 0 A_SpawnItemEx ("gasBody1", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
 Goto  Death.Gas +6	
 	
-//--------------------------------------------------------------------------------------
-
 Death.friendlygun:
 	TNT1 A 0
 	TNT1 A 0 Acs_ExecuteAlways(407, 0, 0, 0)
