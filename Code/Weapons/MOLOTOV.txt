@@ -1,12 +1,11 @@
 //==================================================================
 /////////////////////      MOLOTOV     /////////////////////////////
 //=================================================================
-//Molotov (Throwing weapon) || Sprites by Lightman and Mooseknuckle, code by Theshooter7
 
 Actor FakeMolly : CustomInventory 30076
 {
   //$Category WDI Weapons
-  //$Sprite MOLPA0
+  //$Sprite MOLPZ0
   //$Title "Molotov (Throwable)"
 	Radius 16
 	Height 8
@@ -16,19 +15,19 @@ Actor FakeMolly : CustomInventory 30076
 	States
 	{
 	Spawn:
-		MOLP A -1
+		MOLV Z -1
 		Stop
 	Pickup:
-		MOLP A 0
-		MOLP A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		MOLP A 0 A_PlaySound("pickups/weapon")
-		MOLP A 0 A_GiveInventory("Molotov",1)
-		MOLP A 0 A_GiveInventory("Slot1Filled",1)
-		MOLP A 1 ACS_ExecuteAlways(670,0,25)
+		MOLV Z 0
+		MOLV Z 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		MOLV Z 0 A_PlaySound("pickups/weapon")
+		MOLV Z 0 A_GiveInventory("Molotov",1)
+		MOLV Z 0 A_GiveInventory("Slot1Filled",1)
+		MOLV Z 1 ACS_ExecuteAlways(670,0,25)
 		Stop
 	NotPickup:
-		MOLP A 0
-		MOLP A 1 ACS_ExecuteAlways(670,0,25)
+		MOLV Z 0
+		MOLV Z 1 ACS_ExecuteAlways(670,0,25)
 		Fail
 }}
 
@@ -46,7 +45,7 @@ Actor Molotov : Weapon
 	States
 	{
 	Spawn:
-		MOLP A 1
+		MOLV Z 1
 		Goto Death
 	Pickup:
 
@@ -138,6 +137,208 @@ Actor Molotov : Weapon
 		Stop
 }}
 
+Actor DroppedMolly
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+  Scale 0.65
+	Speed 9
+	DeathSound "molly/land"
+	States
+	{
+	Spawn:
+		MOLV Z -1
+		Stop
+	Death:
+		MOLV Z 35
+		MOLV Z 1 A_SpawnItemEx("FakeMolly",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+}}
+
+//==================================================================
+/////////////////////    OLD MOLOTOV   /////////////////////////////
+//=================================================================
+//Molotov (Throwing weapon) || Sprites by Lightman and Mooseknuckle, code by Theshooter7
+
+ACTOR FakeOldMolly : CustomInventory //30076 it needs a new id
+{
+  //$Category WDI Weapons
+  //$Sprite MOLPA0
+  //$Title "OldMolotov (Throwable)"
+	Radius 16
+	Height 8
+  Scale 0.45
+	Inventory.PickupMessage "Picked up a Molotov."
+	Inventory.RespawnTics 21000 //10 Minutes
+	States
+	{
+	Spawn:
+		MOLP A -1
+		Stop
+	Pickup: 
+		MOLP A 0 
+		MOLP A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		MOLP A 0 A_PlaySound("pickups/weapon")
+		MOLP A 0 A_GiveInventory("OldMolotov",1)
+		MOLP A 0 A_GiveInventory("Slot1Filled",1)
+		MOLP A 1 ACS_ExecuteAlways(670,0,25)
+		Stop
+	NotPickup:
+		MOLP A 0
+		MOLP A 1 ACS_ExecuteAlways(670,0,25)
+		Fail						  
+	}
+}
+
+Actor OldMolotov : Weapon
+{
+	Radius 8
+	Height 32
+    Scale 0.45
+	Inventory.PickupMessage "Picked up a Molotov."
+	Weapon.SelectionOrder 2200
+	+WEAPON.NoAutoFire
+	+INVENTORY.UNDROPPABLE
+	+NOAUTOAIM
+	
+	States
+	{
+	Spawn:
+		MOLP A 1
+		goto Death
+	Pickup: 
+	
+	Deselect:
+		MOLO AAAA 1 Bright A_Lower
+		MOLO BBBB 1 Bright A_Lower
+		MOLO CCCC 1 Bright A_Lower
+		Loop
+		
+	Select:
+		TNT1 A 3
+		TNT1 A 15 A_PlaySound("weapons/lighteropen")
+		TNT1 A 20 A_PlayWeaponSound("weapons/lighter")
+		TNT1 A 5 A_JumpIf(Random(0,10) > 8, "SelectPre")
+		TNT1 A 20 A_PlayWeaponSound("weapons/lighter")
+		TNT1 A 5 A_JumpIf(Random(0,10) > 6, "SelectPre")
+		TNT1 A 20 A_PlayWeaponSound("weapons/lighter")
+		TNT1 A 5 
+	SelectPre:
+		TNT1 A 5 A_PlaySound("weapons/lighterclose")
+	SelectLoop:
+		MOLO AAAA 1 Bright A_Raise
+		MOLO BBBB 1 Bright A_Raise
+		MOLO CCCC 1 Bright A_Raise
+		Goto SelectLoop
+		
+	Ready:
+		MOLO A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO A 1 Bright A_WeaponReady
+		MOLO A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO A 1 Bright A_WeaponReady
+		MOLO A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO A 1 Bright A_WeaponReady
+		MOLO A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO A 1 Bright A_WeaponReady
+
+		MOLO B 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO B 1 Bright A_WeaponReady
+		MOLO B 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO B 1 Bright A_WeaponReady
+		MOLO B 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO B 1 Bright A_WeaponReady
+		MOLO B 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO B 1 Bright A_WeaponReady
+
+		MOLO C 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO C 1 Bright A_WeaponReady
+		MOLO C 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO C 1 Bright A_WeaponReady
+		MOLO C 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO C 1 Bright A_WeaponReady
+		MOLO C 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		MOLO C 1 Bright A_WeaponReady
+		Loop
+		
+	DropWeapon:
+		MOLO A 0
+		MOLO A 1
+		MOLO A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+       Goto Ready
+		
+	Fire:
+		MOLO DEFGHIJ 1 Bright
+		TNT1 A 2
+		TNT1 A 1 A_Refire
+		THRW I 2 A_FireCustomMissile("ThrownMolly", 0, 0, 6, 10, 0, 8)
+        	THRW JK 2
+		THRW LMNOPQ 2
+		TNT1 A 4
+		//TNT1 A 0 A_TakeInventory("Slot1Filled",1)
+		//TNT1 A 0 A_TakeInventory("Molotov",1)
+		TNT1 A 0 ACS_ExecuteAlways(653, 0, 0, 0, 0)
+		TNT1 A 2
+		MOLO A 0
+		Goto Ready
+
+        Hold:
+		TNT1 A 2
+		TNT1 A 1 A_Refire
+		THRW I 2 A_FireCustomMissile("ThrownMolly", 0, 0, 6, 10, 0, 8)
+        	THRW JK 2
+		THRW LMNOPQ 2
+		TNT1 A 4
+		//TNT1 A 0 A_TakeInventory("Slot1Filled",1)
+		//TNT1 A 0 A_TakeInventory("Molotov",1)
+		TNT1 A 0 ACS_ExecuteAlways(653, 0, 0, 0, 0)
+		TNT1 A 2
+		MOLO A 0
+		Stop
+	}
+}
+
+Actor DroppedOldMolly
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+  Scale 0.45
+	Speed 9
+	DeathSound "molly/land"
+	States
+	{
+	Spawn:
+		MOLP A -1
+		Stop
+	Death:
+		MOLP A 35
+		MOLP A 1 A_SpawnItemEx("FakeOldMolly",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+Actor Dropper_OldMolly : DeathDropper
+{
+ States
+ {
+   Spawn:
+	TNT1 A 1
+	Wait
+
+   Use:
+	TNT1 A 1 A_FireCustomMissile("DroppedOldMolly", 0, 0, 0)
+	Stop
+}} 
+
+//deathdropper no included yet
+
+//----------------------------------------------------------------------------------
 Actor ThrownMolly
 {
   Radius 6
@@ -343,27 +544,6 @@ Actor MollyShard
     Stop
 }}
  
-Actor DroppedMolly
-{
-	PROJECTILE
-	-NOGRAVITY
-	Damage 0
-	Radius 16
-	Height 8
-  Scale 0.65
-	Speed 9
-	DeathSound "molly/land"
-	States
-	{
-	Spawn:
-		MOLP A -1
-		Stop
-	Death:
-		MOLP A 35
-		MOLP A 1 A_SpawnItemEx("FakeMolly",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-		Stop
-}}
-
 Actor MolotovLit : Inventory
 {
 Inventory.MaxAmount 1

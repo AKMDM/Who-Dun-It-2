@@ -1,6 +1,30 @@
 //==================================================================
 /////////////////////     KEYS        //////////////////////////////
 //=================================================================
+// Prepper: ColdNight---------------------------------------------
+
+actor CoinKey :key 1437
+{
+  //$Category WDI Keys
+  //$Sprite COINA0
+  //$Title "Evil Coin"
+ SCALE 0.4
+ +INVBAR
+ +INVENTORY.UNDROPPABLE
+ -INVENTORY.INTERHUBSTRIP
+  Inventory.DefMaxAmount
+  Inventory.MaxAmount 1
+  Inventory.PickupFlash "PickupFlash"
+  Inventory.icon "COINE"
+  Inventory.pickupmessage "Now you have a coin."
+  Inventory.RespawnTics 9999999999999999
+  states
+  {
+  Spawn:
+    MONE A -1 
+    stop  
+  }
+}
 
 Actor BarKeySpawner : RandomSpawner 32065
 {

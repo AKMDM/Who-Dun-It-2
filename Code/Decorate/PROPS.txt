@@ -4,6 +4,35 @@
 //NOTE: ARTIFICIAL OBJECTS ONLY
 
 ///////////STATUES///////////////
+
+Actor Ishtar 32260 
+{
+//$Category WDI Props
+    Health 100
+	Radius 12
+	Height 50
+	Scale 0.35
+	speed 3
+    Mass 900
+    BloodColor 88 88 88
+   +SOLID
+   +SHOOTABLE
+   +NOBLOOD
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+   PAINSOUND "PotBits"
+   DEATHSOUND "pot/break" 
+  States
+	{
+	Spawn:
+		ISHT A 1 
+		Loop	
+	Death:
+      VASE E 1 A_PlaySound("pot/break")
+      VASE E 1 A_Burst("PotBits") 
+    stop
+}}
+
 Actor MinotaurStatue 16134
 {
   Radius 32
@@ -140,22 +169,6 @@ states
 Spawn:
 VASS A -1
 stop
-}}
-
-Actor Column 2028  ///SKULLTAG??
-{
-  Game Doom
-  Radius 16
-  Height 16
-  +SOLID
-  //$Category WDI Props
-  //$Sprite COLUA0
-  //$Title "Column"
-  States
-  {
-  Spawn:
-    COLU A -1 bright
-    Stop
 }}
 
 Actor ArmorSuit 32003 { ///SKULLTAG??
@@ -1298,24 +1311,6 @@ Actor flaskshard2 10437
     Stop
 }}
 
-
-Actor CatMartiniGlass 10281
-{
-	Scale 1.0
-    -SOLID
-	-SHOOTABLE
-	radius 2
-	height 4
-	RenderStyle Add
-	alpha 0.8
-	
-	states
-	{
-		Spawn:
-			MART A -1
-			stop
-}}
-
 ///////////FOODS///////////////
 
 Actor burger1 10438
@@ -1594,6 +1589,21 @@ VASE B 1 A_Burst("PotBits")
 stop
 }}
 
+Actor PotUU : PotA 31898 {
+  //$Category WDI Props
+  //$Sprite VASEB0
+  //$Title "Pot 7 (Breakable)"
+states {
+Spawn:
+VASE E -1
+Stop
+
+Death:
+VASE E 1 A_PlaySound("pot/break")
+VASE E 1 A_Burst("PotBits") 
+Stop
+}}
+
 Actor PotBits {
 +DOOMBOUNCE
 gravity 2.0
@@ -1615,3 +1625,42 @@ loop
 Death:
 stop
 }}
+
+Actor DoomDoll 31899
+{
+ //$Category WDI Props
+  States
+  {
+  Spawn:
+    DDOL A -1
+    Stop
+  }
+}
+
+Actor Nethertree 30007 
+{
+  //$Category WDI Props
+  //$Title "Nether Tree"
+  +SOLID
+Height 48
+Radius 16
+states {
+Spawn:
+NHTR C -1
+Stop
+}}
+
+Actor Netherbeer 30008
+{
+	-SOLID
+	Radius 8
+	Height 18
+  //$Category WDI Props
+  //$Title "Nether beer bottle"
+	States
+	{
+	Spawn:
+		NHBR A -1
+		Stop
+	}
+}
