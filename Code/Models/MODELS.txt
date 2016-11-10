@@ -36,22 +36,6 @@ Actor CatBox4 : CatBox1 10319 { Scale 0.5 height 8 radius 8}
 Actor CatBox5 : CatBox1 10320 { }
 Actor CatBox6 : CatBox1 10321 { YScale 0.7 Height 11 }
 Actor CatBoxUnwrapped : CatBox1 10322 { -SOLID -SHOOTABLE -CANPASS}
-/*
-Actor CatTrashcan 10201
-{
-	YScale 0.8
-	+SOLID
-	+NOBLOOD
-	+NODAMAGE
-	radius 16
-	height 28
-	
-	states
-		{
-			Spawn:
-			BARR A -1
-			stop
-}}*/
 
 Actor CatBarrel 10202
 {
@@ -133,6 +117,23 @@ Actor CatBottle1 10210
 
 Actor CatBottle2 : CatBottle1 10211 {} 
 Actor CatBottle3 : CatBottle1 10212 {} 
+
+Actor CatMartiniGlass 10281
+{
+	Scale 1.0
+    -SOLID
+	-SHOOTABLE
+	radius 2
+	height 4
+	RenderStyle Add
+	alpha 0.8
+	
+	states
+	{
+		Spawn:
+			GLSS A -1
+			stop
+}}
 
 Actor Page1a
 {
@@ -628,18 +629,6 @@ States
 Spawn:
 
 TPAP A -1
-stop
-}}
-
-Actor Television 6000 {
-  //$Category WDI Models
-  //$Sprite TNT1A0
-  //$Title "Television"
-States
-{
-Spawn:
-
-TVEL A -1
 stop
 }}
 
