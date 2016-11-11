@@ -2,7 +2,7 @@
 /////////////////////     EASTEREGGS  /////////////////////////////
 //=================================================================
 
-//Riclo: wdi18
+//Riclo eggs: wdi18
 //-------------------------------------
 ACTOR NetherEgg : CustomInventory 30000 //Shameless code copy of orginal Easter Egg
 {
@@ -314,7 +314,8 @@ Actor skull2Seq
 		TNT1 A 3 A_SpawnItemEx("skullBeat2")
 		Stop
 }}
-//============Riclo raves====================================
+
+//============Riclo raves======================================================
 
 Actor TechnoKit : CustomInventory 32767
 {
@@ -557,7 +558,7 @@ Actor WilsonBall : CustomInventory
     TNT1 A 0
     stop
 }}
-//  Riclo wdi18 TechnoKit
+//  Riclo wdi18 TechnoKit----------------------------------------------
 Actor BlueTechnoKit : CustomInventory 30014
 {
   //$Category WDI Easter Eggs
@@ -1131,6 +1132,7 @@ Actor BigBlueKitOrbit
     Stop
   }
 }
+/*  NO have any use and is dulplicated
 Actor BigKitOrbit2 : BigKitOrbit
 {
 States
@@ -1144,6 +1146,8 @@ States
     Stop
   }
 }
+*/
+
 Actor BlueKitTechnoMusic
 {
 reactiontime 150
