@@ -69,7 +69,8 @@ drawnumber 3, HUDFONT_DOOM, red, health, -104, 156;
 //Mugshot hack///////////////////////////////////////////////////
 //DrawMugShot 1, disablegrin, disableouch, disablerampage, 0, 0; 
 /////////////////////////////////////////////////////////////////
-
+/*
+REMOVED WDIEXCT
 	IsSelected NO_WEAPON
 	{
 	    drawnumber 3, HUDFONT_DOOM, red, health, -34, 164;
@@ -98,7 +99,7 @@ drawnumber 3, HUDFONT_DOOM, red, health, -104, 156;
 		//DrawImage translatable "STAMWORD", 334, 160;
 	}
 	
-
+*/
 	IsSelected Shotgun2
 	{
     		drawimage "D3S1C0", 414, 163, centerbottom;
