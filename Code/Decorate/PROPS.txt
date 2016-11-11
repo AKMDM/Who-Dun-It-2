@@ -504,17 +504,6 @@ Actor PushableChair 13712
     goto Spawn
 }}
 
-Actor Bottle 31981 {
-+NOCLIP
-+NOINTERACTION
-  //$Category WDI Props
-  //$Sprite WATRA0
-  //$Title "Bottle"
-States {
-Spawn:
-WATR A -1 
-Stop
-}}
 
 Actor flaskblueA 10418
 {
@@ -1575,7 +1564,7 @@ VASE A 1 A_Burst("PotBits")
 stop
 }}
 
-Actor PotF : PotA 31981 {
+Actor PotF : PotA  3262 {
   //$Category WDI Props
   //$Sprite VASEB0
   //$Title "Pot 6 (Breakable)"
@@ -1587,6 +1576,18 @@ Death:
 VASE B 1 A_PlaySound("pot/break")
 VASE B 1 A_Burst("PotBits") 
 stop
+}}
+
+Actor Bottle 31981 {
++NOCLIP
++NOINTERACTION
+  //$Category WDI Props
+  //$Sprite WATRA0
+  //$Title "Bottle"
+States {
+Spawn:
+WATR A -1 
+Stop
 }}
 
 Actor PotUU : PotA 31898 {
