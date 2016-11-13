@@ -202,10 +202,12 @@ Actor MadMeter : Ammo
   inventory.maxamount 500
   ammo.backpackamount 500
   ammo.BackpackMaxAmount 500
+  +INVENTORY.UNDROPPABLE
+  
   states
   {
   Spawn:
-    AMMO A -1
+    TNT1 A -1
     stop
   }
 }
