@@ -1,0 +1,19 @@
+D3S1E0 = "D3S1E" 
+{
+ Scale = 0.2
+}
+
+CBRAA = "CBRAA"
+{
+ AngleOffset = 90
+}
+
+CAMRA = "CAMRA"
+{
+ AngleOffset = 270
+}
+
+PIPPB = "PIPPB"
+{
+ AngleOffset = 90
+}

@@ -245,7 +245,7 @@ Model CatMartiniGlass
 	Skin 0 "bottle1.png"
 	Scale 3.0 3.0 3.0
 	
-	FrameIndex MART A 0 0
+	FrameIndex GLSS A 0 0
 }
 
 Model CatBottleLabel1

@@ -151,7 +151,7 @@ class = "Voice: Wimpy"
 sprite = PLA7
 CrouchSprite = PIPC 
 }
-
+/*
 //WDIEXSKINS/////////////////////////////////////
 {
 name = JenniferSkin
@@ -188,3 +188,4 @@ class = "voice: wimpy"
 CrouchSprite = JENN
 gender = male
 }
+*/
