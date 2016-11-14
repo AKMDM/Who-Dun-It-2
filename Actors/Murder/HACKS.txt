@@ -202,14 +202,8 @@ Actor MadMeter : Ammo
   inventory.maxamount 500
   ammo.backpackamount 500
   ammo.BackpackMaxAmount 500
-  +INVENTORY.UNDROPPABLE
   
-  states
-  {
-  Spawn:
-    TNT1 A -1
-    stop
-  }
+  +INVENTORY.UNDROPPABLE
 }
 
 Actor GetSane : CustomInventory //Given in pain states
