@@ -210,28 +210,6 @@ Actor CatSmog3 10303
 	}
 }
 
-
-Actor Fog1 10571
-{
-	+NOINTERACTION
-	RenderStyle Translucent
-	Alpha 0.3
-	
-	States
-	{
-	Spawn:
-	GFOG A -1  /// no sprite
-	stop
-	}
-}
-
-Actor Fog2 : Fog1 10571	{}  //duplicatated id 
-Actor Fog3 : Fog1 10572	{}
-Actor BlueFog1 : Fog1 10573 {}
-Actor BlueFog2 : Fog1 10574 {}
-Actor BlueFog3 : Fog1 10575 {}
-
-
 Actor FireDecorative 20900
 {
 +NOINTERACTION
