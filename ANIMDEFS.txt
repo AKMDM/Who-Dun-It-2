@@ -1,9 +1,11 @@
+//==================================================================
+/////////////////   ANIMATIONS DEFINITIONS  ////////////////////////
+//=================================================================
 warp flat LAVAB 0.5
 
 texture LAVA2M
 pic LAVA2M tics 2
 pic LAVA2M1 tics 2
-
 
 warp2 texture WATER-S
 warp2 texture DWATER-S 1.5
@@ -12,7 +14,6 @@ warp2 texture DWATERXS 1.5
 
 texture ASLIM01 range ASLIM07 tics 3
 texture FUZZ1 range FUZZ4 tics 3
-
 
 texture BVORTEX7
     pic 1 tics 1
@@ -77,8 +78,6 @@ warp2 texture SSBGF0 0.1
 warp2 texture SSBGG0 0.1
 warp2 texture SSBGH0 0.1
 warp2 texture SSBGI0 0.1
-
-//warp2 texture XSMKA0 0.35 //Lets not warp this.
  
 warp2 texture WATER-S
 warp2 texture LAVA
@@ -120,7 +119,6 @@ pic TSTATIC4 tics 2
 pic TSTATIC5 tics 2
 pic TSTATIC6 tics 2
 
-
 warp flat wqlava
 warp2 texture HYWATER
 warp2 texture SMPEA0 0.1
@@ -142,11 +140,10 @@ cameratexture MAP2CAM9 256 256 fit 64 64
 cameratexture MAP2CAM10 256 256 fit 64 64
 cameratexture MAP2CAM11 256 256 fit 64 64
 cameratexture MAP2CAM12 256 256 fit 64 64
-cameratexture	camtx128	384 384		fit	128 128
-cameratexture	camtx64 	384 384		fit	64 64
+cameratexture CAMTX128	384 384	fit	128 128  
+cameratexture CAMTX64  	384 384	fit	64 64      
 
 texture NOIS1 range NOIS8 rand 1 3
-
 
 switch BSW07B on sound LightOff pic BSW07A tics 0
 switch BSW07A off sound LightOn pic BSW07B tics 0
@@ -182,4 +179,30 @@ flat granuke1
 	pic granuke2 tics 8
 	pic granuke3 tics 8
 
-//warp flat e1sky1
+//BIGPACK=====================================================
+//wdi15--------------------------------
+cameratexture TCAMTEX1 128 64 fit 80 56
+
+texture BSAW01
+	allowdecals
+	pic BSAW01 rand 1 1
+	pic BSAW02 rand 1 1
+	pic BSAW03 rand 1 1
+texture BSAW04
+	allowdecals	
+	pic BSAW04 rand 1 1
+	pic BSAW05 rand 1 1
+	pic BSAW06 rand 1 1
+
+//wdi19-------------------------------
+cameratexture	cam1t8x6 	256 192		fit	80 60
+cameratexture	cam2t8x6 	256 192		fit	80 60
+cameratexture	cam3t8x6 	256 192		fit	80 60
+cameratexture	cam4t8x6 	256 192		fit	80 60
+cameratexture	cam5t8x6 	256 192		fit	80 60
+cameratexture	 MURDTV2 	256 192     fit 80 60
+
+texture MSELF1
+pic MSELF2 tics 20
+pic MSELF1 tics 10
+//WDIEX=====================================================
