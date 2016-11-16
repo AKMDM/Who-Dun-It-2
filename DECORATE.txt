@@ -56,3 +56,14 @@
 #Include "Actors/Weapons/TWIG.txt"
 #Include "Actors/Weapons/WRENCH.txt"
 #Include "Actors/Weapons/WEAPONS.txt"
+
+//WDIEX
+#Include "Actors/Wdiex/DROPPERS.txt"
+#Include "Actors/Wdiex/AZTCSND.txt"
+#Include "Actors/Wdiex/AZDECO.txt"
+#Include "Actors/Wdiex/DECMARS.txt"
+#Include "Actors/Wdiex/TORNDECO.txt"
+#Include "Actors/Wdiex/TORNMONS.txt"
+#Include "Actors/Wdiex/TORNMUSC.txt"
+#Include "Actors/Wdiex/SLENDERD.txt"
+#Include "Actors/Wdiex/COOPEX.txt"
