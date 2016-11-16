@@ -146,7 +146,7 @@ GMPD B -1
 Stop
 }}
 
-Actor PedestalRuby : Pedestal 31987 {
+Actor PedestalRuby : PedestalRed 31987 {
   //$Category WDI Props
   //$Sprite GMPDA0
   //$Title "Pedestal (Ruby)"
