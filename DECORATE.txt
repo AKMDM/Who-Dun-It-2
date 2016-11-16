@@ -39,7 +39,6 @@
 #Include "Actors/Weapons/CARBINE.txt"
 #Include "Actors/Weapons/CHAINSAW.txt"
 #Include "Actors/Weapons/CROSSBOW.txt"
-#Include "Actors/Weapons/D_KNIFE.txt"
 #Include "Actors/Weapons/FLASHLIG.txt"
 #Include "Actors/Weapons/HATCHET.txt"
 #Include "Actors/Weapons/KNIFE.txt"
