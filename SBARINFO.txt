@@ -118,11 +118,6 @@ REMOVED WDIEXCT
     		drawimage ammoicon1, 414, 179, centerbottom;
 	}
 
-	//IsSelected not Beretta, Shotgun2
-	//{
-    	//	drawimage ammoicon2, 414, 163, centerbottom;
-	//}
-
 	IsSelected NOT LChainsaw 
 	{
     		drawimage ammoicon1, 414, 179, centerbottom;
@@ -159,11 +154,14 @@ REMOVED WDIEXCT
 	{
 		DrawBar "CANFRONR", "CANBACK", Sprayammo, Vertical, 420, 142;
 	}
-	
+/*	'''
+   this message is an issue dropping the soul cube partially fixed
 	IsSelected Soulcube
 	{
 		drawimage "FUCKCUBE", 320, 180, centerbottom;
 	}
+	'''
+*/
 
 //drawnumber 4, BIGFONT, yellow, PowerupTime MeleeSlower, whennotzero, 166, 64;
 
@@ -181,7 +179,6 @@ drawselectedinventory SMALLFONT, 462, 100, 528, 116;
 }
 }
 }
-
 
 statusbar inventoryfullscreen
 {
