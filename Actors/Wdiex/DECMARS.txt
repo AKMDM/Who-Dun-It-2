@@ -912,7 +912,7 @@ Actor SND_BoilerWater 3216
     }
 }
 
-Actor SND_BoilerWater 3217
+Actor SND_BoilerWater2 3217
 {
 	//$Category Marsis_map_ONLY
     +NOINTERACTION
