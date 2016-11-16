@@ -39,7 +39,6 @@
 #Include "Actors/Weapons/CARBINE.txt"
 #Include "Actors/Weapons/CHAINSAW.txt"
 #Include "Actors/Weapons/CROSSBOW.txt"
-#Include "Actors/Weapons/D_KNIFE.txt"
 #Include "Actors/Weapons/FLASHLIG.txt"
 #Include "Actors/Weapons/HATCHET.txt"
 #Include "Actors/Weapons/KNIFE.txt"
@@ -56,3 +55,14 @@
 #Include "Actors/Weapons/TWIG.txt"
 #Include "Actors/Weapons/WRENCH.txt"
 #Include "Actors/Weapons/WEAPONS.txt"
+
+//WDIEX
+#Include "Actors/Wdiex/DROPPERS.txt"
+#Include "Actors/Wdiex/AZTCSND.txt"
+#Include "Actors/Wdiex/AZDECO.txt"
+#Include "Actors/Wdiex/DECMARS.txt"
+#Include "Actors/Wdiex/TORNDECO.txt"
+#Include "Actors/Wdiex/TORNMONS.txt"
+#Include "Actors/Wdiex/TORNMUSC.txt"
+#Include "Actors/Wdiex/SLENDERD.txt"
+#Include "Actors/Wdiex/COOPEX.txt"

@@ -133,10 +133,10 @@ Stop
 }}
 
 
-Actor Pedestal 31988 {
+Actor PedestalRed 31988 {
   //$Category WDI Props
   //$Sprite GMPDB0
-  //$Title "Pedestal"
+  //$Title "PedestalRed"
 +SOLID
 radius 24
 height 48
@@ -146,7 +146,7 @@ GMPD B -1
 Stop
 }}
 
-Actor PedestalRuby : Pedestal 31987 {
+Actor PedestalRuby : PedestalRed 31987 {
   //$Category WDI Props
   //$Sprite GMPDA0
   //$Title "Pedestal (Ruby)"

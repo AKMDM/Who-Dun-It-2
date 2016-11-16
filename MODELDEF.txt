@@ -449,7 +449,7 @@ Model ToolBox
 	FrameIndex TLBX A 0 0
 }
 
-Model Spark
+Model ModelSpark
 {
 	Path "Models/Spark"
 	Model 0 "spark.md3"
