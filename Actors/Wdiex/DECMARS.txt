@@ -1736,7 +1736,8 @@ YZSH A 1 BRIGHT
 Loop
 }
 }
-
+/*''' 
+duplicated not removed actors from maps yet
 Actor CompChair 3247
 {
     Health 520
@@ -1758,7 +1759,8 @@ Actor CompChair 3247
     goto Spawn
   }
 }
-
+'''
+*/
 
 
 Actor Trite 17121 ////////////////////from Shadow Mavericks
