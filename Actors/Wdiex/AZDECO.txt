@@ -178,40 +178,6 @@ Actor LightningStrikeTrap4 29904
 	}
 }
 
-
-Actor LightningStrike
-{
-	obituary "$OB_LIGHTNING"
-	renderstyle Add
-	scale 2.0
-	height 60
-	radius 3
-	speed 0
-	PROJECTILE
-	+FLOORHUGGER
-	+NOCLIP
-	States
-	{
-		Spawn:
-			LTNG A 1 bright
-		Death:
-			LTNG A 2 bright
-			LTNG B 2 bright A_PlaySound("lightning!")
-			LTNG C 2 bright
-			IVVY A 3
-			LTNG B 2 bright
-			IVVY A 1
-			LTNG C 1 bright
-			Stop
-	}
-}
-
-Actor LightningStrikeSmall : LightningStrike
-{
-	xscale 0.7
-	yscale 2.0
-}
-
 Actor GROSSSS 26279 
 {
   +NOINTERACTION
