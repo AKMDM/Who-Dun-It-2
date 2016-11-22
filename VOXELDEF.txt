@@ -1,4 +1,4 @@
-D3S1E0 = "D3S1E" 
+D3S1E = "D3S1E" 
 {
  Scale = 0.2
 }

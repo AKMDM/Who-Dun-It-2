@@ -1,38 +1,3 @@
-Actor ModelSittersPlant1 29417
-{
-//$Category Aztec_map_ONLY
- States
- {
-  Spawn:
-Spawn:
-    NULL A -1
-  Loop
-  }
-}
-
-Actor ModelSittersPlant2 29418
-{
-//$Category Aztec_map_ONLY
- States
- {
-  Spawn:
-Spawn:
-    NULL A -1
-  Loop
-  }
-}
-
-Actor ModelSittersPlant3 29419
-{
-//$Category Aztec_map_ONLY
- States
- {
-  Spawn:
-Spawn:
-    NULL A -1
-  Loop
-  }
-}
 
 Actor ChaseCam
 {

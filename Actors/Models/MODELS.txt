@@ -658,3 +658,201 @@ Spawn:
 STAL A -1
 stop
 }}
+
+//WDIEX MODELS========================
+
+Actor KITTPlayer 22777
+{ 
+//$Category Retorn_map_ONLY
+Height 32
+Radius 54
++SOLID
+Scale 1.0
+  States
+  {
+  Spawn:
+   CARB A -1
+   Stop
+}}
+
+Actor Motortrn 22779
+{
+//$Category Retorn_map_ONLY
+Height 32
+Radius 24
++SOLID
+Scale 1.0
+ States
+ {
+  Spawn:
+    MOTR A -1
+  Stop
+}}
+
+Actor TCPDCar 22767
+{
+//$Category Retorn_map_ONLY
+ height 32
+ radius 54
+ +SOLID
+ Scale 1.0
+ States
+ {
+  Spawn:
+    COPB A -1
+  Stop
+  }
+}
+Actor Trash1 10601
+{
+//$Category Retorn_map_ONLY
+  Game Doom
+  -nogravity
+  Alpha 1
+  +RANDOMIZE
+  States
+  {
+  Spawn:
+	NULL A -1
+    Stop
+  }
+}
+
+Actor Trash2 10602
+{
+//$Category Retorn_map_ONLY
+  Game Doom
+  -nogravity
+  Alpha 1
+  +RANDOMIZE
+  States
+  {
+  Spawn:
+	NULL A -1
+    Stop
+  }
+}
+
+
+Actor Decorative_Item
+{
+	+SOLID
+	+NOGRAVITY
+	+SHOOTABLE
+	+NOBLOOD
+	+NODAMAGE
+	+DORMANT
+	+FRIENDLY
+	mass 0x7FFFFFF
+}
+/* NO USED
+
+Actor LeafTree : Decorative_Item 19102
+{
+	Height 256
+	Radius 10
+	States
+	{
+		Spawn:
+			MODL A 1
+			Loop
+	}
+}
+
+Actor FallLeafTree : LeafTree 19103
+{
+	States
+	{
+		Spawn:
+			MODL A 1
+			Loop
+	}
+}
+*/
+Actor NoLeafTree : Decorative_Item 19106 //this models is only used in wdiex03 like mapspot the ednumber is usless
+{
+	Height 256
+	Radius 10
+	
+	States
+	{
+		Spawn:
+			MODL A -1
+			Stop
+	}
+}
+
+Actor ModelSittersPlant1 29417
+{
+//$Category Aztec_map_ONLY
+ States
+ {
+  Spawn:
+Spawn:
+    NULL A -1
+  Stop
+  }
+}
+
+Actor ModelSittersPlant2 29418
+{
+//$Category Aztec_map_ONLY
+ States
+ {
+  Spawn:
+Spawn:
+    NULL A -1
+  Stop
+  }
+}
+
+Actor ModelSittersPlant3 29419
+{
+//$Category Aztec_map_ONLY
+ States
+ {
+  Spawn:
+Spawn:
+    NULL A -1
+  Stop
+  }
+}
+
+Actor StallEX  {
+  //$Category WDI Models
+  //$Sprite TNT1A0
+  //$Title "Stall"
+
+States
+{
+Spawn:
+
+STAL A -1
+Stop
+}}
+
+Actor StallEXa  {
+  //$Category WDI Models
+  //$Sprite TNT1A0
+  //$Title "Stall"
+
+States
+{
+Spawn:
+
+STAL A -1
+Stop
+}}
+
+Actor StallEXb  {
+  //$Category WDI Models
+  //$Sprite TNT1A0
+  //$Title "Stall"
+
+States
+{
+Spawn:
+
+STAL A -1
+Stop
+}}

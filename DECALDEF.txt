@@ -1,3 +1,7 @@
+//==================================================================
+/////////////////////   DECAL DEFINITIONS  /////////////////////////
+//=================================================================
+
 //Copied from Zdoom.pk3, because the defaults smears don't have mother-fucking Decal ID's. >:(
 
 stretcher BloodStretcher
@@ -136,3 +140,25 @@ decalgroup BloodSmear
 	BloodSmear1	1
 	BloodSmear2	1
 }
+
+//WDIEX===========================
+decal SprayPaintDecalBLU
+{
+	pic PAINTS
+	shade "00 00 80"
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+}
+
+decal SprayPaintDecalRED
+{
+	pic PAINTS
+	shade "80 00 00"
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+}
+
