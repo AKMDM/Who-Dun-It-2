@@ -249,7 +249,7 @@ States
 	//CREE A 0 A_ChangeFlag("FRIGHTENED", 0)
 	Goto See
 	Death:
-	TNT1 A 20 A_SpawnItem("Creeperdeath")
+	//TNT1 A 20 A_SpawnItem("Creeperdeath") this actor, it doesn't exist
 	TNT1 A 1 A_Fall
 	Stop
 	}
