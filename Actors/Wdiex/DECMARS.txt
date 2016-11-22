@@ -44,46 +44,6 @@ Actor CC3Stalagmite
   }
 }
 
-Actor StallEX  {
-  //$Category WDI Models
-  //$Sprite TNT1A0
-  //$Title "Stall"
-
-States
-{
-Spawn:
-
-STAL A -1
-Stop
-}}
-
-Actor StallEXa  {
-  //$Category WDI Models
-  //$Sprite TNT1A0
-  //$Title "Stall"
-
-States
-{
-Spawn:
-
-STAL A -1
-Stop
-}}
-
-Actor StallEXb  {
-  //$Category WDI Models
-  //$Sprite TNT1A0
-  //$Title "Stall"
-
-States
-{
-Spawn:
-
-STAL A -1
-Stop
-}}
-
-
 Actor Pentagram_Marker : MapMarker 13631
 {
    //$Category Marsis_map_ONLY
@@ -1736,32 +1696,6 @@ YZSH A 1 BRIGHT
 Loop
 }
 }
-/*''' 
-duplicated not removed actors from maps yet
-Actor CompChair 3247
-{
-    Health 520
-    Radius 10
-    Height 36
-	scale 0.8
-    Mass 90
-    +SOLID
-    +SHOOTABLE
-    +NOBLOOD
-	//+SLIDESONWALLS
-  States
-  {
-  Spawn:
-    CHIR A -1
-    Loop
-  Death:
-    CHIR A -1 A_NoBlocking
-    goto Spawn
-  }
-}
-'''
-*/
-
 
 Actor Trite 17121 ////////////////////from Shadow Mavericks
 {

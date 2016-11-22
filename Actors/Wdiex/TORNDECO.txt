@@ -398,39 +398,6 @@ States
   }
 }
 
-Actor TCPDCar 22767
-{
-//$Category Retorn_map_ONLY
- height 32
- radius 54
- +SOLID
- Scale 1.0
- States
- {
-  Spawn:
-Spawn:
-    COPB A -1
-  Loop
-  }
-}
-
-
-Actor KITTPlayer 22777
-{ 
-//$Category Retorn_map_ONLY
-height 32
- radius 54
- +SOLID
- Scale 1.0
-  States
-  {
-  Spawn:
-   NULL A -1
-   Loop
-  }
-}
-
-
 Actor Orange_Zlight 22769
 {
 //$Category Retorn_map_ONLY
@@ -605,36 +572,8 @@ Actor OilDrum2 8028
 
 ///////////////////////////////////TRASHMODEL
 
-Actor Trash1 10601
-{
-//$Category Retorn_map_ONLY
-  Game Doom
-  -nogravity
-  Alpha 1
-  +RANDOMIZE
-  States
-  {
-  Spawn:
-	NULL A 90
-    Loop
-  }
-}
 
-Actor Trash2 10602
-{
-//$Category Retorn_map_ONLY
-  Game Doom
-  -nogravity
-  Alpha 1
-  +RANDOMIZE
-  States
-  {
-  Spawn:
-	NULL A 90
-    Loop
-  }
-}
-
+/* NO USED
 Actor FallenLeaves 10603
 {
 //$Category Retorn_map_ONLY
@@ -649,7 +588,7 @@ Actor FallenLeaves 10603
     GoTo Spawn
   }
 }
-
+*/
 Actor BeefMeat 22778
 {
 //$Category Retorn_map_ONLY
@@ -703,22 +642,6 @@ Actor BeefMeat 22778
     BEEF E 14
     BEEF A 1 
     goto Spawn*/
-  }
-}
-
-Actor Motortrn 22779
-{
-//$Category Retorn_map_ONLY
- height 32
- radius 24
- +SOLID
- Scale 1.0
- States
- {
-  Spawn:
-Spawn:
-    NULL A -1
-  Loop
   }
 }
 
