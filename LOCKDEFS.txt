@@ -80,3 +80,54 @@ Lock 118
 	Mapcolor 64 64 0
 	LOCKEDSOUND "Door/DoorFail"
 }
+//WDIEX======================================================
+Lock 131
+{
+	SoldierArm
+}
+
+Lock 132
+{
+	Keycard_LV4
+	Message "You do not have the required keycard!"
+	RemoteMessage "You do not have the required keycard!"
+	LOCKEDSOUND "YZNOENTR"
+}
+
+Lock 133
+{
+	Keycard_LV7
+	Message "You do not have the required keycard!"
+	RemoteMessage "You do not have the required keycard!"
+	LOCKEDSOUND "YZNOENTR"
+}
+
+Lock 134
+{
+	ScissorsKey
+	Message "You do not have the required key!"
+	RemoteMessage "You do not have the required keyc!"
+    LOCKEDSOUND "Door/DoorFail"
+}
+
+Lock 180
+{
+	YZQUESTKEY4
+	Message "Location of Crest of Mercury"
+	RemoteMessage "Location of Crest of Mercury"
+}
+
+Lock 181
+{
+	YZQUESTKEY1
+	Message "Location of Disc of Ourboros"
+	RemoteMessage "Location of Disc of Ourboros"
+}
+
+Lock 79
+{
+	HujKey
+	Message "You need a safe key!"
+	RemoteMessage "You need a safe key!"
+    LOCKEDSOUND "Door/DoorFail"
+}
