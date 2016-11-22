@@ -11,8 +11,8 @@ addkeysection "Who Dun It?" whodunit
    
    addmenukey "Drop Weapon" +dropweapon
    addmenukey "Use Medkit" "Use SmallKit"
-   addmenukey "Admin Vote Yes" wdi_voteyes
-   addmenukey "Admin Vote No" wdi_voteno
+   //addmenukey "Admin Vote Yes" wdi_voteyes //NO IMPLEMENTED YET
+   //addmenukey "Admin Vote No" wdi_voteno
 
 addkeysection "Murderer Controls" whodunit2
    addmenukey "Wield Knife" "use murderknife"
