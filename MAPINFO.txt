@@ -238,4 +238,113 @@ Map WDI21 "Knee-Deep in The Murder"
 	Next = "WDI01"
 	AllowMonsterTelefrags
 }
+//WDIEX MAPINFO=========================================
+/* 
+HUB NO ADDED DUE TO CRASHES
 
+ADD A NEW WDIHUB FOR ALL THE MAPS???
+clearepisodes
+
+episode "WDI01"
+{
+picname = "M_WDIMNU"
+key = 1
+}
+
+episode "WDIEXHUB"
+{
+picname = "M_WDIEX"
+key = 2
+}
+
+map WDIEXHUB "Welcome to EX"
+{
+levelnum = 77
+next = WDIEX01
+fade = "black"
+Music = "D_SPOOK"
+sky1 = YZSKY2, 0.15
+sky2 = YZSKY1, 0.0
+nocrouch
+NoJump 
+checkswitchrange
+fallingdamage
+forcefallingdamage
+nointermission 
+TeamDamage = 1.0
+AllowMonsterTelefrags
+}
+*/
+
+map WDIEX01 "Marsis"
+{
+levelnum = 71
+next = WDIEX02
+fade = "black"
+Music = "D_TISHIN"
+sky1 = YZSKY2, 0.15
+sky2 = YZSKY1, 0.0
+allowcrouch
+checkswitchrange
+fallingdamage
+forcefallingdamage
+nointermission 
+TeamDamage = 1.0
+AllowMonsterTelefrags
+}
+
+map WDIEX02 "Retorn'79"
+{
+levelnum = 72
+next = WDIEX03
+fade = "black"
+Music = "D_TISHIN"
+evenlighting
+allowcrouch
+checkswitchrange
+fallingdamage
+forcefallingdamage
+nointermission 
+TeamDamage = 1.0
+}
+
+map WDIEX03 "SlenderDunIt"
+{
+levelnum = 73
+next = WDIEX04
+fade = "black"
+Music = "D_SLWIND"
+evenlighting
+allowcrouch
+checkswitchrange
+fallingdamage
+forcefallingdamage
+nointermission 
+TeamDamage = 1.0
+}
+
+map WDIEX04 "MGS1, Sacred Amulet, SH4" //WDIEXSEC RENAMED
+{
+levelnum = 74
+next = WDIEX01
+Music = "D_TISHIN"
+evenlighting
+allowcrouch
+checkswitchrange
+fallingdamage
+forcefallingdamage
+nointermission 
+TeamDamage = 1.0
+}
+/* UNFINISH STUFFS OF ZEB NO ADDED
+map WDIEXCT "Cl0CK T0WER. N/A"
+{
+	levelnum = 75
+	next = WDIEX01
+	music = D_TISHIN
+	fallingdamage 
+	forcefallingdamage 
+	TeamDamage = 1.0
+	nofreelook
+}
+*/
