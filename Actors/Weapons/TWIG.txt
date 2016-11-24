@@ -11,7 +11,7 @@ Actor FakeTwig : CustomInventory 6888
   //$Title "Twig"
 	Radius 10
 	Height 6
-	Scale 0.2
+	Scale 0.35
 	Inventory.PickupMessage "Found a stiff 'n' sturdy twig" 
 	Inventory.RespawnTics 10500
 	States
@@ -102,7 +102,7 @@ Actor DroppedTwig
 	Radius 10
 	Height 6
 	Speed 9
-	Scale 0.2
+	Scale 0.35
 	DeathSound "cue/hit"
 	States
 	{

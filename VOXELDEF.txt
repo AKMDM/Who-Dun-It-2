@@ -1,6 +1,6 @@
 D3S1E = "D3S1E" 
 {
- Scale = 0.2
+ Scale = 0.9
 }
 
 CBRAA = "CBRAA"
@@ -11,9 +11,4 @@ CBRAA = "CBRAA"
 CAMRA = "CAMRA"
 {
  AngleOffset = 270
-}
-
-PIPPB = "PIPPB"
-{
- AngleOffset = 90
 }
