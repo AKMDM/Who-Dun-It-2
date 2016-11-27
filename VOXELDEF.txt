@@ -12,3 +12,15 @@ CAMRA = "CAMRA"
 {
  AngleOffset = 270
 }
+
+XBPUA = "XBPUA"
+{
+ Scale = 0.8
+}
+
+MOLPA="MOLVZ"
+
+EASTA= "EASTA"
+{
+ Scale = 0.6
+}
