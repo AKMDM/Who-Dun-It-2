@@ -120,6 +120,17 @@ stop
 
 ///////////MISC///////////////
 
+//I'll slaughter whoever replaced Tech Pillar sprite
+Actor TehPillar : TechPillar 14888
+{
+  States
+  {
+  Spawn:
+    TEHP A -1
+    Stop
+  }
+}
+
 Actor PotTree : TreeA 31982 {
   //$Category WDI Props
   //$Sprite TREEC0
