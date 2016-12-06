@@ -80,6 +80,27 @@ Lock 118
 	Mapcolor 64 64 0
 	LOCKEDSOUND "Door/DoorFail"
 }
+
+//wdi21
+Lock 200
+{
+	E1M1StorageKey
+	Message "You need the storage room keycard to open this door."
+	RemoteMessage ""
+	Mapcolor 255 255 255
+	LOCKEDSOUND "weapons/noiseready"
+}
+
+Lock 201
+{
+	E1M1SecurityKey
+	Message "You need the security room keycard to open this door."
+	RemoteMessage ""
+	Mapcolor 255 255 255
+	LOCKEDSOUND "weapons/noiseready"
+}
+
+
 //WDIEX======================================================
 Lock 131
 {

@@ -3,7 +3,7 @@
 //=================================================================
 // Prepper: ColdNight---------------------------------------------
 
-actor CoinKey :key 1437
+Actor CoinKey :key 1437
 {
   //$Category WDI Keys
   //$Sprite COINA0
@@ -154,9 +154,79 @@ Actor SecurityKey : BarKey 10306
   inventory.icon "ARTIBAR"
 }
 
+//Key sprites taken from Abbuw's Phobos Outpost map. I hope he won't mind if I borrow them. Thanks in advance!
+Actor E1M1StorageKey : Key 14891
+{
+  //$Category WDI Keys
+  //$Sprite MDKYA0
+  //$Title "Storage Keycard"
+  inventory.pickupmessage "Found the storage room keycard."
+  inventory.icon "MDKYA0"
+  +INVENTORY.UNDROPPABLE
+  states
+  {
+  Spawn:
+    MDKY A -1
+    stop
+  }
+}
+
+Actor E1M1SecurityKey : Key 14892
+{
+  //$Category WDI Keys
+  //$Sprite SCKYA0
+  //$Title "Security Keycard"
+  inventory.pickupmessage "Found the security room keycard."
+  inventory.icon "SCKYA0"
+  +INVENTORY.UNDROPPABLE
+  states
+  {
+  Spawn:
+    SCKY A -1
+    stop
+  }
+}
+
+Actor E1M1StorKeySpawner : RandomSpawner 14893
+{
+  //$Category WDI Keys
+  //$Sprite MDKYA0
+  //$Title "Storage Keycard Spawner"
+  DropItem "E1M1StorageKey" 200 1
+}
+
+Actor E1M1SecKeySpawner : RandomSpawner 14894
+{
+  //$Category WDI Keys
+  //$Sprite SCKYA0
+  //$Title "Security Keycard Spawner"
+  DropItem "E1M1SecurityKey" 200 1
+}
+
 Actor MurdererKey : RedSkull replaces RedSkull
 {
 +INVENTORY.UNDROPPABLE
+}
+
+Actor Masterkey: custominventory 3216 {
+//$Category WDI Keys
+//$Title "Security MasterKey"
+Inventory.DefMaxAmount
+Inventory.MaxAmount 1
+Inventory.pickupmessage "Pocketed oval gate ring with keys."
+ +INVENTORY.UNDROPPABLE
+ +NOGRAVITY
+  Scale 0.35
+  states
+  {
+  Spawn:
+    MKEY A -1 
+    stop 
+	
+	Pickup:
+	TNT1 A 0 Acs_execute(128,0)//set your own custom group of keys
+	Stop		
+  }
 }
 
 Actor _RedCard : RedCard replaces RedCard { +INVENTORY.UNDROPPABLE }

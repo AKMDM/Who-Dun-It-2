@@ -88,7 +88,7 @@ map WDI05 "Men's Night Out"
 {
 	levelnum = 5
 	next = WDI06
-	sky1 = "BLACKSK", 0.0 //old "STSKY8B", 0.0
+	sky1 = DRKSKY, 0.0 //old "STSKY8B", 0.0
 	music = D_SPOOK
 	smoothlighting
 	lightning 
@@ -227,8 +227,7 @@ map WDI20 "Insomnia"
 	levelnum = 20
 	sky1 = "SKYB", 0.0
 	UsePlayerStartZ
-	next = WDI01
-	nointermission
+	next = WDI01	
 }
 
 Map WDI21 "Knee-Deep in The Murder"
