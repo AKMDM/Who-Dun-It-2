@@ -673,7 +673,6 @@ Model TCPDCar
    FrameIndex COPB A 0 0
    FrameIndex COPB B 0 0
    FrameIndex COPB C 0 0
-   FrameIndex COPB C 0 0
 }
 
 Model Trash1
