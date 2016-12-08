@@ -25,8 +25,8 @@ Death.Backstab:
     	TNT1 A 1
     	Wait
 	}
-}
-Actor Coop_ZombieMarine 17461
+}/*
+Actor Coop_ZombieMarine 17461 //THE SPRITES IT DOESN'T EXIST
 { 
 	//$Category COOPEX
     spawnid 10
@@ -84,7 +84,7 @@ Actor Coop_ZombieMarine 17461
         Goto See
     }
 } 
-
+*/
 Actor SSGZombie 17462
 {
 	//$Category COOPEX

@@ -81,8 +81,8 @@ Actor DeathStatue 14244
 	STT1 P -1
     Stop
 }}
-
-Actor StatueFighter 13964
+/*
+Actor StatueFighter 13964 //THE SPRITE IT DOESN'T EXIST
 {
 +SOLID
 height 48
@@ -94,7 +94,7 @@ FGHT A -1
 stop
 }}
 
-Actor StatueMage 13965
+Actor StatueMage 13965 //THE SPRITE IT DOESN'T EXIST
 {
 +SOLID
 height 48
@@ -106,7 +106,7 @@ MAGE A -1
 stop
 }}
 
-Actor StatueCleric 13966
+Actor StatueCleric 13966 //THE SPRITE IT DOESN'T EXIST
 {
 +SOLID
 height 48
@@ -117,7 +117,7 @@ Spawn:
 CLER A -1
 stop
 }}
-
+*/
 ///////////MISC///////////////
 
 //I'll slaughter whoever replaced Tech Pillar sprite
