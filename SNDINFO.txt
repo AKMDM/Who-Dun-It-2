@@ -389,10 +389,11 @@ $Ambient 49 compbuzz point 2.0 continuous 0.8
 $Ambient 50 crackle point 2.0 continuous 0.6
 $Ambient 51 wflow point 1.5 continuous 0.2
 $Ambient 52 wdrips point 1.5 continuous 0.2
-$Ambient 51 DSTRANCL POINT CONTINUOUS 0.5
-$Ambient 52 DSTRAIN1 POINT CONTINUOUS 0.5
 
 $Ambient 53 piperoom point 1.5 continuous 0.3
+$Ambient 54 DSTRANCL POINT CONTINUOUS 0.5
+$Ambient 55 DSTRAIN1 POINT CONTINUOUS 0.5
+
 $Ambient 60 waves/waves POINT 0.5 periodic 7  1.0
 $Ambient 61 wind/wind POINT 0.5 random 15 30 2.0
 $Ambient 62 Creak/wood POINT 0.5 random 15 45 0.3
@@ -863,7 +864,7 @@ weapons/case2          DSCASE2
 weapons/case3          DSCASE3
 weapons/case4          DSCASE4
 weapons/NOAMMO	        NOAMMO
-$random weapons/Casing2 {weapons/case 1 weapons/case2 weapons/case3 weapons/case4}
+$random weapons/Casing2 {weapons/case1 weapons/case2 weapons/case3 weapons/case4}
 
 weapons/sgclick DSCLICK
 
