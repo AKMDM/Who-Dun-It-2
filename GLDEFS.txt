@@ -318,9 +318,9 @@ object HallwayLight
 	frame TNT1B {light NoLight}
 }
 
-object LibraryLight
+object LibraryLight 
 {
-    frame TNT1A {light Library}
+   // frame TNT1A {light Library} library it doesnt' exist
 	frame TNT1B {light NoLight}
 }
 
