@@ -45,14 +45,14 @@ texture BIMHR01
 
 cameratexture TCAMTEX1 128 64 fit 80 56
 
-texture BSAW01
+texture BSAW02 //WDI15 
 	allowdecals
-	pic BSAW01 rand 1 1
 	pic BSAW02 rand 1 1
 	pic BSAW03 rand 1 1
 	pic BSAW04 rand 1 1
 	pic BSAW05 rand 1 1
 	pic BSAW06 rand 1 1
+	pic BSAW01 rand 1 1
 
 warp flat wlq1
 warp flat wlq2
@@ -179,9 +179,8 @@ flat granuke1
 
 //BIGPACK=====================================================
 //wdi15--------------------------------
-cameratexture TCAMTEX1 128 64 fit 80 56
 
-texture BSAW01
+texture BSAW01 
 	allowdecals
 	pic BSAW01 rand 1 1
 	pic BSAW02 rand 1 1
@@ -204,7 +203,7 @@ texture MSELF1
 pic MSELF2 tics 20
 pic MSELF1 tics 10
 //WDIEX=====================================================
-/*CHEKING YET......................
+
 ////////SLENDERMAN
 
 texture XCSCRL01
@@ -263,7 +262,7 @@ pic VOLTANI2 tics 51
 pic VOLTANI3 tics 51
 pic VOLTANI4 tics 51
 pic VOLTANI5 tics 71
-pic VOLTANI6 tics 71 //CHECK WDI DULICATED
+pic TNT1A0 tics 71 
 
 //// movietheatre bilboard
 
@@ -320,9 +319,9 @@ pic XCHOTEL2 tics 4
 pic XCHOTEL1 tics 8
 pic XCHOTEL2 tics 11
 
-///TV NOISE
+///TV NOISE 44x26
 
-texture TVNOIZ1
+texture TVNOIZ1 
 pic TVNOIZ1 tics 2
 pic TVNOIZ2 tics 2
 pic TVNOIZ3 tics 2
@@ -346,7 +345,7 @@ cameratexture YZCMTX07 128 64 fit 128 64
 cameratexture YZCMTX08 128 64 fit 128 64
 cameratexture YZCMTX09 128 64 fit 128 64
 cameratexture YZCMTX10 128 64 fit 128 64
-warp2 texture YZFIREFR
+//warp2 texture YZFIREFR //MISSED FILE
 
 ///IPNNEWS
 
@@ -362,7 +361,7 @@ pic YZIPN9 tics 8
 pic YZIPN10 tics 8
 
 
-///TVNOISE
+///TVNOISE 128x64
 
 texture YZTVNZ1
 pic YZTVNZ1 tics 2
@@ -433,16 +432,15 @@ pic YZUACA3 tics 2
 pic YZUACA2 tics 2
 
 /////TV_SUPAROCKITZ
-
-texture YZROCKA1
+/*
+texture YZROCKA1   MISSED FILES
 pic YZROCKA1 tics 2
 pic YZROCKA2 tics 2
 pic YZROCKA3 tics 2
 pic YZROCKA4 tics 2
 pic YZROCKA5 tics 2
 pic YZROCKA6 tics 2
-
-
+*/
 
 //////MEMO_TOILETSTORY
 texture SORTIR1
@@ -603,7 +601,7 @@ pic CC3SCR4 tics 2
 texture CC3LASR1
 pic CC3LASR1 tics 1
 pic CC3LASR2 tics 1
-
+/* CT STUFFS
 //////////Curtain eyes
 texture CTCURT1
 pic CTCURT1 tics 70
