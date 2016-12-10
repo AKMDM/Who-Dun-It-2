@@ -394,15 +394,15 @@ object PurpleLight2 { frame TNT1A { light DiscoPurple2}}
 //-----Wdiex stuffs----------------
 /* 
 
-Checking ....................
 
-pointlight REDLIGHTPANDEMONIUM
+/*
+pointlight REDLIGHTPANDEMONIUM CHECK ACTOR 3259 USELESS
 {
     color 1.0 1.0 0.4
     size 32
     offset 0 0 0
 }
-
+*/  
 pointlight FLASHGL1
 {
     color 1.0 1.0 0.4
@@ -439,11 +439,6 @@ object Lightbeam3
     frame JTLB { light FLASHGL3 }
 }
 
-object Lightprojectile
-{
-	frame TNT1A { light LILIGHT }
-}
-
 flickerlight LILIGHT
 {
     color 0.5 0.5 0.0
@@ -451,6 +446,12 @@ flickerlight LILIGHT
     secondarySize 64
     chance 0
 }
+
+object Lightprojectile
+{
+	frame TNT1A { light LILIGHT }
+}
+
 
 Pointlight AcidBall
 {
@@ -584,10 +585,6 @@ object SavePointLight { frame TNT1A { light Savealight }}
 
 // =- Thunder Horn -=
 
-
-
-
-
 pointlight LIGHTNINGSTRIKE1
 {
      color 0.0 5.0 1.0
@@ -606,27 +603,6 @@ pointlight LIGHTNINGSTRIKE3
      size 175
 }
 
-
-object ElecBall
-{
-     frame LITB { light ENERGYBALLLIGHT }
-}
-
-object ElecBall2
-{
-     frame LITB { light ENERGYBALLLIGHT }
-}
-
-object LightningBall
-{
-	 frame BALZ { light LIGHTNINGBALLLIGHT }
-}
-
-object ThunderRunner
-{
-     frame TRUN { light ENERGYBALLLIGHT }
-}
-
 object LightningStrike
 {
      frame LTNGA { light LIGHTNINGSTRIKE1 }
@@ -641,6 +617,27 @@ object LightningStrikeSmall
      frame LTNGC { light LIGHTNINGSTRIKE3 }
 }
 
+
+/*
+object ElecBall
+{
+     frame LITB { light ENERGYBALLLIGHT }IT DOEST EXIST.
+}
+
+object ElecBall2
+{
+     frame LITB { light ENERGYBALLLIGHT } 
+}
+
+object LightningBall
+{
+	 frame BALZ { light LIGHTNINGBALLLIGHT }IT DOEST EXIST.
+}
+
+object ThunderRunner
+{
+     frame TRUN { light ENERGYBALLLIGHT }
+}
 */
 
 //==================================================================

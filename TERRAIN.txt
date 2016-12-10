@@ -926,21 +926,21 @@ terrain stuckwater
 
 terrain stuckdeep
 {
-	splash			stuck
+	//splash			stuck //NOT DEF
 	footclip		20
 	friction		0.6
 }
 
 terrain stucksuperdeep
 {
-	splash			stuck
+	//splash			stuck //NOT DEF
 	footclip		0
 	friction		0.39
 }
 
 terrain stuck
 {
-	splash			stuck
+	//splash			stuck //NOT DEF
 	footclip		0
 	//liquid
 }

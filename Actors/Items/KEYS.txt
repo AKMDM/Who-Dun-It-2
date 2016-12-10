@@ -208,7 +208,7 @@ Actor MurdererKey : RedSkull replaces RedSkull
 +INVENTORY.UNDROPPABLE
 }
 
-Actor Masterkey: custominventory 3216 {
+Actor Masterkey: custominventory 3248 {
 //$Category WDI Keys
 //$Title "Security MasterKey"
 Inventory.DefMaxAmount
@@ -224,6 +224,7 @@ Inventory.pickupmessage "Pocketed oval gate ring with keys."
     stop 
 	
 	Pickup:
+        TNT1 A 1
 	TNT1 A 0 Acs_execute(128,0)//set your own custom group of keys
 	Stop		
   }
