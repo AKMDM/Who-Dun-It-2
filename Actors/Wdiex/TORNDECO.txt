@@ -723,6 +723,7 @@ Stop
 Actor ActionMarkerHand : ActionMarkerWhite 22786
 {
   //$Category WDI Murderer Stuff
+  //$Sprite ACTID0
 Alpha 0.45
 VisibleToTeam 1
 States
