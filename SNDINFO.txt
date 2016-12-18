@@ -746,13 +746,13 @@ brick/land	DSBKDROP
 
 //Chainsaw
 //------------------------------
-Weapons/Sawpull        dssawpul
-Weapons/Sawzip         dssawzip
-Weapons/Sawready       dssawidl
-Weapons/Sawdown        dssawdwn
-Weapons/Sawup          dssawwup
+Weapons/Sawpull        dssawpul //NO USED
+Weapons/Sawzip         dssawzip //NO USED
+Weapons/Sawready       dssawidl //NO USED
+Weapons/Sawdown        dssawdwn //NO USED
+Weapons/Sawup          dssawwup //NO USED
 Weapons/Sawfull        dssawful
-Weapons/Sawrevdown     dssawwdn
+Weapons/Sawrevdown     dssawwdn //NO USED
 Weapons/Saw0           dssaw0
 Weapons/Saw1           dssaw1
 Weapons/Saw2           dssaw2
@@ -763,10 +763,10 @@ Weapons/Saw6           dssaw6
 Weapons/Saw7           dssaw7
 Weapons/Saw8           dssaw8
 Weapons/Saw9           dssaw9
-Weapons/Sawwall1       dssawal1
-Weapons/Sawwall2       dssawal2
-Weapons/Sawwall3       dssawal3
-Weapons/Sawwall4       dssawal4
+Weapons/Sawwall1       dssawal1 
+Weapons/Sawwall2       dssawal2  
+Weapons/Sawwall3       dssawal3 
+Weapons/Sawwall4       dssawal4 
 
 $Random Weapons/Sawhit
 {
@@ -782,7 +782,7 @@ $Random Weapons/Sawhit
  Weapons/Saw9
 }
 
-$Random Weapons/Sawwall
+$Random Weapons/Sawwall //NO USED
 {
 Weapons/Sawwall1
 Weapons/Sawwall2
@@ -802,14 +802,14 @@ Weapons/Aw_FFS		STIMHISS
 weapons/noiseready	DSELEC2 
 
 //Shotgun
-weapons/Shotguncock		XMSGCOCK
+weapons/Shotguncock		XMSGCOCK //NO USED
 weapons/Shotgunfire		XMSHOTGN
-weapons/Shotgunopen		XMDBOPN
-weapons/Shotgunclose    XMDBCLS
-weapons/Shotgunload		XMDBLOAD
+weapons/Shotgunopen		XMDBOPN  //NO USED
+weapons/Shotgunclose    XMDBCLS  //NO USED
+weapons/Shotgunload		XMDBLOAD //NO USED
 
 //Luger
-weapons/lugerfire       DSLUGFIR
+weapons/lugerfire       DSLUGFIR //NO USED
 weapons/Lugerout 		dsglkou2
 weapons/Lugerin 		dsglkin2
 weapons/lugerempty		pistolmt
@@ -870,39 +870,39 @@ weapons/sgclick DSCLICK
 
 //Lever Rifle
 Weapons/RifleBang RIFLBANG //NO USED
-/*
-//TOUCHUP---NOT INLUDED SOUNDS YET-----------------------------------------------------
 
+//TOUCHUP--------------------------------------------------------
+//chainsaw----------------------------
 CHANIDLE	CHANIDLE
-CHANLOOP	CHANLOOP
+CHANLOOP	CHANLOOP //NOUSED
 CHANOFF		CHANOFF
 CHANSTOP	CHANSTOP
 CHANSTRT	CHANSTRT
 
 CHANPUL1	CHANPUL1
 CHANPUL2	CHANPUL2
-CHANPUL3	CHANPUL3
+CHANPUL3	CHANPUL3 //NOUSED
 CHANPUL4	CHANPUL4
 $random CHANPULL { CHANPUL1 CHANPUL2 }
-
+//------------------------------
+//Shotgun
 HTSGBACK	HTSGBACK
 HTSGFWD		HTSGFWD
 HTSGSHEL	HTSGSHEL
 
-//HUMTOUCH	HUMTOUCH
-
-M1BACK						M1BACK
-M1FWD						M1FWD
-
+//Carabine
+M1BACK					M1BACK
+M1FWD                   M1FWD
+//Beretta
 newpistol/fire			PISTFIRE
 $limit newpistol/fire 0
 newpistol/bolt			PISTSLID
 newpistol/clipout		PISTCOUT
 newpistol/clipin		PISTCLIN
 newpistol/raise			PISTRAIS
-
 DRYFIRE					DRYFIRE
 
+//Axe
 SWINGER1			SWINGER1
 SWINGER2			SWINGER2
 SWINGER3			SWINGER3
@@ -911,8 +911,8 @@ $random axe/swing { SWINGER1 SWINGER2 SWINGER3 }
 AXEHIT1				AXEHIT1
 AXEHIT2				AXEHIT2
 $random axe/hit { AXEHIT1 AXEHIT2 }
-*/
-//MONSTERS----------------------------------------
+
+//MONSTERS===============================================================
 
 $volume rat/1 0.6
 $volume rat/2 0.6
@@ -1155,20 +1155,7 @@ YZLAUGH3 	YZLAUGH3
 YZLAUGH4 	YZLAUGH4
 $random YZLAUGHA { YZLAUGH1 YZLAUGH2 YZLAUGH3 YZLAUGH4 } 
 
-/* TOUCHUP DUPLICATED IN WDIEX
-SWINGER1			SWINGER1
-SWINGER2			SWINGER2
-SWINGER3			SWINGER3
-$random axe/swing { SWINGER1 SWINGER2 SWINGER3 } //prepper's
-
-AXEHIT1				AXEHIT1
-AXEHIT2				AXEHIT2 
-$random axe/hit { AXEHIT1 AXEHIT2 }
-*/
-
 //Radio Bait & Switch| Moorehead rides again
-
-
 //Beats
 
 YZELEC1        YZELEC1
