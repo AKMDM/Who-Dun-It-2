@@ -48,7 +48,7 @@ Actor SoulCube : weapon
 	 Loop
 		
    Select:
-      SCUB A 0 A_PlaySound("YZVVSOUL")
+      SCUB A 0 A_PlaySound("YZSOULPK")
       SCUB A 0 A_Raise 
       Goto ready
 	  
