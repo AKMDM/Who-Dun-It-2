@@ -111,7 +111,7 @@ Actor PoliceLight 30666
     }
 }
 
-Actor chandelier 11114 
+Actor Wdi_chandelier 11114 
 {
   //$Category WDI Light Sources
   //$Sprite CHANA0
