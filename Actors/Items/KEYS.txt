@@ -31,6 +31,7 @@ Actor BarKeySpawner : RandomSpawner 32065
   //$Category WDI Keys
   //$Sprite KEY1A0
   //$Title "Bar Key Spawner"
+    Scale 0.35 
     DropItem "BarKey" 176 1
 	//DropItem "ABigNothing"  2
 }
@@ -40,6 +41,7 @@ Actor SafeKeySpawner : RandomSpawner 14258
   //$Category WDI Keys
   //$Sprite KEY5A0
   //$Title "Safe Key Spawner"
+    Scale 0.35
     DropItem "SafeKey" 176 1
 
 	//DropItem "ABigNothing"  2
@@ -121,6 +123,7 @@ Actor TrapKey : Key
 
 Actor Room1Key : Key 16555
 {
+ //$Category WDI Keys
   Scale 0.35
   spawnid 86
   inventory.pickupmessage "Pocketed the Room 1 key."
@@ -135,6 +138,7 @@ Actor Room1Key : Key 16555
 
 Actor Room8Key : Key 16556
 {
+ //$Category WDI Keys
   Scale 0.35
   spawnid 86
   inventory.pickupmessage "Pocketed the Room 8 key."
@@ -147,8 +151,9 @@ Actor Room8Key : Key 16556
     stop
 }}
 
-Actor SecurityKey : BarKey 10306
+Actor Wdi_SecurityKey : BarKey 10306
 {
+ //$Category WDI Keys
   Scale 0.35
   inventory.pickupmessage "Pocketed the Security Room key."
   inventory.icon "ARTIBAR"

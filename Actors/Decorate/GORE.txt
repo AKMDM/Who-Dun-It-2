@@ -183,7 +183,6 @@ Actor Head3 //USE SKULLTAG MONSTER "A" FRAME ONLY
 Actor deadguy1 10450
 {
 	//$Category WDI Props
-	//$Sprite DEADA0
 	//$Title "Dead Guy 1"
   mass 1
   Radius 12
@@ -199,7 +198,6 @@ Actor deadguy1 10450
 Actor deadguy2 10451
 {
 	//$Category WDI Props
-	//$Sprite DEADB0
 	//$Title "Dead Guy 2"
   mass 1
   Radius 12
@@ -215,7 +213,6 @@ Actor deadguy2 10451
 Actor deadguy3 10452
 {
 	//$Category WDI Props
-	//$Sprite DEADC0
 	//$Title "Dead Guy 3"
   mass 1
   Radius 12
@@ -231,7 +228,6 @@ Actor deadguy3 10452
 Actor deadguy4 10453
 {
 	//$Category WDI Props
-	//$Sprite DEADD0
 	//$Title "Dead Guy 4"
   mass 1
   Radius 12
@@ -247,7 +243,6 @@ Actor deadguy4 10453
 Actor deadguy5 10454
 {
 	//$Category WDI Props
-	//$Sprite DEADE0
 	//$Title "Dead Guy 5"
   mass 1
   Radius 12
@@ -263,7 +258,6 @@ Actor deadguy5 10454
 Actor deadguy6 10455
 {
 	//$Category WDI Props
-	//$Sprite DEADF0
 	//$Title "Dead Guy 6"
   mass 1
   Radius 12
@@ -276,21 +270,12 @@ Actor deadguy6 10455
     Stop
 }}
 
-Actor DeadBody 22016 { //remove one actor
+Actor DeadBody 22016 {
+//$Category WDI Props 
 -SOLID
 States
 	{
 		spawn:
 		BODY Z -1
 		stop
-}}
-
-Actor SewerBody 10515
-{
-	-SOLID
-	States
-		{
-			Spawn:
-				BODY Z -1
-				stop
 }}

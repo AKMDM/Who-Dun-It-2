@@ -4,7 +4,7 @@
 Actor Grate 10315
 {
 //$Category WDI Models
-//$Sprite TNT1A0
+//$Sprite WDIMA0
 	Scale 4
 	+NOGRAVITY
 	States
@@ -166,7 +166,7 @@ Actor Page2d : Page1a {}
 Actor Page 10358
 {
 //$Category WDI Models
-//$Sprite TNT1A0
+//$Sprite WDIMA0
 	Scale 0.4
 	-SOLID
 	Radius 4
@@ -194,7 +194,7 @@ Actor Page 10358
 Actor Page2 10359
 {
 //$Category WDI Models
-//$Sprite TNT1A0
+//$Sprite WDIMA0
 	Scale 0.4
 	+SOLID
 	+CANPASS
@@ -266,6 +266,7 @@ Actor Spanner 10704
 Actor PipeSet 10703
 {
 //$Category WDI Models
+//$Sprite WDIMA0
 	Height 2
 	Radius 1
 	+NOGRAVITY
@@ -273,7 +274,7 @@ Actor PipeSet 10703
 	States
 	{
 	Spawn:
-	PIPP A -1
+	PIPM A -1
 	Stop
 }}
 
@@ -283,6 +284,7 @@ Actor PipeCurved : PipeSet 10706 {}
 Actor BigPipe1 10707 
 {
 //$Category WDI Models
+//$Sprite WDIMA0
 	Height 64
 	Radius 16
 	+NOCLIP
@@ -294,7 +296,7 @@ Actor BigPipe1 10707
 	States
 	{
 	Spawn:
-	PIPP A -1
+	PIPM A -1
 	Stop
 }}
 
@@ -325,6 +327,7 @@ Actor ModelSpark
 Actor SparkSpawner 10570
 {
 //$Category WDI Models
+//$sprite BPUFA0
 	+INVISIBLE
 	+NOCLIP
 	+NOINTERACTION
@@ -469,7 +472,7 @@ CHAR A -1
 Stop
 }}
 
-Actor Door 11112 {
+Actor Wdi_Door 11112 {
   //$Category WDI Models
   //$Title "Elevator Doors"
 +NOINTERACTION
@@ -559,7 +562,8 @@ Actor Dryer 22222 {
   //$Category WDI Models
   //$Title "Dryer" 
 +NOGRAVITY  
-+solid
++SOLID
+Radius 10
 States
 {
 Spawn:
@@ -588,6 +592,8 @@ Stop
 }}
 
 Actor Car 900 {
+Height 32
+Radius 54
   //$Category WDI Models
   //$Title "Car"
 States
@@ -599,7 +605,10 @@ Stop
 
 Actor Soap 4000 {
   //$Category WDI Models
-  //$Title "Soap"
+  //$Title "Soap"  
++NOGRAVITY
+Height 14
+Radius 8  
 States
 {
 Spawn:
@@ -609,8 +618,12 @@ Stop
 
 Actor Tpaper 5000 {
   //$Category WDI Models
-  //$Sprite TNT1A0
+  //$Sprite WDIMA0
   //$Title "Toilet Paper"
+Radius 8
+Height 8  
++NOGRAVITY
++SOLID  
 States
 {
 Spawn:
@@ -620,7 +633,7 @@ Stop
 
 Actor Piano 8000 {
   //$Category WDI Models
-  //$Sprite TNT1A0
+  //$Sprite WDIMA0
   //$Title "Piano"
 States
 {
@@ -686,6 +699,7 @@ Actor TCPDCar 22767
 Actor Trash1 10601
 {
 //$Category Retorn_map_ONLY
+//$Sprite WDIMA0
   Game Doom
   -nogravity
   Alpha 1
@@ -700,6 +714,7 @@ Actor Trash1 10601
 Actor Trash2 10602
 {
 //$Category Retorn_map_ONLY
+//$Sprite WDIMA0
   Game Doom
   -nogravity
   Alpha 1
@@ -748,6 +763,7 @@ Actor FallLeafTree : LeafTree 19103
 */
 Actor NoLeafTree : Decorative_Item 19106 //this models is only used in wdiex03 like mapspot the ednumber is usless
 {
+//$Sprite WDIMA0
 	Height 256
 	Radius 10
 	States
@@ -760,6 +776,7 @@ Actor NoLeafTree : Decorative_Item 19106 //this models is only used in wdiex03 l
 Actor ModelSittersPlant1 29417
 {
 //$Category Aztec_map_ONLY
+//$Sprite WDIMA0
  States
  {
   Spawn:
@@ -771,6 +788,7 @@ Spawn:
 Actor ModelSittersPlant2 29418
 {
 //$Category Aztec_map_ONLY
+//$Sprite WDIMA0
  States
  {
   Spawn:
@@ -782,6 +800,7 @@ Spawn:
 Actor ModelSittersPlant3 29419
 {
 //$Category Aztec_map_ONLY
+//$Sprite WDIMA0
  States
  {
   Spawn:
@@ -791,9 +810,6 @@ Spawn:
 }}
 
 Actor StallEX  {
-  //$Category WDI Models
-  //$Sprite TNT1A0
-  //$Title "Stall"
 States
 {
 Spawn:
@@ -802,9 +818,6 @@ Stop
 }}
 
 Actor StallEXa  {
-  //$Category WDI Models
-  //$Sprite TNT1A0
-  //$Title "Stall"
 States
 {
 Spawn:
@@ -813,9 +826,6 @@ Stop
 }}
 
 Actor StallEXb  {
-  //$Category WDI Models
-  //$Sprite TNT1A0
-  //$Title "Stall"
 States
 {
 Spawn:

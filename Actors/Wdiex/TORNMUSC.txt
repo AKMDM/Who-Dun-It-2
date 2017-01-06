@@ -2,6 +2,7 @@
 Actor MUS_MoonrunnersTheme 17141
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -18,6 +19,7 @@ Actor MUS_MoonrunnersTheme 17141
 Actor MUS_JSBTheme 17142
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -33,6 +35,7 @@ Actor MUS_JSBTheme 17142
 Actor MUS_STRIPCLUB1 17143
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -48,6 +51,7 @@ Actor MUS_STRIPCLUB1 17143
 Actor MUS_STRIPCLUB2 17144
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -63,6 +67,7 @@ Actor MUS_STRIPCLUB2 17144
 Actor MUS_AMUSEMENT1 17145
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -78,6 +83,7 @@ Actor MUS_AMUSEMENT1 17145
 Actor MUS_CLUB> 17146
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -93,6 +99,7 @@ Actor MUS_CLUB> 17146
 Actor MUS_LOADING1 17147
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -108,6 +115,7 @@ Actor MUS_LOADING1 17147
 Actor MUS_LOADING2 17148
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -123,6 +131,7 @@ Actor MUS_LOADING2 17148
 Actor MUS_ORPHANS 17149
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -138,6 +147,7 @@ Actor MUS_ORPHANS 17149
 Actor MUS_TURNBULL 17150
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -153,6 +163,7 @@ Actor MUS_TURNBULL 17150
 Actor MUS_RADIO1 17151
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -168,6 +179,7 @@ Actor MUS_RADIO1 17151
 Actor MUS_RADIO2 17152
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -183,6 +195,7 @@ Actor MUS_RADIO2 17152
 Actor MUS_TRAINRIDE 17153
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -198,6 +211,7 @@ Actor MUS_TRAINRIDE 17153
 Actor MUS_MALLMUSIC 17154
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -213,6 +227,7 @@ Actor MUS_MALLMUSIC 17154
 Actor MUS_AMBIENT 17155
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -228,6 +243,7 @@ Actor MUS_AMBIENT 17155
 Actor MUS_POLICESIRENRAID  17157
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -243,6 +259,8 @@ Actor MUS_POLICESIRENRAID  17157
 Actor MUS_STRIPDANCE : RandomSpawner 17156
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
+	//$Title "MUS_STRIPDANCE(Random)"
     DropItem "MUS_STRIPCLUB2" 
 	DropItem "MUS_STRIPCLUB1"
 }
@@ -250,6 +268,7 @@ Actor MUS_STRIPDANCE : RandomSpawner 17156
 Actor MUS_ARCADE  17158
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -265,6 +284,7 @@ Actor MUS_ARCADE  17158
 Actor MUS_RING  17159
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    

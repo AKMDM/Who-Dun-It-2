@@ -47,16 +47,17 @@ Wait
 }
 }
 
-Actor PushUseScript 31999 { // Do something????
-height 24
-radius 24
+Actor PushUseScript 31999 {//door special or execute
+//$Category WDI Effects
+Height 24
+Radius 24
 +GHOST
 -SHOOTABLE
 +USESPECIAL
 States {
 Spawn:
-TNT1 A 4
-loop
+TNT1 A -1
+Stop
 }}
 
 Actor CameraWDI 13963
@@ -66,10 +67,10 @@ Actor CameraWDI 13963
 +SHOOTABLE
 +NOBLOOD
 DeathSound "weapons/gundrop"
-height 10
-radius 16
-health 30
-mass 65535
+Height 10
+Radius 16
+Health 30
+Mass 65535
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
   //$Category WDI Effects
@@ -165,15 +166,15 @@ Wait
 }
 }
 
-
 Actor CatSmog1 10301
 {
+//$Category WDI Effects
 	YScale 0.5
 	XScale 2
 	+NOINTERACTION
 	+NOGRAVITY
 	RenderStyle Add
-	alpha 0.5
+	Alpha 0.5
 	states
 	{
 		Spawn:
@@ -184,10 +185,11 @@ Actor CatSmog1 10301
 
 Actor CatSmog2 10302
 {
+//$Category WDI Effects
 	+NOINTERACTION
 	+NOGRAVITY
 	RenderStyle Add
-	alpha 0.4
+	Alpha 0.4
 	states
 	{
 		Spawn:
@@ -198,10 +200,11 @@ Actor CatSmog2 10302
 
 Actor CatSmog3 10303
 {
+//$Category WDI Effects
 	+NOINTERACTION
 	+NOGRAVITY
 	RenderStyle Add
-	alpha 0.2
+	Alpha 0.2
 	states
 	{
 		Spawn:
@@ -242,4 +245,3 @@ Actor FireDecorativeLarge : FireDecorative 20901 {
   //$Title "Fire Decoration (Large)"
 scale 1.5
 }
-

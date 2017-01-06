@@ -1021,6 +1021,8 @@ Actor FlareSpawner : RandomSpawner 14256
   //$Category WDI Items
   //$Sprite FLARP0
   //$Title "Flare Spawner"
+xscale 0.5
+yscale 0.3 
     DropItem "Flare" 128 1
 
 	//DropItem "ABigNothing"  2

@@ -169,6 +169,7 @@ States
 
 
 Actor SICATREE1 3244 {
+  //$Category WDI Environment
 +SOLID
 +NODAMAGE
 -NOGRAVITY
@@ -181,46 +182,8 @@ SIC1 A -1
 Stop
 }}
 
-Actor SICALAMP 3255 {
-+SOLID
-+NOGRAVITY
-+SPAWNCEILING
-scale 0.2
-radius 2
-height 2
-states {
-Spawn:
-LAM1 A -1
-Stop
-}}
-
-Actor SICAMIC 3256 {
-+SOLID
-+NOGRAVITY
-
-scale 1
-radius 2
-height 2
-states {
-Spawn:
-MIC1 A -1
-Stop
-}}
-
-Actor SICALAMP2 3257 {
-+SOLID
-+NOGRAVITY
-
-scale 0.2
-radius 2
-height 2
-states {
-Spawn:
-LAM1 A -1
-Stop
-}}
-
 Actor SICATREE2 3358 {
+  //$Category WDI Environment
 +SOLID
 +NODAMAGE
 -NOGRAVITY
@@ -235,6 +198,7 @@ Stop
 
 Actor SnoTre1 17654
 {
+  //$Category WDI Environment
 Game Doom
 SpawnID 3
 Radius 5
@@ -254,6 +218,7 @@ States
 
 Actor SnoTre2 17655
 {
+  //$Category WDI Environment
 Game Doom
 SpawnID 3
 Radius 5
@@ -273,6 +238,7 @@ States
 
 Actor SnoTre3 17656
 {
+  //$Category WDI Environment
 Game Doom
 SpawnID 3
 Radius 20
@@ -292,6 +258,7 @@ States
 
 Actor SnoTre4 17657
 {
+  //$Category WDI Environment
 Game Doom
 SpawnID 3
 +SOLID
@@ -311,6 +278,7 @@ States
 
 Actor SnoGrass 17658
 {
+  //$Category WDI Environment
 +ClientSideOnly
 +NOINTERACTION
 Scale 0.7

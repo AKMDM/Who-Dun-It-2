@@ -1,11 +1,10 @@
 
-
 Actor WDIBarrel4 22731
 {
 //$Category Retorn_map_ONLY
 +SOLID
-height 36
-radius 24
+Height 36
+Radius 24
 States
 {
 Spawn:
@@ -13,14 +12,12 @@ BAR7 A -1
 Stop
 }}
 
-
-
 Actor Cassette : Key 22742
 {
 //$Category Retorn_map_ONLY
 -NOGRAVITY
-height 8
-radius 4
+Height 8
+Radius 4
 inventory.pickupmessage "Picked up cassette"
 States
 {
@@ -55,10 +52,10 @@ MONSTER
 -CANUSEWALLS
 -COUNTKILL
 -CANPUSHWALLS
-health 10
-radius 20
-height 14
-speed 13
+Health 10
+Radius 20
+Height 14
+Speed 13
 DamageFActor "FlareEffect", 0.0
 activesound "rat/squeak"
 deathsound "rat/die"
@@ -121,6 +118,7 @@ Actor WilsonBallTC : CustomInventory
 Actor MUS_DISCO79 19913
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    
@@ -132,9 +130,6 @@ Actor MUS_DISCO79 19913
         Stop
     }
 }
-
-
-
 
 //Actor CoinSpawner : RandomSpawner 22746
 //{
@@ -228,15 +223,15 @@ Actor TrashbagWooHoo 22741
 +SLIDESONWALLS
 +PUSHABLE
 +NOICEDEATH
-health 10
-speed 10
-radius 10
-height 20
+Health 10
+Speed 10
+Radius 10
+Height 20
 DropItem "ThatTrashSpawner" 
 States {
 Spawn:
 TRMS A -1
-Loop
+Stop
 Death:
 TRMS A 1 A_PlaySound("pot/break")
 TRMS A 1 A_Burst("PotBits") 
@@ -246,6 +241,7 @@ Stop
 
 Actor Sometrash1 22754
 {
+//$Category WDI Props
 +ClientSideOnly
   Scale 0.35
 States
@@ -260,6 +256,7 @@ States
 
 Actor Sometrash2 22755
 {
+//$Category WDI Props
 +ClientSideOnly
   Scale 0.35
 States
@@ -274,6 +271,7 @@ States
 
 Actor Sometrash3 22756
 {
+//$Category WDI Props
 +ClientSideOnly
   Scale 0.35
 States
@@ -288,6 +286,7 @@ States
 
 Actor Sometrash4 22757
 {
+//$Category WDI Props
 +ClientSideOnly
   Scale 0.35
 States
@@ -302,6 +301,7 @@ States
 
 Actor Sometrash5 22758
 {
+//$Category WDI Props
 +ClientSideOnly
   Scale 0.35
 States
@@ -316,6 +316,7 @@ States
 
 Actor Sometrash6 22759
 {
+//$Category WDI Props
 +ClientSideOnly
   Scale 0.35
 States
@@ -330,6 +331,7 @@ States
 
 Actor Sometrash7 22761
 {
+//$Category WDI Props
 +ClientSideOnly
   Scale 0.35
 States
@@ -344,6 +346,7 @@ States
 
 Actor Sometrash8 22762
 {
+//$Category WDI Props
 +ClientSideOnly
   Scale 0.35
 States
@@ -358,6 +361,7 @@ States
 
 Actor Sometrash9 22763
 {
+//$Category WDI Props
 +ClientSideOnly
   Scale 0.35
 States
@@ -372,6 +376,7 @@ States
 
 Actor Sometrash10 22764
 {
+//$Category WDI Props
 +ClientSideOnly
   Scale 0.35
 States
@@ -386,6 +391,7 @@ States
 
 Actor Sometrash11 22765
 {
+//$Category WDI Props
 +ClientSideOnly
   Scale 0.35
 States
@@ -484,7 +490,7 @@ Actor ShpritzDrugs 22775
 {
 //$Category Retorn_map_ONLY
 +ClientSideOnly
-  Scale 0.35
+  Scale 0.15
 States
   {
     Spawn:
@@ -499,8 +505,8 @@ Actor Stripclubchair 22776
 {
 //$Category Retorn_map_ONLY
 +SOLID
-height 25
-radius 17
+Height 25
+Radius 17
 States
 {
 Spawn:
@@ -508,13 +514,11 @@ POL2 A -1
 Stop
 }}
 
-
-
 Actor OilDrum 8027
 {
 //$Category Retorn_map_ONLY
-  radius 20
-  height 46
+  Radius 20
+  Height 35
   Health 9999999999
   Mass 290
   +SOLID
@@ -536,15 +540,15 @@ Actor OilDrum 8027
   {
   Spawn:
   GDCR E -1
-  Loop
+  Stop
   }
 }
 
 Actor OilDrum2 8028
 {
 //$Category Retorn_map_ONLY
-  radius 20
-  height 46
+  Radius 20
+  Height 35
   Health 9999999999
   Mass 290
   +SOLID
@@ -566,7 +570,7 @@ Actor OilDrum2 8028
   {
   Spawn:
   GDCR F -1
-  Loop
+  Stop
   }
 }
 
@@ -593,7 +597,7 @@ Actor BeefMeat 22778
 {
 //$Category Retorn_map_ONLY
   Health 9999
-  Radius 30
+  Radius 22
   Height 100
   Mass 9999
   +SOLID
@@ -666,6 +670,8 @@ Actor NewGlassShard
 
 Actor GlassBreakX : SwitchableDecoration 21004
 {
+//$Category WDI Effects
+//$Sprite WDISA0
 	DeathSound "GLASS_S"
 	States {
 		Spawn:
@@ -678,10 +684,11 @@ Actor GlassBreakX : SwitchableDecoration 21004
 	}
 }
 
-
-
 Actor ScissorsKeySpawner : RandomSpawner 22783
 {
+//$Category WDI Keys
+//$Sprite KEY7A0
+	Scale 0.35
     DropItem "ScissorsKey" 128 1
 
 	//DropItem "ABigNothing"  2
@@ -689,6 +696,7 @@ Actor ScissorsKeySpawner : RandomSpawner 22783
 
 Actor ScissorsKey : Key 22784
 {
+//$Category WDI Keys
   Scale 0.35
   spawnid 86
   inventory.pickupmessage "Pocketed the Garage key."
@@ -704,21 +712,20 @@ Actor ScissorsKey : Key 22784
 
 Actor PotZEBER : PotA 22785 {
   //$Category WDI Props
-  //$Sprite VASEB0
-  //$Title "Pot 6 (Breakable)"
+  //$Title "Pot zeb (Breakable)"
+  //$Sprite VASEB0      
 DropItem "YZQUESTKEY4"
 States {
 Spawn:
-VASE E -1
-Loop
+VASE B -1
+Stop
+
 Death:
-VASE E 1 A_PlaySound("pot/break")
-VASE E 1 A_Burst("PotBits") 
-VASE E 3 A_SpawnItemEx("YZQUESTKEY4", 10, 13, 28, 0, 0, 0, 0)
+VASE B 1 A_PlaySound("pot/break")
+VASE B 1 A_Burst("PotBits") 
+VASE B 3 A_SpawnItemEx("YZQUESTKEY4", 10, 13, 28, 0, 0, 0, 0)
 Stop
 }}
-
-
 
 Actor ActionMarkerHand : ActionMarkerWhite 22786
 {

@@ -162,7 +162,7 @@ States
 {
 Spawn:
 TNT1 A -1
-LOOP
+Stop
 Ready:
 FIST A 1 A_WeaponReady
 LOOP

@@ -1,8 +1,8 @@
 
-
 Actor SND_CALENDAR 29218
 {
 	//$Category Aztec_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     //+CLIENTSIDEONLY
    
@@ -23,6 +23,7 @@ Actor SND_CALENDAR 29218
 Actor SND_DEREVNYA 29220
 {
 	//$Category Aztec_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     //+CLIENTSIDEONLY
    
@@ -38,6 +39,7 @@ Actor SND_DEREVNYA 29220
 Actor SND_DVOREC 29221
 {
 	//$Category Aztec_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     //+CLIENTSIDEONLY
    
@@ -55,6 +57,7 @@ Actor SND_DVOREC 29221
 Actor SND_WATER1 29224
 {
 	//$Category Aztec_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     //+CLIENTSIDEONLY
    
@@ -71,6 +74,7 @@ Actor SND_WATER1 29224
 Actor SND_DEEPFOREST 29226
 {
 	//$Category Aztec_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     //+CLIENTSIDEONLY
    
@@ -83,12 +87,10 @@ Actor SND_DEEPFOREST 29226
     }
 }
 
-
-
-
 Actor SND_WARHEADSTORAGE 29229
 {
 	//$Category Aztec_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     //+CLIENTSIDEONLY
    
@@ -104,6 +106,7 @@ Actor SND_WARHEADSTORAGE 29229
 Actor SND_MGSNINJA 29230
 {
 	//$Category Aztec_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     //+CLIENTSIDEONLY
    
@@ -119,6 +122,7 @@ Actor SND_MGSNINJA 29230
 Actor SND_WATCHING 29231
 {
 	//$Category Aztec_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     //+CLIENTSIDEONLY
    
@@ -130,4 +134,3 @@ Actor SND_WATCHING 29231
         Stop
     }
 }
-

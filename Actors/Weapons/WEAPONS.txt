@@ -109,6 +109,7 @@ Actor PlankSpawner : RandomSpawner 6867
 	//$Category WDI Weapons
 	//$Sprite PLANK0
 	//$Title "Plank Spawner"
+	Scale 0.5
 	DropItem "FakePlank" 
 	DropItem "FakePlank" 
 	DropItem "FakeNailedPlank" 
@@ -120,6 +121,7 @@ Actor TwigSpawner : RandomSpawner 6866
 	//$Category WDI Weapons
 	//$Sprite TWIGZ0
 	//$Title "Twig Spawner"
+	Scale 0.35
 	DropItem "FakeTwig" 
 	DropItem "ABigNothing" 
 }
@@ -129,7 +131,8 @@ Actor TwigSpawner : RandomSpawner 6866
 Actor GunSpawnerX : RandomSpawner 32555
 {
 	//$Category Marsis_map_ONLY
-    	DropItem "FakeBeretta" 
+	//$Sprite TNT1A0
+    DropItem "FakeBeretta" 
 	DropItem "FakeShotgun" 
 }
 
@@ -137,7 +140,8 @@ Actor GunSpawnerX : RandomSpawner 32555
 Actor GunSpawnerX2 : RandomSpawner 28351
 {
 	//$Category Marsis_map_ONLY
-    	DropItem "FakeBeretta" 
+	//$Sprite TNT1A0
+    DropItem "FakeBeretta" 
 	DropItem "FakeShotgun"
 	DropItem "FakeCrossbow"
 	DropItem "FakeM1"
@@ -150,7 +154,8 @@ Actor GunSpawnerX2 : RandomSpawner 28351
 Actor GunSpawnerBSM : RandomSpawner 22780
 {
 	//$Category Retorn_map_ONLY
-    	DropItem "FakeBeretta" 
+	//$Sprite TNT1A0
+    DropItem "FakeBeretta" 
 	DropItem "FakeShotgun"
 	DropItem "FakeM1" 
 }
@@ -170,7 +175,8 @@ Actor AmmoSpawnerBSM : RandomSpawner 22781
 Actor GunSpawnerBSM2 : RandomSpawner 22782
 {
 	//$Category Retorn_map_ONLY
-    	DropItem "FakeBeretta" 
+	//$Sprite TNT1A0
+    DropItem "FakeBeretta" 
 	DropItem "FakeShotgun"
 	DropItem "FakeM1" 
 	DropItem "ABigNothing"
@@ -178,8 +184,10 @@ Actor GunSpawnerBSM2 : RandomSpawner 22782
 
 Actor SPRAYSPAWNA : RandomSpawner 22141
 {
-	//$Category Retorn_map_ONLY
-    	DropItem "FakeSprayCanRED" 
+	//$$Category WDI Weapons
+	//$Sprite SPRYB0
+	Scale 0.5
+    DropItem "FakeSprayCanRED" 
 	DropItem "FakeSprayCanBLU"
 	DropItem "FakeSprayCanYRED"
 	DropItem "FakeSprayCanYBLU"

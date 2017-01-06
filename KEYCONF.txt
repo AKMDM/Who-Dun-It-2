@@ -5,7 +5,7 @@ AddPlayerClass "Innocent2"
 weaponsection "Whodunit"
 setslot 2 FistWithLighter FistWithFlashlight FireAxe FlashlightZ Soulcube BaseballBat SprayCanBLU SprayCanRED 20Dollars //NO_WEAPON Scissors Murd_Vanish //magnum ???
 setslot 0 MurderKnife
-setslot 1 NewFist PoolCue PipeWrench LeadPipe Shovel LChainsaw Beretta OldBeretta Shotgun2 Crossbow M1Carbine Brick Molotov OldMolotov Twig Plank NailedPlank 
+setslot 1 NewFist PoolCue PipeWrench LeadPipe Shovel LChainsaw Beretta OldBeretta Shotgun2 LCrossbow M1Carbine Brick Molotov OldMolotov Twig Plank NailedPlank 
 
 addkeysection "Who Dun It?" whodunit
    
@@ -27,8 +27,8 @@ addkeysection "Murderer Controls" whodunit2
    alias wdi_voteyes "puke -830"
    alias wdi_voteno "puke -835"
 
-   alias admin_wdi_punish "puke 866 %1 %2 %3"
-   alias admin_wdi_login "puke 863 %1"
+   //alias admin_wdi_punish "puke 866 %1 %2 %3" //NO IMPLEMENTED YET
+   //alias admin_wdi_login "puke 863 %1"   //NO IMPLEMENTED YET
    //alias Colormescotty "puke 662"
    
    //Server console commands (No longer needed)
