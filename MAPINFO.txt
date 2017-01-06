@@ -1,3 +1,6 @@
+//==================================================================
+/////////////////      MAP INFO     ////////////////////////
+//=================================================================
 gameinfo
 {
 	titlepage = "TITLEPIC"
@@ -226,7 +229,7 @@ map WDI20 "Insomnia"
 {
 	levelnum = 20
 	sky1 = "SKYB", 0.0
-	UsePlayerStartZ
+	//UsePlayerStartZ  script error
 	next = WDI01	
 }
 
