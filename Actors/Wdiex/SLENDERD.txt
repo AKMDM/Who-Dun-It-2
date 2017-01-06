@@ -76,6 +76,7 @@ Actor Slenderactivate : CustomInventory
 Actor OWNDBYSLENDER_SOUND 19107
 {
 	//$Category Retorn_map_ONLY
+	//$Sprite WDISA0
     +NOINTERACTION
     +CLIENTSIDEONLY
    

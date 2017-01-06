@@ -16,7 +16,8 @@ Actor ChaseCam
 
 Actor BoltSpawner 29002
 {
-	//$sprite RSDBD0
+//$Category WDI Effects
+//$sprite LTNGA0 
 	radius 1
 	height 1
 	+NODAMAGETHRUST
@@ -41,6 +42,8 @@ Actor BoltSpawner 29002
 
 Actor PainfulBoltSpawner 29900
 {
+//$Category WDI Effects
+//$sprite LTNGA0
 	radius 1
 	height 1
 	+NODAMAGETHRUST
@@ -55,8 +58,9 @@ Actor PainfulBoltSpawner 29900
 	}
 }
 
-Actor LightningStrikeTrap1 29901
+Actor LightningStrikeTrap1 29901 //check in "LIGHTS" actor LightningStrike
 {
+//$Category WDI Effects
 	obituary "%o was murdered by a lightning strike."
 	renderstyle Add
 	scale 2.0
@@ -79,6 +83,7 @@ Actor LightningStrikeTrap1 29901
 
 Actor LightningStrikeTrap2 29902
 {
+//$Category WDI Effects
 	obituary "%o was murdered by a lightning strike."
 	renderstyle Add
 	scale 2.0
@@ -101,6 +106,7 @@ Actor LightningStrikeTrap2 29902
 
 Actor LightningStrikeTrap3 29903
 {
+//$Category WDI Effects
 	obituary "%o was murdered by a lightning strike."
 	renderstyle Add
 	scale 2.0
@@ -123,6 +129,7 @@ Actor LightningStrikeTrap3 29903
 
 Actor LightningStrikeTrap4 29904
 {
+//$Category WDI Effects
 	obituary "%o was murdered by a lightning strike."
 	renderstyle Add
 	scale 2.0
@@ -142,7 +149,7 @@ Actor LightningStrikeTrap4 29904
 			Stop
 	}
 }
-
+/* NO<USED AND DUPLICATED
 Actor GROSSSS 26279 
 {
   +NOINTERACTION
@@ -153,4 +160,4 @@ States
 	TRV5 A -1
 	Stop
   }
-}
+}*/

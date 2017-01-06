@@ -12,8 +12,8 @@ Actor Lighter : Weapon 9904
   States
   {
   Spawn:
-    LIT1 H 1
-    Loop
+    LIT1 H -1
+    Stop
   Ready:
     LIT1 A 0
     LIT1 ABC 5
@@ -59,7 +59,7 @@ States
 {
 Spawn:
 TNT1 A -1
-Loop
+Stop
 Ready:
 FIST A 1 A_WeaponReady
 Loop

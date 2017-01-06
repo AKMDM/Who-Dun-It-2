@@ -12,29 +12,30 @@ Actor Ishtar 32260
 	Radius 12
 	Height 50
 	Scale 0.35
-	speed 3
+	Speed 3
     Mass 900
     BloodColor 88 88 88
    +SOLID
    +SHOOTABLE
    +NOBLOOD
-	DamageFactor "Gas", 0.0
-	DamageFactor "FlareEffect", 0.0
+	DamageFActor "Gas", 0.0
+	DamageFActor "FlareEffect", 0.0
    PAINSOUND "PotBits"
    DEATHSOUND "pot/break" 
   States
 	{
 	Spawn:
-		ISHT A 1 
-		Loop	
+		ISHT A -1 
+		Stop	
 	Death:
       VASE E 1 A_PlaySound("pot/break")
       VASE E 1 A_Burst("PotBits") 
-    stop
+    Stop
 }}
 
 Actor MinotaurStatue 16134
 {
+//$Category WDI Props
   Radius 32
   Height 68
   +SOLID
@@ -50,7 +51,7 @@ Actor DeathStatue 14244
   Health 400
   Radius 20
   Height 56
-  speed 3
+  Speed 3
   Mass 900
   BloodColor 88 88 88
   +SOLID
@@ -61,7 +62,6 @@ Actor DeathStatue 14244
   PAINSOUND "PotBits"
   DEATHSOUND "pot/break" 
   //$Category WDI Props
-  //$Sprite STT1A8A2
   //$Title "Player Statue"
   States
   {
@@ -70,7 +70,7 @@ Actor DeathStatue 14244
     Stop
   Pain:
     STT1 A 3 A_Pain
-    goto See
+    Goto See
 	
   Death:
     STT1 H 5
@@ -85,37 +85,37 @@ Actor DeathStatue 14244
 Actor StatueFighter 13964 //THE SPRITE IT DOESN'T EXIST
 {
 +SOLID
-height 48
-radius 24
-states
+Height 48
+Radius 24
+States
 {
 Spawn:
 FGHT A -1
-stop
+Stop
 }}
 
 Actor StatueMage 13965 //THE SPRITE IT DOESN'T EXIST
 {
 +SOLID
-height 48
-radius 24
-states
+Height 48
+Radius 24
+States
 {
 Spawn:
 MAGE A -1
-stop
+Stop
 }}
 
 Actor StatueCleric 13966 //THE SPRITE IT DOESN'T EXIST
 {
 +SOLID
-height 48
-radius 24
-states
+Height 48
+Radius 24
+States
 {
 Spawn:
 CLER A -1
-stop
+Stop
 }}
 */
 ///////////MISC///////////////
@@ -123,6 +123,7 @@ stop
 //I'll slaughter whoever replaced Tech Pillar sprite
 Actor TehPillar : TechPillar 14888
 {
+//$Category WDI Props
   States
   {
   Spawn:
@@ -135,23 +136,22 @@ Actor PotTree : TreeA 31982 {
   //$Category WDI Props
   //$Sprite TREEC0
   //$Title "Tree in a Pot"
-height 48
-radius 16
-states {
+Height 48
+Radius 16
+States {
 Spawn:
 TREE C -1  
 Stop
 }}
-
 
 Actor PedestalRed 31988 {
   //$Category WDI Props
   //$Sprite GMPDB0
   //$Title "PedestalRed"
 +SOLID
-radius 24
-height 48
-states {   
+Radius 24
+Height 48
+States {   
 Spawn:
 GMPD B -1
 Stop
@@ -161,7 +161,7 @@ Actor PedestalRuby : PedestalRed 31987 {
   //$Category WDI Props
   //$Sprite GMPDA0
   //$Title "Pedestal (Ruby)"
-states {
+States {
 Spawn:
 GMPD A -1 
 Stop
@@ -175,21 +175,20 @@ Actor PodiumVase 13968
 +SOLID
 Height 48
 Radius 32
-states
+States
 {
 Spawn:
 VASS A -1
-stop
+Stop
 }}
 
-Actor ArmorSuit 32003 { ///SKULLTAG??
+Actor ArmorSuit 32003 { //SKULLTAG??
 +SOLID
-radius 24
-height 56
+Radius 24
+Height 56
   //$Category WDI Props
-  //$Sprite SUITA0
   //$Title "Armor Suit"  
-states {
+States {
 Spawn:
 SUIT A -1
 Stop
@@ -198,7 +197,6 @@ Stop
 Actor HPipe2 31016
 {
   //$Category WDI Props
-  //$Sprite PIP2A0
   //$Title "Horizontal Pipe 1"
   Radius 16
   Height 128
@@ -417,16 +415,16 @@ Actor UniformB 31029
 Actor WDIBarrel 13967
 {
 +SOLID
-height 36
-radius 24
+Height 36
+Radius 24
   //$Category WDI Props
   //$Sprite BARLA0
   //$Title "Wood Barrel"
-states
+States
 {
 Spawn:
 BARL A -1
-stop
+Stop
 }}
 
 Actor TrashCan1 14267
@@ -512,7 +510,7 @@ Actor PushableChair 13712
     Stop
   Death:
     CHAI A -1 A_NoBlocking
-    goto Spawn
+    Goto Spawn
 }}
 
 
@@ -521,7 +519,7 @@ Actor flaskblueA 10418
 	//$Category WDI Props
 	//$Sprite FLKSA0
 	//$Title "Flask Blue A"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -562,7 +560,7 @@ Actor flaskblueB 10419
 	//$Category WDI Props
 	//$Sprite FLKSG0
 	//$Title "Flask Blue B"
-  mass 1500
+  Mass 1500
   Health 1
   Radius 6
 	DamageFActor "Gas", 0.0
@@ -603,7 +601,7 @@ Actor flaskpurpleA 10420
 	//$Category WDI Props
 	//$Sprite FLKSB0
 	//$Title "Flask Purple A"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -644,7 +642,7 @@ Actor flaskpurpleB 10421
 	//$Category WDI Props
 	//$Sprite FLKSH0
 	//$Title "Flask Purple B"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -685,7 +683,7 @@ Actor flaskredA 10422
 	//$Category WDI Props
 	//$Sprite FLKSC0
 	//$Title "Flask Red A"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -726,7 +724,7 @@ Actor flaskredB 10423
 	//$Category WDI Props
 	//$Sprite FLKSI0
 	//$Title "Flask Red B"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -767,7 +765,7 @@ Actor flaskgreenA 10424
 	//$Category WDI Props
 	//$Sprite FLKSD0
 	//$Title "Flask Green A"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -808,7 +806,7 @@ Actor flaskgreenB 10425
 	//$Category WDI Props
 	//$Sprite FLKSJ0
 	//$Title "Flask Green B"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -849,7 +847,7 @@ Actor flaskyellowA 10426
 	//$Category WDI Props
 	//$Sprite FLKSE0
 	//$Title "Flask Yellow A"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -890,7 +888,7 @@ Actor flaskyellowB 10427
 	//$Category WDI Props
 	//$Sprite FLKSK0
 	//$Title "Flask Yellow B"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -931,7 +929,7 @@ Actor flaskgreyA 10428
 	//$Category WDI Props
 	//$Sprite FLKSF0
 	//$Title "Flask Grey A"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -972,7 +970,7 @@ Actor flaskgreyB 10429
 	//$Category WDI Props
 	//$Sprite FLKSL0
 	//$Title "Flask Grey B"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -1013,7 +1011,7 @@ Actor glassblue 10430
 	//$Category WDI Props
 	//$Sprite BEAKA0
 	//$Title "Beaker Blue"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -1049,7 +1047,7 @@ Actor glasspurple 10431
 	//$Category WDI Props
 	//$Sprite BEAKB0
 	//$Title "Beaker Purple"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -1084,7 +1082,7 @@ Actor glassred 10432
 	//$Category WDI Props
 	//$Sprite BEAKC0
 	//$Title "Beaker Red"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -1119,7 +1117,7 @@ Actor glassgreen 10433
 	//$Category WDI Props
 	//$Sprite BEAKD0
 	//$Title "Beaker Green"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -1154,7 +1152,7 @@ Actor glassyellow 10434
 	//$Category WDI Props
 	//$Sprite BEAKE0
 	//$Title "Beaker Yellow"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -1189,7 +1187,7 @@ Actor glassgrey 10435
 	//$Category WDI Props
 	//$Sprite BEAKF0
 	//$Title "Beaker Grey"
-  mass 1500
+  Mass 1500
   Health 1
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
@@ -1219,15 +1217,12 @@ Actor glassgrey 10435
     Stop
 }}
 
-Actor flaskshard1 10436
+Actor flaskshard1 //10436  removed is used like actor
 {
-	//$Category WDI Props
-	//$Sprite TSR1A0
-	//$Title "Flask Shard 1"
   Radius 2
   Height 4
-  speed 2
-  mass 1
+  Speed 2
+  Mass 1
   RenderStyle Translucent
   Alpha 0.6
   +NOBLOCKMAP
@@ -1265,15 +1260,12 @@ Actor flaskshard1 10436
     Stop
 }}
 
-Actor flaskshard2 10437
+Actor flaskshard2 //10437 removed is used like actor
 {
-	//$Category WDI Props
-	//$Sprite TSR2A0
-	//$Title "Flask Shard 2"
   Radius 2
   Height 4
-  speed 2
-  mass 1
+  Speed 2
+  Mass 1
   RenderStyle Translucent
   Alpha 0.6
   +NOBLOCKMAP
@@ -1318,10 +1310,10 @@ Actor burger1 10438
 	//$Category WDI Props
 	//$Sprite BRGRA0
 	//$Title "Burger"
-  mass 1
+  Mass 1
   Radius 4
   Height 6
-  scale 0.6
+  Scale 0.6
   +SOLID
   States
   {
@@ -1335,10 +1327,10 @@ Actor burger2 10439
 	//$Category WDI Props
 	//$Sprite BRGRB0
 	//$Title "Burger Double"
-  mass 1
+  Mass 1
   Radius 4
   Height 6
-  scale 0.6
+  Scale 0.6
   +SOLID
   States
   {
@@ -1352,10 +1344,10 @@ Actor burger3 10440
 	//$Category WDI Props
 	//$Sprite BRGRC0
 	//$Title "Burger Triple"
-  mass 1
+  Mass 1
   Radius 4
   Height 8
-  scale 0.6
+  Scale 0.6
   +SOLID
   States
   {
@@ -1369,10 +1361,10 @@ Actor burger4 10441
 	//$Category WDI Props
 	//$Sprite BRGRD0
 	//$Title "Burger (Wrapped)"
-  mass 1
+  Mass 1
   Radius 4
   Height 6
-  scale 0.6
+  Scale 0.6
   +SOLID
   States
   {
@@ -1386,10 +1378,10 @@ Actor fries1 10442
 	//$Category WDI Props
 	//$Sprite FRESA0
 	//$Title "Fries"
-  mass 1
+  Mass 1
   Radius 3
   Height 7
-  scale 0.6
+  Scale 0.6
   +SOLID
   States
   {
@@ -1403,10 +1395,10 @@ Actor fries2 10443
 	//$Category WDI Props
 	//$Sprite FRESB0
 	//$Title "Fries (Empty)"
-  mass 1
+  Mass 1
   Radius 3
   Height 6
-  scale 0.6
+  Scale 0.6
   +SOLID
   States
   {
@@ -1420,10 +1412,10 @@ Actor drink 10444
 	//$Category WDI Props
 	//$Sprite DRNKA0
 	//$Title "Drink"
-  mass 1
+  Mass 1
   Radius 2
   Height 7
-  scale 0.6
+  Scale 0.6
   +SOLID
   States
   {
@@ -1437,10 +1429,10 @@ Actor donuts 10448
 	//$Category WDI Props
 	//$Sprite DNTSA0
 	//$Title "Donuts"
-  mass 1
+  Mass 1
   Radius 5
   Height 5
-  scale 0.3
+  Scale 0.3
   +SOLID
   States
   {
@@ -1456,7 +1448,7 @@ Actor dbox 10449
 	//$Category WDI Props
 	//$Sprite DBOXA0
 	//$Title "The DBOX"
-  mass 1
+  Mass 1
   Radius 6
   Height 8
   +SOLID
@@ -1470,10 +1462,11 @@ Actor dbox 10449
 //chairs
 Actor CompChair 3247
 {
+//$Category WDI Props
     Health 520
     Radius 10
     Height 36
-	scale 0.8
+	Scale 0.8
     Mass 90
     +SOLID
     +SHOOTABLE
@@ -1488,7 +1481,7 @@ Actor CompChair 3247
     Stop
   Death:
     CHIR A -1 A_NoBlocking
-    goto Spawn
+    Goto Spawn
 }}
 
 //potsssssssss
@@ -1500,93 +1493,93 @@ Actor PotA 31998 {
 +SLIDESONWALLS
 +PUSHABLE
 +NOICEDEATH
-health 10
+Health 10
 	DamageFActor "Gas", 0.0
 	DamageFActor "FlareEffect", 0.0
-speed 10
-radius 10
-height 20
+Speed 10
+Radius 10
+Height 20
   //$Category WDI Props
   //$Sprite POT1A0
   //$Title "Pot 1 (Breakable)"
-states {
+States {
 Spawn:
 POT1 A -1
 Stop
 Death:
 POT1 A 1 A_PlaySound("pot/break")
 POT1 A 1 A_Burst("PotBits") 
-stop
+Stop
 }}
 
 Actor PotB : PotA 31997 {
   //$Category WDI Props
   //$Sprite POT2A0
   //$Title "Pot 2 (Breakable)"
-states {
+States {
 Spawn:
 POT2 A -1
 Stop
 Death:
 POT2 A 1 A_PlaySound("pot/break")
 POT2 A 1 A_Burst("PotBits") 
-stop
+Stop
 }}
 
 Actor PotC : PotA 31996 {
   //$Category WDI Props
   //$Sprite POT3A0
   //$Title "Pot 3 (Breakable)"
-states {
+States {
 Spawn:
 POT3 A -1
 Stop
 Death:
 POT3 A 1 A_PlaySound("pot/break")
 POT3 A 1 A_Burst("PotBits") 
-stop
+Stop
 }}
 
 Actor PotD : PotA 31979 {
   //$Category WDI Props
   //$Sprite POT4A0
   //$Title "Pot 4 (Breakable)"
-states {
+States {
 Spawn:
 POT4 A -1
 Stop
 Death:
 POT4 A 1 A_PlaySound("pot/break")
 POT4 A 1 A_Burst("PotBits") 
-stop
+Stop
 }}
 
 Actor PotE : PotA 31980 {
   //$Category WDI Props
   //$Sprite VASEA0
   //$Title "Pot 5 (Breakable)"
-states {
+States {
 Spawn:
 VASE A -1
 Stop
 Death:
 VASE A 1 A_PlaySound("pot/break")
 VASE A 1 A_Burst("PotBits") 
-stop
+Stop
 }}
 
 Actor PotF : PotA  3262 {
   //$Category WDI Props
   //$Sprite VASEB0
   //$Title "Pot 6 (Breakable)"
-states {
+States {
 Spawn:
 VASE B -1
 Stop
 Death:
 VASE B 1 A_PlaySound("pot/break")
 VASE B 1 A_Burst("PotBits") 
-stop
+Stop
 }}
 
 Actor Bottle 31981 {
@@ -1601,28 +1594,13 @@ WATR A -1
 Stop
 }}
 
-Actor PotUU : PotA 31898 {
-  //$Category WDI Props
-  //$Sprite VASEB0
-  //$Title "Pot 7 (Breakable)"
-states {
-Spawn:
-VASE E -1
-Stop
-
-Death:
-VASE E 1 A_PlaySound("pot/break")
-VASE E 1 A_Burst("PotBits") 
-Stop
-}}
-
 Actor PotBits {
 +DOOMBOUNCE
 gravity 2.0
 bouncecount 5
 reactiontime 30
-speed 12
-states {
+Speed 12
+States {
 Spawn:
 ROCK E 1 A_Jump(255, "One", "Two", "Three")
 One:
@@ -1635,7 +1613,7 @@ Three:
 ROCK G 4 A_Countdown
 loop
 Death:
-stop
+Stop
 }}
 
 Actor DoomDoll 31899
@@ -1656,7 +1634,7 @@ Actor Nethertree 30007
   +SOLID
 Height 48
 Radius 16
-states {
+States {
 Spawn:
 NHTR C -1
 Stop
@@ -1676,3 +1654,45 @@ Actor Netherbeer 30008
 		Stop
 	}
 }
+
+Actor SICALAMP 3255 {
+  //$Category WDI Props
++SOLID
++NOGRAVITY
++SPAWNCEILING
+Scale 0.2
+Radius 2
+Height 2
+States {
+Spawn:
+LAM1 A -1
+Stop
+}}
+
+Actor SICAMIC 3256 {
+  //$Category WDI Props
++SOLID
++NOGRAVITY
+
+Scale 1
+Radius 2
+Height 2
+States {
+Spawn:
+MIC1 A -1
+Stop
+}}
+
+Actor SICALAMP2 3257 {
+  //$Category WDI Props
++SOLID
++NOGRAVITY
+
+Scale 0.2
+Radius 2
+Height 2
+States {
+Spawn:
+LAM1 A -1
+Stop
+}}

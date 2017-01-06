@@ -54,7 +54,7 @@ Actor SprayCanBLU : Weapon
 	   Goto death + 1
 }}
 
-Actor SprayAmmo : Ammo 22116
+Actor SprayAmmo : Ammo 22116  
 {
   Game Doom
   Inventory.PickupMessage "Found spray can." 
@@ -66,7 +66,7 @@ Actor SprayAmmo : Ammo 22116
   States
   {
   Spawn:
-    TNT1 A -1
+    TNT1 A -1    //ANY USE???
     Stop
 }}
 

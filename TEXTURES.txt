@@ -199,6 +199,11 @@ Sprite "MODLA0", 1, 1
 	Patch "TNT1A0", 0, 0
 }
 
+Sprite "PIPMA0", 1, 1
+{
+	Patch "TNT1A0", 0, 0
+}
+
 Sprite "DEADC0", 51, 13
 {
 	Offset 23, 12

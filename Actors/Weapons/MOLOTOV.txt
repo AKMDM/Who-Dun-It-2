@@ -5,7 +5,7 @@
 Actor FakeMolly : CustomInventory 30076
 {
   //$Category WDI Weapons
-  //$Sprite MOLPZ0
+  //$Sprite MOLVZ0
   //$Title "Molotov (Throwable)"
 	Radius 16
 	Height 8

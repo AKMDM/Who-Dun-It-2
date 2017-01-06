@@ -23,10 +23,10 @@ Actor FakeCrossbow : CustomInventory 30055
 		PIST A 0 A_JumpIfInventory("MurderMarker",1, 2)
 		PIST A 0 A_JumpIfInventory("TKToken",1,"NotPickup")
 		PIST A 0
-		XBPU A 0 A_JumpIfInventory("Crossbow",1,"AmmoPickup")		
+		XBPU A 0 A_JumpIfInventory("LCrossbow",1,"AmmoPickup")		
 		XBPU A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
 		XBPU A 0 A_PlaySound("pickups/weapon")
-		XBPU A 0 A_GiveInventory("Crossbow",1)
+		XBPU A 0 A_GiveInventory("LCrossbow",1)
 		XBPU A 0 A_GiveInventory("Slot1Filled",1)
 		TNT1 A 0 //A_Print("Picked up a Crossbow.")
 		XBPU A 1 ACS_ExecuteAlways(670,0,22)
@@ -57,10 +57,10 @@ States
 	Pickup:
 		XBPU A 0
 		XBPU A 0 A_JumpIfInventory("TKToken",1,"NotPickup")
-		XBPU A 0 A_JumpIfInventory("Crossbow",1,"AmmoPickup")		
+		XBPU A 0 A_JumpIfInventory("LCrossbow",1,"AmmoPickup")		
 		XBPU A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
 		XBPU A 0 A_PlaySound("pickups/weapon")
-		XBPU A 0 A_GiveInventory("Crossbow",1)
+		XBPU A 0 A_GiveInventory("LCrossbow",1)
 		XBPU A 0 A_GiveInventory("Slot1Filled",1)
 		TNT1 A 0 //A_Print("Picked up a Crossbow.")
 		XBPU A 1 ACS_ExecuteAlways(670,0,22)
@@ -74,7 +74,7 @@ States
 		Fail
 }}
 
-Actor Crossbow: Weapon 
+Actor LCrossbow: Weapon  //renamed due to duplicated use in hex
 {
 Weapon.SelectionOrder 3000
     Weapon.AmmoGive1 0
