@@ -1,3 +1,6 @@
+//==================================================================
+/////////////////   MODEL DEFINITIONS    ////////////////////////
+//=================================================================
 Model Chair
 {
 	Path "Models/Chair"
@@ -8,7 +11,7 @@ Model Chair
 	FrameIndex CHAR A 0 0
 }
 
-Model Door
+Model Wdi_Door
 {
 	Path "Models/Door"
 	Model 0 "door.md3"
@@ -496,7 +499,7 @@ Model PipeSet
 	Skin 0 "pipeset.png"
 	Scale 16.0 16.0 16.0
 
-	FrameIndex PIPP A 0 0
+	FrameIndex PIPM A 0 0
 }
 
 Model PipeHorizontal
@@ -506,7 +509,7 @@ Model PipeHorizontal
 	Skin 0 "pipeset.png"
 	Scale 16.0 16.0 16.0
 
-	FrameIndex PIPP A 0 0
+	FrameIndex PIPM A 0 0
 }
 
 Model PipeCurved
@@ -516,7 +519,7 @@ Model PipeCurved
 	Skin 0 "pipeset.png"
 	Scale 16.0 16.0 16.0
 
-	FrameIndex PIPP A 0 0
+	FrameIndex PIPM A 0 0
 }
 
 Model BigPipe1
@@ -528,8 +531,8 @@ Model BigPipe1
 	Skin 1 "pipeends.png"
 	Scale 16.0 16.0 16.0
 
-	FrameIndex PIPP A 0 0
-	FrameIndex PIPP A 1 0
+	FrameIndex PIPM A 0 0
+	FrameIndex PIPM A 1 0
 }
 
 Model BigPipe1A
@@ -543,9 +546,9 @@ Model BigPipe1A
 	Skin 2 "pipesmal.png"
 	Scale 16.0 16.0 16.0
 
-	FrameIndex PIPP A 0 0
-	FrameIndex PIPP A 1 0
-	FrameIndex PIPP A 2 0
+	FrameIndex PIPM A 0 0
+	FrameIndex PIPM A 1 0
+	FrameIndex PIPM A 2 0
 }
 
 Model BigPipe1B
@@ -557,8 +560,8 @@ Model BigPipe1B
 	Skin 1 "pipesmal.png"
 	Scale 16.0 16.0 16.0
 
-	FrameIndex PIPP A 0 0
-	FrameIndex PIPP A 1 0
+	FrameIndex PIPM A 0 0
+	FrameIndex PIPM A 1 0
 }
 
 Model BigPipe1C
@@ -575,10 +578,10 @@ Model BigPipe1C
 
 	Scale 16.0 16.0 16.0
 
-	FrameIndex PIPP A 0 0
-	FrameIndex PIPP A 1 0
-	FrameIndex PIPP A 2 0
-	FrameIndex PIPP A 3 0
+	FrameIndex PIPM A 0 0
+	FrameIndex PIPM A 1 0
+	FrameIndex PIPM A 2 0
+	FrameIndex PIPM A 3 0
 }
 
 Model TripodLightStandingBulb
