@@ -1,3 +1,6 @@
+//==================================================================
+////////////////////  LOCK  DEFINITIONS    ////////////////////////
+//=================================================================
 Lock 1
 {
 	BarKey
@@ -47,7 +50,7 @@ Lock 121
 
 Lock 144
 {
-	SecurityKey
+	Wdi_SecurityKey
 	Message "You do not have the key for the Security Room!"
 	RemoteMessage "You do not have the key for the Security Room!"
 	Mapcolor 64 64 0
