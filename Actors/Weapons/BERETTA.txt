@@ -355,12 +355,12 @@ Actor SpentClip5 //pistol-type clip
 //==================================================================
 /////////////////////     OLD BERETTA   ////////////////////////////
 //=================================================================
-//Further tweaks by Prepper
+//Further tweaks by Prepper //(APOCALYPTO)
 Actor FakeOldBeretta : CustomInventory 26906
 {
   //$Category WDI Weapons
   //$Sprite PISTA0
-  //$Title "OldBeretta" //(APOCALYPTO)
+  //$Title "OldBeretta" 
 	Radius 16
 	Height 8
 	Inventory.PickupMessage "Found an old Beretta."

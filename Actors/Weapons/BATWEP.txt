@@ -3,7 +3,8 @@
 //=================================================================
 Actor FakeBat : CustomInventory 22473
 {
-//$Category Retorn_map_ONLY
+//$Category WDI Weapons
+//$Title "Bat"
 	Radius 16
 	Height 8
 	Scale 0.55
@@ -30,7 +31,8 @@ Actor FakeBat : CustomInventory 22473
 
 Actor FakeBatY : CustomInventory 22474
 {
-//$Category Retorn_map_ONLY
+//$Category WDI Weapons
+//$Title "Bat (Standing)"
 	Radius 8
 	Height 16
 	Scale 0.55

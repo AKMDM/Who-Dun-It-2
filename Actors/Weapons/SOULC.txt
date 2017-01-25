@@ -3,7 +3,7 @@
 //================================================================= 
  Actor FakeSoulcube : CustomInventory 28467
 {
-    //$Category Marsis_map_ONLY
+    //$Category WDI Weapons
     Scale 0.5
 	Radius 16
 	Height 8
