@@ -106,7 +106,8 @@ Actor PaintSprayBLU
 
 Actor FakeSprayCanBLU : CustomInventory 22475
 {
-//$Category Retorn_map_ONLY
+//$Category WDI Weapons
+//$Title "SprayCan Blue (standing)"
     Scale 0.2
 	Radius 4
 	Height 12
@@ -163,7 +164,8 @@ States
 
 Actor FakeSprayCanYBLU : CustomInventory 22476
 {
-//$Category Retorn_map_ONLY
+//$Category WDI Weapons
+//$Title "SprayCan Blue"
     Scale 0.2
 	Radius 4
 	Height 12
@@ -313,7 +315,8 @@ Actor PaintSprayRED
 
 Actor FakeSprayCanRED : CustomInventory 22142
 {
-//$Category Retorn_map_ONLY
+//$Category WDI Weapons
+//$Title "SprayCan Red (standing)"
     Scale 0.2
 	Radius 4
 	Height 12
@@ -391,7 +394,8 @@ Actor DroppedSprayCanRED
 
 Actor FakeSprayCanYRED : CustomInventory 22143
 {
-//$Category Retorn_map_ONLY
+//$Category WDI Weapons
+//$Title "SprayCan Red"
     Scale 0.2
 	Radius 4
 	Height 12

@@ -230,16 +230,38 @@ map WDI20 "Insomnia"
 	levelnum = 20
 	sky1 = "SKYB", 0.0
 	//UsePlayerStartZ  script error
-	next = WDI01	
+	next = WDI21	
 }
 
 Map WDI21 "Knee-Deep in The Murder"
 {
 	levelnum = 21
 	Music = "D_E1M1_"
-	Next = "WDI01"
+	Next = WDI22
 	AllowMonsterTelefrags
 }
+
+map WDI22 "Nicht einmal ein Herrenhaus"
+{
+	levelnum = 22
+	next = WDI23
+	music = d_thewal
+	fade = "black"
+}
+
+map WDI23 "Mixture of Ages"
+{
+	levelnum = 23
+	next= WDI01
+	sky1= "rsky03",0.0
+	Music = "D_MANSI"
+	evenlighting
+	oldfallingdamage
+	strifefallingdamage
+	nointermission
+}
+
+
 //WDIEX MAPINFO=========================================
 /* 
 HUB NO ADDED DUE TO CRASHES

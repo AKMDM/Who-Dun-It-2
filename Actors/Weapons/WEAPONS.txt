@@ -74,7 +74,7 @@ Actor GunSpawner : RandomSpawner 32050
 {
 	//$Category WDI Weapons
 	//$Sprite TNT1A0
-	//$Title "Gun Spawner"
+	//$Title "Gun Spawner BSN"
 	DropItem "FakeBeretta" 
 	DropItem "FakeShotgun" 
 	DropItem "ABigNothing"
@@ -84,8 +84,7 @@ Actor MeleeSpawner : RandomSpawner 32051
 {
 	//$Category WDI Weapons
 	//$Sprite TNT1A0
-	//$Title "Melee Spawner"
-	//DropItem "LChainsaw"
+	//$Title "Melee Spawner WPN"
 	DropItem "FakeWrench" 
 	DropItem "FakePipe"
 	DropItem "ABigNothing" 
@@ -95,7 +94,7 @@ Actor AmmoSpawner : RandomSpawner 32060
 {
 	//$Category WDI Ammo
 	//$Sprite TNT1A0
-	//$Title "Ammo Spawner"
+	//$Title "Ammo Spawner BS"
 	DropItem "NewShell"
    	DropItem "NewShell"
 	DropItem "NewShell"
@@ -132,6 +131,7 @@ Actor GunSpawnerX : RandomSpawner 32555
 {
 	//$Category Marsis_map_ONLY
 	//$Sprite TNT1A0
+	//$Title "Gun Spawner BS"
     DropItem "FakeBeretta" 
 	DropItem "FakeShotgun" 
 }
@@ -141,6 +141,7 @@ Actor GunSpawnerX2 : RandomSpawner 28351
 {
 	//$Category Marsis_map_ONLY
 	//$Sprite TNT1A0
+	//$Title "Gun Spawner BSCMN"
     DropItem "FakeBeretta" 
 	DropItem "FakeShotgun"
 	DropItem "FakeCrossbow"
@@ -155,6 +156,7 @@ Actor GunSpawnerBSM : RandomSpawner 22780
 {
 	//$Category Retorn_map_ONLY
 	//$Sprite TNT1A0
+	//$Title "Gun Spawner BSM"
     DropItem "FakeBeretta" 
 	DropItem "FakeShotgun"
 	DropItem "FakeM1" 
@@ -164,7 +166,7 @@ Actor AmmoSpawnerBSM : RandomSpawner 22781
 {
 	//$Category WDI Ammo
 	//$Sprite TNT1A0
-	//$Title "Ammo Spawner"
+	//$Title "Ammo Spawner BSMN"
 	DropItem "NewShell"
 	DropItem "NewShell"
 	DropItem "PistolClip"
@@ -176,16 +178,18 @@ Actor GunSpawnerBSM2 : RandomSpawner 22782
 {
 	//$Category Retorn_map_ONLY
 	//$Sprite TNT1A0
+	//$Title "Gun Spawner BSMN"
     DropItem "FakeBeretta" 
 	DropItem "FakeShotgun"
 	DropItem "FakeM1" 
 	DropItem "ABigNothing"
 }
 
-Actor SPRAYSPAWNA : RandomSpawner 22141
+Actor SpraySpawner : RandomSpawner 22141
 {
-	//$$Category WDI Weapons
+	//$Category WDI Weapons
 	//$Sprite SPRYB0
+	//$Title "Spray Spawner"
 	Scale 0.5
     DropItem "FakeSprayCanRED" 
 	DropItem "FakeSprayCanBLU"
