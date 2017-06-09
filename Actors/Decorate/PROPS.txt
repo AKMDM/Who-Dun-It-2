@@ -4,7 +4,6 @@
 //NOTE: ARTIFICIAL OBJECTS ONLY
 
 ///////////STATUES///////////////
-
 Actor Ishtar 32260 
 {
 //$Category WDI Props
@@ -81,6 +80,7 @@ Actor DeathStatue 14244
 	STT1 P -1
     Stop
 }}
+
 /*
 Actor StatueFighter 13964 //THE SPRITE IT DOESN'T EXIST
 {
@@ -118,7 +118,58 @@ CLER A -1
 Stop
 }}
 */
+
+
+Actor Statue1 10002
+{
+//$Category WDI Props
+	Radius 18
+	Height 200
+	+SOLID
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		STAT A -1
+		Stop
+	}
+}
+
 ///////////MISC///////////////
+Actor Tower 10001
+{
+//$Category WDI Props
+	Radius 18
+	Height 79
+	+SOLID
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		TOWR A -1 
+		//TOWR B 1 BRIGHT   mmmmmmmmm check sprite
+		//loop
+		Stop
+	}
+}
+
+Actor PropQuickRevive 21203
+{
+//$Category WDI Props
+ Radius 1
+ Height 1
+ Scale 0.50
+ +SOLID
+ +NOGRAVITY
+ +NOBLOCKMAP
+ //+FORCEXYBILLBOARD
+ States
+ {
+  Spawn:
+	QCRV A -1 
+	stop
+ }
+}
 
 //I'll slaughter whoever replaced Tech Pillar sprite
 Actor TehPillar : TechPillar 14888
