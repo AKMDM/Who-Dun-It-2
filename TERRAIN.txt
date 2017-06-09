@@ -915,6 +915,57 @@ Floor	ETEX62		Rock
 Floor	EFLOOR16	Rock
 Floor	EWALL12		Rock
 Floor	ECEIL29		Tile
+
+//wdi23
+Floor	FFLAT09		Tile
+Floor	ADEL_J10	Tile
+Floor	TFLOR100	Tile
+Floor	MGRASS7		Dirt
+Floor	RTEX348		Carpet
+Floor	CRP21		Carpet
+Floor	CRV21		Carpet
+Floor	CRV22		Carpet
+Floor	CRP22		Carpet
+Floor	F_CARP2A	Carpet
+Floor	F_CARP2B	Carpet
+Floor	F_CARP2C	Carpet
+Floor	F_CARP2D	Carpet
+Floor	F_CARP2E	Carpet
+Floor	F_CARP2F	Carpet
+Floor	F_CARP3A	Carpet
+Floor	F_CARP3B	Carpet
+Floor	F_CARP3C	Carpet
+Floor	F_CARP3D	Carpet
+Floor	F_CARP3E	Carpet
+Floor	F_CARP3F	Carpet
+Floor	TFLAT54		Carpet
+Floor	TFLOR011	Carpet
+Floor	TFLOR010	Carpet
+Floor	TFLOR007	Carpet
+Floor	TFLOR006	Carpet
+Floor	A-DROCK2	Rock
+Floor	TWALL02		Rock
+Floor	QFLAT04		Rock
+Floor	ZIMMER3		Gravel
+Floor	WOOD_11		Wood
+Floor	WOOD_10		Wood
+Floor	OLA_F_01	Hard
+Floor	OLA_F_02	Hard
+Floor	FWAL01		Hard
+Floor	FWAL02		Hard
+Floor	FWAL03		Hard
+Floor	TFLOR016	Hard
+Floor	TFLOR015	Hard
+Floor	TFLOR014	Hard
+Floor	TFLOR013	Hard
+Floor	TFLOR012	Hard
+Floor	TFLOR009	Hard
+Floor	TFLOR008	Hard
+Floor	TFLOR005	Hard
+Floor	TFLOR004	Hard
+Floor	TFLOR003	Hard
+Floor	TFLOR002	Hard
+Floor	TFLOR001	Hard
 //========WDIEX================
 
 terrain stuckwater
