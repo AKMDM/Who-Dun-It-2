@@ -3717,6 +3717,45 @@ Sprite "BBATA0", 100, 8
 	}
 }
 
+Texture "BLCELDR3", 64, 128
+{
+	Patch "BLCELDR1", 0, 0
+	{
+		FlipX
+	}
+}
+
+Texture "BLCELDR4", 64, 128
+{
+	Patch "BLCELDR2", 0, 0
+	{
+		FlipX
+	}
+}
+
+Texture RSKY03, 1024, 256
+{
+	XScale 0.500
+	YScale 0.500
+	Patch RSKY03, 0, 0
+}
+
+Texture MW05, 64, 128
+{
+	Patch MW04, 0, 0
+	{
+		Translation "16:47=73:79"
+	}
+}
+
+Texture MW28, 64, 128
+{
+	Patch MW27, 0, 0
+	{
+		Translation "16:47=73:79"
+	}
+}
+
 // wdiexx==========================================
 texture YZMWMAP1, 480, 300
 {
