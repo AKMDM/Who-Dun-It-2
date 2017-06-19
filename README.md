@@ -10,10 +10,10 @@
 <img src="http://github-svg-buttons.herokuapp.com/fork.svg?user=Kamenschy&repo=WhoDunit&style=flat&background=007ec6" alt="Fork">
 </a> 
 <a href="https://zandronum.com/forum/viewtopic.php?f=58&t=123&hilit=whodunit+finally">
-<img src="https://img.shields.io/david/dev/StylishThemes/GitHub-Dark.svg?label=%20devDependencies%20" alt="Zandronum">
+<img src="https://img.shields.io/badge/Forum%20-zandronum-brightgreen.svg" alt="Zandronum">
 </a>
 <a href="https://chat.mibbit.com/?server=irc.zandronum.com&channel=%23whodunithelp">
-<img src="https://img.shields.io/gitter/room/StylishThemes/Github-Dark.js.svg?maxAge=2592000" alt="Mibbit">
+<img src="https://img.shields.io/badge/chat-mibbit-brightgreen.svg" alt="Mibbit">
 </a> 
 </p>
 # WhoDunIt
