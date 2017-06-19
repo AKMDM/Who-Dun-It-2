@@ -1,4 +1,4 @@
-<p align="center"> <img alt="WhoDunIt" src="https://rawgit.com" width="580">
+<p align="center"> <img alt="WhoDunIt" src="https://raw.githubusercontent.com/prepper25/WhoDunIt/master/Whodunit_Beta/Graphics/WDIMAIN.png" width="580">
 <br>
 <a href="https://github.com/Kamenschy/WhoDunit/tags">
 <img src="https://img.shields.io/github/tag/Kamenschy/WhoDunit.svg?label=%20tag%20" alt="Tag">
