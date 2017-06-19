@@ -43,8 +43,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Temporary PK3 files
+# Temporary PK3,PK7 files
 *.pk3
+*.pk7
+
 
 # Backups
 *.bak
@@ -54,4 +56,4 @@ Temporary Items
 *.wad.backup
 *.wad.backup1
 *.wad.backup2
-*.wav.backup3
+*.wad.backup3
