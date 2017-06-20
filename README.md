@@ -16,7 +16,7 @@
 <img src="https://img.shields.io/badge/chat-mibbit-brightgreen.svg" alt="Mibbit">
 </a> 
 </p>
-<h1> WhoDunIt</h1> 
+<h2> WhoDunIt</h2> 
 Prepper & Kaminsky Presents: WhoDunIt! (dev version)
 
 Yes, the popular and lazarus murd from whodunit has found its home at Github. Here's how it works:
@@ -29,7 +29,8 @@ Yes, the popular and lazarus murd from whodunit has found its home at Github. He
 For further information, see the Zandronum Forums thread. :suspect: [Zandronum](https://zandronum.com/forum/viewtopic.php?f=58&t=123&hilit=whodunit+finally)
 or contact us on IRC channel: :busts_in_silhouette: [#whodunithelp](https://client00.chat.mibbit.com/?server=irc.zandronum.com&channel=%23whodunithelp)
 
-## Contributions If you would like to contribute to this repository, please... 
+## Contributions 
+If you would like to contribute to this repository, please... 
 1. Fork 
 2. Make changes (please read the [contribution guidelines](./.github/CONTRIBUTING.md) and abide by them) 
 3. Create a pull request!
