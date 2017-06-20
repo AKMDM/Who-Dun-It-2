@@ -16,7 +16,7 @@
 <img src="https://img.shields.io/badge/chat-mibbit-brightgreen.svg" alt="Mibbit">
 </a> 
 </p>
-# WhoDunIt
+<h1> WhoDunIt</h1> 
 Prepper & Kaminsky Presents: WhoDunIt! (dev version)
 
 Yes, the popular and lazarus murd from whodunit has found its home at Github. Here's how it works:
