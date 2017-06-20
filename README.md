@@ -12,7 +12,7 @@
 <a href="https://zandronum.com/forum/viewtopic.php?f=58&t=123&hilit=whodunit+finally">
 <img src="https://img.shields.io/badge/Forum%20-zandronum-brightgreen.svg" alt="Zandronum">
 </a>
-<a href="https://chat.mibbit.com/?server=irc.zandronum.com&channel=%23whodunithelp">
+<a href="https://client00.chat.mibbit.com/?server=irc.zandronum.com&channel=%23whodunithelp">
 <img src="https://img.shields.io/badge/chat-mibbit-brightgreen.svg" alt="Mibbit">
 </a> 
 </p>
@@ -27,11 +27,11 @@ Yes, the popular and lazarus murd from whodunit has found its home at Github. He
 4. Load the resulting pk3/pk7 file to run the mod.
 
 For further information, see the Zandronum Forums thread. :suspect: [Zandronum](https://zandronum.com/forum/viewtopic.php?f=58&t=123&hilit=whodunit+finally)
-or contact us on IRC channel: :busts_in_silhouette: [#whodunithelp](https://chat.mibbit.com/?server=irc.zandronum.com&channel=%23whodunithelp)
+or contact us on IRC channel: :busts_in_silhouette: [#whodunithelp](https://client00.chat.mibbit.com/?server=irc.zandronum.com&channel=%23whodunithelp)
 
 ## Contributions If you would like to contribute to this repository, please... 
 1. Fork 
 2. Make changes (please read the [contribution guidelines](./.github/CONTRIBUTING.md) and abide by them) 
 3. Create a pull request!
 
-Thanks to all that have [contributed](./Whodunit_Beta/Credits/CREDITS.TXT) so far!
+Thanks to all that have [contributed](./Whodunit_Beta/Credits/CREDITS.txt) so far!
