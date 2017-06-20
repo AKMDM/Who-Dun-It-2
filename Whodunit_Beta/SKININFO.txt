@@ -1,0 +1,194 @@
+//==================================================================
+////////////////////////     SKINS        ////////////////////////
+//=================================================================
+{
+name = AxeSkin
+class = "Voice: Wimpy"
+sprite = PLAX
+CrouchSprite = PLAX
+}
+
+{
+name = AxeSkin
+class = "Voice: Thick"
+sprite = PLAX
+CrouchSprite = PLAX
+}
+
+{
+name = ShotgunSkin
+class = "Voice: Thick"
+sprite = PLA3
+CrouchSprite = PL3C
+}
+
+{
+name = ShotgunSkin
+class = "Voice: Wimpy"
+sprite = PLA3
+CrouchSprite = PL3C
+}
+
+{
+name = TwigSkin
+class = "Voice: Thick"
+sprite = PLTW
+CrouchSprite = PLTW
+}
+
+{
+name = TwigSkin
+class = "Voice: Wimpy"
+sprite = PLTW
+CrouchSprite = PLTW
+}
+
+{
+name = PistolSkin
+class = "Voice: Thick"
+sprite = PLA2
+CrouchSprite = PL2C
+}
+
+{
+name = PistolSkin
+class = "Voice: Wimpy"
+sprite = PLA2
+CrouchSprite = PL2C
+}
+
+{
+name = ChainsawSkin
+class = "Voice: Thick"
+sprite = PLA0
+CrouchSprite = PL8C
+}
+
+{
+name = ChainsawSkin
+class = "Voice: Wimpy"
+sprite = PLA0
+CrouchSprite = PL8C
+}
+
+{
+name = ShovelSkin
+class = "Voice: Wimpy"
+sprite = PLSH
+CrouchSprite = PSHC 
+}
+
+{
+name = ShovelSkin
+class = "Voice: Thick"
+sprite = PLSH
+CrouchSprite = PSHC
+}
+
+{
+name = MurderSkin
+class = "Voice: Thick"
+sprite = PKNI
+CrouchSprite = PKNC 
+}
+
+{
+name = MurderSkin
+class = "Voice: Wimpy"
+sprite = PKNI
+CrouchSprite = PKNC
+}
+
+{
+name = FistSkin
+class = "Voice: Thick"
+sprite = PLA1
+CrouchSprite = PL1C 
+}
+
+{
+name = FistSkin
+class = "Voice: Wimpy"
+sprite = PLA1
+CrouchSprite = PL1C
+}
+
+{
+name = M1Skin
+class = "Voice: Thick"
+sprite = PCBN
+CrouchSprite = PCBC 
+}
+
+{
+name = M1Skin
+class = "Voice: Wimpy"
+sprite = PCBN
+CrouchSprite = PCBC
+}
+
+{
+name = WrenchSkin
+class = "Voice: Thick"
+sprite = PLA6
+CrouchSprite = PWNC 
+}
+
+{
+name = WrenchSkin
+class = "Voice: Wimpy"
+sprite = PLA6
+CrouchSprite = PWNC
+}
+
+{
+name = PipeSkin
+class = "Voice: Thick"
+sprite = PLA7
+CrouchSprite = PIPC
+}
+
+{
+name = PipeSkin
+class = "Voice: Wimpy"
+sprite = PLA7
+CrouchSprite = PIPC 
+}
+/*
+//WDIEXSKINS/////////////////////////////////////
+{
+name = JenniferSkin
+sprite = JENN
+class = "voice: thick"
+CrouchSprite = JENN
+//scale = 0.3
+gender = male
+}
+
+{
+name = JenniferSkin
+sprite = JENN
+class = "voice: wimpy"
+//scale = 0.3
+CrouchSprite = JENN
+gender = male
+}
+
+{
+name = ScissormanSkin
+sprite = SCIS
+class = "voice: thick"
+CrouchSprite = JENN
+//scale = 0.3
+gender = male
+}
+
+{
+name = ScissormanSkin
+sprite = SCIS
+class = "voice: wimpy"
+//scale = 0.3
+CrouchSprite = JENN
+gender = male
+}
+*/

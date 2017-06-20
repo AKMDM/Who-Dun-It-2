@@ -1,0 +1,810 @@
+//==================================================================
+/////////////////   MODEL DEFINITIONS    ////////////////////////
+//=================================================================
+Model Chair
+{
+	Path "Models/Chair"
+	Model 0 "chair.md3"
+	Skin 0 "chair1.png"
+	Scale 8.0 8.0 8.0
+
+	FrameIndex CHAR A 0 0
+}
+
+Model Wdi_Door
+{
+	Path "Models/Door"
+	Model 0 "door.md3"
+	Skin 0 "door.png"
+	Scale 24.5 24.5 28.0
+
+	FrameIndex DOOR A 0 0
+	FrameIndex DOOR B 0 1
+	FrameIndex DOOR C 0 2
+	FrameIndex DOOR D 0 3
+	FrameIndex DOOR E 0 4
+	FrameIndex DOOR F 0 5
+	FrameIndex DOOR G 0 6
+	FrameIndex DOOR H 0 7
+	FrameIndex DOOR I 0 8
+	FrameIndex DOOR J 0 9
+	FrameIndex DOOR K 0 10
+	FrameIndex DOOR L 0 11
+	FrameIndex DOOR M 0 12
+	FrameIndex DOOR N 0 13
+	FrameIndex DOOR O 0 14
+	FrameIndex DOOR P 0 15
+	FrameIndex DOOR Q 0 16
+	FrameIndex DOOR R 0 17
+	FrameIndex DOOR S 0 18
+	FrameIndex DOOR T 0 19
+}
+
+Model DoorMover
+{
+	Path "Models/Door"
+	Model 0 "door.md3"
+	Skin 0 "door.png"
+	Scale 24.5 24.5 28.0
+
+	FrameIndex DOOR A 0 0
+	FrameIndex DOOR B 0 1
+	FrameIndex DOOR C 0 2
+	FrameIndex DOOR D 0 3
+	FrameIndex DOOR E 0 4
+	FrameIndex DOOR F 0 5
+	FrameIndex DOOR G 0 6
+	FrameIndex DOOR H 0 7
+	FrameIndex DOOR I 0 8
+	FrameIndex DOOR J 0 9
+	FrameIndex DOOR K 0 10
+	FrameIndex DOOR L 0 11
+	FrameIndex DOOR M 0 12
+	FrameIndex DOOR N 0 13
+	FrameIndex DOOR O 0 14
+	FrameIndex DOOR P 0 15
+	FrameIndex DOOR Q 0 16
+	FrameIndex DOOR R 0 17
+	FrameIndex DOOR S 0 18
+	FrameIndex DOOR T 0 19
+}
+
+Model Dryer
+{
+	Path "Models/Dryer"
+	Model 0 "HANDDRYER.md2"
+	Skin 0 "handdryer.png"
+	Scale 2.0 2.0 2.0
+
+	FrameIndex DRAR A 0 0
+}
+
+Model Sink
+{
+	Path "Models/Sink"
+	Model 0 "SINK.md2"
+	Skin 0 "sink.png"
+	Scale 3.0 3.0 3.0
+
+	FrameIndex SANK A 0 0
+}
+
+Model Toilet
+{
+	Path "Models/Toilet"
+	Model 0 "TOILET.md2"
+	Skin 0 "toilet.png"
+	Scale 1.8 1.8 1.8
+
+	FrameIndex MOIL A 0 0
+}
+
+Model Car
+{
+	Path "Models/Cars"
+	Model 0 "CAR.md2"
+	Skin 0 "car.png"
+	Scale 0.8 0.8 0.8
+
+	FrameIndex CARR A 0 0
+}
+
+
+Model Soap
+{
+	Path "Models/Soap"
+	Model 0 "SOAP.md2"
+	Skin 0 "soap.png"
+	Scale 0.8 0.8 0.8
+
+	FrameIndex SOAP A 0 0
+}
+
+
+
+Model Tpaper
+{
+	Path "Models/Tpaper"
+	Model 0 "TPAPER.md2"
+	Skin 0 "tpaper.png"
+	Scale 1.0 1.0 1.0
+	FrameIndex TPAP A 0 0
+}
+
+/*
+Model Television
+{
+	Path "Models/television"
+	Model 0 "br_tv2.md3"
+	Skin 0 "br_electronics3.png"
+	Scale 1.3 1.3 1.3
+
+	FrameIndex TVEL A 0 0
+}
+*/
+
+
+Model Piano
+{
+	Path "Models/Piano"
+	Model 0 "PIANO.md3"
+	Skin 0 "piano.png"
+	Scale 0.8 0.8 0.8
+
+	FrameIndex PIAN A 0 0
+}
+
+
+Model Stall
+{
+	Path "Models/Stall"
+	Model 0 "stall.md3"
+	Skin 0 "stall.png"
+	Scale 0.8 0.8 0.8
+
+	FrameIndex STAL A 0 0
+}
+
+
+Model Grate
+{
+	path "Models/Grate"
+	Model 0 "grate.md3"
+	Skin 0 "grate.png"
+	Scale 4.0 4.0 4.0
+	
+	FrameIndex GRAT A 0 0
+}
+
+Model CatBox1
+{
+	path "Models/Boxes"
+	Model 0 "box1.md3"
+	Skin 0 "cbox3.png"
+	Scale 19.0 19.0 19.0
+	
+	FrameIndex CBOX A 0 0
+}
+
+Model CatBox2
+{
+	path "Models/Boxes"
+	Model 0 "box1.md3"
+	Skin 0 "cbox1.png"
+	Scale 19.0 19.0 19.0
+	
+	FrameIndex CBOX A 0 0
+}
+Model CatBox3
+{
+	path "Models/Boxes"
+	Model 0 "box1.md3"
+	Skin 0 "cbox3.png"
+	Scale 19.0 19.0 19.0
+	
+	FrameIndex CBOX A 0 0
+}
+Model CatBox4
+{
+	path "Models/Boxes"
+	Model 0 "box1.md3"
+	Skin 0 "cbox1.png"
+	Scale 19.0 19.0 19.0
+	
+	FrameIndex CBOX A 0 0
+}
+Model CatBox5
+{
+	path "Models/Boxes"
+	Model 0 "box2.md3"
+	Skin 0 "cbox3.png"
+	Scale 19.0 19.0 19.0
+	
+	FrameIndex CBOX A 0 0
+}
+Model CatBox6
+{
+	path "Models/Boxes"
+	Model 0 "box2.md3"
+	Skin 0 "cbox1.png"
+	Scale 19.0 19.0 19.0
+	
+	FrameIndex CBOX A 0 0
+}
+Model CatBoxUnwrapped
+{
+	path "Models/Boxes"
+	Model 0 "box3.md3"
+	Skin 0 "cbox2.png"
+	Scale 13.0 13.0 13.0
+	
+	FrameIndex CBOX A 0 0
+}
+
+Model CatMartiniGlass
+{
+	path "Models/Bottles"
+	Model 0 "martini.md3"
+	Skin 0 "bottle1.png"
+	Scale 3.0 3.0 3.0
+	
+	FrameIndex GLSS A 0 0
+}
+
+Model CatBottleLabel1
+{
+	path "Models/Bottles"
+	Model 0 "bottlelabel.md3"
+	Skin 0 "bottle1.png"
+	Scale 3.5 3.5 3.5
+	
+	FrameIndex BOTT A 0 0
+}
+Model CatBottleLabel1
+{
+	path "Models/Bottles"
+	Model 0 "bottlelabel.md3"
+	Skin 0 "bottle1.png"
+	Scale 3.5 3.5 3.5
+	
+	FrameIndex BOTT A 0 0
+}
+Model CatBottleLabel2
+{
+	path "Models/Bottles"
+	Model 0 "bottlelabel.md3"
+	Skin 0 "bottle2.png"
+	Scale 3.5 3.5 3.5
+	
+	FrameIndex BOTT A 0 0
+}
+Model CatBottleLabel3
+{
+	path "Models/Bottles"
+	Model 0 "bottlelabel.md3"
+	Skin 0 "bottle3.png"
+	Scale 3.5 3.5 3.5
+	
+	FrameIndex BOTT A 0 0
+}
+Model CatBottleLabel4
+{
+	path "Models/Bottles"
+	Model 0 "bottlelabel.md3"
+	Skin 0 "bottle4.png"
+	Scale 3.5 3.5 3.5
+	
+	FrameIndex BOTT A 0 0
+}
+
+
+Model CatBottle1
+{
+	path "Models/Bottles"
+	Model 0 "bottle.md3"
+	Skin 0 "bglass1.png"
+	Scale 3.5 3.5 3.5
+	
+	FrameIndex BOTT A 0 0
+}
+
+Model CatBottle2
+{
+	path "Models/Bottles"
+	Model 0 "bottle.md3"
+	Skin 0 "bglass2.png"
+	Scale 3.5 3.5 3.5
+	
+	FrameIndex BOTT A 0 0
+}
+
+Model CatBottle3
+{
+	path "Models/Bottles"
+	Model 0 "bottle.md3"
+	Skin 0 "bglass3.png"
+	Scale 3.5 3.5 3.5
+ 
+	FrameIndex BOTT A 0 0
+}
+/*
+Model CatTrashcan
+{
+	Path "models"
+	Model 0 "trashcan.md3"
+	Skin 0 "trash_can.jpg"
+	Scale 16.0 16.0 16.0
+	
+	FrameIndex BARR A 0 0
+}
+*/
+
+Model CatBarrel
+{
+	Path "Models/Barrel"
+	Model 0 "barrel.md3"
+	Skin 0 "barrel.png"
+	Scale 16.0 16.0 16.0
+	
+	FrameIndex BARR A 0 0
+}
+
+Model Page1a
+{
+	Path "Models/Pages"
+	Model 0 "page.md3"
+	Skin 0 "page1a.png"
+	Scale 12.0 12.0 1.0
+
+	FrameIndex PAGE A 0 0
+}
+
+Model Page1b
+{
+	Path "Models/Pages"
+	Model 0 "page.md3"
+	Skin 0 "page1b.png"
+	Scale 12.0 12.0 1.0
+
+	FrameIndex PAGE A 0 0
+}
+
+Model Page1c
+{
+	Path "Models/Pages"
+	Model 0 "page.md3"
+	Skin 0 "page1c.png"
+	Scale 12.0 12.0 1.0
+
+	FrameIndex PAGE A 0 0
+}
+
+Model Page1d
+{
+	Path "Models/Pages"
+	Model 0 "page.md3"
+	Skin 0 "page1d.png"
+	Scale 12.0 12.0 1.0
+
+	FrameIndex PAGE A 0 0
+}
+
+Model Page2a
+{
+	Path "Models/Pages"
+	Model 0 "page.md3"
+	Skin 0 "page2a.png"
+	Scale 12.0 12.0 1.0
+
+	FrameIndex PAGE A 0 0
+}
+
+Model Page2b
+{
+	Path "Models/Pages"
+	Model 0 "page.md3"
+	Skin 0 "page2b.png"
+	Scale 12.0 12.0 1.0
+
+	FrameIndex PAGE A 0 0
+}
+
+Model Page2c
+{
+	Path "Models/Pages"
+	Model 0 "page.md3"
+	Skin 0 "page2c.png"
+	Scale 12.0 12.0 1.0
+
+	FrameIndex PAGE A 0 0
+}
+
+Model Page2d
+{
+	Path "Models/Pages"
+	Model 0 "page.md3"
+	Skin 0 "page2d.png"
+	Scale 12.0 12.0 1.0
+
+	FrameIndex PAGE A 0 0
+}
+
+Model Page3
+{
+	Path "Models/Pages"
+	Model 0 "page.md3"
+	Skin 0 "page3.png"
+	Scale 12.0 12.0 1.0
+
+	FrameIndex PAGE A 0 0
+	FrameIndex PAGE B 0 0
+	FrameIndex PAGE C 0 0
+	FrameIndex PAGE D 0 0
+}
+
+Model ToolBox
+{
+	Path "Models/Toolbox"
+	Model 0 "toolbox.md3"
+	Skin 0 "toolbox.png"
+	Scale 4.0 4.0 4.0
+
+	FrameIndex TLBX A 0 0
+}
+
+Model ModelSpark
+{
+	Path "Models/Spark"
+	Model 0 "spark.md3"
+	Skin 0 "spark.png"
+	Scale 4.0 4.0 4.0
+	PITCHFROMMOMENTUM
+	
+	FrameIndex SPRK A 0 0
+	FrameIndex SPRK B 0 1
+	FrameIndex SPRK C 0 2
+	FrameIndex SPRK D 0 3
+	FrameIndex SPRK E 0 4
+	FrameIndex SPRK F 0 5
+	FrameIndex SPRK G 0 6
+	FrameIndex SPRK H 0 7
+	FrameIndex SPRK I 0 8
+	FrameIndex SPRK J 0 9
+}
+
+Model Spanner
+{
+	Path "Models/Spanner"
+	Model 0 "spanner.md3"
+	Skin 0 "spanner.png"
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex SPAN A 0 0
+}
+
+Model Screwdriver
+{
+	Path "Models/Screwdriver"
+	Model 0 "screwdriver.md3"
+	Skin 0 "screwdriver.png"
+	Scale 3.0 3.0 3.0
+
+	FrameIndex SCRW A 0 0
+}
+
+Model PipeSet
+{
+	Path "Models/Pipes"
+	Model 0 "pipeset.md3"
+	Skin 0 "pipeset.png"
+	Scale 16.0 16.0 16.0
+
+	FrameIndex PIPM A 0 0
+}
+
+Model PipeHorizontal
+{
+	Path "Models/Pipes"
+	Model 0 "pipehorz.md3"
+	Skin 0 "pipeset.png"
+	Scale 16.0 16.0 16.0
+
+	FrameIndex PIPM A 0 0
+}
+
+Model PipeCurved
+{
+	Path "Models/Pipes"
+	Model 0 "pipecurv.md3"
+	Skin 0 "pipeset.png"
+	Scale 16.0 16.0 16.0
+
+	FrameIndex PIPM A 0 0
+}
+
+Model BigPipe1
+{
+	Path "Models/Pipes"
+	Model 0 "mainpipe.md3"
+	Skin 0 "mainpipe.png"
+	Model 1 "pipeends.md3"
+	Skin 1 "pipeends.png"
+	Scale 16.0 16.0 16.0
+
+	FrameIndex PIPM A 0 0
+	FrameIndex PIPM A 1 0
+}
+
+Model BigPipe1A
+{
+	Path "Models/Pipes"
+	Model 0 "mainpipe.md3"
+	Skin 0 "mainpipe.png"
+	Model 1 "pipeends.md3"
+	Skin 1 "pipeends.png"
+	Model 2 "pipesmal.md3"
+	Skin 2 "pipesmal.png"
+	Scale 16.0 16.0 16.0
+
+	FrameIndex PIPM A 0 0
+	FrameIndex PIPM A 1 0
+	FrameIndex PIPM A 2 0
+}
+
+Model BigPipe1B
+{
+	Path "Models/Pipes"
+	Model 0 "pipeends.md3"
+	Skin 0 "pipeends.png"
+	Model 1 "pipesmal.md3"
+	Skin 1 "pipesmal.png"
+	Scale 16.0 16.0 16.0
+
+	FrameIndex PIPM A 0 0
+	FrameIndex PIPM A 1 0
+}
+
+Model BigPipe1C
+{
+	Path "Models/Pipes"
+	Model 0 "pipeends.md3"
+	Skin 0 "pipeends.png"
+	Model 1 "pipesmal.md3"
+	Skin 1 "pipesmal.png"
+	Model 2 "mainpipe.md3"
+	Skin 2 "mainpipe.png"
+	Model 3 "pipedial.md3"
+	Skin 3 "pipedial.png"
+
+	Scale 16.0 16.0 16.0
+
+	FrameIndex PIPM A 0 0
+	FrameIndex PIPM A 1 0
+	FrameIndex PIPM A 2 0
+	FrameIndex PIPM A 3 0
+}
+
+Model TripodLightStandingBulb
+{	
+	Path "Models/Tripods"
+	Model 0 "tripodlightbulb2.md3"
+	Skin 0 "tripodlight.png"
+	Scale 23.0 23.0 23.0
+	
+	FrameIndex TRPA A 0 0
+}
+
+Model TripodLightStandingBeam
+{	
+	Path "Models/Tripods"
+	Model 0 "tripodlightbeam2.md3"
+	Skin 0 "lightbeam.png"
+	Scale 23.0 23.0 23.0
+
+	FrameIndex TRPA B 0 0
+}
+
+Model TripodLightStanding
+{
+	Path "Models/Tripods"
+	Model 0 "tripodlight2.md3"
+	Skin 0 "tripodlight.png"
+	Scale 23.0 23.0 23.0
+	
+	FrameIndex TRIP A 0 0
+}
+
+Model TripodLight
+{
+	Path "Models/Tripods"
+	Model 0 "tripodlight.md3"
+	Skin 0 "tripodlight.png"
+	Scale 23.0 23.0 23.0
+	
+	FrameIndex TRIB A 0 0
+}
+
+Model TripodLightBulb
+{	
+	Path "Models/Tripods"
+	Model 0 "tripodlightbulb.md3"
+	Skin 0 "tripodlight.png"
+	Scale 23.0 23.0 23.0
+	
+	FrameIndex TRIB A 0 0
+}
+
+Model TripodLightBeam
+{	
+	Path "Models/Tripods"
+	Model 0 "lightbeam.md3"
+	Skin 0 "lightbeam.png"
+	Scale 23.0 23.0 23.0
+
+	FrameIndex TRIB B 0 0
+}
+
+//WDIEX MODELS =================
+//TORN
+Model KITTPlayer
+{
+   Path "Models/Cars"
+   Model 0 "KITT.md3"
+   Skin 0 "KITTskin.png"
+   Model 1 "Scanner.md3"
+   Skin 1 "SCANNR1.png"
+   Scale 2.7 2.7 2.7
+   FrameIndex CARB A 0 0
+}
+
+Model Motortrn
+{
+   Path "Models/Motorcycle"
+   Model 0 "motor.md2"
+   Skin 0 "motor.tga"
+   Scale 1 1 1
+   FrameIndex MOTR A 0 0
+}
+
+Model TCPDCar
+{
+   Path "Models/Cars"
+   Model 0 "TCPD.md2"
+   Skin 0 "TCPD.png"
+   Scale 1.4 1.4 1.4
+   IGNORETRANSLATION
+   FrameIndex COPB A 0 0
+   FrameIndex COPB B 0 0
+   FrameIndex COPB C 0 0
+}
+
+Model Trash1
+{
+   Path "Models/Trash"
+   Model 0 "Trash.md2"
+   Skin 0 "Trash.tga"
+   Scale 1 1 1
+   zoffset 3
+   
+   FrameIndex NULL A 0 0
+}
+
+Model Trash2
+{
+   Path "Models/Trash"
+   Model 0 "Trash2.md2"
+   Skin 0 "Trash.tga"
+   Scale 1 1 1
+   zoffset 6
+   
+   FrameIndex NULL A 0 0
+}
+/* NO USED IN ANY MAP CHECK LIKE MAPSPOT same issue spawm ed number
+Model FallenLeaves
+{
+   Path "Models/Atmosphere"
+   Model 0 "FLeaves.md2"
+   Skin 0 "FLeaves1.png"
+   Scale 1.6 1.6 1.6
+   zoffset 1
+   
+   FrameIndex NULL A 0 0
+}
+
+Model LeafTree
+{
+   	Path "models/EXTREE1"
+   	Model 0 "leaftreetrunk.md3"
+   	Skin 0 "leaftreebark.png"
+   	Model 1 "leaftreeleaves.md3"
+   	Skin 1 "treeleaves.png"
+
+   	FrameIndex MODL A 0 0
+   	FrameIndex MODL A 1 0
+}
+
+Model FallLeafTree
+{
+   	Path "models/EXTREE1"
+   	Model 0 "leaftreetrunk.md3"
+   	Skin 0 "leaftreebark.png"
+   	Model 1 "leaftreeleaves.md3"
+   	Skin 1 "falltreeleaves.png"
+    Scale 1.5 1.0 1.0
+   	FrameIndex MODL A 0 0
+   	FrameIndex MODL A 1 0
+}
+
+//SLENDERMAN
+THIS MODEL SPAWN only LIKE MAPSPOT*/ 
+Model NoLeafTree
+{
+   	Path "models/trees"
+   	Model 0 "leaftreetrunk.md3"
+   	Skin 0 "leaftreebark.png"
+	Scale 1.4 1.4 1.4
+
+   	FrameIndex MODL A 0 0
+}
+
+//WDIEXSEC
+Model ModelSittersPlant1
+{ 
+   Path "Models/Plants" 
+   Model 0 "sitplant1.md2" 
+   Skin 0 "sitplant1.png"
+   Scale 0.4 0.4 0.4
+   
+   FrameIndex NULL A 0 0
+}
+
+Model ModelSittersPlant2
+{ 
+   Path "Models/Plants" 
+   Model 0 "sitplant2.md2" 
+   Skin 0 "sitplant2.png"
+   Scale 1.0 1.0 1.0
+   
+   FrameIndex NULL A 0 0
+}
+
+Model ModelSittersPlant3
+{ 
+   Path "Models/Plants" 
+   Model 0 "sitplant3.md2" 
+   Skin 0 "sitplant3.png"
+   Scale 1.0 1.0 1.0
+   
+   FrameIndex NULL A 0 0
+}
+
+//MARSIS
+Model StallEX
+{
+	Path "models/stall"
+	Model 0 "stall.md3"
+	Skin 0 "stallEX.png"
+	Scale 0.8 0.8 0.8
+
+	FrameIndex STAL A 0 0
+}
+
+Model StallEXa
+{
+	Path "models/stall"
+	Model 0 "stall.md3"
+	Skin 0 "stallEXa.png"
+	Scale 0.8 0.8 0.8
+
+	FrameIndex STAL A 0 0
+}
+
+Model StallEXb
+{
+	Path "models/stall"
+	Model 0 "stall.md3"
+	Skin 0 "stallEXb.png"
+	Scale 0.8 0.8 0.8
+
+	FrameIndex STAL A 0 0
+}
