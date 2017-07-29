@@ -1,0 +1,298 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Who Dun It Source Code
+// Copyright (C) 2010-2017 by Who Dun It Development Team
+// All rights reserved.
+//
+// Permission to use, copy, modify, and distribute this software and its
+// documentation for any purpose and without fee is hereby granted,
+// provided that the above copyright notice appear in all copies and that
+// both that copyright notice and this permission notice appear in
+// supporting documentation.
+//
+// THE AUTHOR PROVIDES THIS SOFTWARE ''AS IS'' AND ANY EXPRESSED OR
+// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+// OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+// IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+// Filename: wdi_game.bcs
+//
+// Description:
+//
+///////////////////////////////////////////////////////////////////////////////
+ 
+#library "wdi_game"
+
+#include "wdi_game.h"
+#include "wdi_player.h"
+
+///////////////////////////////////////////////////////////////////////////////
+//  Variables
+//////////////////////////////////////////////////////////////////////////////
+
+int g_iGameState;
+int g_iGameEnding;
+
+int g_iResetCountdownTics;
+int g_iSafetyCountdownTics;
+int g_iMurdererChooseTics;
+
+int g_nBlacklistRounds;
+
+int g_iMurdererHealthBonus;
+int g_iMurdererMaxHealthBonus;
+
+int g_iFinalScore;
+int g_iFinalScorePercentage;
+int g_iRank;
+
+str g_sFinaleMusic;
+str g_sInnocentWinMusic;
+str g_sMurdererWinMusic;
+
+bool g_bFinaleEnabled;
+
+///////////////////////////////////////////////////////////////////////////////
+//  Functions
+///////////////////////////////////////////////////////////////////////////////
+
+int WDI_GetGameState(void)
+{
+	return g_iGameState;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+int WDI_GetGameEnding(void)
+{
+	return g_iGameEnding;
+}
+
+///////////////////////////////////////////////////////////////////////////////]
+
+bool WDI_IsFinaleEnabled(void)
+{
+	return g_bFinaleEnabled;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+void WDI_SetFinaleMusic(str sMusic)
+{
+	g_sFinaleMusic = sMusic;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+void WDI_SetEndingMusic(str sInnocentMusic, str sMurdererMusic)
+{
+	if(sInnocentMusic != 0)
+	{
+		g_InnocentWinMusic = sInnocentMusic;
+	}
+	
+	if(sMurdererMusic != 0)
+	{
+		g_MurdererWinMusic = sMurdererMusic;
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+void WDI_CalculateFinalScore(void)
+{
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//  Scripts
+/////////////////////////////////////////////////////////////////////////////// 
+
+Script "WDI_StartResetCountdown" (int iCountdownTime)
+{	
+	g_iGameState = GAMESTATE_RESETCOUNTDOWN;
+	g_iResetCountdownTics = iCountdownTime * TICRATE;
+	
+	// Wait until the reset countdown is finished.
+	while(g_iResetCountdownTics > 0)
+	{
+		// If there aren't enough players to continue.
+		if(PlayerCount() < 2)
+		{
+			g_iGameState = GAMESTATE_WAITFORPLAYERS;
+			
+			// Restart the game.
+			ACS_NamedExecuteWithResult("WDI_StartGame");
+			Terminate;
+		}
+		
+		g_iResetCountdownTics--;
+		
+		Delay(1);
+	}
+	
+	// Reset the player's health and inventory.
+	WDI_ResetPlayerHealth();
+	WDI_ResetPlayerInventory();
+
+	// Finally, reset the map and start a new round.
+	ResetMap();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+Script "WDI_StartSafetyCountdown" (int iCountdownTime, int iHealthBonus, int iMaxHealthBonus)
+{	
+	g_iGameState = GAMESTATE_SAFETYCOUNTDOWN;
+	g_iSafetyCountdownTics = iCountdownTime * TICRATE;
+	
+	g_nBlacklistRounds = GetCVar("wdi_blacklist_rounds");
+	
+	// Wait until the safety countdown is finished.
+	// At this time, spectators can still join the game.
+	while(g_iSafetyCountdownTics > 0)
+	{
+		// Players must always be invulnerable during safety.
+		SetPlayerProperty(1, ON, PROP_INVULNERABILITY);
+		
+		g_iSafetyCountdownTics--;
+		
+		Delay(1);
+	}
+	
+	// Let the game know that a murderer is about to be chosen.
+	g_iGameState = GAMESTATE_MURDERCHOOSE;
+	g_iMurdererChooseTics = MURDERER_CHOOSE_DELAY * TICRATE;
+	
+	// Save the murderer's health bonus per innocent, and their max health.
+	g_iMurdererHealthBonus = iHealthBonus;
+	g_iMurdererMaxHealthBonus = iMaxHealthBonus;
+	
+	// Wait a few more seconds before choosing the murderer.
+	while(g_iMurdererChooseTics > 0)
+	{
+		// If there aren't enough players to continue.
+		if(PlayerCount() < 2)
+		{
+			g_iGameState = GAMESTATE_WAITFORPLAYERS;
+			
+			// Restart the game.
+			ACS_NamedExecuteWithResult("WDI_StartGame");
+			Terminate;
+		}
+		
+		g_iMurdererChooseTics--
+		
+		Delay(1);
+	}
+		
+	// Choose the murderer.
+	WDI_ChooseMurderer(0, g_iMurdererHealthBonus, g_iMurdererMaxHealthBonus, g_nBlacklistRounds);
+	
+	// Count the number of players in the current game.
+	WDI_CountPlayers();
+	
+	// Remove invulnerability from all players.
+	SetPlayerProperty(1, OFF, PROP_INVULNERABILITY);
+	
+	ACS_NamedExecuteWithResult("WDI_DrainMurdererSanity");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+Script "WDI_StartGame" OPEN
+{
+	// This script shouldn't run while on the TITLEMAP.
+	if(GameType() == GAME_TITLE_MAP)
+	{
+		Terminate;
+	}
+	
+	// If there's not enough players, then wait until some join.
+	if(PlayerCount() < 2)
+	{	
+		// Wait until enough players join.
+		while(PlayerCount() < 2)
+		{
+			Delay(1);
+		}
+
+		// Check if the reset countdown is acceptable.
+		if(GetCVar("wdi_reset_time") < MIN_RESET_TIME || GetCVar("wdi_reset_time") > MAX_RESET_TIME)
+		{
+			SetCVar("wdi_reset_time", RESET_COUNTDOWN_TIME);
+		}
+
+		iResetTime = GetCVar("wdi_reset_time");
+		
+		// Start the reset countdown.
+		ACS_NamedExecuteWithResult("WDI_StartResetCountdown", GetCVar("wdi_reset_time"));	
+		Terminate;
+	}
+	
+	// Check if the number of blacklist rounds is acceptable.
+	if(GetCVar("wdi_blacklist_rounds") < 0)
+	{
+		SetCVar("wdi_blacklist_rounds", 5);
+	}
+	
+	// Check if the murderer health bonus is acceptable.
+	if(GetCVar("wdi_murd_healthbonus") < 0)
+	{
+		SetCVar("wdi_blacklist_rounds", 5);
+	}
+	
+	// Check if the murderer's max health is acceptable.
+	if(GetCVar("wdi_murd_maxbonus") < 0)
+	{
+		SetCVar("wdi_blacklist_rounds", 5);
+	}
+
+	// Check if the safety countdown is acceptable.
+	if(GetCVar("wdi_safety_time") < MIN_SAFETY_TIME || GetCVar("wdi_safety_time") > MAX_SAFETY_TIME)
+	{
+		SetCVar("wdi_safety_time", SAFETY_COUNTDOWN_TIME);
+	}
+
+	// Start the safety countdown.
+	ACS_NamedExecuteWithResult("WDI_StartSafetyCountdown", GetCVar("wdi_safety_time"), iHealthBonus, iMaxHealthBonus);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+Script "WDI_EndGame" (void)
+{
+	g_iGameState = GAMESTATE_GAMEOVER;
+	
+	SetPlayerProperty(1, ON, PROP_TOTALLYFROZEN);
+	SetPlayerProperty(1, ON, PROP_INVULNERABILITY);
+	
+	SetMusic("");
+	
+	switch(g_iGameEnding)
+	{
+		case GAMEEND_MURDERWIN: 
+			AmbientSound("D_CTTAL1", 127);
+			break;
+			
+		case GAMEEND_MURDERLOSE:
+		
+		case GAMEEND_MURDERSUICIDE:
+		
+		case GAMEEND_MURDERLEFT:
+			AmbientSound("D_CTTAL2", 127);
+			break;
+			
+		case GAMEEND_CUSTOM:
+			break;
+	}
+	
+	WDI_ResetPlayerInventory();
+	
+	Exit_Normal(0);
+}

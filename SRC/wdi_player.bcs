@@ -1,0 +1,317 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Who Dun It Source Code
+// Copyright (C) 2010-2017 by Who Dun It Development Team
+// All rights reserved.
+//
+// Permission to use, copy, modify, and distribute this software and its
+// documentation for any purpose and without fee is hereby granted,
+// provided that the above copyright notice appear in all copies and that
+// both that copyright notice and this permission notice appear in
+// supporting documentation.
+//
+// THE AUTHOR PROVIDES THIS SOFTWARE ''AS IS'' AND ANY EXPRESSED OR
+// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+// OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+// IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+// Filename: wdi_player.bcs
+//
+// Description:
+//
+///////////////////////////////////////////////////////////////////////////////
+ 
+#library "wdi_player"
+
+#include "wdi_player.h"
+#include "wdi_game.h"
+
+///////////////////////////////////////////////////////////////////////////////
+//  Variables
+///////////////////////////////////////////////////////////////////////////////
+
+int g_iPlayerCount[2];
+int g_iInnocentCount[2];
+int g_iMurdererCount[2];
+
+int g_iHealthRegenerateDelay;
+
+///////////////////////////////////////////////////////////////////////////////
+//  Functions
+///////////////////////////////////////////////////////////////////////////////
+
+int WDI_GetPlayerCount(int iCountType)
+{
+	return g_iPlayerCount[iCountType];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+int WDI_GetInnocentCount(int iCountType)
+{
+	return g_iInnocentCount[iCountType];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+int WDI_GetMurdererCount(int iCountType)
+{
+	return g_iMurdererCount[iCountType];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+void WDI_CountPlayers(void)
+{
+	int iPlayerID;
+	
+	for(iPlayerID = 0; iPlayerID < MAX_PLAYERS; iPlayerID++)
+	{
+		if(g_PlayerList[iPlayerID].m_iPlayerState != (PLAYERSTATE_ALIVE || PLAYERSTATE_REVIVED))
+		{
+			continue;
+		}
+		
+		if(g_PlayerList[iPlayerID].m_bIsMurderer)
+		{
+			g_iMurdererCount[PLAYERCOUNT_TOTAL]++;
+		}
+		
+		else
+		{
+			g_iInnocentCount[PLAYERCOUNT_TOTAL]++;
+		}
+		
+		g_iPlayerCount[PLAYERCOUNT_TOTAL]++;
+	}
+	
+	g_iInnocentCount[PLAYERCOUNT_ALIVE] = g_iInnocentCount[PLAYERCOUNT_TOTAL];
+	g_iMurdererCount[PLAYERCOUNT_ALIVE] = g_iMurdererCount[PLAYERCOUNT_TOTAL];
+	
+	g_iPlayerCount[PLAYERCOUNT_ALIVE] = g_iPlayerCount[PLAYERCOUNT_TOTAL];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+void WDI_ResetPlayerBlacklists(void)
+{
+	int iPlayerID;
+	
+	for(iPlayerID = 0; iPlayerID < MAX_PLAYERS; iPlayerID++)
+	{
+		g_PlayerInfo[iPlayerID].m_nRoundsBlacklisted = 0;
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+void WDI_ResetPlayerHealth(void)
+{
+	int iPlayerID;
+	int iPlayerTID;
+	
+	for(iPlayerID = 0; iPlayerID < MAX_PLAYERS; iPlayerID++)
+	{
+		iPlayerTID = TID_PLAYER + iPlayerID;
+		
+		SetActorProperty(iPlayerTID, APROP_HEALTH, 100);	
+		g_PlayerList[iPlayerID].m_iHealth = 100;
+		
+		SetActorProperty(iPlayerTID, APROP_SPAWNHEALTH, 100);
+		g_PlayerList[iPlayerID].m_iMaxHealth = 100;
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+void WDI_ResetPlayerInventory(void)
+{
+	int iPlayerID;
+	int iPlayerTID;
+	
+	for(iPlayerID = 0; iPlayerID < MAX_PLAYERS; iPlayerID++)
+	{
+		iPlayerTID = TID_PLAYER + iPlayerID;
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//  Scripts
+///////////////////////////////////////////////////////////////////////////////
+
+Script "WDI_PlayerSpawn" ENTER
+{
+	int iPlayerID = PlayerNumber();
+	
+	// Update the player's state so the game knows they've spawned.
+	g_PlayerList[iPlayerID].m_iPlayerState = PLAYERSTATE_ALIVE;
+	g_PlayerList[iPlayerID].m_iTID = TID_PLAYER + iPlayerID;
+	
+	// Assign the TID to the player.
+	Thing_ChangeTID(0, iTID);
+	
+	// Update the player.
+	ACS_NamedExecuteWithResult("WDI_PlayerUpdate");
+	ACS_NamedExecuteWithResult("WDI_PlayerRegenerateUpdate");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+Script "WDI_PlayerReturn" RETURN
+{
+	int iPlayerID = PlayerNumber();
+	
+	// Update the player's state so the game knows they're alive again.
+	g_PlayerList[iPlayerID].m_iPlayerState = PLAYERSTATE_ALIVE;
+	g_PlayerList[iPlayerID].m_iTID = TID_PLAYER + iPlayerID;
+	
+	// Update the player.
+	ACS_NamedExecuteWithResult("WDI_PlayerUpdate");
+	ACS_NamedExecuteWithResult("WDI_PlayerRegenerateUpdate");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+Script "WDI_PlayerRespawn" RESPAWN
+{
+	int iPlayerID = PlayerNumber();
+	
+	// Update the player's state so the game knows they've respawned.
+	g_PlayerList[iPlayerID].m_iPlayerState = PLAYERSTATE_REVIVED;
+	g_PlayerList[iPlayerID].m_iTID = TID_PLAYER + iPlayerID;
+	
+	// Remove the TID from the player's old body, then assign them the TID.
+	Thing_ChangeTID(g_PlayerList[iPlayerID].m_iTID, 0);
+	Thing_ChangeTID(0, g_PlayerList[iPlayerID].m_iTID);
+	
+	// Update the player.
+	ACS_NamedExecuteWithResult("WDI_PlayerUpdate");
+	ACS_NamedExecuteWithResult("WDI_PlayerRegenerateUpdate");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+Script "WDI_PlayerDeath" DEATH
+{
+	int iPlayerID = PlayerNumber();
+	
+	// Update the player's state so the game know's they're dead.
+	g_PlayerList[iPlayerID].m_iPlayerState = PLAYERSTATE_DEAD;
+	g_PlayerList[iPlayerID].m_iCorpseTID = TID_PLAYER_CORPSE + iPlayerID;
+	
+	if(WDI_GetGameState() == GAMESTATE_GAMEACTIVE)
+	{
+		g_iPlayerCount[PLAYERCOUNT_ALIVE]--;
+		
+		if(g_PlayerList[iPlayerID].m_bIsMurderer)
+		{
+			g_iMurdererCount[PLAYERCOUNT_ALIVE]--;
+		}
+		
+		else
+		{
+			g_iInnocentCount[PLAYERCOUNT_ALIVE]--;
+		}
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+Script "WDI_PlayerDisconnect" (int iPlayerID) DISCONNECT
+{
+	g_PlayerList[iPlayerID].m_iPlayerState = PLAYERSTATE_UNSPAWNED;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+Script "WDI_PlayerUpdate" (void)
+{
+	// Only update the player if they're still alive.
+	while(g_PlayerList[iPlayerID].m_iPlayerState == (PLAYERSTATE_ALIVE || PLAYERSTATE_REVIVED))
+	{
+		g_PlayerList[iPlayerID].m_iHealth = GetActorProperty(0, APROP_HEALTH);
+		g_PlayerList[iPlayerID].m_iMaxHealth = GetActorProperty(0, APROP_SPAWNHEALTH);
+		
+		// Get the player's button input.
+		g_PlayerList[iPlayerID].m_iInput = GetPlayerInput(-1, INPUT_BUTTONS);
+
+		// Only update while the game isn't over.
+		if(WDI_GetGameState() != GAMESTATE_GAMEOVER)
+		{
+			// Update the player's position.
+			g_PlayerList[iPlayerID].m_fPosX = GetActorX(0);
+			g_PlayerList[iPlayerID].m_fPosY = GetActorY(0);
+			g_PlayerList[iPlayerID].m_fPosZ = GetActorZ(0);
+		
+			// Update the player's velocity.
+			g_PlayerList[iPlayerID].m_fPosVelX = GetActorVelX(0);
+			g_PlayerList[iPlayerID].m_fPosVelY = GetActorVelY(0);
+			g_PlayerList[iPlayerID].m_fPosVelZ = GetActorVelZ(0);
+		
+			// Update the player's angle and pitch.
+			g_PlayerList[iPlayerID].m_fAngle = GetActorAngle(0);
+			g_PlayerList[iPlayerID].m_fPitch = GetActorPitch(0);	
+		}
+		
+		Delay(1);
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+Script "WDI_PlayerRegenerateUpdate" (void)
+{
+	int iHealthRegenerateTics;
+
+	// The player should only regenerate their health if they're alive.
+	while(g_PlayerList[iPlayerID].m_iPlayerState == (PLAYERSTATE_ALIVE || PLAYERSTATE_REVIVED))
+	{
+		// Don't regenerate the player's health if the game's over.
+		if(WDI_GetGameState() == GAMESTATE_GAMEOVER)
+		{
+			break;
+		}
+		
+		// If the player lost some health, regenerate their health.
+		if(g_PlayerList[iPlayerID].m_iHealth < g_PlayerList[iPlayerID].m_iMaxHealth)
+		{
+			g_PlayerList[iPlayerID].m_bIsHurt = true;
+				
+			// Only regenerate if the player isn't paranoid or got a beating.
+			if(g_PlayerList[iPlayerID].m_iParanoidState == (PARANOIDSTATE_NORMAL || PARANOIDSTATE_BEATEN))
+			{
+				// Wait until enough time passes before healing the player.
+				if(iHealthRegenerateTics > g_iHealthRegenerateDelay)
+				{
+					GiveActorInventory(0, "Health", 1);
+					g_PlayerList[iPlayerID].m_iHealth++;
+					
+					iHealthRegenerateTics = 0;
+				}
+				
+				iHealthRegenerateTics++;
+			}
+			
+			else
+			{
+				iHealthRegenerateTics = 0;
+			}
+		}
+			
+		// If the player's health is full, stop regenerating.
+		else
+		{
+			g_PlayerList[iPlayerID].m_bIsHurt = false;
+			
+			iHealthRegenerateTics = 0;
+		}
+		
+		Delay(1);
+	}
+}

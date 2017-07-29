@@ -1,0 +1,134 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Who Dun It Source Code
+// Copyright (C) 2010-2017 by Who Dun It Development Team
+// All rights reserved.
+//
+// Permission to use, copy, modify, and distribute this software and its
+// documentation for any purpose and without fee is hereby granted,
+// provided that the above copyright notice appear in all copies and that
+// both that copyright notice and this permission notice appear in
+// supporting documentation.
+//
+// THE AUTHOR PROVIDES THIS SOFTWARE ''AS IS'' AND ANY EXPRESSED OR
+// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+// OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+// IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+// Filename: wdi_murderer.bcs
+//
+// Description:
+//
+///////////////////////////////////////////////////////////////////////////////
+ 
+#library "wdi_murderer"
+
+#include "wdi_murderer.h"
+
+///////////////////////////////////////////////////////////////////////////////
+//  Variables
+///////////////////////////////////////////////////////////////////////////////
+
+int g_iSanityDrainDelay;
+
+///////////////////////////////////////////////////////////////////////////////
+//  Functions
+///////////////////////////////////////////////////////////////////////////////
+
+int WDI_GetMurdererID(int iMurderer)
+{
+	return g_MurdererList[iMurderer].m_iID;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+int WDI_GetMurdererTID(int iMurderer)
+{
+	return g_MurdererList[iMurderer].m_iTID;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+int WDI_GetMurdererHealth(int iMurderer)
+{
+	return g_MurdererList[iMurderer].m_iHealth;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+int WDI_GetMurdererMaxHealth(int iMurderer)
+{
+	return g_MurdererList[iMurderer].m_iMaxHealth;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+int WDI_GetMurdererSanity(int iMurderer)
+{
+	return g_MurdererList[iMurderer].m_iSanity;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+int WDI_GetMurdererMaxSanity(int iMurderer)
+{
+	return g_MurdererList[iMurderer].m_iMaxSanity;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+void WDI_ChooseMurderer(int nMurderers, int iHealthBonus, int iMaxHealthBonus)
+{
+	int nBlacklistedPlayers;
+
+	for(iPlayerID = 0; iPlayerID < MAX_PLAYERS; iPlayerID++)
+	{
+		if(g_PlayerInfo[iPlayerID].m_nRoundsBlacklisted > 0)
+		{
+			nBlacklistedPlayers++;
+		}
+	}
+	
+	if(nBlacklistedPlayers >= PlayerCount())
+	{
+		for(iPlayerID = 0; iPlayerID < MAX_PLAYERS; iPlayerID++)
+		{
+			g_PlayerInfo[iPlayerID].m_nRoundsBlacklisted = 0;
+		}
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+void WDI_GiveMurdererEquipment(void)
+{
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//  Scripts
+///////////////////////////////////////////////////////////////////////////////
+
+Script "WDI_DrainSanity" (void)
+{
+	int iSanityDrainTics;
+	
+	g_iSanityDrainDelay = SANITY_DRAIN_TIME;
+	
+	while(WDI_GetGameState() == GAMESTATE_GAMEACTIVE)
+	{
+		if(iSanityDrainTics > g_iSanityDrainDelay)
+		{
+			iSanityDrainTics = 0;
+		}
+		
+		iSanityDrainTics++;
+		
+		Delay(1);
+	}
+}
