@@ -32,7 +32,7 @@ or contact us on IRC channel: :busts_in_silhouette: [#whodunithelp](https://clie
 ## Contributions 
 If you would like to contribute to this repository, please... 
 1. Fork 
-2. Make changes (please read the contribution guidelines and abide by them) 
+2. Make changes (please read the [contribution guidelines](./Contributing.md) and abide by them) 
 3. Create a pull request!
 
 Thanks to all that have [contributed](./Whodunit_Beta/Credits/CREDITS.txt) so far!
