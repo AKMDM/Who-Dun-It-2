@@ -124,6 +124,7 @@ REMOVED WDIEXCT
 		drawnumber 4, HUDFONT_DOOM, red, ammo2, 464, 148;
 		drawnumber 4, HUDFONT_DOOM, red, ammo1, 464, 164;
 	}
+	
 
 	IsSelected LChainsaw 
 	{
@@ -154,6 +155,13 @@ REMOVED WDIEXCT
 	{
 		DrawBar "CANFRONR", "CANBACK", Sprayammo, Vertical, 420, 142;
 	}
+	
+	IsSelected FireExtinguisher
+	{
+		DrawBar "EXTFRONT", "EXTBACK", Co2ammo, Vertical, 418, 142;
+	}
+	
+	
 /*	'''
    this message is an issue dropping the soul cube partially fixed
 	IsSelected Soulcube
