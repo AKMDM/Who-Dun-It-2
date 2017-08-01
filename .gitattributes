@@ -16,6 +16,7 @@
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
 
-# Auto-detect all .bcs files as being part of the C Language for syntax highlighting.
+# Auto-detect and treat ACS and BCS files as being part of the C Language for syntax highlighting.
+*.acs linguist-language=C
 *.bcs linguist-language=C
 *.h.bcs linguist-language=C
