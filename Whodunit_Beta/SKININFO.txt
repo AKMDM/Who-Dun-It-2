@@ -154,6 +154,21 @@ class = "Voice: Wimpy"
 sprite = PLA7
 CrouchSprite = PIPC 
 }
+
+{
+name = ExtinguisherSkin
+class = "Voice: Thick"
+sprite = PLEX
+CrouchSprite = PLEX
+}
+
+{
+name = ExtinguisherSkin
+class = "Voice: Wimpy"
+sprite = PLEX
+CrouchSprite = PLEX
+}
+
 /*
 //WDIEXSKINS/////////////////////////////////////
 {

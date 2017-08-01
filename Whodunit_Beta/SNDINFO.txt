@@ -915,6 +915,13 @@ AXEHIT1				AXEHIT1
 AXEHIT2				AXEHIT2
 $random axe/hit { AXEHIT1 AXEHIT2 }
 
+//Fire Extinguisher
+weapons/fireextinguisher/fire 		 EXTFIRE
+weapons/fireextinguisher/Loop		 FIEXUSE
+weapons/fireextinguisher/drop		 FIEXDROP
+weapons/fireextinguisher/wall		 FIEXWALL
+weapons/fireextinguisher/empty		 FIEXEMPT
+
 //MONSTERS===============================================================
 
 $volume rat/1 0.6
