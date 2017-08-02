@@ -1,0 +1,296 @@
+Actor Co2CanOnce : Inventory
+{
+	Inventory.MaxAmount 1
+	-INVBAR
+}
+
+Actor FakeExtinguisher : CustomInventory 
+{
+  //$Category WDI Weapons
+  //$Title "Fire_Extinguisher"
+	Radius 16
+	Height 16
+	Scale 0.6
+	Inventory.PickupMessage "" 
+	Inventory.RespawnTics 21000 //10 Minutes
+	States
+	{
+	Spawn:
+		EXTX Y -1
+		Stop
+	Pickup: 
+		EXTX Y 0 A_JumpIfInventory("FireExtinguisher",1,"AmmoPickup")
+		EXTX Y 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		EXTX Y 0 A_PlaySound("pickups/weapon")
+		EXTX Y 0 A_GiveInventory("FireExtinguisher",1)
+		EXTX Y 0 A_GiveInventory("Slot1Filled",1)
+		EXTX Y 0 //ACS_Execute(670,0,14)
+		EXTX Y 0 A_JumpIfInventory("Co2CanOnce",1,"ForgetIt")
+		EXTX Y 0 A_GiveInventory("Co2Ammo",random(200,750))
+		EXTX Y 0 A_GiveInventory("Co2CanOnce",1)	
+		Stop
+	NotPickup:
+		EXTX Y 0
+		EXTX Y 1 //ACS_Execute(670,0,14)
+		Fail
+		
+	AmmoPickup:
+		EXTX Y 0 A_PlaySound("pickups/ammo")
+		TNT1 A 0 
+		EXTX Y 0 A_GiveInventory("Co2Ammo", 200)
+		Stop	
+	
+		ForgetIt:
+		EXTX Y -1
+		Stop		
+}}
+
+Actor FakeExtinguisherZ :  FakeExtinguisher
+{
+  //$Category WDI Weapons
+  //$Title "Fire_Extinguisher"
+	Radius 16
+	Height 8
+	Scale 0.6
+	Inventory.PickupMessage "" 
+	Inventory.RespawnTics 21000 //10 Minutes
+	States
+	{
+	Spawn:
+		EXTX Z -1
+		Stop	
+}}
+
+Actor DroppedExtinguisher
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+	Scale 0.6
+	DeathSound "weapons/fireextinguisher/drop"
+	States
+	{
+	Spawn:
+		EXTX Z -1
+		Stop
+	Death:
+		EXTX Z 35
+		EXTX Z 1 A_SpawnItem("FakeExtinguisherZ",0,0,0,0)
+		Stop
+}}
+
+Actor FireExtinguisher : Weapon //Nicely done for wdi by Prepper
+{
+    Weapon.BobRangeX 0.8
+	Radius 8
+	Height 32
+	Scale 0.6
+	Inventory.PickupMessage "Found a Fire Extinguisher. Now how do I work this damn thing?"
+	inventory.Pickupsound "misc/i_pkup"
+	Weapon.SelectionOrder 2200
+	Weapon.AmmoType "co2ammo"
+	Weapon.AmmoUse 0
+	Weapon.preferredSkin "ExtinguisherSkin"
+	+WEAPON.MELEEWEAPON
+	+WEAPON.NOAUTOFIRE
+	+INVENTORY.UNDROPPABLE
+	States
+	{
+	Spawn:
+		EXTX Y 0
+		Goto Death
+	Pickup: 
+	
+	Select:
+		EXTG A 1 A_Raise
+		loop
+		
+	Deselect:
+	    EXTG A 0 A_StopSoundEx("Weapon")
+		EXTG AA 1 A_Lower
+		Goto Deselect+1
+		
+	EmptyFire:
+		EXTG B 1 A_PlaySound("weapons/fireextinguisher/empty")
+		EXTG F 5 A_WeaponReady(WRF_NOFIRE)
+		EXTG B 1 A_WeaponReady(WRF_NOFIRE)	
+	Ready:
+	    EXTG A 0 A_StopSoundEx("weapon")
+	Realredy:
+		EXTG A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		EXTG A 1 A_WeaponReady
+		Loop	
+			
+	DropWeapon:
+		TNT1 A 0
+		TNT1 A 1 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 A_TakeInventory("Slot1Filled",1)
+		TNT1 A 0 A_FireCustomMissile("DroppedExtinguisher",0,0,0,-2)
+		TNT1 A 1 A_TakeInventory("FireExtinguisher",1)
+		Stop
+		
+	Fire:
+	    EXTG A 0 A_JumpIfinventory ("co2Ammo",1,1)
+		Goto EmptyFire
+		EXTG A 1 A_PlaySoundEx("weapons/fireextinguisher/fire","Weapon",0)
+		EXTG ABC 2
+		TNT1 A 0 A_JumpIf(waterlevel <= 2, 2)
+		TNT1 A 0 A_SpawnItemEx ("WaterBreath", 18,-6, 32, 6, 2, 0, 0, 0, 0)
+		EXTG C 1 A_FireCustomMissile("HalonParticle", -11+random(-4,4), 0, -6, 10, 0) //A_SpawnItemEx("HalonParticle",cos(pitch)*16,0,42-(sin(pitch)*1),cos(pitch)*5,0,-sin(pitch)*5,0,)
+		EXTG D 1 
+		EXTG C 1 A_FireCustomMissile("DummyHalonParticle", -11+random(-4,4), 0,-6, 10, 0) 
+		EXTG C 0 A_takeinventory("co2Ammo",3)
+		EXTG E 0 A_Refire
+		EXTG CB 1
+		Goto Ready
+		
+    Hold:
+	    EXTG A 0 A_JumpIfinventory ("co2Ammo",1,1)
+		Goto EmptyFire
+		EXTG C 0 A_PlaySoundEx("weapons/fireextinguisher/Loop","Weapon",1)
+		EXTG D 1  A_FireCustomMissile("HalonParticle", -11+random(-4,4),0, -6, 10, 0)
+		EXTG C 1
+		EXTG E 1 A_FireCustomMissile("DummyHalonParticle", -11+random(-4,4), 0,-6, 10, 0)
+		EXTG C 0 A_takeinventory("co2Ammo",2)
+		EXTG C 0 A_Refire
+		EXTG CB 1
+		Goto Ready
+				
+	Altfire:
+		EXTG FGHIJK 1
+		EXTG LMN 2
+		EXTG OPQ 1
+		EXTG Q 1 Offset(-28,0) A_Recoil(-1.2*cos(pitch)) 
+	    EXTG Q 1 Offset(-35,0) A_SetAngle(Random(4,2)+Angle)
+		EXTG RS 1 A_CustomPunch(15, 1, 1, "Extinguisherpuff", 72)
+		EXTG TVW 1
+	WReturn:
+		TNT1 A 15  
+		EXTG XYZ 1
+		Goto Ready
+		
+	Death:
+	   TNT1 A 0 A_SpawnItem("DroppedExtinguisher",0,0,0,0)
+	   TNT1 A 0 A_FadeOut(1.0)
+	   Goto Death + 1
+}}
+
+Actor Co2Ammo : Ammo
+{
+  Inventory.PickupMessage "Found a Co2 Cilinder." 
+  Inventory.Amount 650
+  Inventory.MaxAmount 650
+  Inventory.RespawnTics 42000 //20 minutes
+  Ammo.BackpackAmount 650
+  Ammo.BackpackMaxAmount 650
+  States
+  {
+  Spawn:
+    TNT1 A -1
+    Stop
+}}
+
+
+Actor Extinguisherpuff: ShovelPuff
+{
+Scale 0.75
+RenderStyle Add
+Alpha 0.9
+States
+  {
+  Crash:
+  	POOF ABCDE 2
+  	Stop
+}}
+
+Actor HalonParticle
+{
+  Height 1
+  Radius 1
+  Speed 5
+  +Missile
+  +NOGRAVITY
+  +NOBLOCKMAP
+  +CANNOTPUSH
+  +BLOODLESSIMPACT
+  +NODAMAGETHRUST
+  +RANDOMIZE
+  +DONTSPLASH
+  +NOEXPLODEFLOOR
+  Decal FireExtinguisherSpray
+  RenderStyle Add
+  Damage 2
+  DamageType Ice 
+  Obituary "%o was freezed to death.haha"
+  Scale 0.5
+  Alpha 0.65
+  States
+  {
+  Spawn:
+    TNT1 A 7
+    STEM A 3 A_SetTranslucent(0.6, 1)
+    STEM B 3 A_SetTranslucent(0.55, 1)
+    STEM C 2 A_SetTranslucent(0.5, 1)
+    STEM D 2 A_SetTranslucent(0.45, 1)
+    STEM E 2 A_SetTranslucent(0.4, 1)
+    STEM F 2 A_SetTranslucent(0.35, 1)
+    STEM G 2 A_SetTranslucent(0.3, 1)
+    STEM H 2 A_SetTranslucent(0.25, 1)
+    STEM I 2 A_SetTranslucent(0.2, 1)
+    STEM J 2 A_SetTranslucent(0.15, 1)
+    STEM K 2 A_SetTranslucent(0.1, 1)
+    STEM L 2 A_SetTranslucent(0.05, 1)
+    Stop
+
+	Death:
+	TNT1 A 0 a_playsound("weapons/fireextinguisher/wall",CHAN_BODY,0.5,0,ATTN_STATIC)	
+	stop	
+}}
+
+Actor DummyHalonParticle
+{
+  Height 1
+  Radius 1
+  Speed 5
+  +Missile
+  +NOGRAVITY
+  +NOBLOCKMAP
+  +CANNOTPUSH
+  +BLOODLESSIMPACT
+  +NODAMAGETHRUST
+  +RANDOMIZE
+  +DONTSPLASH
+  +NOEXPLODEFLOOR
+  Damage 1
+  DamageType Ice
+  Decal FireExtinguisherSpray
+  Obituary "%o was sprayed to death.haha"
+  RenderStyle Add
+  Scale 0.5
+  Alpha 0.65
+  States
+  {
+  Spawn:
+	TNT1 A 7
+    STEM A 3 A_SetTranslucent(0.6, 1)
+    STEM B 3 A_SetTranslucent(0.55, 1)
+    STEM C 2 A_SetTranslucent(0.5, 1)
+    STEM D 2 A_SetTranslucent(0.45, 1)
+    STEM E 2 A_SetTranslucent(0.4, 1)
+    STEM F 2 A_SetTranslucent(0.35, 1)
+    STEM G 2 A_SetTranslucent(0.3, 1)
+    STEM H 2 A_SetTranslucent(0.25, 1)
+    STEM I 2 A_SetTranslucent(0.2, 1)
+    STEM J 2 A_SetTranslucent(0.15, 1)
+    STEM K 2 A_SetTranslucent(0.1, 1)
+    STEM L 2 A_SetTranslucent(0.05, 1)
+    Stop
+	
+	Death:
+	TNT1 A 0 a_playsound("weapons/fireextinguisher/wall",CHAN_BODY,0.5,ATTN_STATIC)	
+	Stop
+ }}
+ 
