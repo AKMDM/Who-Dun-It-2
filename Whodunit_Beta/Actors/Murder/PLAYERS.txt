@@ -22,8 +22,8 @@ Player.StartItem "Warm", 1
 Player.StartItem HudAlive
 Player.StartItem MarkMe
 player.runhealth 20
-DamageFActor "Falling", 2.5
-DamageFActor "FlareEffect", 0.0
+DamageFactor "Falling", 2.5
+DamageFactor "FlareEffect", 0.0
 Radius 16
 Height 56
 PainChance 256
@@ -207,6 +207,8 @@ AltSkinDeath:
 AltSkinXDeath:
 XDeath:	
 Death.None:
+
+
 Death:  	
 	TNT1 A 0
 	TNT1 A 0 Acs_ExecuteAlways(407, 0, 0, 0)
@@ -223,6 +225,21 @@ Death:
     TNT1 A -1
     Stop
 	
+Death.ice:
+	TNT1 A 0 Acs_ExecuteAlways(407, 0, 0, 0)
+	TNT1 A 0 A_GiveInventory ("GotHurt", 1)
+	TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath")
+	TNT1 A 0 A_JumpIfInventory ("TKToken", 2, "TKDeath")
+	TNT1 A 0 A_SpawnItemEx ("FakeiceBody", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
+	TNT1 A 0
+   	TNT1 A 0 A_GiveToTarget ("TKToken", 1)
+	TNT1 A 0 A_GiveToTarget ("KillMarker", 1)
+	TNT1 A 5 A_GiveToTarget ("GetSuperSane", 1)
+    TNT1 A 10 
+    TNT1 A 10 A_PlayerScream 
+	TNT1 A 10 A_NoBlocking
+    TNT1 A -1
+    Stop
 	
 Death.Burn:
 	TNT1 A 0
@@ -426,7 +443,7 @@ player.displayname "Voice: Wimpy"
 Player.SoundClass "Firewolf"
 +NOSKIN
 -NOBLOCKMONST
-DamageFActor "FlareEffect", 0.0
+DamageFactor "FlareEffect", 0.0
 states
 	{
 Death.Backstab:
@@ -453,8 +470,8 @@ Actor FakeBody
   Radius 16
   Height 8
   Mass 25
-  DamageFActor "Gas", 0.0
-  DamageFActor "FlareEffect", 0.0
+  DamageFactor "Gas", 0.0
+  DamageFactor "FlareEffect", 0.0
   -SOLID
   +SHOOTABLE
   -PUSHABLE
@@ -465,7 +482,7 @@ Actor FakeBody
   States
   {
   Spawn:
-    PLAY H 10
+    PLAY H 10  
     PLAY I 10 
     PLAY J 10 
     PLAY KLM 10
@@ -490,8 +507,6 @@ Actor FakeBody
   }
 }
 
-
-
 Actor KilledByMurderer : Inventory
 {
 	Inventory.Amount 1
@@ -504,14 +519,43 @@ Actor GotHurt : Inventory
 	Inventory.MaxAmount 1
 }
 
+//---------------ICEDeathBODY-------------------------------------------------------
+Actor FakeiceBody
+{
+  Radius 16
+  Height 8
+  Mass 25
+  DamageFactor "Gas", 0.0
+  DamageFactor "FlareEffect", 0.0
+  -SOLID
+  +SHOOTABLE
+  -PUSHABLE
+  -NOGRAVITY
+  +SLIDESONWALLS
+  +DONTSPLASH
+  +NORadiusDMG
+  States
+  {
+  Spawn:
+	TNT1 A 0 A_die
+    Goto death
+  Death:
+    PLA1 H 8 A_GenericFreezedeath
+    PLA1 I 8
+    PLA1 J 8 
+    PLA1 KL 6
+	PLA1 M 1 A_FreezedeathChunks
+    wait
+  }
+}
 //---------------BACKSTABDeathBODY-------------------------------------------------------
 Actor Bstabody
 {
   Radius 16
   Height 8
   Mass 25
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
   -SOLID
   +SHOOTABLE
   -PUSHABLE
@@ -553,8 +597,8 @@ Actor gunbody1
   Radius 16
   Height 8
   Mass 25
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
   -SOLID
   +SHOOTABLE
   -PUSHABLE
@@ -594,8 +638,8 @@ Actor gunbody2
   Radius 16
   Height 8
   Mass 25
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
   -SOLID
   +SHOOTABLE
   -PUSHABLE
@@ -639,8 +683,8 @@ Actor gasBody1
   Radius 16
   Height 8
   Mass 25
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
   -SOLID
   +SHOOTABLE
   -PUSHABLE
@@ -680,8 +724,8 @@ Actor gasBody2
   Radius 16
   Height 8
   Mass 25
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
   -SOLID
   +SHOOTABLE
   -PUSHABLE
@@ -722,8 +766,8 @@ Actor Drowingbody1
   Radius 16
   Height 8
   Mass 25
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
   -SOLID
   +SHOOTABLE
   -PUSHABLE
@@ -765,8 +809,8 @@ Actor Drowingbody2
   Radius 16
   Height 8
   Mass 25
-  DamageFActor "Gas", 0.0
-  DamageFActor "FlareEffect", 0.0
+  DamageFactor "Gas", 0.0
+  DamageFactor "FlareEffect", 0.0
   -SOLID
   +SHOOTABLE
   -PUSHABLE
@@ -810,8 +854,8 @@ Actor Csawbody1
   Radius 16
   Height 8
   Mass 25
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
   -SOLID
   +SHOOTABLE
   -PUSHABLE
@@ -852,8 +896,8 @@ Actor Csawbody2
   Radius 16
   Height 8
   Mass 25
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
   -SOLID
   +SHOOTABLE
   -PUSHABLE
@@ -895,8 +939,8 @@ Actor crossbody
   Radius 16
   Height 8
   Mass 25
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
   -SOLID
   +SHOOTABLE
   -PUSHABLE

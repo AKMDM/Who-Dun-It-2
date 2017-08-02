@@ -55,6 +55,8 @@
 #Include "Actors/Weapons/TWIG.txt"
 #Include "Actors/Weapons/WRENCH.txt"
 #Include "Actors/Weapons/WEAPONS.txt"
+#Include "Actors/Weapons/FIREXTIN.txt"
+#Include "Actors/Weapons/PICKAXE.txt"
 
 //WDIEX
 #Include "Actors/Wdiex/DROPPERS.txt"
