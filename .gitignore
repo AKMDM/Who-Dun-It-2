@@ -1,20 +1,61 @@
-# Backup files
-*.bak
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
 
-# Compiled ACS files
-*.o
+# Folder config file
+Desktop.ini
 
-# Compiled PK3, PK7 and ZIP files
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Temporary PK3,PK7 files
 *.pk3
 *.pk7
 *.zip
 
-# GZDoom Builder files
-*.dbs
-*.backup
-*.backup1
-*.backup2
-*.backup3
-
 # 7-Zip Tempory files
 *.tmp
+
+# Compiled ACS files
+*.o
+
+# Backups
+*.bak
+
+# GzdoomBuilder Backup files
+*.dbs 
+*.wad.backup
+*.wad.backup1
+*.wad.backup2
+*.wad.backup3

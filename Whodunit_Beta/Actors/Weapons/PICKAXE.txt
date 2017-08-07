@@ -1,0 +1,152 @@
+Actor FakePickAxe : CustomInventory  // ADD NUMBER//Code & sprites by Prepper
+{
+    //$Category WDI Weapons
+	//$Title "Axe"
+	Radius 16
+	Height 8
+	Scale 0.8
+	Inventory.PickupMessage "Found an old pickaxe!"
+	Inventory.RespawnTics 21000 //10 Minutes
+	States
+	{
+	Spawn:
+		PKAX Z -1
+		Stop
+	Pickup:
+		PKAX Z 0
+		PKAX Z 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		PKAX Z 0 A_PlaySound("pickups/weapon")
+		PKAX Z 0 A_GiveInventory("PickAxe",1)
+		PKAX Z 0 A_GiveInventory("Slot1Filled",1)
+		PKAX Z 1 ACS_Execute(669,0,10)
+		Stop
+	NotPickup:
+		PKAX Z 0
+		PKAX Z 1 ACS_Execute(669,0,10)
+		Fail
+}}
+
+Actor PickAxe : Weapon
+{
+	Radius 8
+	Height 32
+	Inventory.PickupMessage "Found an old pickaxe!"
+	//Weapon.preferredSkin "PickAxeSkin"
+	Weapon.SelectionOrder 2201
+	+WEAPON.AXEBLOOD
+	+WEAPON.MELEEWEAPON
+	+WEAPON.NOAUTOFIRE
+	+INVENTORY.UNDROPPABLE
+   +NOAUTOAIM
+	
+	States
+	{
+	Spawn:
+		PKAX Z 10
+		Goto Death
+	Pickup: 
+	
+	Select:
+		PKAX YXWVTS 2
+		PKAX I 0 
+		Goto Ready
+		
+	Deselect:
+		PKAX STVWXY 1
+		TNT1 A 1 A_Lower
+		Goto Deselect+6
+		
+	Ready:
+		PKAX I 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		PKAX I 1 A_WeaponReady
+		Loop
+		
+	DropWeapon:
+		TNT1 A 1 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 //ACS_ExecuteAlways(418,0,0,0,0)
+		TNT1 A 0 A_TakeInventory("Slot1Filled",1)
+		TNT1 A 0 A_FireCustomMissile("DroppedPickAxe",0,0,0)
+		TNT1 A 1 A_TakeInventory("PickAxe",1)
+		
+       Goto Ready
+		
+	Fire:
+        PKAX JKlMNOPQ 1
+		PKAX Q 1 A_Refire
+		PKAX PNLJ 1
+		PKAX H 0 A_CustomPunch(19, 1, 1, "PickAxePuff", 72)
+		PKAX GFEDCBA 1
+		TNT1 A 1
+		PKAX  BDFH 1
+		Goto Ready
+
+        Hold:
+	    PKAX Q 1
+		PKAX Q 1 A_Refire
+        PKAX QPONLJ 1 //PKAX RQPONMLKJI 1 slowwwww
+		PKAX H 0 A_CustomPunch(16, 1, 1, "PickAxePuff", 72)
+		PKAX GFEDCBA 1
+		TNT1 A 1
+		PKAX BDFH 1
+		Goto Ready
+			
+	AltFire:
+	   TNT1 A 1
+	   PKWD ABCDEF 1
+	   PKWD FEDCBA 2
+	Goto ready
+		
+		
+	Death:
+	   TNT1 A 1 A_SpawnItem("DroppedPickAxe",0,0,0,0)
+	   TNT1 A 0 A_FadeOut(1.0)
+	   Goto death + 1
+}}
+
+Actor PickAxePuff
+{
+  Scale 0.75
+  RenderStyle Add
+  Alpha 0.9
+  DamageType "ShovelMelee"
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +PUFFONActorS
+  activesound "shovel/swing"
+  attacksound "Pickaxe/hit"
+  seesound  "axe/hit"
+  States
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 1
+    Stop
+  Crash:
+  	POOF ABCDE 2
+  	Stop
+  Melee:
+  	TNT1 A 0
+  	TNT1 A 1
+  	Stop
+}}
+
+Actor DroppedPickAxe
+{
+	PROJECTILE
+	-NOGRAVITY
+	Damage 0
+	Radius 16
+	Height 8
+	Speed 9
+	Scale 0.8
+	DeathSound "shovel/wall"
+	States
+	{
+	Spawn:
+		PKAX Z -1
+		Stop
+	Death:
+		PKAX Z 35
+		PKAX Z 1 A_SpawnItemEx("FakePickAxe",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+}}

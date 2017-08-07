@@ -444,6 +444,9 @@ Actor MollyFireSpawn3 : MollyFireSpawn
 
 Actor MollyFire
 {
+  Health 15
+  DamageFactor "Ice", 0.5
+  DamageFactor  "none",0.0
   Radius 3
   Height 4
   Speed 8
@@ -456,16 +459,17 @@ Actor MollyFire
   Renderstyle Add
   ActiveSound "molly/burn"
   DamageType "Burn"
+  +SHOOTABLE
   +BLOODLESSIMPACT
   -NOGRAVITY
   +DONTSPLASH
   +SLIDESONWALLS
   -BLOODSPLATTER
   +FLOORHUGGER
-  //+CEILINGHUGGER
   +RIPPER
   +NOBLOOD
   +NODAMAGETHRUST
+  -NOBLOCKMAP
   States
   {
   Spawn:
@@ -481,7 +485,7 @@ Actor MollyFire
     CFFX CDEFGHICDEF 3 Bright A_Explode(2, 64, 1)
     TNT1 A 0 A_CountDown
     Loop
-
+	
   Death:
     TNT1 A 0 A_StopSound(CHAN_AUTO)
     CFFX CDEFGHICDEF 3 Bright A_FadeOut(0.1)

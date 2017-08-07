@@ -3717,6 +3717,205 @@ Sprite "BBATA0", 100, 8
 	}
 }
 
+Sprite "EXTGA0", 338, 143
+{
+	Offset -38, -53
+	Patch "EXTXA0", 151, 41
+	Patch "HAMDI0", 191, 41
+	Patch "EXTXE0", 36, 21
+	Patch "HAMDN0", 14, 68
+}
+
+Sprite "EXTGB0", 338, 143
+{
+	Offset -38, -53
+	Patch "EXTXB0", 149, 27
+	Patch "HAMDL0", 190, 32
+	Patch "EXTXE0", 38, 23
+	Patch "HAMDN0", 16, 70
+}
+
+Sprite "EXTGC0", 338, 143
+{
+	Offset -38, -53
+	Patch "EXTXC0", 149, 25
+	Patch "HAMDL0", 190, 30
+	Patch "EXTXF0", 35, 44
+	Patch "HAMDO0", 0, 78
+}
+
+Sprite "EXTGD0", 338, 143
+{
+	Offset -38, -53
+	Patch "EXTXC0", 149, 25
+	Patch "HAMDL0", 190, 30
+	Patch "EXTXF0", 36, 44
+	Patch "HAMDO0", 1, 78
+}
+
+Sprite "EXTGE0", 338, 143
+{
+	Offset -38, -53
+	Patch "EXTXC0", 149, 25
+	Patch "HAMDL0", 190, 30
+	Patch "EXTXF0", 34, 44
+	Patch "HAMDO0", -1, 78
+}
+
+Sprite "EXTGF0", 338, 143
+{
+	Offset -38, -53
+	Patch "EXTXD0", 149, 25
+	Patch "HAMDL0", 190, 30
+	Patch "EXTXE0", 38, 23
+	Patch "HAMDN0", 16, 70
+}
+
+Sprite "EXTGG0", 338, 143
+{
+	Offset -55, -45
+	Patch "EXTXB0", 151, 24
+	Patch "HAMDL0", 192, 29
+	Patch "EXTXE0", 22, 37
+	Patch "HAMDN0", 0, 84
+}
+
+Sprite "EXTGH0", 354, 143
+{
+	Offset -55, -45
+	Patch "EXTXG0", 147, 18
+	Patch "HAMDL0", 203, 25
+	Patch "EXTXE0", 22, 54
+	Patch "HAMDN0", 0, 101
+}
+
+Sprite "EXTGI0", 366, 143
+{
+	Offset -55, -45
+	Patch "EXTXG0", 158, 15
+	Patch "HAMDL0", 214, 22
+	Patch "EXTXE0", 22, 64
+	Patch "HAMDN0", 0, 111
+}
+
+Sprite "EXTGJ0", 350, 143
+{
+	Offset -55, -45
+	Patch "EXTXG0", 184, 14
+	Patch "HAMDM0", 246, 15
+	Patch "EXTXE0", 22, 78
+	Patch "HAMDN0", 0, 125
+}
+
+Sprite "EXTGK0", 366, 143
+{
+	Offset -55, -45
+	Patch "EXTXG0", 207, 10
+	Patch "HAMDM0", 269, 11
+}
+
+Sprite "EXTGL0", 366, 143
+{
+	Offset -55, -45
+	Patch "EXTXH0", 247, 9
+	Patch "HAMDM0", 272, 11
+}
+
+Sprite "EXTGM0", 354, 143
+{
+	Offset -55, -45
+	Patch "EXTXI0", 264, 9
+	Patch "HAMDM0", 272, 11
+}
+
+Sprite "EXTGN0", 352, 143
+{
+	Offset -54, -44
+	Patch "EXTXI0", 262, 9
+	Patch "HAMDM0", 268, 12
+}
+
+Sprite "EXTGO0", 330, 143
+{
+	Offset -55, -45
+	Patch "EXTXJ0", 213, 15
+	Patch "HAMDL0", 216, 21
+}
+
+Sprite "EXTGP0", 393, 143
+{
+	Offset -55, -45
+	Patch "EXTXK0", 190, 11
+	Patch "HAMDL0", 189, 24
+}
+
+Sprite "EXTGQ0", 353, 143
+{
+	Offset -62, -37
+	Patch "EXTXK0", 151, 18
+	Patch "HAMDL0", 152, 29
+}
+
+Sprite "EXTGR0", 297, 143
+{
+	Offset -97, -41
+	Patch "EXTXL0", 87, 11
+	Patch "HAMDL0", 93, 47
+}
+
+Sprite "EXTGS0", 224, 143
+{
+	Offset -85, -49
+	Patch "EXTXL0", 14, 13
+	Patch "HAMDK0", 40, 56
+}
+
+Sprite "EXTGT0", 224, 115
+{
+	Offset -42, -63
+	Patch "EXTXM0", 25, 16
+	Patch "HAMDJ0", 48, 58
+}
+
+Sprite "EXTGV0", 234, 110
+{
+	Offset -9, -95
+	Patch "EXTXN0", 3, 22
+	Patch "HAMDJ0", 37, 54
+}
+
+Sprite "EXTGW0", 213, 110
+{
+	Offset 10, -119
+	Patch "EXTXN0", 1, 29
+	Patch "HAMDJ0", 31, 61
+}
+
+Sprite "EXTGX0", 228, 100
+{
+	Offset -90, -111
+	Patch "EXTXG0", -11, 21
+	Patch "HAMDJ0", 49, 18
+}
+
+Sprite "EXTGY0", 268, 121
+{
+	Offset -55, -90
+	Patch "EXTXG0", 54, 27
+	Patch "HAMDK0", 114, 24
+	Patch "EXTXE0", 22, 22
+	Patch "HAMDN0", 0, 69
+}
+
+Sprite "EXTGZ0", 304, 143
+{
+	Offset -29, -55
+	Patch "EXTXG0", 98, 54
+	Patch "HAMDI0", 159, 52
+	Patch "EXTXE0", 47, 35
+	Patch "HAMDN0", 25, 82
+}
+
 Texture "BLCELDR3", 64, 128
 {
 	Patch "BLCELDR1", 0, 0

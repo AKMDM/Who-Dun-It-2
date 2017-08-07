@@ -922,6 +922,8 @@ weapons/fireextinguisher/drop		 FIEXDROP
 weapons/fireextinguisher/wall		 FIEXWALL
 weapons/fireextinguisher/empty		 FIEXEMPT
 
+//Pick Axe
+PickAxe/hit H_PKAXE
 //MONSTERS===============================================================
 
 $volume rat/1 0.6
