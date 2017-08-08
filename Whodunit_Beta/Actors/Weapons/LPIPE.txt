@@ -4,22 +4,22 @@
 //Lead Pipe (Wildweasel)
 Actor FakePipe : CustomInventory 30071
 {
-  //$Category WDI Weapons
-  //$Sprite PIPPA0
-  //$Title "Pipe"
+	//$Category WDI Weapons
+	//$Sprite PIPPA0
+	//$Title "Pipe"
 	Radius 16
 	Height 8
-	Inventory.PickupMessage "Found a plumbing-grade pipe." 
-	Inventory.RespawnTics 3150 //1 minute 30 seconds
+	Inventory.PickupMessage "Found a plumbing-grade pipe."
+	Inventory.Respawntics 3150 //1 minute 30 seconds
 	States
 	{
 	Spawn:
 		PIPP A -1
 		Stop
-	Pickup: 
-		PIPP A 0 
+	Pickup:
+		PIPP A 0
 		PIPP A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		PIPP A 0 A_PlaySound("pickups/weapon")
+		PIPP A 0 A_PlaySound("Pickups/Weapon")
 		PIPP A 0 A_GiveInventory("LeadPipe",1)
 		PIPP A 0 A_GiveInventory("Slot1Filled",1)
 		PIPP A 1 ACS_ExecuteAlways(670,0,10)
@@ -27,110 +27,110 @@ Actor FakePipe : CustomInventory 30071
 	NotPickup:
 		PIPP A 0
 		PIPP A 1 ACS_ExecuteAlways(670,0,10)
-		Fail						  
+		Fail
 }}
 
-Actor LeadPipe : Weapon 
+Actor LeadPipe : Weapon
 {
-   Weapon.SelectionOrder 999
-   Weapon.Kickback 20
-   Weapon.preferredSkin "PipeSkin"
-   +NOALERT
-   +NOAUTOFIRE
-   +NOAUTOAIM
-   +INVENTORY.UNDROPPABLE
-   States
-   {
-  Spawn:
-	PIPP A 0
-	Goto Death
-   Ready:
-   	PIPE A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
-      PIPE A 1 A_WeaponReady
-      Loop
+	Weapon.SelectionOrder 999
+	Weapon.Kickback 20
+	Weapon.PreferredSkin "PipeSkin"
+	+NOALERT
+	+NOAUTOFIRE
+	+NOAUTOAIM
+	+INVENTORY.UNDROPPABLE
+	States
+	{
+	Spawn:
+		PIPP A 0
+		Goto Death
+	Ready:
+		PIPE A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		PIPE A 1 A_WeaponReady
+		Loop
 	DropWeapon:
 		TNT1 A 0
 		PIPE A 1
 		TNT1 A 0 A_TakeInventory("IsDropping",1)
 		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
-       Goto Ready
-   Deselect:
-      PIPE A 1 A_Lower
-      Loop
-   Select:
-      PIPE A 1 A_Raise
-      Loop
-   Fire:
-   	PIPE A 0 A_JumpIfInventory("PipeSeq",2,"Fire3")
-   	PIPE A 0 A_JumpIfInventory("PipeSeq",1,"Fire2")
-      PIPE BC 1
-      	TNT1 A 1 A_ReFire
-      TNT1 A 3
-      PIPE D 1 A_PlaySound("pipe/swing")
-      PIPE EF 1
-      PIPE G 1 A_CustomPunch(10,1,0,"PipePuff", 72)
-      PIPE HI 1
-	  PIPE J 1 A_GiveInventory("PipeSeq",1)
-	  TNT1 A 1
-      TNT1 AAAAAAAAAAAA 1 A_WeaponReady
-	  PIPE TUV 2
-	  PIPE W 2 A_TakeInventory("PipeSeq",999)
-	  Goto Ready
+		Goto Ready
+	Deselect:
+		PIPE A 1 A_Lower
+		Loop
+	Select:
+		PIPE A 1 A_Raise
+		Loop
+	Fire:
+		PIPE A 0 A_JumpIfInventory("PipeSeq",2,"Fire3")
+		PIPE A 0 A_JumpIfInventory("PipeSeq",1,"Fire2")
+		PIPE BC 1
+		TNT1 A 1 A_ReFire
+		TNT1 A 3
+		PIPE D 1 A_PlaySound("Pipe/Swing")
+		PIPE EF 1
+		PIPE G 1 A_CustomPunch(10,1,0,"PipePuff", 72)
+		PIPE HI 1
+		PIPE J 1 A_GiveInventory("PipeSeq",1)
+		TNT1 A 1
+		TNT1 AAAAAAAAAAAA 1 A_WeaponReady
+		PIPE TUV 2
+		PIPE W 2 A_TakeInventory("PipeSeq",999)
+		Goto Ready
 
 	Hold:
-	TNT1 A 1
-      	TNT1 A 1 A_ReFire
-      TNT1 A 2
-      PIPE D 1 A_PlaySound("pipe/swing")
-      PIPE EF 1
-      PIPE G 1 A_CustomPunch(10,1,0,"PipePuff", 72)
-      PIPE HI 1
-	  PIPE J 1 A_GiveInventory("PipeSeq",1)
-	  TNT1 A 2
-      TNT1 AAAAAAAAAAAA 1 A_WeaponReady
-	  PIPE TUV 2
-	  PIPE W 2 A_TakeInventory("PipeSeq",999)
-	  Goto Ready
+		TNT1 A 1
+		TNT1 A 1 A_ReFire
+		TNT1 A 2
+		PIPE D 1 A_PlaySound("Pipe/Swing")
+		PIPE EF 1
+		PIPE G 1 A_CustomPunch(10,1,0,"PipePuff", 72)
+		PIPE HI 1
+		PIPE J 1 A_GiveInventory("PipeSeq",1)
+		TNT1 A 2
+		TNT1 AAAAAAAAAAAA 1 A_WeaponReady
+		PIPE TUV 2
+		PIPE W 2 A_TakeInventory("PipeSeq",999)
+		Goto Ready
 
 	Fire2:
-	  TNT1 A 2
-      PIPE K 1 A_PlaySound("pipe/swing")
-      PIPE LMN 1
-      PIPE O 1 A_CustomPunch(15,1,0,"PipePuff", 72)
-      PIPE PQR 1
-	  PIPE S 1 A_GiveInventory("PipeSeq",1)
-	  TNT1 A 2
-      TNT1 AAAAAAAAAAAA 1 A_WeaponReady
-      PIPE CB 2
-	  PIPE A 2 A_TakeInventory("PipeSeq",999)
-      Goto Ready
+		TNT1 A 2
+		PIPE K 1 A_PlaySound("Pipe/Swing")
+		PIPE LMN 1
+		PIPE O 1 A_CustomPunch(15,1,0,"PipePuff", 72)
+		PIPE PQR 1
+		PIPE S 1 A_GiveInventory("PipeSeq",1)
+		TNT1 A 2
+		TNT1 AAAAAAAAAAAA 1 A_WeaponReady
+		PIPE CB 2
+		PIPE A 2 A_TakeInventory("PipeSeq",999)
+		Goto Ready
 	Fire3:
-      TNT1 A 2
-      PIPE D 1 A_PlaySound("pipe/swing")
-      PIPE EF 1
-      PIPE G 1 A_CustomPunch(20,1,0,"PipePuff", 72) 
-      PIPE HI 1
-	  PIPE J 1 A_TakeInventory("PipeSeq",1)
-	  TNT1 A 2
-      TNT1 AAAAAAAAAAAA 1 A_WeaponReady
-	  PIPE TUV 2
-	  PIPE W 2 A_TakeInventory("PipeSeq",999)
-	  Goto Ready
+		TNT1 A 2
+		PIPE D 1 A_PlaySound("Pipe/Swing")
+		PIPE EF 1
+		PIPE G 1 A_CustomPunch(20,1,0,"PipePuff", 72)
+		PIPE HI 1
+		PIPE J 1 A_TakeInventory("PipeSeq",1)
+		TNT1 A 2
+		TNT1 AAAAAAAAAAAA 1 A_WeaponReady
+		PIPE TUV 2
+		PIPE W 2 A_TakeInventory("PipeSeq",999)
+		Goto Ready
 	Death:
-	   DHSP A 0 A_SpawnItem("DroppedPipe",0,0,0,0)
-	   TNT1 A 0 A_FadeOut(1.0)
-	   Goto death + 1
+		DHSP A 0 A_SpawnItem("DroppedPipe",0,0,0,0)
+		TNT1 A 0 A_FadeOut(1.0)
+		Goto Death + 1
 }}
 
 Actor DroppedPipe
 {
-	PROJECTILE
+	Projectile
 	-NOGRAVITY
 	Damage 0
 	Radius 16
 	Height 8
 	Speed 9
-	DeathSound "pipe/wall"
+	DeathSound "Pipe/Wall"
 	States
 	{
 	Spawn:
@@ -143,28 +143,28 @@ Actor DroppedPipe
 }}
 
 Actor PipePuff
-{ 
-   DamageType "friendlymelee"
-   ActiveSound ""
-   AttackSound "pipe/wall"
-   SeeSound "pipe/hit"
-   Scale 0.75
-   RenderStyle Add
-   Alpha 0.9
-   +NOGRAVITY
-   +NOEXTREMEDEATH
-   +PUFFONActorS
-   States
-   {
-   Spawn:
-   	 POOF ABCDE 3 
-      Stop
-	  Melee:
-   	 POOF ABCDE 3 
-      Stop
-	  Crash:
-   	 POOF ABCDE 3 
-      Stop
+{
+	DamageType "Friendlymelee"
+	ActiveSound ""
+	AttackSound "Pipe/Wall"
+	SeeSound "Pipe/Hit"
+	Scale 0.75
+	RenderStyle Add
+	Alpha 0.9
+	+NOGRAVITY
+	+NOEXTREMEDEATH
+	+PUFFONACTORS
+	States
+	{
+	Spawn:
+		POOF ABCDE 3
+		Stop
+	Melee:
+		POOF ABCDE 3
+		Stop
+	Crash:
+		POOF ABCDE 3
+		Stop
 }}
 
 Actor PipeSeq : Inventory

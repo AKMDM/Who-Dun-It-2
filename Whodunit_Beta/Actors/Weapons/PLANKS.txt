@@ -4,26 +4,25 @@
 //Copied straight from Shovel (which was made by Marty Kirra and Firewolf)
 //Wooden Plank modified, drawn and coded by Lightman68
 //Additional code edits by Theshooter7
-
 Actor FakePlank : CustomInventory 8868
 {
-  //$Category WDI Weapons
-  //$Sprite PLANK0
-  //$Title "Plank"
+	//$Category WDI Weapons
+	//$Sprite PLANK0
+	//$Title "Plank"
 	Radius 16
 	Height 8
 	Scale 0.5
-	Inventory.PickupMessage "Picked up a wooden plank." 
-	Inventory.RespawnTics 10500 //5 Minutes
+	Inventory.PickupMessage "Picked up a wooden plank."
+	Inventory.Respawntics 10500 //5 Minutes
 	States
 	{
 	Spawn:
 		PLAN K -1
 		Stop
-	Pickup: 
-		SHOV A 0 
+	Pickup:
+		SHOV A 0
 		SHOV A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		SHOV A 0 A_PlaySound("pickups/weapon")
+		SHOV A 0 A_PlaySound("Pickups/Weapon")
 		SHOV A 0 A_GiveInventory("Plank",1)
 		SHOV A 0 A_GiveInventory("Slot1Filled",1)
 		PLAN K 1 ACS_ExecuteAlways(670,0,26)
@@ -31,7 +30,7 @@ Actor FakePlank : CustomInventory 8868
 	NotPickup:
 		SHOV A 0
 		PLAN K 1 ACS_ExecuteAlways(670,0,26)
-		Fail						  
+		Fail
 }}
 
 Actor Plank : Weapon
@@ -41,16 +40,15 @@ Actor Plank : Weapon
 	Scale 0.5
 	Inventory.PickupMessage "Found a wooden plank. How Minecrafty..."
 	Weapon.SelectionOrder 2200
-	+WEAPON.MeleeWeapon
-	+WEAPON.NoAutoFire
+	+WEAPON.MELEEWEAPON
+	+WEAPON.NOAUTOFIRE
 	+INVENTORY.UNDROPPABLE
 	States
 	{
 	Spawn:
 		SHOV A 0
 		Goto Death
-	Pickup: 
-	
+	Pickup:
 	Select:
 		WPLA A 1 A_Raise
 		Loop
@@ -61,18 +59,16 @@ Actor Plank : Weapon
 		WPLA A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
 		WPLA A 1 A_WeaponReady
 		Loop
-		
 	DropWeapon:
 		WPLA A 0
 		WPLA A 1
 		WPLA A 0 A_TakeInventory("IsDropping",1)
 		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
 		Goto Ready
-		
 	Fire:
 		WPLA ABCDE 1
 		TNT1 F 1
-		TNT1 A 3 A_Refire
+		TNT1 A 3 A_ReFire
 		WPLA FGHIJKL 1
 		WPLA M 1 A_CustomPunch(15, 1, 1, "PlankPuff", 72)
 		WPLA N 1 A_CustomPunch(10, 1, 1, "PlankPuff2", 72)
@@ -80,34 +76,32 @@ Actor Plank : Weapon
 		TNT1 A 13
 		WPLA ON 1
 		Goto Ready
-
-    Hold:
+	Hold:
 		TNT1 A 1
-		TNT1 A 1 A_Refire
-        WPLA FGHIJKL 1
+		TNT1 A 1 A_ReFire
+		WPLA FGHIJKL 1
 		WPLA M 1 A_CustomPunch(15, 1, 1, "PlankPuff", 72)
 		WPLA N 1 A_CustomPunch(10, 1, 1, "PlankPuff2", 72)
 		WPLA O 1
 		TNT1 A 13
 		WPLA ON 1
 		Goto Ready
-		
 	Death:
-	   POOL A 0 A_SpawnItem("DroppedPlank",0,0,0,0)
-	   TNT1 A 0 A_FadeOut(1.0)
-	   Goto death + 1
+		POOL A 0 A_SpawnItem("DroppedPlank",0,0,0,0)
+		TNT1 A 0 A_FadeOut(1.0)
+		Goto Death + 1
 }}
 
 Actor DroppedPlank
 {
-	PROJECTILE
+	Projectile
 	-NOGRAVITY
 	Damage 0
 	Radius 16
 	Height 8
 	Speed 9
 	Scale 0.5
-	DeathSound "plank/wall"
+	DeathSound "Plank/Wall"
 	States
 	{
 	Spawn:
@@ -122,26 +116,25 @@ Actor DroppedPlank
 //==================================================================
 ///////////////////     NAILED PLANK   /////////////////////////////
 //=================================================================
-
 Actor FakeNailedPlank : CustomInventory 8869
 {
-  //$Category WDI Weapons
-  //$Sprite PLANN0
-  //$Title "Plank (Nailed)"
+	//$Category WDI Weapons
+	//$Sprite PLANN0
+	//$Title "Plank (Nailed)"
 	Radius 16
 	Height 8
 	Scale 0.5
 	Inventory.PickupMessage "Found a nailed wooden plank."
-	Inventory.RespawnTics 10500 //5 Minutes
+	Inventory.Respawntics 10500 //5 Minutes
 	States
 	{
 	Spawn:
 		PLAN N -1
 		Stop
-	Pickup: 
-		SHOV A 0 
+	Pickup:
+		SHOV A 0
 		SHOV A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		SHOV A 0 A_PlaySound("pickups/weapon")
+		SHOV A 0 A_PlaySound("Pickups/Weapon")
 		SHOV A 0 A_GiveInventory("NailedPlank",1)
 		SHOV A 0 A_GiveInventory("Slot1Filled",1)
 		PLAN N 1 ACS_ExecuteAlways(670,0,27)
@@ -149,7 +142,7 @@ Actor FakeNailedPlank : CustomInventory 8869
 	NotPickup:
 		SHOV A 0
 		PLAN N 1 ACS_ExecuteAlways(670,0,27)
-		Fail						  
+		Fail
 }}
 
 Actor NailedPlank : Weapon
@@ -159,16 +152,15 @@ Actor NailedPlank : Weapon
 	Scale 0.5
 	Inventory.PickupMessage "Found a nailed wooden plank."
 	Weapon.SelectionOrder 2200
-	+WEAPON.MeleeWeapon
-	+WEAPON.NoAutoFire
+	+WEAPON.MELEEWEAPON
+	+WEAPON.NOAUTOFIRE
 	+INVENTORY.UNDROPPABLE
 	States
 	{
 	Spawn:
 		SHOV A 0
 		Goto Death
-	Pickup: 
-	
+	Pickup:
 	Select:
 		WPLB A 1 A_Raise
 		Loop
@@ -179,18 +171,16 @@ Actor NailedPlank : Weapon
 		WPLB A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
 		WPLB A 1 A_WeaponReady
 		Loop
-		
 	DropWeapon:
 		WPLB A 0
 		WPLB A 1
 		WPLB A 0 A_TakeInventory("IsDropping",1)
 		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
 		Goto Ready
-		
 	Fire:
 		WPLB ABCDE 1
 		TNT1 A 3
-		TNT1 A 1 A_Refire
+		TNT1 A 1 A_ReFire
 		WPLB FGHIJKL 1
 		WPLB M 1 A_CustomPunch(15, 1, 1, "PlankPuff", 68)
 		WPLB N 1 A_CustomPunch(15, 1, 1, "PlankPuff2", 68)
@@ -198,34 +188,32 @@ Actor NailedPlank : Weapon
 		TNT1 A 13
 		WPLB ON 1
 		Goto Ready
-
-    Hold:
+	Hold:
 		TNT1 A 1
-		TNT1 A 1 A_Refire
-        	WPLB FGHIJKL 1
+		TNT1 A 1 A_ReFire
+		WPLB FGHIJKL 1
 		WPLB M 1 A_CustomPunch(15, 1, 1, "PlankPuff", 68)
 		WPLB N 1 A_CustomPunch(15, 1, 1, "PlankPuff2", 68)
 		WPLB O 1
 		TNT1 A 13
 		WPLB ON 1
 		Goto Ready
-		
 	Death:
-	   POOL A 0 A_SpawnItem("DroppedNailedPlank",0,0,0,0)
-	   TNT1 A 0 A_FadeOut(1.0)
-	   Goto death + 1
+		POOL A 0 A_SpawnItem("DroppedNailedPlank",0,0,0,0)
+		TNT1 A 0 A_FadeOut(1.0)
+		Goto Death + 1
 }}
 
 Actor DroppedNailedPlank
 {
-	PROJECTILE
+	Projectile
 	-NOGRAVITY
 	Damage 0
 	Radius 16
 	Height 8
 	Speed 9
 	Scale 0.5
-	DeathSound "plank/wall"
+	DeathSound "Plank/Wall"
 	States
 	{
 	Spawn:
@@ -239,50 +227,50 @@ Actor DroppedNailedPlank
 
 Actor PlankPuff
 {
-  DamageType "ShovelMelee"
-  +NOBLOCKMAP
-  +NOGRAVITY
-  +PUFFONActorS
-  activesound "shovel/swing"
-  attacksound "Plank/wall"
-  seesound "shovel/hit"
-  States
-  {
-  Spawn:
-    TNT1 A 0
-    TNT1 A 1
-    Stop
-  Crash:
-  	TNT1 A 0
-  	TNT1 A 1
-  	Stop
-  Melee:
-  	TNT1 A 0
-  	TNT1 A 1
-  	Stop
+	DamageType "ShovelMelee"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
+	ActiveSound "Shovel/Swing"
+	AttackSound "Plank/Wall"
+	SeeSound "Shovel/Hit"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		Stop
+	Crash:
+		TNT1 A 0
+		TNT1 A 1
+		Stop
+	Melee:
+		TNT1 A 0
+		TNT1 A 1
+		Stop
 }}
 
 Actor PlankPuff2
 {
-  DamageType "ShovelMelee"
-  +NOBLOCKMAP
-  +NOGRAVITY
-  +PUFFONActorS
-  activesound ""
-  attacksound ""
-  seesound ""
-  States
-  {
-  Spawn:
-    TNT1 A 0
-    TNT1 A 1
-    Stop
-  Crash:
-  	TNT1 A 0
-  	TNT1 A 1
-  	Stop
-  Melee:
-  	TNT1 A 0
-  	TNT1 A 1
-  	Stop
+	DamageType "ShovelMelee"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
+	ActiveSound ""
+	AttackSound ""
+	SeeSound ""
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		Stop
+	Crash:
+		TNT1 A 0
+		TNT1 A 1
+		Stop
+	Melee:
+		TNT1 A 0
+		TNT1 A 1
+		Stop
 }}

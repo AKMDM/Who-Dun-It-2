@@ -1,20 +1,20 @@
 //==================================================================
 /////////////////////     SOULCUBE   //////////////////////////////
-//================================================================= 
- Actor FakeSoulcube : CustomInventory 28467
+//=================================================================
+Actor FakeSoulcube : CustomInventory 28467
 {
-    //$Category WDI Weapons
-    Scale 0.5
+	//$Category WDI Weapons
+	Scale 0.5
 	Radius 16
 	Height 8
-	Inventory.PickupMessage "looks like some kind of artifact." 
-	Inventory.RespawnTics 8150 
+	Inventory.PickupMessage "looks like some kind of artifact."
+	Inventory.Respawntics 8150
 	States
 	{
 	Spawn:
 		SCUF ABCD 5
 		Loop
-	Pickup: 
+	Pickup:
 		SCUF A 0
 		SCUF A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
 		SCUF A 0 A_GiveInventory("Soulcube",1)
@@ -25,66 +25,59 @@
 	NotPickup:
 		SCUF A 0
 		SCUF A 1 ACS_Execute(669,0,12)
-		Fail						  
+		Fail
 }}
 
-Actor SoulCube : weapon 
-{  
-   Weapon.SelectionOrder 352
-   Weapon.preferredSkin "FistSkin"
-   Weapon.UpSound "YZCUBPIK" 
-   Inventory.PickupSound "misc/usgpickup" 
-   Obituary "$o'soul was taken by %k."
-   Weapon.SlotNumber 2
-   +WEAPON.MELEEWEAPON
-   +WEAPON.NO_AUTO_SWITCH
-   AttackSound "skull/melee" 
-   damagetype Cube
-   Scale 0.5
-   States 
-   { 
-   Spawn: 
-	 SCUF ABCD 5
-	 Loop
-		
-   Select:
-      SCUB A 0 A_PlaySound("YZSOULPK")
-      SCUB A 0 A_Raise 
-      Goto ready
-	  
-     Deselect: 
-      SCUB C 1 A_Lower 
-      Loop
-	  
-   Ready:
-      SCUB A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
-      SCUB A 1 A_PlaySound ("YZCUBLOP")
-      SCUB ABCD 3 A_WeaponReady
-    Loop
-		
+Actor SoulCube : Weapon
+{
+	Weapon.SelectionOrder 352
+	Weapon.PreferredSkin "FistSkin"
+	Weapon.UpSound "YZCUBPIK"
+	Inventory.PickupSound "Misc/Usgpickup"
+	Obituary "$o'soul was taken by %k."
+	Weapon.SlotNumber 2
+	+WEAPON.MELEEWEAPON
+	+WEAPON.NO_AUTO_SWITCH
+	AttackSound "Skull/Melee"
+	DamageType Cube
+	Scale 0.5
+	States
+	{
+	Spawn:
+		SCUF ABCD 5
+		Loop
+	Select:
+		SCUB A 0 A_PlaySound("YZSOULPK")
+		SCUB A 0 A_Raise
+		Goto Ready
+	Deselect:
+		SCUB C 1 A_Lower
+		Loop
+	Ready:
+		SCUB A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
+		SCUB A 1 A_PlaySound ("YZCUBLOP")
+		SCUB ABCD 3 A_WeaponReady
+		Loop
 	WeaponDrop:
-	  SCUB A 0
-	  SCUB A 1 
-	  SCUB A 0 A_TakeInventory("IsDropping",1)
-	  TNT1 A 0 ACS_ExecuteAlways(667,0,0,0,0)
-      Goto Ready
-	  	
-   Fire:
-      SCUB E 7 A_PlaySound ("YZCUBFIR")
-      SCUB GF 13 A_CustomPunch(15,1,0,"FMBulletPuff")
-      SCUB H 30 A_CustomPunch(8,1,0,"FMBulletPuff")
-      Goto Ready
-	
-		
+		SCUB A 0
+		SCUB A 1
+		SCUB A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(667,0,0,0,0)
+		Goto Ready
+	Fire:
+		SCUB E 7 A_PlaySound ("YZCUBFIR")
+		SCUB GF 13 A_CustomPunch(15,1,0,"FMBulletPuff")
+		SCUB H 30 A_CustomPunch(8,1,0,"FMBulletPuff")
+		Goto Ready
 	Death:
-	   TNT1 A 0 A_SpawnItem("DroppedSoulcube",0,0,0,0)
-	   TNT1 A 1 A_FadeOut(1.0)
-	   Goto death + 1
+		TNT1 A 0 A_SpawnItem("DroppedSoulcube",0,0,0,0)
+		TNT1 A 1 A_FadeOut(1.0)
+		Goto Death + 1
 }}
 
 Actor DroppedSoulcube
 {
-	PROJECTILE
+	Projectile
 	-NOGRAVITY
 	Scale 0.5
 	Damage 0

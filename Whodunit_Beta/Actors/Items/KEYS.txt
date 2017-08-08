@@ -2,243 +2,227 @@
 /////////////////////     KEYS        //////////////////////////////
 //=================================================================
 // Prepper: ColdNight---------------------------------------------
-
 Actor CoinKey :key 1437
 {
-  //$Category WDI Keys
-  //$Sprite COINA0
-  //$Title "Evil Coin"
- SCALE 0.4
- +INVBAR
- +INVENTORY.UNDROPPABLE
- -INVENTORY.INTERHUBSTRIP
-  Inventory.DefMaxAmount
-  Inventory.MaxAmount 1
-  Inventory.PickupFlash "PickupFlash"
-  Inventory.icon "COINE"
-  Inventory.pickupmessage "Now you have a coin."
-  Inventory.RespawnTics 9999999999999999
-  states
-  {
-  Spawn:
-    MONE A -1 
-    stop  
-  }
-}
+	//$Category WDI Keys
+	//$Sprite COINA0
+	//$Title "Evil Coin"
+	Scale 0.4
+	+INVBAR
+	+INVENTORY.UNDROPPABLE
+	-INVENTORY.INTERHUBSTRIP
+	Inventory.DefMaxAmount
+	Inventory.MaxAmount 1
+	Inventory.PickupFlash "PickupFlash"
+	Inventory.Icon "COINE"
+	Inventory.PickupMessage "Now you have a coin."
+	Inventory.Respawntics 9999999999999999
+	States
+	{
+	Spawn:
+		MONE A -1
+		Stop
+}}
 
 Actor BarKeySpawner : RandomSpawner 32065
 {
-  //$Category WDI Keys
-  //$Sprite KEY1A0
-  //$Title "Bar Key Spawner"
-    Scale 0.35 
-    DropItem "BarKey" 176 1
+	//$Category WDI Keys
+	//$Sprite KEY1A0
+	//$Title "Bar Key Spawner"
+	Scale 0.35
+	DropItem "BarKey" 176 1
 	//DropItem "ABigNothing"  2
 }
-
 Actor SafeKeySpawner : RandomSpawner 14258
 {
-  //$Category WDI Keys
-  //$Sprite KEY5A0
-  //$Title "Safe Key Spawner"
-    Scale 0.35
-    DropItem "SafeKey" 176 1
-
+	//$Category WDI Keys
+	//$Sprite KEY5A0
+	//$Title "Safe Key Spawner"
+	Scale 0.35
+	DropItem "SafeKey" 176 1
 	//DropItem "ABigNothing"  2
 }
-
 Actor BasementKeySpawner : RandomSpawner 14259
 {
-  //$Category WDI Keys
-  //$Sprite BKEYA0
-  //$Title "Basement Key Spawner"
-    DropItem "BasementKey" 176 1
-
+	//$Category WDI Keys
+	//$Sprite BKEYA0
+	//$Title "Basement Key Spawner"
+	DropItem "BasementKey" 176 1
 	//DropItem "ABigNothing"  2
 }
-
 Actor SafeKey : Key 14257
 {
-  //$Category WDI Keys
-  //$Sprite KEY5A0
-  //$Title "Safe Key"
-  Scale 0.35
-  spawnid 86
-  inventory.pickupmessage "Pocketed the Bar Safe key."
-  inventory.icon "ARTISAF"
-  +INVENTORY.UNDROPPABLE
-  states
-  {
-  Spawn:
-    KEY5 A -1
-    stop
- }}
+	//$Category WDI Keys
+	//$Sprite KEY5A0
+	//$Title "Safe Key"
+	Scale 0.35
+	SpawnID 86
+	Inventory.PickupMessage "Pocketed the Bar Safe key."
+	Inventory.Icon "ARTISAF"
+	+INVENTORY.UNDROPPABLE
+	States
+	{
+	Spawn:
+		KEY5 A -1
+		Stop
+}}
 
-Actor BarKey : Key replaces RedCard 13
+Actor BarKey : Key Replaces RedCard 13
 {
-  //$Category WDI Keys
-  //$Sprite KEY1A0
-  //$Title "Bar Key"
-  Scale 0.35
-  spawnid 86
-  inventory.pickupmessage "Pocketed the bar key."
-  inventory.icon "ARTIBAR"
-  +INVENTORY.UNDROPPABLE
-  states
-  {
-  Spawn:
-    KEY1 A -1
-    stop
+	//$Category WDI Keys
+	//$Sprite KEY1A0
+	//$Title "Bar Key"
+	Scale 0.35
+	SpawnID 86
+	Inventory.PickupMessage "Pocketed the bar key."
+	Inventory.Icon "ARTIBAR"
+	+INVENTORY.UNDROPPABLE
+	States
+	{
+	Spawn:
+		KEY1 A -1
+		Stop
 }}
 
 Actor BasementKey : Key 14444
 {
-  //$Category WDI Keys
-  //$Sprite BKEYA0
-  //$Title "Basement Key"
--NOGRAVITY
-  +INVENTORY.UNDROPPABLE
-height 8
-radius 4
-inventory.pickupmessage "Picked up the Basement Key"
-states
-{
-Spawn:
-BKEY A -1
-stop
+	//$Category WDI Keys
+	//$Sprite BKEYA0
+	//$Title "Basement Key"
+	-NOGRAVITY
+	+INVENTORY.UNDROPPABLE
+	Height 8
+	Radius 4
+	Inventory.PickupMessage "Picked up the Basement Key"
+	States
+	{
+	Spawn:
+		BKEY A -1
+		Stop
 }}
 
 Actor TrapKey : Key
 {
-  Scale 0.35
-  inventory.pickupmessage "Pocketed the trap key."
-  inventory.icon "KEY1A0"
-  +INVENTORY.UNDROPPABLE
-  states
-  {
-  Spawn:
-    KEY1 A -1
-    stop
+	Scale 0.35
+	Inventory.PickupMessage "Pocketed the trap key."
+	Inventory.Icon "KEY1A0"
+	+INVENTORY.UNDROPPABLE
+	States
+	{
+	Spawn:
+		KEY1 A -1
+		Stop
 }}
 
 Actor Room1Key : Key 16555
 {
- //$Category WDI Keys
-  Scale 0.35
-  spawnid 86
-  inventory.pickupmessage "Pocketed the Room 1 key."
-  inventory.icon "ARTISAF"
-  +INVENTORY.UNDROPPABLE
-  states
-  {
-  Spawn:
-    KEY5 A -1
-    stop
+	//$Category WDI Keys
+	Scale 0.35
+	SpawnID 86
+	Inventory.PickupMessage "Pocketed the Room 1 key."
+	Inventory.Icon "ARTISAF"
+	+INVENTORY.UNDROPPABLE
+	States
+	{
+	Spawn:
+		KEY5 A -1
+		Stop
 }}
 
 Actor Room8Key : Key 16556
 {
- //$Category WDI Keys
-  Scale 0.35
-  spawnid 86
-  inventory.pickupmessage "Pocketed the Room 8 key."
-  inventory.icon "ARTISAF"
-  +INVENTORY.UNDROPPABLE
-  states
-  {
-  Spawn:
-    KEY5 A -1
-    stop
+	//$Category WDI Keys
+	Scale 0.35
+	SpawnID 86
+	Inventory.PickupMessage "Pocketed the Room 8 key."
+	Inventory.Icon "ARTISAF"
+	+INVENTORY.UNDROPPABLE
+	States
+	{
+	Spawn:
+		KEY5 A -1
+		Stop
 }}
 
 Actor Wdi_SecurityKey : BarKey 10306
 {
- //$Category WDI Keys
-  Scale 0.35
-  inventory.pickupmessage "Pocketed the Security Room key."
-  inventory.icon "ARTIBAR"
+	//$Category WDI Keys
+	Scale 0.35
+	Inventory.PickupMessage "Pocketed the Security Room key."
+	Inventory.Icon "ARTIBAR"
 }
-
 //Key sprites taken from Abbuw's Phobos Outpost map. I hope he won't mind if I borrow them. Thanks in advance!
 Actor E1M1StorageKey : Key 14891
 {
-  //$Category WDI Keys
-  //$Sprite MDKYA0
-  //$Title "Storage Keycard"
-  inventory.pickupmessage "Found the storage room keycard."
-  inventory.icon "MDKYA0"
-  +INVENTORY.UNDROPPABLE
-  states
-  {
-  Spawn:
-    MDKY A -1
-    stop
-  }
-}
+	//$Category WDI Keys
+	//$Sprite MDKYA0
+	//$Title "Storage Keycard"
+	Inventory.PickupMessage "Found the storage room keycard."
+	Inventory.Icon "MDKYA0"
+	+INVENTORY.UNDROPPABLE
+	States
+	{
+	Spawn:
+		MDKY A -1
+		Stop
+}}
 
 Actor E1M1SecurityKey : Key 14892
 {
-  //$Category WDI Keys
-  //$Sprite SCKYA0
-  //$Title "Security Keycard"
-  inventory.pickupmessage "Found the security room keycard."
-  inventory.icon "SCKYA0"
-  +INVENTORY.UNDROPPABLE
-  states
-  {
-  Spawn:
-    SCKY A -1
-    stop
-  }
-}
+	//$Category WDI Keys
+	//$Sprite SCKYA0
+	//$Title "Security Keycard"
+	Inventory.PickupMessage "Found the security room keycard."
+	Inventory.Icon "SCKYA0"
+	+INVENTORY.UNDROPPABLE
+	States
+	{
+	Spawn:
+		SCKY A -1
+		Stop
+}}
 
 Actor E1M1StorKeySpawner : RandomSpawner 14893
 {
-  //$Category WDI Keys
-  //$Sprite MDKYA0
-  //$Title "Storage Keycard Spawner"
-  DropItem "E1M1StorageKey" 200 1
+	//$Category WDI Keys
+	//$Sprite MDKYA0
+	//$Title "Storage Keycard Spawner"
+	DropItem "E1M1StorageKey" 200 1
 }
-
 Actor E1M1SecKeySpawner : RandomSpawner 14894
 {
-  //$Category WDI Keys
-  //$Sprite SCKYA0
-  //$Title "Security Keycard Spawner"
-  DropItem "E1M1SecurityKey" 200 1
+	//$Category WDI Keys
+	//$Sprite SCKYA0
+	//$Title "Security Keycard Spawner"
+	DropItem "E1M1SecurityKey" 200 1
 }
-
-Actor MurdererKey : RedSkull replaces RedSkull
+Actor MurdererKey : RedSkull Replaces RedSkull
 {
-+INVENTORY.UNDROPPABLE
+	+INVENTORY.UNDROPPABLE
 }
-
 Actor Masterkey: custominventory 3248 {
-//$Category WDI Keys
-//$Title "Security MasterKey"
-Inventory.DefMaxAmount
-Inventory.MaxAmount 1
-Inventory.pickupmessage "Pocketed oval gate ring with keys."
- +INVENTORY.UNDROPPABLE
- +NOGRAVITY
-  Scale 0.35
-  states
-  {
-  Spawn:
-    MKEY A -1 
-    stop 
-	
+	//$Category WDI Keys
+	//$Title "Security MasterKey"
+	Inventory.DefMaxAmount
+	Inventory.MaxAmount 1
+	Inventory.PickupMessage "Pocketed oval gate ring with keys."
+	+INVENTORY.UNDROPPABLE
+	+NOGRAVITY
+	Scale 0.35
+	States
+	{
+	Spawn:
+		MKEY A -1
+		Stop
 	Pickup:
-        TNT1 A 1
-	TNT1 A 0 Acs_execute(128,0)//set your own custom group of keys
-	Stop		
-  }
-}
+		TNT1 A 1
+		TNT1 A 0 ACS_Execute(128,0)//set your own custom group of keys
+		Stop
+}}
 
-Actor _RedCard : RedCard replaces RedCard { +INVENTORY.UNDROPPABLE }
-Actor _BlueCard : BlueCard replaces BlueCard { +INVENTORY.UNDROPPABLE }
-Actor _YellowCard : YellowCard replaces YellowCard { +INVENTORY.UNDROPPABLE }
-
-Actor _RedSkull : RedSkull replaces RedSkull { +INVENTORY.UNDROPPABLE }
-Actor _BlueSkull : BlueSkull replaces BlueSkull { +INVENTORY.UNDROPPABLE }
-Actor _YellowSkull : YellowSkull replaces YellowSkull { +INVENTORY.UNDROPPABLE }
+Actor _RedCard : RedCard Replaces RedCard { +INVENTORY.UNDROPPABLE }
+Actor _BlueCard : BlueCard Replaces BlueCard { +INVENTORY.UNDROPPABLE }
+Actor _YellowCard : YellowCard Replaces YellowCard { +INVENTORY.UNDROPPABLE }
+Actor _RedSkull : RedSkull Replaces RedSkull { +INVENTORY.UNDROPPABLE }
+Actor _BlueSkull : BlueSkull Replaces BlueSkull { +INVENTORY.UNDROPPABLE }
+Actor _YellowSkull : YellowSkull Replaces YellowSkull { +INVENTORY.UNDROPPABLE }

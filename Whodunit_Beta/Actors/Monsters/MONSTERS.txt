@@ -1,162 +1,157 @@
 //==================================================================
 /////////////////////    MONSTERS    //////////////////////////////
 //=================================================================
-
 Actor Rat 28674
 {
-MONSTER
--ISMONSTER
-+ALWAYSRESPAWN
--TELESTOMP
--CANPASS
-+DONTFALL
-+PUSHABLE
-+NODROPOFF
-+DONTSPLASH
--CANUSEWALLS
--COUNTKILL
--CANPUSHWALLS
-health 10
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-maxstepheight 4
-radius 4
-height 6
-speed 13
-activesound "rat/squeak"
-deathsound "rat/die"
-  //$Category WDI Creatures
-  //$Sprite RATTA2A8
-  //$Title "Rat (Gives Sanity on death)"
-states
-{
-Spawn:
-RATT A 1 A_Chase
-RATT A 8 A_Jump(60, "Walk", "TryAgain")
-loop
-TryAgain:
-RATT B 8 A_Jump(60, "Walk", "Spawn")
-loop
-Walk:
-RATT ABABAB 4 A_Wander
-RATT A 0 A_JumpIfCloser(64, "Scared")
-RATT A 0 A_CheckSight("Spawn")
-loop
-Scared:
-RATT A 1 A_ChangeFlag("FRIGHTENED", 1)
-RATT ABABABAB 3 A_Chase
-RATT A 0 A_CheckSight("Spawn")
-loop
-death:
-RATT A 0 A_GiveToTarget("MadMeter", 40)
-RATT A 1 A_PlaySound("rat/die")
-MEAT R 4 A_Burst("RatMeat")
-MEAT QP 4
-MEAT P -1
-stop
+	Monster
+	-ISMONSTER
+	+ALWAYSRESPAWN
+	-TELESTOMP
+	-CANPASS
+	+DONTFALL
+	+PUSHABLE
+	+NODROPOFF
+	+DONTSPLASH
+	-CANUSEWALLS
+	-COUNTKILL
+	-CANPUSHWALLS
+	Health 10
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	MaxStepHeight 4
+	Radius 4
+	Height 6
+	Speed 13
+	ActiveSound "Rat/Squeak"
+	DeathSound "Rat/Die"
+	//$Category WDI Creatures
+	//$Sprite RATTA2A8
+	//$Title "Rat (Gives Sanity on Death)"
+	States
+	{
+	Spawn:
+		RATT A 1 A_Chase
+		RATT A 8 A_Jump(60, "Walk", "TryAgain")
+		Loop
+	TryAgain:
+		RATT B 8 A_Jump(60, "Walk", "Spawn")
+		Loop
+	Walk:
+		RATT ABABAB 4 A_Wander
+		RATT A 0 A_JumpIfCloser(64, "Scared")
+		RATT A 0 A_CheckSight("Spawn")
+		Loop
+	Scared:
+		RATT A 1 A_ChangeFlag("FRIGHTENED", 1)
+		RATT ABABABAB 3 A_Chase
+		RATT A 0 A_CheckSight("Spawn")
+		Loop
+	Death:
+		RATT A 0 A_GiveToTarget("MadMeter", 40)
+		RATT A 1 A_PlaySound("Rat/Die")
+		MEAT R 4 A_Burst("RatMeat")
+		MEAT QP 4
+		MEAT P -1
+		Stop
 }}
 
-Actor RatMeat { 
-+CLIENTSIDEONLY
-+HEXENBOUNCE
-+DONTSPLASH
-scale 0.3
-gravity 0.4
-bouncecount 5
-reactiontime 20
-states {
-Spawn:
-MEAT S 1 A_Jump(150, "Two")
-One:
-MEAT S 3 A_Countdown
-loop
-Two:
-MEAT T 3 A_Countdown
-loop
-Death:
-stop
+Actor RatMeat {
+	+CLIENTSIDEONLY
+	+HEXENBOUNCE
+	+DONTSPLASH
+	Scale 0.3
+	Gravity 0.4
+	BounceCount 5
+	ReactionTime 20
+	States {
+	Spawn:
+		MEAT S 1 A_Jump(150, "Two")
+	One:
+		MEAT S 3 A_CountDown
+		Loop
+	Two:
+		MEAT T 3 A_CountDown
+		Loop
+	Death:
+		Stop
 }}
 
-/* sprites: remove?? any use for this monster after 24 maps 
+/* sprites: remove?? any Use for this Monster after 24 maps
 Actor Gonefishing 14254
 {
-  speed 24
-  MaxStepHeight 16
-  MaxDropoffHeight 32
-  MONSTER
-  +FRIENDLY
-  -SHOOTABLE
-  //$Category WDI Easter Eggs
-  //$Sprite GNFIA2A8
-  //$Title "GONE FISHING"
-  states
-  {
-  Spawn:
-    GNFI A 1 A_Look2
-    loop
-  See:
-    GNFI ABCD 4 A_Wander
-    loop
+Speed 24
+MaxStepHeight 16
+MaxDropOffHeight 32
+Monster
++FRIENDLY
+-SHOOTABLE
+//$Category WDI Easter Eggs
+//$Sprite GNFIA2A8
+//$Title "GONE FISHING"
+States
+{
+Spawn:
+GNFI A 1 A_Look2
+Loop
+See:
+GNFI ABCD 4 A_Wander
+Loop
 }}
 */
-
 Actor Netherdemon 30010
 {
-  //$Category WDI Creatures
-  +FLOORCLIP
-  +FASTER
-  +NOGRAVITY
-  +FLOAT
-  Health 166
-  PainChance 180
-  Speed 13
-  Radius 18
-  Height 59
-  Mass 0x7fffffff
-  scale .90
-DamageFactor "Gas", 0.0
-DamageFactor "FlareEffect", 0.0
-meleedamage 3
-meleerange 66
-Monster
-  Obituary "%o was slain"
-  States
-  {
-  Spawn:
-    NTDM A 2 A_Look
-	NTDM B 2 A_Look
-	NTDM C 1 A_Look
-	NTDM D 2 A_Look
-	NTDM E 2 A_Look
-    Loop
-  See:
-    NTDM A 1 A_Chase
-	NTDM B 1 A_Chase
-	NTDM C 1 A_Chase
-	NTDM D 1 A_Chase
-	NTDM E 1 A_Chase
-   Loop
-  Melee:
-    NTDM F 5 A_FaceTarget
-    NTDM F 1 A_MeleeAttack
-	NTDM F 5 A_FaceTarget
-	NTDM A 2 A_FaceTarget
-   Goto See
-  Pain:
-    NTDM R 6 A_Pain
-    Goto See
-  Death:
-    NTDM F 320 A_PlaySound("CVOICES")
-    NTDM G 70 A_Scream
-    NTDM H 2
-	NTDM I 2
-	NTDM J 2
-	NTDM K 2
-	NTDM L 2
-	NTDM M 2 A_SpawnItemEx("Netheregg")
-    NTDM N 2 A_NoBlocking
-    Stop
-  }
-}
-
-
+	//$Category WDI Creatures
+	+FLOORCLIP
+	+FASTER
+	+NOGRAVITY
+	+FLOAT
+	Health 166
+	PainChance 180
+	Speed 13
+	Radius 18
+	Height 59
+	Mass 0x7fffffff
+	Scale .90
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	MeleeDamage 3
+	MeleeRange 66
+	Monster
+	Obituary "%o was slain"
+	States
+	{
+	Spawn:
+		NTDM A 2 A_Look
+		NTDM B 2 A_Look
+		NTDM C 1 A_Look
+		NTDM D 2 A_Look
+		NTDM E 2 A_Look
+		Loop
+	See:
+		NTDM A 1 A_Chase
+		NTDM B 1 A_Chase
+		NTDM C 1 A_Chase
+		NTDM D 1 A_Chase
+		NTDM E 1 A_Chase
+		Loop
+	Melee:
+		NTDM F 5 A_FaceTarget
+		NTDM F 1 A_MeleeAttack
+		NTDM F 5 A_FaceTarget
+		NTDM A 2 A_FaceTarget
+		Goto See
+	Pain:
+		NTDM R 6 A_Pain
+		Goto See
+	Death:
+		NTDM F 320 A_PlaySound("CVOICES")
+		NTDM G 70 A_Scream
+		NTDM H 2
+		NTDM I 2
+		NTDM J 2
+		NTDM K 2
+		NTDM L 2
+		NTDM M 2 A_SpawnItemEx("Netheregg")
+		NTDM N 2 A_NoBlocking
+		Stop
+}}

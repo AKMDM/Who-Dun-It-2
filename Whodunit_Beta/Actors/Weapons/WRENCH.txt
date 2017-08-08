@@ -4,23 +4,23 @@
 //Wrench (Wildweasel)
 Actor FakeWrench : CustomInventory 30072
 {
-  //$Category WDI Weapons
-  //$Sprite PIPPB0
-  //$Title "Wrench"
+	//$Category WDI Weapons
+	//$Sprite PIPPB0
+	//$Title "Wrench"
 	Radius 16
 	Height 8
 	Scale 0.5
-	Inventory.PickupMessage "Found a heavy wrench." 
-	Inventory.RespawnTics 3150 //1 minute 30 seconds
+	Inventory.PickupMessage "Found a heavy wrench."
+	Inventory.Respawntics 3150 //1 minute 30 seconds
 	States
 	{
 	Spawn:
 		PIPP B -1
 		Stop
-	Pickup: 
-		PIPP B 0 
+	Pickup:
+		PIPP B 0
 		PIPP B 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		PIPP B 0 A_PlaySound("pickups/weapon")
+		PIPP B 0 A_PlaySound("Pickups/Weapon")
 		PIPP B 0 A_GiveInventory("PipeWrench",1)
 		PIPP B 0 A_GiveInventory("Slot1Filled",1)
 		PIPP B 1 ACS_ExecuteAlways(670,0,11)
@@ -28,27 +28,27 @@ Actor FakeWrench : CustomInventory 30072
 	NotPickup:
 		PIPP B 0
 		PIPP B 1 ACS_ExecuteAlways(670,0,11)
-		Fail					  
+		Fail
 }}
 
-Actor PipeWrench : Weapon 
+Actor PipeWrench : Weapon
 {
 	SpawnID 32
 	Radius 20
 	Height 12
 	Inventory.PickupMessage "Found a heavy wrench."
 	Weapon.SelectionOrder 2200
-        Weapon.preferredSkin "WrenchSkin"
-	+WEAPON.MeleeWeapon
-	+WEAPON.NoAutoFire
+	Weapon.PreferredSkin "WrenchSkin"
+	+WEAPON.MELEEWEAPON
+	+WEAPON.NOAUTOFIRE
 	+INVENTORY.UNDROPPABLE
-   	+NOAUTOAIM
+	+NOAUTOAIM
 	States
 	{
 	Spawn:
 		PIPP B 0
-		goto Death
-	Pickup: 
+		Goto Death
+	Pickup:
 	Select:
 		PIPW A 1 A_Raise
 		Loop
@@ -64,7 +64,7 @@ Actor PipeWrench : Weapon
 		PIPW A 1
 		TNT1 A 0 A_TakeInventory("IsDropping",1)
 		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
-       		Goto Ready
+		Goto Ready
 	Fire:
 		PIPW A 0 A_JumpIfInventory("PipeSeq",2,"Fire3")
 		PIPW A 0 A_JumpIfInventory("PipeSeq",1,"Fire2")
@@ -111,21 +111,21 @@ Actor PipeWrench : Weapon
 		PIPW BA 1
 		Goto Ready
 	Death:
-	   	DHSP A 0 A_SpawnItem("DroppedWrench",0,0,0,0)
-	   	TNT1 A 0 A_FadeOut(1.0)
-	   	goto death + 1
+		DHSP A 0 A_SpawnItem("DroppedWrench",0,0,0,0)
+		TNT1 A 0 A_FadeOut(1.0)
+		Goto Death + 1
 }}
 
 Actor DroppedWrench
 {
-	PROJECTILE
+	Projectile
 	-NOGRAVITY
 	Damage 0
 	Radius 16
 	Height 8
 	Speed 9
 	Scale 0.5
-	DeathSound "wrench/hitwall"
+	DeathSound "Wrench/Hitwall"
 	States
 	{
 	Spawn:
@@ -139,25 +139,25 @@ Actor DroppedWrench
 
 Actor WrenchPuff
 {
-  DamageType "friendlymelee"
-  +NOBLOCKMAP
-  +NOGRAVITY
-  +PUFFONActorS
-  activesound "wrench/swing"
-  attacksound "wrench/hitwall"
-  seesound "wrench/hitbody"
-  States
-  {
-  Spawn:
-    TNT1 A 0
-    TNT1 A 1
-    Stop
-  Crash:
-  	TNT1 A 0
-  	TNT1 A 1
-  	Stop
-  Melee:
-  	TNT1 A 0
-  	TNT1 A 1
-  	Stop
+	DamageType "Friendlymelee"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
+	ActiveSound "Wrench/Swing"
+	AttackSound "Wrench/Hitwall"
+	SeeSound "Wrench/Hitbody"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		Stop
+	Crash:
+		TNT1 A 0
+		TNT1 A 1
+		Stop
+	Melee:
+		TNT1 A 0
+		TNT1 A 1
+		Stop
 }}
