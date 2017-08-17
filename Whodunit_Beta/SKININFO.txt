@@ -159,14 +159,14 @@ CrouchSprite = PIPC
 name = ExtinguisherSkin
 class = "Voice: Thick"
 sprite = PLEX
-CrouchSprite = PLEX
+CrouchSprite = CEXT
 }
 
 {
 name = ExtinguisherSkin
 class = "Voice: Wimpy"
 sprite = PLEX
-CrouchSprite = PLEX
+CrouchSprite = CEXT
 }
 
 /*
