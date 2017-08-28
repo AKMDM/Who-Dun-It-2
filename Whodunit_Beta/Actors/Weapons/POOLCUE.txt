@@ -122,14 +122,14 @@ Actor PoolCue : Weapon
 
 Actor DroppedCue
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
 	Scale 0.5
 	DeathSound "Cue/Wall"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -144,12 +144,12 @@ Actor DroppedCue
 Actor CuePuff
 {
 	DamageType "CueMelee"
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
 	ActiveSound "Cue/Swing"
 	AttackSound "Cue/Swing"
 	SeeSound "Cue/Swing"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
 	States
 	{
 	Spawn:
@@ -169,12 +169,12 @@ Actor CuePuff
 Actor CuePuff2
 {
 	DamageType "CueMelee"
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
 	ActiveSound ""
 	AttackSound "Cue/Wall"	// Hit Wall
 	SeeSound "Cue/Hit"		// Hit Player
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
 	States
 	{
 	Spawn:

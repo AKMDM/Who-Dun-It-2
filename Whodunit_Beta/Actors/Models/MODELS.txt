@@ -17,14 +17,14 @@ Actor Grate 10315
 Actor CatBox1 10316
 {
 	//$Category WDI Models
+	Radius 16
+	Height 16
+	Mass 3
 	+SOLID
 	+CANPASS
 	+SHOOTABLE
 	+NODAMAGE
 	+NOBLOOD
-	Mass 3
-	Radius 16
-	Height 16
 	States
 	{
 	Spawn:
@@ -42,12 +42,12 @@ Actor CatBoxUnwrapped : CatBox1 10322 { -SOLID -SHOOTABLE -CANPASS}
 Actor CatBarrel 10202
 {
 	//$Category WDI Models
+	Radius 16
+	Height 32
 	Scale 1.0
 	+SOLID
 	+NOBLOOD
 	+NODAMAGE
-	Radius 16
-	Height 32
 	States
 	{
 	Spawn:
@@ -58,13 +58,13 @@ Actor CatBarrel 10202
 Actor CatBottleLabel1
 {
 	//$Category WDI Models
+	Radius 3
+	Height 6
 	Scale 1.0
 	-SOLID
 	+NOINTERACTION
 	+NOBLOOD
 	+NODAMAGE
-	Radius 3
-	Height 6
 	States
 	{
 	Spawn:
@@ -79,14 +79,14 @@ Actor CatBottleLabel4 : CatBottleLabel1 {}
 Actor CatBottle1 10210
 {
 	//$Category WDI Models
+	Radius 3
+	Height 6
 	Scale 1.0
 	Alpha 0.7
 	RenderStyle Add
 	+SOLID
 	+NOBLOOD
 	+NODAMAGE
-	Radius 3
-	Height 6
 	States
 	{
 	Spawn:
@@ -123,12 +123,12 @@ Actor CatMartiniGlass 10281
 {
 	//$Category WDI Models
 	Scale 1.0
-	-SOLID
-	-SHOOTABLE
 	Radius 2
 	Height 4
-	RenderStyle Add
 	Alpha 0.8
+	RenderStyle Add
+	-SOLID
+	-SHOOTABLE
 	States
 	{
 	Spawn:
@@ -139,13 +139,13 @@ Actor CatMartiniGlass 10281
 Actor Page1a
 {
 	Scale 0.4
+	Radius 4
+	Height 1
 	+SOLID
 	+CANPASS
 	+NOBLOOD
 	+NODAMAGE
 	+CLIENTSIDEONLY
-	Radius 4
-	Height 1
 	States
 	{
 	Spawn:
@@ -165,10 +165,10 @@ Actor Page 10358
 {
 	//$Category WDI Models
 	//$Sprite WDIMA0
-	Scale 0.4
-	-SOLID
 	Radius 4
 	Height 1
+	Scale 0.4
+	-SOLID
 	States
 	{
 	Spawn:
@@ -194,13 +194,13 @@ Actor Page2 10359
 	//$Category WDI Models
 	//$Sprite WDIMA0
 	Scale 0.4
+	Radius 4
+	Height 1
 	+SOLID
 	+CANPASS
 	+NOBLOOD
 	+NODAMAGE
 	+CLIENTSIDEONLY
-	Radius 4
-	Height 1
 	States
 	{
 	Spawn:
@@ -226,10 +226,10 @@ Actor Page3 : Page 10360 {}
 Actor ToolBox 10357
 {
 	//$Category WDI Models
-	Scale 1.2
-	+SOLID
 	Height 12
 	Radius 6
+	Scale 1.2
+	+SOLID
 	+CANPASS
 	+SHOOTABLE
 	+NOBLOOD
@@ -246,13 +246,13 @@ Actor Spanner 10704
 	//$Category WDI Models
 	Height 4
 	Radius 8
-	-NOGRAVITY
-	+NOBLOOD
-	+SHOOTABLE
-	+NODAMAGE
 	Health 50
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
+	+NOBLOOD
+	+SHOOTABLE
+	+NODAMAGE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -284,11 +284,11 @@ Actor BigPipe1 10707
 	//$Sprite WDIMA0
 	Height 64
 	Radius 16
+	Scale 1.05
 	+NOCLIP
 	+NOGRAVITY
 	+NOINTERACTION
 	-SHOOTABLE
-	Scale 1.05
 	States
 	{
 	Spawn:
@@ -366,10 +366,10 @@ Actor TripodLightBulb {
 }}
 
 Actor TripodLightBeam {
-	+NOCLIP
-	+NOINTERACTION
 	RenderStyle Add
 	Alpha 0.4
+	+NOCLIP
+	+NOINTERACTION
 	States
 	{
 	Spawn:
@@ -408,10 +408,10 @@ Actor TripodLightStandingBulb {
 }}
 
 Actor TripodLightStandingBeam {
-	+NOCLIP
-	+NOINTERACTION
 	RenderStyle Add
 	Alpha 0.4
+	+NOCLIP
+	+NOINTERACTION
 	States
 	{
 	Spawn:
@@ -555,9 +555,9 @@ Actor DoorBlocker
 Actor Dryer 22222 {
 	//$Category WDI Models
 	//$Title "Dryer"
+	Radius 10
 	+NOGRAVITY
 	+SOLID
-	Radius 10
 	States
 	{
 	Spawn:
@@ -586,10 +586,10 @@ Actor Toilet 800 {
 }}
 
 Actor Car 900 {
-	Height 32
-	Radius 54
 	//$Category WDI Models
 	//$Title "Car"
+	Height 32
+	Radius 54
 	States
 	{
 	Spawn:
@@ -600,9 +600,9 @@ Actor Car 900 {
 Actor Soap 4000 {
 	//$Category WDI Models
 	//$Title "Soap"
-	+NOGRAVITY
 	Height 14
 	Radius 8
+	+NOGRAVITY
 	States
 	{
 	Spawn:
@@ -666,8 +666,8 @@ Actor Motortrn 22779
 	//$Category Retorn_map_ONLY
 	Height 32
 	Radius 24
-	+SOLID
 	Scale 1.0
+	+SOLID
 	States
 	{
 	Spawn:
@@ -680,8 +680,8 @@ Actor TCPDCar 22767
 	//$Category Retorn_map_ONLY
 	Height 32
 	Radius 54
-	+SOLID
 	Scale 1.0
+	+SOLID
 	States
 	{
 	Spawn:
@@ -694,9 +694,9 @@ Actor Trash1 10601
 	//$Category Retorn_map_ONLY
 	//$Sprite WDIMA0
 	Game Doom
-	-NOGRAVITY
 	Alpha 1
 	+RANDOMIZE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -709,8 +709,8 @@ Actor Trash2 10602
 	//$Category Retorn_map_ONLY
 	//$Sprite WDIMA0
 	Game Doom
-	-NOGRAVITY
 	Alpha 1
+	-NOGRAVITY
 	+RANDOMIZE
 	States
 	{
@@ -721,6 +721,7 @@ Actor Trash2 10602
 
 Actor Decorative_Item
 {
+	Mass 0x7FFFFFF
 	+SOLID
 	+NOGRAVITY
 	+SHOOTABLE
@@ -728,7 +729,6 @@ Actor Decorative_Item
 	+NODAMAGE
 	+DORMANT
 	+FRIENDLY
-	Mass 0x7FFFFFF
 }
 /* No USED
 Actor LeafTree : Decorative_Item 19102
@@ -771,7 +771,6 @@ Actor ModelSittersPlant1 29417
 	States
 	{
 	Spawn:
-	Spawn:
 		NULL A -1
 		Stop
 }}
@@ -783,7 +782,6 @@ Actor ModelSittersPlant2 29418
 	States
 	{
 	Spawn:
-	Spawn:
 		NULL A -1
 		Stop
 }}
@@ -794,7 +792,6 @@ Actor ModelSittersPlant3 29419
 	//$Sprite WDIMA0
 	States
 	{
-	Spawn:
 	Spawn:
 		NULL A -1
 		Stop

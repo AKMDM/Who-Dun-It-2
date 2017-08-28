@@ -1,14 +1,17 @@
 ////////////////////////////////////////SLENDERMAN
 Actor Slenderman
 {
-	Scale 0.25
-	CameraHeight 40
 	Height 70
 	Radius 15
+	Scale 0.25
+	Mass 9999999999
+	CameraHeight 40
 	Speed 7
-	Damage 1
 	Health 9999
+	PainChance 0
+	Damage 1
 	DamageFactor "FlareEffect", 0.0
+	Obituary "%o was kidnapped"
 	Monster
 	+NOBLOCKMONST
 	+DROPOFF
@@ -16,9 +19,6 @@ Actor Slenderman
 	+QUICKTORETALIATE
 	+DONTSPLASH
 	+NOCLIP
-	Obituary "%o was kidnapped"
-	PainChance 0
-	Mass 9999999999
 	States
 	{
 	Spawn:

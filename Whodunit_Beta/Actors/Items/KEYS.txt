@@ -8,15 +8,15 @@ Actor CoinKey :key 1437
 	//$Sprite COINA0
 	//$Title "Evil Coin"
 	Scale 0.4
-	+INVBAR
-	+INVENTORY.UNDROPPABLE
-	-INVENTORY.INTERHUBSTRIP
-	Inventory.DefMaxAmount
 	Inventory.MaxAmount 1
+	Inventory.Respawntics 9999999999999999
+	Inventory.DefMaxAmount
 	Inventory.PickupFlash "PickupFlash"
 	Inventory.Icon "COINE"
 	Inventory.PickupMessage "Now you have a coin."
-	Inventory.Respawntics 9999999999999999
+	+INVBAR
+	+INVENTORY.UNDROPPABLE
+	-INVENTORY.INTERHUBSTRIP
 	States
 	{
 	Spawn:
@@ -89,11 +89,11 @@ Actor BasementKey : Key 14444
 	//$Category WDI Keys
 	//$Sprite BKEYA0
 	//$Title "Basement Key"
-	-NOGRAVITY
-	+INVENTORY.UNDROPPABLE
 	Height 8
 	Radius 4
 	Inventory.PickupMessage "Picked up the Basement Key"
+	+INVENTORY.UNDROPPABLE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -117,8 +117,8 @@ Actor TrapKey : Key
 Actor Room1Key : Key 16555
 {
 	//$Category WDI Keys
-	Scale 0.35
 	SpawnID 86
+	Scale 0.35
 	Inventory.PickupMessage "Pocketed the Room 1 key."
 	Inventory.Icon "ARTISAF"
 	+INVENTORY.UNDROPPABLE
@@ -132,8 +132,8 @@ Actor Room1Key : Key 16555
 Actor Room8Key : Key 16556
 {
 	//$Category WDI Keys
-	Scale 0.35
 	SpawnID 86
+	Scale 0.35
 	Inventory.PickupMessage "Pocketed the Room 8 key."
 	Inventory.Icon "ARTISAF"
 	+INVENTORY.UNDROPPABLE
@@ -203,12 +203,12 @@ Actor MurdererKey : RedSkull Replaces RedSkull
 Actor Masterkey: custominventory 3248 {
 	//$Category WDI Keys
 	//$Title "Security MasterKey"
-	Inventory.DefMaxAmount
+	Scale 0.35
 	Inventory.MaxAmount 1
+	Inventory.DefMaxAmount
 	Inventory.PickupMessage "Pocketed oval gate ring with keys."
 	+INVENTORY.UNDROPPABLE
 	+NOGRAVITY
-	Scale 0.35
 	States
 	{
 	Spawn:

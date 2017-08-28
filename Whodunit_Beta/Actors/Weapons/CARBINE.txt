@@ -9,9 +9,9 @@ Actor FakeM1 : CustomInventory 31011
 	//$Title "M1 Carbine"
 	Radius 16
 	Height 8
+	//Scale 0.16
 	Inventory.PickupMessage "Found an M1 Carbine"
 	Inventory.Respawntics 3024000 //1 hour
-	//Scale 0.16
 	States
 	{
 	Spawn:
@@ -81,20 +81,20 @@ Actor M1Once : Inventory
 
 Actor M1Carbine : Weapon
 {
+	//Scale 0.16
 	Decal BulletChip
-	+INVENTORY.UNDROPPABLE
-	Inventory.PickupSound "M1/Cock"
 	Weapon.SelectionOrder 1900
-	Weapon.PreferredSkin "M1Skin2"
-	Weapon.AmmoType "M1CarbineClipIn"
-	Weapon.AmmoType2 "M1Ammo"
 	Weapon.AmmoGive 0
 	Weapon.AmmoGive2 0
 	Weapon.AmmoUse 0
+	Weapon.AmmoType "M1CarbineClipIn"
+	Weapon.AmmoType2 "M1Ammo"
+	Weapon.PreferredSkin "M1Skin2"
+	Inventory.PickupSound "M1/Cock"
 	Inventory.PickupMessage "You picked up A M1-Carbine!"
 	Obituary "%o was killed by %k's M1-Carbine."
 	AttackSound "M1/Fire"
-	//Scale 0.16
+	+INVENTORY.UNDROPPABLE
 	+AMMO_OPTIONAL
 	+ALT_AMMO_OPTIONAL
 	+NOAUTOAIM
@@ -248,14 +248,14 @@ Actor M1Carbine : Weapon
 
 Actor DroppedM1
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
 	//Scale 0.16
 	DeathSound "Weapons/Gundrop"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -277,13 +277,13 @@ Actor M1Ammo : Ammo 31013
 	//$Category WDI Ammo
 	//$Sprite CLP3A0
 	//$Title "M1 Magazine"
-	Inventory.MaxAmount 1
 	Scale 0.08
-	+INVENTORY.INVBAR
-	-INVENTORY.INTERHUBSTRIP
+	Inventory.MaxAmount 1
+	Inventory.Respawntics 21000 //10 minutes
 	Inventory.Icon "M1CLIP2"
 	Inventory.PickupMessage "Picked up some M1Carbine Ammo"
-	Inventory.Respawntics 21000 //10 minutes
+	+INVENTORY.INVBAR
+	-INVENTORY.INTERHUBSTRIP
 	States
 	{
 	Spawn:
@@ -304,13 +304,13 @@ Actor M1CarbineClipIn : Ammo
 
 Actor M1ClipCasing
 {
-	+NOTELEPORT
-	-NOBLOCKMAP
 	Height 12
 	Radius 9
 	Speed 4
 	Scale 0.08
 	Projectile
+	+NOTELEPORT
+	-NOBLOCKMAP
 	-NOGRAVITY
 	-NOLIFTDROP
 	States

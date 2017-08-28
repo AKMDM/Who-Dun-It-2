@@ -34,8 +34,8 @@ Actor Brick : Weapon
 {
 	Radius 8
 	Height 32
-	Inventory.PickupMessage "Picked up a dry brick. Good for throwing!"
 	Weapon.SelectionOrder 2200
+	Inventory.PickupMessage "Picked up a dry brick. Good for throwing!"
 	+WEAPON.NOAUTOFIRE
 	+INVENTORY.UNDROPPABLE
 	+NOAUTOAIM
@@ -99,8 +99,17 @@ Actor ThrownBrick
 	Radius 6
 	Height 4
 	Speed 30
+	Gravity 0.8
 	Damage (27)
+	BounceCount 3
+	BounceFactor 0.2
 	DamageType "Friendlythrown"
+	//SeeSound "Shovel/Hit"
+	SeeSound "Brick/Land"
+	AttackSound "Shovel/Hit"
+	DeathSound "Brick/Land"
+	//BounceSound "Brick/Land"
+	Obituary ""
 	Projectile
 	-NOGRAVITY
 	+DOOMBOUNCE
@@ -108,15 +117,6 @@ Actor ThrownBrick
 	+BLOODSPLATTER
 	+EXPLODEONWATER
 	+SKYEXPLODE
-	BounceCount 3
-	//SeeSound "Shovel/Hit"
-	SeeSound "Brick/Land"
-	AttackSound "Shovel/Hit"
-	DeathSound "Brick/Land"
-	//BounceSound "Brick/Land"
-	BounceFactor 0.2
-	Obituary ""
-	Gravity 0.8
 	States
 	{
 	Spawn:
@@ -129,13 +129,13 @@ Actor ThrownBrick
 
 Actor DroppedBrick
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
 	DeathSound "Brick/Land"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:

@@ -315,11 +315,11 @@ Actor FriendlyCueDamage : PowerupGiver
 	Game Heretic
 	Game Hexen
 	SpawnID 0
+	Inventory.MaxAmount 0
+	Powerup.Type FriendlyCueDamage
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.UNDROPPABLE
-	Inventory.MaxAmount 0
-	Powerup.Type FriendlyCueDamage
 	States
 	{
 	Spawn:
@@ -333,11 +333,11 @@ Actor FriendlyShovelDamage : PowerupGiver
 	Game Heretic
 	Game Hexen
 	SpawnID 0
+	Inventory.MaxAmount 0
+	Powerup.Type FriendlyShovelDamage
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.UNDROPPABLE
-	Inventory.MaxAmount 0
-	Powerup.Type FriendlyShovelDamage
 	States
 	{
 	Spawn:
@@ -351,11 +351,11 @@ Actor FriendlyFire1 : PowerupGiver
 	Game Heretic
 	Game Hexen
 	SpawnID 0
+	Inventory.MaxAmount 0
+	Powerup.Type FriendlyGunDamage
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.UNDROPPABLE
-	Inventory.MaxAmount 0
-	Powerup.Type FriendlyGunDamage
 	States
 	{
 	Spawn:
@@ -369,11 +369,11 @@ Actor FriendlyFire2 : PowerupGiver
 	Game Heretic
 	Game Hexen
 	SpawnID 0
+	Inventory.MaxAmount 0
+	Powerup.Type FriendlyMeleeDamage
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.UNDROPPABLE
-	Inventory.MaxAmount 0
-	Powerup.Type FriendlyMeleeDamage
 	States
 	{
 	Spawn:
@@ -387,11 +387,11 @@ Actor FriendlyFire3 : PowerupGiver
 	Game Heretic
 	Game Hexen
 	SpawnID 0
+	Inventory.MaxAmount 0
+	Powerup.Type FriendlySawDamage
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.UNDROPPABLE
-	Inventory.MaxAmount 0
-	Powerup.Type FriendlySawDamage
 	States
 	{
 	Spawn:
@@ -405,11 +405,11 @@ Actor FriendlyFire4 : PowerupGiver
 	Game Heretic
 	Game Hexen
 	SpawnID 0
+	Inventory.MaxAmount 0
+	Powerup.Type FriendlyThrownDamage
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.UNDROPPABLE
-	Inventory.MaxAmount 0
-	Powerup.Type FriendlyThrownDamage
 	States
 	{
 	Spawn:
@@ -423,11 +423,11 @@ Actor FriendlyFire5 : PowerupGiver
 	Game Heretic
 	Game Hexen
 	SpawnID 0
+	Inventory.MaxAmount 0
+	Powerup.Type FriendlyBurnDamage
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.UNDROPPABLE
-	Inventory.MaxAmount 0
-	Powerup.Type FriendlyBurnDamage
 	States
 	{
 	Spawn:
@@ -441,11 +441,11 @@ Actor MurderNerf1 : PowerupGiver //Nerf his guns
 	Game Heretic
 	Game Hexen
 	SpawnID 0
+	Inventory.MaxAmount 0
+	Powerup.Type MurderNerf
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.UNDROPPABLE
-	Inventory.MaxAmount 0
-	Powerup.Type MurderNerf
 	States
 	{
 	Spawn:
@@ -459,11 +459,11 @@ Actor MurderNerf2 : PowerupGiver //Nerf his Melee (slightly)
 	Game Heretic
 	Game Hexen
 	SpawnID 0
+	Inventory.MaxAmount 0
+	Powerup.Type MurderNerf2
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.UNDROPPABLE
-	Inventory.MaxAmount 0
-	Powerup.Type MurderNerf2
 	States
 	{
 	Spawn:
@@ -477,11 +477,11 @@ Actor MurderNerf3 : PowerupGiver //Buff his Saw (so it counter-acts their protec
 	Game Heretic
 	Game Hexen
 	SpawnID 0
+	Inventory.MaxAmount 0
+	Powerup.Type MurderNerf3
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.UNDROPPABLE
-	Inventory.MaxAmount 0
-	Powerup.Type MurderNerf3
 	States
 	{
 	Spawn:
@@ -495,11 +495,11 @@ Actor MurderNerf4 : PowerupGiver
 	Game Heretic
 	Game Hexen
 	SpawnID 0
+	Inventory.MaxAmount 0
+	Powerup.Type MurderNerf4
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.UNDROPPABLE
-	Inventory.MaxAmount 0
-	Powerup.Type MurderNerf4
 	States
 	{
 	Spawn:
@@ -513,11 +513,11 @@ Actor MurderNerf5 : PowerupGiver
 	Game Heretic
 	Game Hexen
 	SpawnID 0
+	Inventory.MaxAmount 0
+	Powerup.Type MurderNerf5
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.UNDROPPABLE
-	Inventory.MaxAmount 0
-	Powerup.Type MurderNerf5
 	States
 	{
 	Spawn:
@@ -527,9 +527,9 @@ Actor MurderNerf5 : PowerupGiver
 
 Actor MurdererNerf : CustomInventory
 {
+	Inventory.MaxAmount 1
 	Inventory.PickupMessage ""
 	Inventory.PickupSound ""
-	Inventory.MaxAmount 1
 	+INVENTORY.UNDROPPABLE
 	States
 	{
@@ -548,9 +548,9 @@ Actor MurdererNerf : CustomInventory
 
 Actor InnocentBuff : CustomInventory
 {
+	Inventory.MaxAmount 1
 	Inventory.PickupMessage ""
 	Inventory.PickupSound ""
-	Inventory.MaxAmount 1
 	+INVENTORY.UNDROPPABLE
 	States
 	{
@@ -582,57 +582,57 @@ Actor ABigNothing Replaces TeleportFog
 //for scripts
 Actor GasUsed : Inventory
 {
+	Inventory.MaxAmount 999
 	Inventory.PickupMessage ""
 	Inventory.PickupSound ""
-	Inventory.MaxAmount 999
 	+INVENTORY.UNDROPPABLE
 }
 
 Actor SmokeUsed : Inventory
 {
+	Inventory.MaxAmount 999
 	Inventory.PickupMessage ""
 	Inventory.PickupSound ""
-	Inventory.MaxAmount 999
 	+INVENTORY.UNDROPPABLE
 }
 
 Actor TripUsed : Inventory
 {
+	Inventory.MaxAmount 999
 	Inventory.PickupMessage ""
 	Inventory.PickupSound ""
-	Inventory.MaxAmount 999
 	+INVENTORY.UNDROPPABLE
 }
 
 Actor StimUsed : Inventory
 {
+	Inventory.MaxAmount 999
 	Inventory.PickupMessage ""
 	Inventory.PickupSound ""
-	Inventory.MaxAmount 999
 	+INVENTORY.UNDROPPABLE
 }
 
 Actor FakeStimUsed : Inventory
 {
+	Inventory.MaxAmount 999
 	Inventory.PickupMessage ""
 	Inventory.PickupSound ""
-	Inventory.MaxAmount 999
 	+INVENTORY.UNDROPPABLE
 }
 
 Actor NoiseMakerUsed : Inventory
 {
+	Inventory.MaxAmount 999
 	Inventory.PickupMessage ""
 	Inventory.PickupSound ""
-	Inventory.MaxAmount 999
 	+INVENTORY.UNDROPPABLE
 }
 
 Actor BackStabCount : Inventory
 {
+	Inventory.MaxAmount 999
 	Inventory.PickupMessage ""
 	Inventory.PickupSound ""
-	Inventory.MaxAmount 999
 	+INVENTORY.UNDROPPABLE
 }
 
@@ -680,10 +680,10 @@ Actor YellowHalo
 	+NOCLIP
 	+NOGRAVITY
 	+CLIENTSIDEONLY
-	-SOLID
-	-SHOOTABLE
 	+DROPOFF
 	+NOTELEPORT
+	-SOLID
+	-SHOOTABLE
 	States
 	{
 	Spawn:

@@ -95,15 +95,15 @@ Actor PickAxe : Weapon
 Actor PickAxePuff
 {
 	Scale 0.75
-	RenderStyle Add
 	Alpha 0.9
+	RenderStyle Add
 	DamageType "ShovelMelee"
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
 	ActiveSound "Shovel/Swing"
 	AttackSound "Pickaxe/Hit"
 	SeeSound  "Axe/Hit"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
 	States
 	{
 	Spawn:
@@ -121,14 +121,14 @@ Actor PickAxePuff
 
 Actor DroppedPickAxe
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
 	Scale 0.8
 	DeathSound "Shovel/Wall"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:

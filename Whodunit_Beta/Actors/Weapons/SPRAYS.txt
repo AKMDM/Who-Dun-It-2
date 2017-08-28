@@ -4,19 +4,19 @@
 Actor SprayCanBLU : Weapon
 {
 	Damage 1
+	Scale 0.5
 	Weapon.PreferredSkin "FistSkin"
-	Inventory.PickupMessage "Found a Spray can."
 	Weapon.SelectionOrder 2200
 	Weapon.AmmoType1 "SprayAmmo"
 	Weapon.AmmoUse 1
 	Weapon.SelectionOrder 9999
-	Inventory.PickupSound "Misc/I_pkup"
 	Weapon.UpSound "DSSPRYSH"
+	Inventory.PickupMessage "Found a Spray can."
+	Inventory.PickupSound "Misc/I_pkup"
 	+WEAPON.NOALERT
 	+WEAPON.NOAUTOAIM
 	+WEAPON.WIMPY_WEAPON
 	+INVENTORY.UNDROPPABLE
-	Scale 0.5
 	States
 	{
 	Spawn:
@@ -78,16 +78,16 @@ Actor PaintSprayBLU
 	Damage 1
 	PoisonDamage 1
 	Projectile
+	Scale 0.5
+	Alpha 0.70
 	RenderStyle Translucent
 	Decal SprayPaintDecalBLU
-	Alpha 0.70
-	Scale 0.5
+	Obituary "%o was sprayed to Death.haha"
 	+CANNOTPUSH
 	+BLOODLESSIMPACT
 	+NODAMAGETHRUST
 	+RANDOMIZE
 	+DONTSPLASH
-	Obituary "%o was sprayed to Death.haha"
 	States
 	{
 	Spawn:
@@ -203,14 +203,14 @@ Actor SprayCanOnce : Inventory
 
 Actor DroppedSprayCanBLU
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 4
 	Height 12
+	Damage 0
 	Speed 9
 	Scale 0.2
 	DeathSound "Weapons/Gundrop"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -228,19 +228,19 @@ Actor DroppedSprayCanBLU
 Actor SprayCanRED : Weapon
 {
 	Damage 1
-	Weapon.PreferredSkin "FistSkin"
+	Scale 0.5
 	Inventory.PickupMessage "Found a Spray can."
+	Inventory.PickupSound "Misc/I_pkup"
+	Weapon.PreferredSkin "FistSkin"
 	Weapon.SelectionOrder 2200
 	Weapon.AmmoType1 "SprayAmmo"
 	Weapon.AmmoUse 1
 	Weapon.SelectionOrder 9999
-	Inventory.PickupSound "Misc/I_pkup"
 	Weapon.UpSound "DSSPRYSH"
 	+WEAPON.NOALERT
 	+WEAPON.NOAUTOAIM
 	+WEAPON.WIMPY_WEAPON
 	+INVENTORY.UNDROPPABLE
-	Scale 0.5
 	States
 	{
 	Spawn:
@@ -285,11 +285,11 @@ Actor PaintSprayRED
 	Speed  3
 	Damage 1
 	PoisonDamage 1
-	Projectile
+	Scale 0.5
+	Alpha 0.70
 	RenderStyle Translucent
 	Decal SprayPaintDecalRED
-	Alpha 0.70
-	Scale 0.5
+	Projectile
 	+CANNOTPUSH
 	+BLOODLESSIMPACT
 	+NODAMAGETHRUST
@@ -371,14 +371,14 @@ Actor TKFakeSprayCanRED : FakeSprayCanRED
 
 Actor DroppedSprayCanRED
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 4
 	Height 12
+	Damage 0
 	Speed 9
 	Scale 0.2
 	DeathSound "Weapons/Gundrop"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:

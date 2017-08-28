@@ -61,14 +61,14 @@ Actor FakeExtinguisherZ :  FakeExtinguisher
 
 Actor DroppedExtinguisher
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
 	Scale 0.6
 	DeathSound "weapons/fireextinguisher/Drop"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -82,16 +82,16 @@ Actor DroppedExtinguisher
 
 Actor FireExtinguisher : Weapon //Nicely done for wdi by Prepper
 {
-	Weapon.BobRangeX 0.8
 	Radius 8
 	Height 32
 	Scale 0.6
-	Inventory.PickupMessage "Found a Fire Extinguisher. Now how do I work this damn thing?"
-	Inventory.PickupSound "Misc/I_pkup"
+	Weapon.BobRangeX 0.8
 	Weapon.SelectionOrder 2200
 	Weapon.AmmoType "Co2ammo"
 	Weapon.AmmoUse 0
 	Weapon.PreferredSkin "ExtinguisherSkin"
+	Inventory.PickupMessage "Found a Fire Extinguisher. Now how do I work this damn thing?"
+	Inventory.PickupSound "Misc/I_pkup"
 	+WEAPON.MELEEWEAPON
 	+WEAPON.NOAUTOFIRE
 	+INVENTORY.UNDROPPABLE
@@ -186,8 +186,8 @@ Actor Co2Ammo : Ammo
 Actor Extinguisherpuff: ShovelPuff
 {
 	Scale 0.75
-	RenderStyle Add
 	Alpha 0.9
+	RenderStyle Add
 	States
 	{
 	Crash:
@@ -200,6 +200,13 @@ Actor HalonParticle
 	Height 1
 	Radius 1
 	Speed 5
+	Scale 0.5
+	Damage 2
+	DamageType Ice
+	Alpha 0.65
+	RenderStyle Add
+	Decal FireExtinguisherSpray
+	Obituary "%o was freezed to Death.haha"
 	+MISSILE
 	+NOGRAVITY
 	+NOBLOCKMAP
@@ -209,13 +216,6 @@ Actor HalonParticle
 	+RANDOMIZE
 	+DONTSPLASH
 	+NOEXPLODEFLOOR
-	Decal FireExtinguisherSpray
-	RenderStyle Add
-	Damage 2
-	DamageType Ice
-	Obituary "%o was freezed to Death.haha"
-	Scale 0.5
-	Alpha 0.65
 	States
 	{
 	Spawn:
@@ -243,6 +243,13 @@ Actor DummyHalonParticle
 	Height 1
 	Radius 1
 	Speed 5
+	Scale 0.5
+	Damage 1
+	Alpha 0.65
+	DamageType Ice
+	RenderStyle Add
+	Decal FireExtinguisherSpray
+	Obituary "%o was sprayed to Death.haha"
 	+MISSILE
 	+NOGRAVITY
 	+NOBLOCKMAP
@@ -252,13 +259,6 @@ Actor DummyHalonParticle
 	+RANDOMIZE
 	+DONTSPLASH
 	+NOEXPLODEFLOOR
-	Damage 1
-	DamageType Ice
-	Decal FireExtinguisherSpray
-	Obituary "%o was sprayed to Death.haha"
-	RenderStyle Add
-	Scale 0.5
-	Alpha 0.65
 	States
 	{
 	Spawn:

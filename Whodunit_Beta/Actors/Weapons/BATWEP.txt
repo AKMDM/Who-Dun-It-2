@@ -62,8 +62,8 @@ Actor BaseballBat : Weapon
 	Radius 8
 	Height 32
 	Scale 0.55
-	Inventory.PickupMessage "Found a baseball bat."
 	Weapon.SelectionOrder 2200
+	Inventory.PickupMessage "Found a baseball bat."
 	+WEAPON.MELEEWEAPON
 	+WEAPON.NOAUTOFIRE
 	+INVENTORY.UNDROPPABLE
@@ -162,12 +162,12 @@ Actor BaseballBat : Weapon
 Actor BatPuff
 {
 	DamageType "Friendlymelee"
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
 	ActiveSound "Cue/Swing"
 	AttackSound "Bat/Hitwall"
 	SeeSound "Bat/Hitwall"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
 	States
 	{
 	Spawn:
@@ -186,14 +186,14 @@ Actor BatPuff
 
 Actor DroppedBat
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
 	Scale 0.55
 	DeathSound "Bat/Hitwall"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:

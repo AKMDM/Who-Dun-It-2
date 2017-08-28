@@ -72,9 +72,9 @@ Actor TKFakeChainsaw : FakeChainsaw
 
 Actor LChainsaw : Weapon
 {
-	Obituary ""
 	Radius 20
 	Height 16
+	Obituary ""
 	Inventory.PickupMessage "Found a Chainsaw."
 	AttackSound "Weapons/Sawhit"
 	Weapon.SelectionOrder 998
@@ -257,12 +257,12 @@ Actor LChainsaw : Weapon
 
 Actor DroppedChainsaw
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
+	Projectile
+	-NOGRAVITY
 	DeathSound "Weapons/Gundrop"
 	States
 	{
@@ -330,9 +330,9 @@ Actor LSawSmoke
 	Height 1
 	Speed 1
 	Damage 0
-	RenderStyle Add
-	Alpha 0.8
 	Scale 0.35
+	Alpha 0.8
+	RenderStyle Add
 	Projectile
 	+NOGRAVITY
 	States

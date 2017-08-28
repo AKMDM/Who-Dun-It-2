@@ -3,12 +3,12 @@
 //=================================================================
 Actor Lighter : Weapon 9904
 {
-	Weapon.SelectionOrder 32000
-	+NOALERT
-	+DONTBOB
 	Scale 0.2
+	Weapon.SelectionOrder 32000
 	Inventory.PickupMessage "Picked up a Lighter"
 	Inventory.PickupSound "Weapons/Combogun_open"
+	+NOALERT
+	+DONTBOB
 	States
 	{
 	Spawn:
@@ -49,9 +49,9 @@ Actor FistWithLighter : Weapon
 {
 	Weapon.SelectionOrder 1
 	Weapon.PreferredSkin "FistSkin"
-	Inventory.PickupMessage ""
 	Weapon.AmmoType2 "Lighterammo"
 	Weapon.AmmoUse2 1
+	Inventory.PickupMessage ""
 	+NOALERT
 	+INVENTORY.UNDROPPABLE
 	States
@@ -124,8 +124,8 @@ Actor Lightprojectile
 {
 	Damage 2
 	+NOCLIP
-	-SOLID
 	+DONTSPLASH
+	-SOLID
 	States
 	{
 	Spawn:

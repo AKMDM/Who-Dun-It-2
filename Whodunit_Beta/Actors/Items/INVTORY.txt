@@ -8,14 +8,14 @@ Actor SmallKit : CustomInventory Replaces Stimpack 2011
 	//$Sprite STIMA0
 	//$Title "Small Medkit"
 	Health 35
-	+FLOORCLIP
-	+INVENTORY.INVBAR
-	+INVENTORY.KEEPDEPLETED
-	-INVENTORY.INTERHUBSTRIP
 	Inventory.MaxAmount 3
 	Inventory.Icon "ARTISTIM"
 	Inventory.Respawntics 10500 //5 minutes
 	Inventory.PickupMessage "Found a small medical kit."
+	+FLOORCLIP
+	+INVENTORY.INVBAR
+	+INVENTORY.KEEPDEPLETED
+	-INVENTORY.INTERHUBSTRIP
 	//HealthPickup.AutoUse 3
 	States
 	{
@@ -29,9 +29,9 @@ Actor SmallKit : CustomInventory Replaces Stimpack 2011
 
 Actor SmallKitUsing : CustomInventory
 {
-	-INVENTORY.INVBAR
-	+AUTOACTIVATE
 	Inventory.MaxAmount 0
+	+AUTOACTIVATE
+	-INVENTORY.INVBAR
 	States
 	{
 	Spawn:
@@ -72,9 +72,7 @@ Actor TKSmallKit : CustomInventory
 
 Actor TKSmallKitDropper : CustomInventory
 {
-	-INVBAR
-	+FANCYPICKUPSOUND
-	+INVENTORY.UNDROPPABLE
+	Scale 0.1
 	Inventory.DefMaxAmount
 	Inventory.PickupFlash "PickupFlash"
 	Inventory.MaxAmount 1
@@ -82,7 +80,9 @@ Actor TKSmallKitDropper : CustomInventory
 	Inventory.PickupSound ""
 	Inventory.PickupMessage "Picked up a Remote Camera"
 	Inventory.Respawntics 21000 //10 minutes
-	Scale 0.1
+	+FANCYPICKUPSOUND
+	+INVENTORY.UNDROPPABLE
+	-INVBAR
 	States
 	{
 	Spawn:
@@ -109,13 +109,13 @@ Actor BigKit : CustomInventory Replaces Medikit 2012
 	//$Title "Big Medkit"
 	Health 50
 	DamageType Heal
-	-INVENTORY.INTERHUBSTRIP
-	+FLOORCLIP
-	+INVENTORY.INVBAR
 	Inventory.MaxAmount 1
 	Inventory.Icon "ARTIKIT"
 	Inventory.Respawntics 21000 //10 minutes
 	Inventory.PickupMessage "Found a large medical pack. Who leaves this shit lying around?"
+	+FLOORCLIP
+	+INVENTORY.INVBAR
+	-INVENTORY.INTERHUBSTRIP
 	States
 	{
 	Spawn:
@@ -142,9 +142,9 @@ Actor BigKitSparkle : CustomInventory
 
 Actor DroppedKit
 {
-	-NOGRAVITY
 	Mass 999999999
 	ReactionTime 11
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -227,9 +227,6 @@ Actor ChlorineGas : CustomInventory 10492
 	//$Category WDI Murderer Stuff
 	//$Sprite PSBGA0
 	//$Title "Bertholite"
-	+INVBAR
-	+FANCYPICKUPSOUND
-	+INVENTORY.UNDROPPABLE
 	Inventory.DefMaxAmount
 	Inventory.PickupFlash "PickupFlash"
 	Inventory.MaxAmount 1
@@ -237,6 +234,9 @@ Actor ChlorineGas : CustomInventory 10492
 	Inventory.PickupSound ""
 	Inventory.PickupMessage "Found a Bertholite canister."
 	Inventory.Respawntics 3150 // 1 minute 30 seconds
+	+INVBAR
+	+FANCYPICKUPSOUND
+	+INVENTORY.UNDROPPABLE
 	States
 	{
 	Spawn:
@@ -256,9 +256,9 @@ Actor GasCanister
 	Speed 25
 	DamageType "Gas"
 	Projectile
-	-NOGRAVITY
 	+NODAMAGETHRUST
 	+NOBLOOD
+	-NOGRAVITY
 	-BLOODSPLATTER
 	States
 	{
@@ -280,15 +280,18 @@ Actor ChlorineCloud //Lol hexen cloud.
 {
 	Radius 10
 	Height 12
-	DamageType "Gas"
 	PoisonDamage 3
 	Mass 0x7fffffff
 	ReactionTime 120
-	//BounceType "Doom"
 	BounceFactor 0.15
 	MaxStepHeight 64
 	Gravity 0.0001
 	WallBounceFactor 0.15
+	Alpha 0.1
+	RenderStyle Add
+	//BounceType "Doom"
+	DamageType "Gas"
+	DeathSound "PoisonShroomDeath"
 	+HEXENBOUNCE
 	+CANNOTPUSH
 	+NOEXPLODEFLOOR
@@ -304,9 +307,6 @@ Actor ChlorineCloud //Lol hexen cloud.
 	+SLIDESONWALLS
 	+FORCEXYBILLBOARD
 	+NODAMAGETHRUST
-	RenderStyle Add
-	Alpha 0.1
-	DeathSound "PoisonShroomDeath"
 	States
 	{
 	Spawn:
@@ -331,17 +331,17 @@ Actor SmokeBomb : CustomInventory 10498
 	//$Category WDI Murderer Stuff
 	//$Sprite SSBGA0
 	//$Title "Smoke Bomb"
-	+INVBAR
-	+FANCYPICKUPSOUND
-	+INVENTORY.UNDROPPABLE
+	Scale 0.25
+	Inventory.MaxAmount 2
+	Inventory.Respawntics 2100 // 1 minute
 	Inventory.DefMaxAmount
 	Inventory.PickupFlash "PickupFlash"
-	Inventory.MaxAmount 2
 	Inventory.Icon "ARTISSBG"
 	Inventory.PickupSound ""
 	Inventory.PickupMessage "Found a Smoke Bomb."
-	Inventory.Respawntics 2100 // 1 minute
-	Scale 0.25
+	+INVBAR
+	+FANCYPICKUPSOUND
+	+INVENTORY.UNDROPPABLE
 	States
 	{
 	Spawn:
@@ -389,13 +389,16 @@ Actor SmokeCloud //Lol wut
 	Radius 20
 	Height 30
 	Scale 0.95
-	DamageType "Cough"
 	Mass 0x7fffffff
 	ReactionTime 1
 	BounceFactor 0.0
 	MaxStepHeight 64
 	Gravity 0.0001
+	Alpha 0.85
 	WallBounceFactor 0.0
+	RenderStyle Translucent
+	DamageType "Cough"
+	DeathSound "PoisonShroomDeath"
 	+HEXENBOUNCE
 	//+FLOATBOB
 	+NOBLOCKMAP
@@ -409,9 +412,6 @@ Actor SmokeCloud //Lol wut
 	+SLIDESONWALLS
 	+FORCEXYBILLBOARD
 	+CLIENTSIDEONLY
-	RenderStyle Translucent
-	Alpha 0.85
-	DeathSound "PoisonShroomDeath"
 	States
 	{
 	Spawn:
@@ -436,9 +436,6 @@ Actor TripShotgun : CustomInventory 10493
 	//$Category WDI Murderer Stuff
 	//$Sprite TURTA8A2
 	//$Title "Trip Shotgun"
-	+INVBAR
-	+FANCYPICKUPSOUND
-	+INVENTORY.UNDROPPABLE
 	Scale 0.5
 	Inventory.DefMaxAmount
 	Inventory.PickupFlash "PickupFlash"
@@ -447,6 +444,9 @@ Actor TripShotgun : CustomInventory 10493
 	Inventory.PickupSound ""
 	Inventory.PickupMessage "Found a Tripwire Shotgun"
 	Inventory.Respawntics 2625 // 1 minute 15 sec
+	+INVBAR
+	+FANCYPICKUPSOUND
+	+INVENTORY.UNDROPPABLE
 	States
 	{
 	Spawn:
@@ -461,16 +461,16 @@ Actor TripShotgun : CustomInventory 10493
 
 Actor ThrownTripShotgun
 {
-	Projectile
-	-NOGRAVITY
-	+NOBLOOD
-	-BLOODSPLATTER
 	Scale 0.5
 	Damage 0
 	Radius 8
 	Height 8
 	Speed 10
+	Projectile
 	DeathSound "Weapons/Gundrop"
+	+NOBLOOD
+	-NOGRAVITY
+	-BLOODSPLATTER
 	States
 	{
 	Spawn:
@@ -493,14 +493,14 @@ Actor ShotgunTrap
 	DamageFactor "Gas", 0.0
 	Obituary ""
 	SeeSound "Weapons/Turretactive"
-	-SOLID
-	-NOGRAVITY
 	+SHOOTABLE
 	+STRIFEDAMAGE
 	+STANDSTILL
 	+NOBLOOD
 	+QUICKTORETALIATE
 	+BUMPSPECIAL
+	-SOLID
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -596,9 +596,7 @@ Actor LolTrap
 //Spy Camera
 Actor RemoteCamera: CustomInventory
 {
-	+INVBAR
-	+FANCYPICKUPSOUND
-	+INVENTORY.UNDROPPABLE
+	Scale 0.1
 	Inventory.DefMaxAmount
 	Inventory.PickupFlash "PickupFlash"
 	Inventory.MaxAmount 1
@@ -606,7 +604,9 @@ Actor RemoteCamera: CustomInventory
 	Inventory.PickupSound ""
 	Inventory.PickupMessage "Picked up a Remote Camera"
 	Inventory.Respawntics 1575 // 45 Seconds
-	Scale 0.1
+	+INVBAR
+	+FANCYPICKUPSOUND
+	+INVENTORY.UNDROPPABLE
 	States
 	{
 	Spawn:
@@ -619,9 +619,7 @@ Actor RemoteCamera: CustomInventory
 
 Actor RemoteCameraLauncher : CustomInventory
 {
-	-INVBAR
-	+FANCYPICKUPSOUND
-	+INVENTORY.UNDROPPABLE
+	Scale 0.1
 	Inventory.DefMaxAmount
 	Inventory.PickupFlash "PickupFlash"
 	Inventory.MaxAmount 1
@@ -629,7 +627,9 @@ Actor RemoteCameraLauncher : CustomInventory
 	Inventory.PickupSound ""
 	Inventory.PickupMessage "Picked up a Remote Camera"
 	Inventory.Respawntics 21000 //10 minutes
-	Scale 0.1
+	+FANCYPICKUPSOUND
+	+INVENTORY.UNDROPPABLE
+	-INVBAR
 	States
 	{
 	Spawn:
@@ -642,18 +642,18 @@ Actor RemoteCameraLauncher : CustomInventory
 
 Actor DeployingCamera
 {
-	Projectile
-	-NOGRAVITY
-	+THRUGHOST
-	+RIPPER
-	+NOBLOOD
-	-BLOODSPLATTER
-	Scale 0.1
-	Damage 0
 	Radius 4
 	Height 4
 	Speed 25
+	Scale 0.1
+	Damage 0
 	DeathSound "Weapons/Gundrop"
+	Projectile
+	+THRUGHOST
+	+RIPPER
+	+NOBLOOD
+	-NOGRAVITY
+	-BLOODSPLATTER
 	States
 	{
 	Spawn:
@@ -678,11 +678,11 @@ Actor DeployedCamera
 	ReactionTime 2500
 	DamageFactor "Gas", 0.0
 	CameraHeight 1
-	-SOLID
 	+SHOOTABLE
 	+STRIFEDAMAGE
 	+NOBLOOD
 	+NOGRAVITY
+	-SOLID
 	States
 	{
 	Spawn:
@@ -720,9 +720,7 @@ Actor SoundEmitter : CustomInventory 10495
 	//$Category WDI Murderer Stuff
 	//$Sprite BEACA0
 	//$Title "Sound Emitter"
-	+INVBAR
-	+FANCYPICKUPSOUND
-	+INVENTORY.UNDROPPABLE
+	Scale 0.2
 	Inventory.DefMaxAmount
 	Inventory.PickupFlash "PickupFlash"
 	Inventory.MaxAmount 4
@@ -730,7 +728,9 @@ Actor SoundEmitter : CustomInventory 10495
 	Inventory.PickupSound ""
 	Inventory.PickupMessage "Got a sound emitter."
 	Inventory.Respawntics 2100 // 1 minute
-	Scale 0.2
+	+INVBAR
+	+FANCYPICKUPSOUND
+	+INVENTORY.UNDROPPABLE
 	States
 	{
 	Spawn:
@@ -744,18 +744,18 @@ Actor SoundEmitter : CustomInventory 10495
 
 Actor SoundThingy
 {
-	Projectile
-	-NOGRAVITY
-	+RIPPER
-	+NOBLOOD
-	-BLOODSPLATTER
-	Scale 0.2
-	Damage 0
 	Radius 8
 	Height 8
+	Scale 0.2
+	Damage 0
 	Speed 10
 	//DeathSound "Weapons/Gundrop"
 	DeathSound ""
+	Projectile
+	+RIPPER
+	+NOBLOOD
+	-NOGRAVITY
+	-BLOODSPLATTER
 	States
 	{
 	Spawn:
@@ -769,9 +769,9 @@ Actor SoundThingy
 
 Actor SoundThingy2
 {
-	Health 10
 	Radius 8
 	Height 8
+	Health 10
 	Mass 0x7fffffff
 	Scale 0.2
 	Obituary ""
@@ -779,11 +779,11 @@ Actor SoundThingy2
 	ReactionTime 2500
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	-SOLID
 	+SHOOTABLE
 	+STRIFEDAMAGE
 	+NOBLOOD
 	+LOOKALLAROUND
+	-SOLID
 	States
 	{
 	Spawn:
@@ -836,15 +836,15 @@ Actor FakeStim : CustomInventory 10500
 	//$Category WDI Murderer Stuff
 	//$Sprite FTIMA0
 	//$Title "Poison Stimpack"
+	Radius 8
+	Height 8
+	Inventory.MaxAmount 3
+	Inventory.Respawntics 2275 // 65 Seconds
 	Inventory.PickupMessage "Picked up a Rigged Stimpack."
 	Inventory.PickupSound ""
 	Inventory.Icon "ARTIFTIM"
-	Inventory.MaxAmount 3
-	Inventory.Respawntics 2275 // 65 Seconds
 	+INVBAR
 	+INVENTORY.UNDROPPABLE
-	Radius 8
-	Height 8
 	States
 	{
 	Spawn:
@@ -858,18 +858,18 @@ Actor FakeStim : CustomInventory 10500
 
 Actor FakeStimActive : CustomInventory
 {
-	Inventory.PickupMessage "WHOOPS!"
-	Inventory.PickupSound ""
-	+NODAMAGETHRUST
-	-SOLID
-	+SHOOTABLE
-	+NOBLOOD
-	Mass 0x7fffffff
 	Radius 8
 	Height 8
+	Mass 0x7fffffff
 	Health 20
+	Inventory.PickupMessage "WHOOPS!"
+	Inventory.PickupSound ""
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
+	+NODAMAGETHRUST
+	+SHOOTABLE
+	+NOBLOOD
+	-SOLID
 	States
 	{
 	Spawn:
@@ -906,16 +906,16 @@ Stop
 */
 Actor DeployingStimGas
 {
-	Projectile
-	-NOGRAVITY
-	-SOLID
-	+RIPPER
-	+NOBLOOD
-	-BLOODSPLATTER
-	Damage 0
 	Radius 4
 	Height 4
+	Damage 0
 	Speed 10
+	Projectile
+	+RIPPER
+	+NOBLOOD
+	-NOGRAVITY
+	-SOLID
+	-BLOODSPLATTER
 	//DeathSound "Weapons/Gundrop"
 	States
 	{
@@ -930,11 +930,11 @@ Actor DeployingStimGas
 
 Actor StimGas
 {
-	Projectile
-	-NOGRAVITY
-	+NODAMAGETHRUST
 	Obituary ""
 	DamageType "Gas"
+	Projectile
+	+NODAMAGETHRUST
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -971,20 +971,20 @@ Actor Flare : CustomInventory 14434
 	//$Category WDI Items
 	//$Sprite FLARP0
 	//$Title "Flare"
-	XScale 0.5
-	YScale 0.3
 	Height 4
 	Radius 10
-	+FLOORCLIP
-	+DONTSPLASH
-	+INVENTORY.INVBAR
-	-INVENTORY.INTERHUBSTRIP
-	+MOVEWITHSECTOR
+	XScale 0.5
+	YScale 0.3
 	Inventory.Amount 1
 	Inventory.Icon "ARTIFLAR"
 	Inventory.MaxAmount 2
 	Inventory.PickupMessage "You picked up a flare"
 	Inventory.Respawntics 10500
+	+FLOORCLIP
+	+DONTSPLASH
+	+INVENTORY.INVBAR
+	+MOVEWITHSECTOR
+	-INVENTORY.INTERHUBSTRIP
 	States
 	{
 	Spawn:
@@ -998,19 +998,19 @@ Actor Flare : CustomInventory 14434
 
 Actor FlareUsed
 {
-	XScale 0.3
-	YScale 0.5
 	Height 4
 	Radius 6
+	XScale 0.3
+	YScale 0.5
 	Speed 6
 	ReactionTime 900
+	DamageType "FlareEffect"
 	+NOBLOCKMAP
 	+DONTSPLASH
 	+MOVEWITHSECTOR
-	-SOLID
 	+NODAMAGETHRUST
 	+BLOODLESSIMPACT
-	DamageType "FlareEffect"
+	-SOLID
 	States
 	{
 	Spawn:

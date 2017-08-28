@@ -73,8 +73,9 @@ Actor TKFakeCrossbow : FakeCrossbow
 		Fail
 }}
 
-Actor LCrossbow: Weapon  //renamed due to duplicated Use in hex
+Actor LCrossbow: Weapon  //NOTE!! NOT DROP  due to duplicated Use in hex (renamed to LCrossbow)
 {
+	Obituary "%o got a new piercing."
 	Weapon.SelectionOrder 3000
 	Weapon.AmmoGive1 0
 	Weapon.AmmoGive2 0
@@ -83,7 +84,6 @@ Actor LCrossbow: Weapon  //renamed due to duplicated Use in hex
 	Weapon.AmmoType1 "LoadedBolts"
 	//Weapon.AmmoType2 "Bolt"
 	//Weapon.PreferredSkin ""
-	Obituary "%o got a new piercing."
 	Inventory.PickupMessage "Found a Repeating Crossbow"
 	//AttackSound "Weapons/Shotgunfire"
 	+INVENTORY.UNDROPPABLE
@@ -123,8 +123,7 @@ Actor LCrossbow: Weapon  //renamed due to duplicated Use in hex
 		CBOW A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
 		Loop
 	WeaponDrop:
-		TNT1 A 0
-		CBOW B 1
+		TNT1 A 1
 		TNT1 A 0 A_TakeInventory("IsDropping",1)
 		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
 		Goto Ready
@@ -147,13 +146,13 @@ Actor LCrossbow: Weapon  //renamed due to duplicated Use in hex
 
 Actor DroppedCrossbow
 {
-	Projectile
-	-NOGRAVITY
 	Damage 0
 	Radius 16
 	Height 8
 	Speed 9
 	DeathSound "Weapons/Gundrop"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -178,13 +177,13 @@ Actor FlyingBolt : FastProjectile
 	Speed 180
 	Damage 4
 	DamageType "Friendlygun"
-	Projectile
-	-NOGRAVITY
-	+STRIFEDAMAGE
-	+RIPPER
 	SeeSound ""
 	DeathSound ""
 	Obituary ""
+	Projectile
+	+STRIFEDAMAGE
+	+RIPPER
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -203,9 +202,6 @@ Actor LoadedBolts : Ammo 30065
 	//$Title "Crossbow Bolt"
 	Game Doom
 	SpawnID 12
-	+NOGRAVITY
-	+INVBAR
-	-INVENTORY.INTERHUBSTRIP
 	Inventory.PickupMessage "Found a Crossbow bolt"
 	Inventory.Respawntics 3024000 //1 hour
 	Inventory.Amount 1
@@ -213,6 +209,9 @@ Actor LoadedBolts : Ammo 30065
 	Ammo.BackpackAmount 1
 	Ammo.BackpackMaxAmount 3
 	Inventory.Icon "ARWHUD"
+	+NOGRAVITY
+	+INVBAR
+	-INVENTORY.INTERHUBSTRIP
 	States
 	{
 	Spawn:

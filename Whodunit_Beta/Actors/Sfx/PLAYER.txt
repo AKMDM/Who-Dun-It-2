@@ -50,16 +50,16 @@ Actor Waterbreath {
 
 Actor Breath
 {
-	Projectile
-	Scale 0.02
-	Damage 0
 	Radius 8
 	Height 8
+	Scale 0.02
+	Damage 0
 	Speed 0
-	+THRUGHOST
+	Alpha 0.5
 	DeathSound ""
 	RenderStyle Add
-	Alpha 0.5
+	Projectile
+	+THRUGHOST
 	States
 	{
 	Spawn:
@@ -73,14 +73,14 @@ Actor Breath
 
 Actor BreathTest //do something???
 {
-	Scale 0.02
-	Damage 0
 	Radius 8
 	Height 8
+	Scale 0.02
+	Damage 0
 	Speed 0
+	Alpha 1.0
 	DeathSound ""
 	RenderStyle None
-	Alpha 1.0
 	States
 	{
 	Spawn:
@@ -217,8 +217,8 @@ Actor BloodTrailSmall
 //SOUND EMMITERS//////////////////
 Actor Footstep
 {
-	-SOLID
 	+NOBLOCKMAP
+	-SOLID
 	//+CORPSE
 	States
 	{

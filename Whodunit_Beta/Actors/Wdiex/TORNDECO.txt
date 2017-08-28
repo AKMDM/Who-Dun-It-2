@@ -1,9 +1,9 @@
 Actor WDIBarrel4 22731
 {
 	//$Category Retorn_map_ONLY
-	+SOLID
 	Height 36
 	Radius 24
+	+SOLID
 	States
 	{
 	Spawn:
@@ -14,9 +14,9 @@ Actor WDIBarrel4 22731
 Actor Cassette : Key 22742
 {
 	//$Category Retorn_map_ONLY
-	-NOGRAVITY
 	Height 8
 	Radius 4
+	-NOGRAVITY
 	Inventory.PickupMessage "Picked up cassette"
 	States
 	{
@@ -39,26 +39,26 @@ Actor MHGrass3 22743
 Actor GluttonousRat 22744
 {
 	//$Category Retorn_map_ONLY
-	Monster
-	-ISMONSTER
-	+ALWAYSRESPAWN
-	-TELESTOMP
-	-CANPASS
-	+DONTFALL
-	+PUSHABLE
-	+NODROPOFF
-	-CANUSEWALLS
-	-COUNTKILL
-	-CANPUSHWALLS
-	Health 10
 	Radius 20
 	Height 14
+	Health 10
 	Speed 13
+	Scale 2.0
 	DamageFactor "FlareEffect", 0.0
 	ActiveSound "Rat/Squeak"
 	DeathSound "Rat/Die"
 	DropItem "SuppliesCoin"
-	Scale 2.0
+	Monster
+	+ALWAYSRESPAWN
+	+DONTFALL
+	+PUSHABLE
+	+NODROPOFF
+	-ISMONSTER
+	-TELESTOMP
+	-CANPASS
+	-CANUSEWALLS
+	-COUNTKILL
+	-CANPUSHWALLS
 	States
 	{
 	Spawn:
@@ -134,8 +134,8 @@ Actor MUS_DISCO79 19913
 Actor SuppliesCoin : Key 22747
 {
 	//$Category Retorn_map_ONLY
-	Scale 0.35
 	SpawnID 86
+	Scale 0.35
 	Inventory.PickupMessage "Picked up a coin."
 	Inventory.Icon "ARTISAF"
 	+INVENTORY.UNDROPPABLE
@@ -155,8 +155,8 @@ Actor CassetteSpawner : RandomSpawner 22748
 Actor SawmillKey : Key 22749
 {
 	//$Category Retorn_map_ONLY
-	Scale 0.35
 	SpawnID 86
+	Scale 0.35
 	Inventory.PickupMessage "Pocketed the Sawmill key."
 	Inventory.Icon "ARTISAF"
 	+INVENTORY.UNDROPPABLE
@@ -170,8 +170,8 @@ Actor SawmillKey : Key 22749
 Actor ShootersKey : Key 22752
 {
 	//$Category Retorn_map_ONLY
-	Scale 0.35
 	SpawnID 86
+	Scale 0.35
 	Inventory.PickupMessage "Pocketed the key from Shooting Range."
 	Inventory.Icon "ARTISAF"
 	+INVENTORY.UNDROPPABLE
@@ -185,8 +185,8 @@ Actor ShootersKey : Key 22752
 Actor PoliceKey : Key 22753
 {
 	//$Category Retorn_map_ONLY
-	Scale 0.35
 	SpawnID 86
+	Scale 0.35
 	Inventory.PickupMessage "Pocketed the key from Police office."
 	Inventory.Icon "ARTISAF"
 	+INVENTORY.UNDROPPABLE
@@ -201,17 +201,17 @@ Actor PoliceKey : Key 22753
 Actor TrashbagWooHoo 22741
 {
 	//$Category Retorn_map_ONLY
+	Radius 10
+	Height 20
+	Health 10
+	Speed 10
+	DropItem "ThatTrashSpawner"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+SLIDESONWALLS
 	+PUSHABLE
 	+NOICEDEATH
-	Health 10
-	Speed 10
-	Radius 10
-	Height 20
-	DropItem "ThatTrashSpawner"
 	States {
 	Spawn:
 		TRMS A -1
@@ -225,8 +225,8 @@ Actor TrashbagWooHoo 22741
 Actor Sometrash1 22754
 {
 	//$Category WDI Props
-	+CLIENTSIDEONLY
 	Scale 0.35
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -239,8 +239,8 @@ Actor Sometrash1 22754
 Actor Sometrash2 22755
 {
 	//$Category WDI Props
-	+CLIENTSIDEONLY
 	Scale 0.35
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -253,8 +253,8 @@ Actor Sometrash2 22755
 Actor Sometrash3 22756
 {
 	//$Category WDI Props
-	+CLIENTSIDEONLY
 	Scale 0.35
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -267,8 +267,8 @@ Actor Sometrash3 22756
 Actor Sometrash4 22757
 {
 	//$Category WDI Props
-	+CLIENTSIDEONLY
 	Scale 0.35
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -281,8 +281,8 @@ Actor Sometrash4 22757
 Actor Sometrash5 22758
 {
 	//$Category WDI Props
-	+CLIENTSIDEONLY
 	Scale 0.35
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -295,8 +295,8 @@ Actor Sometrash5 22758
 Actor Sometrash6 22759
 {
 	//$Category WDI Props
-	+CLIENTSIDEONLY
 	Scale 0.35
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -309,8 +309,8 @@ Actor Sometrash6 22759
 Actor Sometrash7 22761
 {
 	//$Category WDI Props
-	+CLIENTSIDEONLY
 	Scale 0.35
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -323,8 +323,8 @@ Actor Sometrash7 22761
 Actor Sometrash8 22762
 {
 	//$Category WDI Props
-	+CLIENTSIDEONLY
 	Scale 0.35
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -337,8 +337,8 @@ Actor Sometrash8 22762
 Actor Sometrash9 22763
 {
 	//$Category WDI Props
-	+CLIENTSIDEONLY
 	Scale 0.35
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -351,8 +351,8 @@ Actor Sometrash9 22763
 Actor Sometrash10 22764
 {
 	//$Category WDI Props
-	+CLIENTSIDEONLY
 	Scale 0.35
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -365,8 +365,8 @@ Actor Sometrash10 22764
 Actor Sometrash11 22765
 {
 	//$Category WDI Props
-	+CLIENTSIDEONLY
 	Scale 0.35
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -381,9 +381,9 @@ Actor Orange_Zlight 22769
 	//$Category Retorn_map_ONLY
 	Scale 0.5
 	+NOCLIP
-	-SOLID
 	+CLIENTSIDEONLY
 	+NOGRAVITY
+	-SOLID
 	States
 	{
 	Spawn:
@@ -396,9 +396,9 @@ Actor Red_Zlight 22770
 	//$Category Retorn_map_ONLY
 	Scale 0.5
 	+NOCLIP
-	-SOLID
 	+CLIENTSIDEONLY
 	+NOGRAVITY
+	-SOLID
 	States
 	{
 	Spawn:
@@ -410,10 +410,10 @@ Actor Green_Zlight 22771
 {
 	//$Category Retorn_map_ONLY
 	Scale 0.5
-	+NOCLIP
-	-SOLID
 	+CLIENTSIDEONLY
 	+NOGRAVITY
+	+NOCLIP
+	-SOLID
 	States
 	{
 	Spawn:
@@ -425,10 +425,10 @@ Actor Purple_Zlight 22772
 {
 	//$Category Retorn_map_ONLY
 	Scale 0.5
-	+NOCLIP
-	-SOLID
 	+CLIENTSIDEONLY
 	+NOGRAVITY
+	+NOCLIP
+	-SOLID
 	States
 	{
 	Spawn:
@@ -468,9 +468,9 @@ Actor ShpritzDrugs 22775
 Actor Stripclubchair 22776
 {
 	//$Category Retorn_map_ONLY
-	+SOLID
 	Height 25
 	Radius 17
+	+SOLID
 	States
 	{
 	Spawn:
@@ -560,12 +560,12 @@ Actor BeefMeat 22778
 	Radius 22
 	Height 100
 	Mass 9999
+	DeathSound "Weapons/KnifeHit"
 	+SOLID
 	+SHOOTABLE
 	+NOGRAVITY
 	+SPAWNCEILING
 	+NOICEDEATH
-	DeathSound "Weapons/KnifeHit"
 	States
 	{
 	Spawn:
@@ -613,8 +613,8 @@ Actor NewGlassShard
 {
 	Height 4
 	Radius 4
-	RenderStyle Translucent
 	Alpha 0.4
+	RenderStyle Translucent
 	+CLIENTSIDEONLY
 	+DONTSPLASH
 	States {
@@ -652,8 +652,8 @@ Actor ScissorsKeySpawner : RandomSpawner 22783
 Actor ScissorsKey : Key 22784
 {
 	//$Category WDI Keys
-	Scale 0.35
 	SpawnID 86
+	Scale 0.35
 	Inventory.PickupMessage "Pocketed the Garage key."
 	Inventory.Icon "ARTISAF"
 	+INVENTORY.UNDROPPABLE
@@ -712,8 +712,8 @@ Actor ActionMarkerHand : ActionMarkerWhite 22786
 
 Actor GHOULSKILLEDME : Key
 {
-	Scale 0.35
 	SpawnID 86
+	Scale 0.35
 	Inventory.PickupMessage "Hihi."
 	Inventory.Icon "ARTISAF"
 	+INVENTORY.UNDROPPABLE
@@ -726,8 +726,8 @@ Actor GHOULSKILLEDME : Key
 
 Actor POLICEGOTME : Key
 {
-	Scale 0.35
 	SpawnID 86
+	Scale 0.35
 	Inventory.PickupMessage "Hihi."
 	Inventory.Icon "ARTISAF"
 	+INVENTORY.UNDROPPABLE
@@ -740,8 +740,8 @@ Actor POLICEGOTME : Key
 
 Actor IMNOMURD : Key
 {
-	Scale 0.35
 	SpawnID 86
+	Scale 0.35
 	Inventory.PickupMessage "Hihi."
 	Inventory.Icon "ARTISAF"
 	+INVENTORY.UNDROPPABLE
@@ -755,11 +755,11 @@ Actor IMNOMURD : Key
 Actor Subway_Marker : MapMarker 22791
 {
 	//$Category Retorn_map_ONLY
+	Scale 0.1
 	+NOBLOCKMAP
 	+NOGRAVITY
 	+DONTSPLASH
 	+INVISIBLE
-	Scale 0.1
 	States
 	{
 	Spawn:
@@ -770,11 +770,11 @@ Actor Subway_Marker : MapMarker 22791
 Actor Sewers_Marker : MapMarker 22792
 {
 	//$Category Retorn_map_ONLY
+	Scale 0.1
 	+NOBLOCKMAP
 	+NOGRAVITY
 	+DONTSPLASH
 	+INVISIBLE
-	Scale 0.1
 	States
 	{
 	Spawn:
@@ -785,11 +785,11 @@ Actor Sewers_Marker : MapMarker 22792
 Actor Amusement_Marker : MapMarker 22793
 {
 	//$Category Retorn_map_ONLY
+	Scale 0.1
 	+NOBLOCKMAP
 	+NOGRAVITY
 	+DONTSPLASH
 	+INVISIBLE
-	Scale 0.1
 	States
 	{
 	Spawn:
@@ -800,11 +800,11 @@ Actor Amusement_Marker : MapMarker 22793
 Actor Prison_Marker : MapMarker 22794
 {
 	//$Category Retorn_map_ONLY
+	Scale 0.1
 	+NOBLOCKMAP
 	+NOGRAVITY
 	+DONTSPLASH
 	+INVISIBLE
-	Scale 0.1
 	States
 	{
 	Spawn:
@@ -827,13 +827,13 @@ Actor ZKit : CustomInventory 24385
 	//$Category Retorn_map_ONLY
 	Health 50
 	DamageType Heal
-	+FLOORCLIP
-	+INVENTORY.INVBAR
-	-INVENTORY.INTERHUBSTRIP
 	Inventory.MaxAmount 1
 	Inventory.Icon "ARTIZKIT"
 	Inventory.Respawntics 21000 //10 minutes
 	Inventory.PickupMessage "Picked up some strange box."
+	+FLOORCLIP
+	+INVENTORY.INVBAR
+	-INVENTORY.INTERHUBSTRIP
 	States
 	{
 	Spawn:
@@ -845,9 +845,9 @@ Actor ZKit : CustomInventory 24385
 
 Actor DroppedZKit
 {
-	-NOGRAVITY
 	Mass 999999999
 	ReactionTime 110
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -909,11 +909,11 @@ Actor DroppedZKit
 
 Actor ZKITSEQ
 {
-	+NOGRAVITY
-	+NOINTERACTION
-	RenderStyle Add
 	Alpha 0.75
 	ReactionTime 47
+	RenderStyle Add
+	+NOGRAVITY
+	+NOINTERACTION
 	States
 	{
 	Spawn:

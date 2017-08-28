@@ -31,14 +31,14 @@ Actor FakeAxe : CustomInventory 2716
 
 Actor DroppedAxe
 {
-	Projectile
-	-NOGRAVITY
 	Damage 0
 	Radius 16
 	Height 8
 	Speed 9
 	Scale 1.0
 	DeathSound "Shovel/Wall"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -120,17 +120,17 @@ Actor FireAxe : Weapon
 
 Actor FirstPuffAxe
 {
-	DamageType "Friendlymelee"
 	Scale 0.75
-	RenderStyle Add
 	Alpha 0.9
-	+NOGRAVITY
-	+NOEXTREMEDEATH
-	-ALLOWPARTICLES
-	+PUFFONACTORS
+	RenderStyle Add
+	DamageType "Friendlymelee"
 	//ActiveSound "Axe/Swing"
 	AttackSound "Shovel/Wall"
 	SeeSound "Axe/Hit"
+	+NOGRAVITY
+	+NOEXTREMEDEATH
+	+PUFFONACTORS
+	-ALLOWPARTICLES
 	States
 	{
 	Spawn:
@@ -146,14 +146,14 @@ Actor FirstPuffAxe
 
 Actor PuffAxe
 {
-	DamageType "Friendlymelee"
 	Scale 0.75
-	RenderStyle None
 	Alpha 0.9
+	RenderStyle None
+	DamageType "Friendlymelee"
 	+NOGRAVITY
 	+NOEXTREMEDEATH
-	-ALLOWPARTICLES
 	+PUFFONACTORS
+	-ALLOWPARTICLES
 	//ActiveSound "Shovel/Swing"
 	States
 	{

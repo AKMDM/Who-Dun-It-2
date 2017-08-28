@@ -4,19 +4,19 @@
 //JUST SPRITE or switch Actor  not spawner/////////////////////////////////////////////
 Actor ActionMarkerBlueTeleport 181 //this do something in ur map wdi20 jig?????
 {
-	-SOLID
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+CLIENTSIDEONLY
-	+ALLOWCLIENTSpawn
+	//$Category WDI Murderer Stuff
+	//$Sprite ACTBA0
+	//$Title "Action Marker (Blue +TELEPORT)"
 	Radius 2
 	Height 2
 	RenderStyle Add
 	Alpha 0.45
 	VisibleToTeam 1
-	//$Category WDI Murderer Stuff
-	//$Sprite ACTBA0
-	//$Title "Action Marker (Blue +TELEPORT)"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+CLIENTSIDEONLY
+	+ALLOWCLIENTSpawn
+	-SOLID
 	States
 	{
 	Spawn:
@@ -46,8 +46,8 @@ Actor PushUseScript 31999 {//door special or execute
 	Height 24
 	Radius 24
 	+GHOST
-	-SHOOTABLE
 	+USESPECIAL
+	-SHOOTABLE
 	States {
 	Spawn:
 		TNT1 A -1
@@ -56,20 +56,20 @@ Actor PushUseScript 31999 {//door special or execute
 
 Actor CameraWDI 13963
 {
-	+NOGRAVITY
-	+SOLID
-	+SHOOTABLE
-	+NOBLOOD
-	DeathSound "Weapons/Gundrop"
+	//$Category WDI Effects
+	//$Sprite CAMRA2A8
+	//$Title "Camera"
 	Height 10
 	Radius 16
 	Health 30
 	Mass 65535
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	//$Category WDI Effects
-	//$Sprite CAMRA2A8
-	//$Title "Camera"
+	DeathSound "Weapons/Gundrop"
+	+NOGRAVITY
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
 	States
 	{
 	Spawn:
@@ -82,19 +82,19 @@ Actor CameraWDI 13963
 
 Actor ActionMarkerWhite 16070
 {
-	-SOLID
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+CLIENTSIDEONLY
-	+ALLOWCLIENTSPAWN
+	//$Category WDI Murderer Stuff
+	//$Sprite ACTIA0
+	//$Title "Action Marker (White)"
 	Radius 2
 	Height 2
 	RenderStyle Add
 	Alpha 0.45
 	VisibleToTeam 1
-	//$Category WDI Murderer Stuff
-	//$Sprite ACTIA0
-	//$Title "Action Marker (White)"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+CLIENTSIDEONLY
+	+ALLOWCLIENTSPAWN
+	-SOLID
 	States
 	{
 	Spawn:
@@ -155,10 +155,10 @@ Actor CatSmog1 10301
 	//$Category WDI Effects
 	YScale 0.5
 	XScale 2
+	Alpha 0.5
+	RenderStyle Add
 	+NOINTERACTION
 	+NOGRAVITY
-	RenderStyle Add
-	Alpha 0.5
 	States
 	{
 	Spawn:
@@ -169,10 +169,10 @@ Actor CatSmog1 10301
 Actor CatSmog2 10302
 {
 	//$Category WDI Effects
+	Alpha 0.4
+	RenderStyle Add
 	+NOINTERACTION
 	+NOGRAVITY
-	RenderStyle Add
-	Alpha 0.4
 	States
 	{
 	Spawn:
@@ -183,10 +183,10 @@ Actor CatSmog2 10302
 Actor CatSmog3 10303
 {
 	//$Category WDI Effects
+	Alpha 0.2
+	RenderStyle Add
 	+NOINTERACTION
 	+NOGRAVITY
-	RenderStyle Add
-	Alpha 0.2
 	States
 	{
 	Spawn:
@@ -196,17 +196,17 @@ Actor CatSmog3 10303
 
 Actor FireDecorative 20900
 {
+	//$Category WDI Effects
+	//$Sprite FFLGF0
+	//$Title "Fire Decoration"
+	Alpha 0.4
+	RenderStyle Translucent
 	+NOINTERACTION
 	+NOCLIP
 	+RANDOMIZE
 	+FORCEYBILLBOARD
 	+CLIENTSIDEONLY
 	+DONTSPLASH
-	RenderStyle Translucent
-	Alpha 0.4
-	//$Category WDI Effects
-	//$Sprite FFLGF0
-	//$Title "Fire Decoration"
 	States
 	{
 	Spawn:

@@ -4,6 +4,7 @@
 //Knife (Murderer only Weapon!)
 Actor MurderKnife : Weapon
 {
+	Obituary ""
 	Weapon.SelectionOrder 100
 	Weapon.Kickback 100
 	Weapon.UpSound "Weapons/KnifeReady"
@@ -15,7 +16,6 @@ Actor MurderKnife : Weapon
 	+WEAPON.NOAUTOFIRE
 	+INVENTORY.UNDROPPABLE
 	+NOAUTOAIM
-	Obituary ""
 	States
 	{
 	Ready:
@@ -145,15 +145,15 @@ Actor StabbedAPerson : Inventory
 
 Actor BackStabPuff
 {
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFGETSOWNER
-	+NODAMAGETHRUST
 	DamageType "Backstab"
 	ActiveSound "Weapons/KnifeStab"
 	AttackSound ""
 	SeeSound "Weapons/BackStab"
 	Obituary ""
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFGETSOWNER
+	+NODAMAGETHRUST
 	States
 	{
 	Spawn:
@@ -172,14 +172,14 @@ Actor BackStabPuff
 
 Actor StabPuff
 {
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
 	DamageType "Default"
 	ActiveSound "Weapons/KnifeStab"
 	AttackSound ""
 	SeeSound "Weapons/KnifeHit"
 	Obituary ""
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
 	States
 	{
 	Spawn:
@@ -212,11 +212,11 @@ Actor DuelKnife : Weapon
 	Weapon.Kickback 100
 	Weapon.UpSound "Weapons/KnifeReady"
 	Weapon.PreferredSkin "MurderSkin"
+	Obituary "%o was stabbed to Death."
 	+WEAPON.MELEEWEAPON
 	+WEAPON.BFG
 	+WEAPON.NO_AUTO_SWITCH
 	+WEAPON.NOAUTOFIRE
-	Obituary "%o was stabbed to Death."
 	States
 	{
 	Ready:
@@ -280,9 +280,9 @@ Actor DuelKnife : Weapon
 Actor FakeDuelKnife : CustomInventory 28468
 {
 	//$Category Marsis_map_ONLY
-	Scale 0.4
 	Radius 16
 	Height 8
+	Scale 0.4
 	Inventory.PickupMessage "Found a Knife."
 	Inventory.Respawntics 8150
 	States
@@ -306,14 +306,14 @@ Actor FakeDuelKnife : CustomInventory 28468
 
 Actor DroppedDuelKnife
 {
-	Projectile
-	-NOGRAVITY
-	Scale 0.7
-	Damage 0
 	Radius 16
 	Height 8
+	Scale 0.7
+	Damage 0
 	Speed 9
 	DeathSound "Pipe/Wall"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:

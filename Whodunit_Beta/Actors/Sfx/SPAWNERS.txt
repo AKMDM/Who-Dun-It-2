@@ -13,15 +13,15 @@ Actor AsinglerainSpawn : RandomSpawner
 
 Actor CatDrip2 //Similar to the other catdrip but with No Death sound
 {
-	+CLIENTSIDEONLY
-	+BRIGHT
-	Projectile
-	-NOGRAVITY
-	+DONTSPLASH
-	Damage 0
-	RenderStyle Add
 	Alpha 0.7
 	Scale 0.7
+	Damage 0
+	RenderStyle Add
+	Projectile
+	+DONTSPLASH
+	+CLIENTSIDEONLY
+	+BRIGHT
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -35,16 +35,16 @@ Actor CatDrip2 //Similar to the other catdrip but with No Death sound
 
 Actor Blooddropp
 {
-	+CLIENTSIDEONLY
-	+BRIGHT
-	Projectile
-	-NOGRAVITY
-	+DONTSPLASH
 	Damage 0
-	RenderStyle Add
 	Alpha 0.7
 	Scale 0.7
+	RenderStyle Add
 	DeathSound "Wdrip"
+	Projectile
+	+CLIENTSIDEONLY
+	+BRIGHT
+	+DONTSPLASH
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -75,15 +75,15 @@ Actor BloodDripSpawner 30012
 //----------------------------------------
 Actor RainSpawner 191
 {
+	//$Category WDI Effects
+	//$Sprite RNDRA0
+	//$Title "Rain Spawner"
 	Radius 1
 	Height 1
 	+NOCLIP
 	+CLIENTSIDEONLY
 	+SPAWNCEILING
 	+NOGRAVITY
-	//$Category WDI Effects
-	//$Sprite RNDRA0
-	//$Title "Rain Spawner"
 	States
 	{
 	Spawn:
@@ -106,16 +106,16 @@ Actor RainSpawner 191
 
 Actor RainDrop
 {
-	+MISSILE
-	+NOBLOCKMAP
-	-NOGRAVITY
-	+CLIENTSIDEONLY
-	+DONTSPLASH
 	Height 2
 	Radius 2
-	RenderStyle Translucent
 	Alpha 0.95
 	Scale 0.2
+	RenderStyle Translucent
+	+MISSILE
+	+NOBLOCKMAP
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -133,16 +133,16 @@ Actor RainDrop
 
 Actor CatDrip
 {
-	+CLIENTSIDEONLY
-	+BRIGHT
-	Projectile
-	-NOGRAVITY
-	+DONTSPLASH
 	Damage 0
-	RenderStyle Add
 	Alpha 0.7
 	Scale 0.7
+	RenderStyle Add
 	DeathSound "Wdrip"
+	Projectile
+	+CLIENTSIDEONLY
+	+BRIGHT
+	+DONTSPLASH
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -174,16 +174,16 @@ Actor CatDripSpawner 10578
 /////////////////////////
 Actor FogCloud_Generator 9918
 {
+	//$Category WDI Effects
+	//$Sprite XSMKA0
+	//$Title "Fog Generator"
+	Radius 1
+	Height 1
 	+MISSILE
 	+NOBLOCKMAP
 	+NOGRAVITY
 	+NOSECTOR
 	+CLIENTSIDEONLY
-	Radius 1
-	Height 1
-	//$Category WDI Effects
-	//$Sprite XSMKA0
-	//$Title "Fog Generator"
 	States
 	{
 	Spawn:
@@ -197,16 +197,16 @@ Actor FogCloud_Generator 9918
 
 Actor FogCloud_V1
 {
+	Radius 1
+	Height 1
+	Speed 0
+	Alpha 0.25
+	Scale 3
+	RenderStyle Translucent
 	+MISSILE
 	+NOGRAVITY
 	+NOBLOCKMAP
 	+CLIENTSIDEONLY
-	Radius 1
-	Height 1
-	Speed 0
-	RenderStyle Translucent
-	Alpha 0.25
-	Scale 3
 	States
 	{
 	Spawn:
@@ -247,6 +247,9 @@ Actor FogCloud_V3 : FogCloud_V1
 /* STEAM */
 Actor SteamSpawner : SwitchableDecoration 20902
 {
+	//$Category WDI Effects
+	//$Sprite STEMA0
+	//$Title "Steam Spawner"
 	Height 2
 	Radius 1
 	Mass 0
@@ -254,9 +257,6 @@ Actor SteamSpawner : SwitchableDecoration 20902
 	+NOGRAVITY
 	+NOINTERACTION
 	+CLIENTSIDEONLY
-	//$Category WDI Effects
-	//$Sprite STEMA0
-	//$Title "Steam Spawner"
 	States
 	{
 	Spawn:
@@ -312,14 +312,14 @@ Actor SteamParticle
 {
 	Height 1
 	Radius 1
+	Scale 0.4
+	Alpha 0.65
+	RenderStyle Add
 	+MISSILE
 	+NOGRAVITY
 	+NOBLOCKMAP
 	+DONTSPLASH
 	+CLIENTSIDEONLY
-	RenderStyle Add
-	Scale 0.4
-	Alpha 0.65
 	States
 	{
 	Spawn:
@@ -340,19 +340,19 @@ Actor SteamParticle
 
 Actor TrickyStatueSpawner : RandomSpawner 14246
 {
-	DropItem "DeathStatue" 128 1
 	//$Category WDI Props
 	//$Sprite STT1A8A2
 	//$Title "Player Statue Spawner"
 	//DropItem "ABigNothing"  2
+	DropItem "DeathStatue" 128 1
 }
 Actor FreezerFan 15061
 {
-	+NOGRAVITY
-	+NOBLOCKMAP
 	//$Category WDI Effects
 	//$Sprite SMOKQ0
 	//$Title "Freezer Fan (Spawns Clouds)"
+	+NOGRAVITY
+	+NOBLOCKMAP
 	States
 	{
 	Spawn:
@@ -362,21 +362,21 @@ Actor FreezerFan 15061
 
 Actor FanCloud
 {
-	Projectile
-	-NOGRAVITY
-	+LOWGRAVITY
-	+DONTSPLASH
-	+LOOKALLAROUND
 	Scale 0.5
 	Damage 0
 	Radius 8
 	Height 8
 	Speed 0
-	DamageType "Ice"
-	DeathSound ""
+	Alpha 0.5
 	Translation Ice
 	RenderStyle Add
-	Alpha 0.5
+	DamageType "Ice"
+	DeathSound ""
+	Projectile
+	+DONTSPLASH
+	+LOOKALLAROUND
+	+LOWGRAVITY
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -391,26 +391,26 @@ Actor FanCloud
 
 Actor ColdCloud 15060
 {
-	Translation Ice
+	//$Category WDI Effects
+	//$Sprite PSBGD0
+	//$Title "Freezer Cloud"
 	Radius 20
 	Height 30
 	Mass 1
 	Speed 1
+	Alpha 0.25
+	Translation Ice
+	RenderStyle Add
 	DamageType "Ice"
+	Obituary "%o went north."
+	HitObituary "%o went north."
+	DeathSound "PoisonShroomDeath"
 	+DROPOFF
 	+NODAMAGETHRUST
 	+DONTSPLASH
 	+FOILINVUL
 	+BLOODLESSIMPACT
 	+SLIDESONWALLS
-	RenderStyle Add
-	Obituary "%o went north."
-	HitObituary "%o went north."
-	Alpha 0.25
-	DeathSound "PoisonShroomDeath"
-	//$Category WDI Effects
-	//$Sprite PSBGD0
-	//$Title "Freezer Cloud"
 	States
 	{
 	Spawn:
@@ -436,12 +436,12 @@ Actor ColdCloud 15060
 
 Actor FogFiller 26666
 {
-	Radius 8
-	Height 8
-	+NOGRAVITY
 	//$Category WDI Effects
 	//$Sprite XSMKA0
 	//$Title "Fog Filler (Spawner)"
+	Radius 8
+	Height 8
+	+NOGRAVITY
 	States
 	{
 	Spawn:
@@ -465,17 +465,17 @@ Actor SexyFog : Smokecloud 26667
 }}
 
 Actor GlassShards {
-	+HEXENBOUNCE
-	+CLIENTSIDEONLY
+	Alpha 0.1
+	Speed 10
+	ReactionTime 10
 	BounceCount 5
 	Gravity 0.4
 	RenderStyle Translucent
 	Translation "0:255=96:111"
-	Alpha 0.1
-	Speed 10
-	ReactionTime 10
-	-SOLID
+	+HEXENBOUNCE
+	+CLIENTSIDEONLY
 	+NOBLOCKMAP
+	-SOLID
 	States {
 	Spawn:
 		SHRD B 1 A_Jump(150, "Next")
@@ -492,11 +492,11 @@ Actor GlassShards {
 Actor GlassSpawn 32002 {
 	//$Category WDI Effects
 	//$Sprite WDISA0
+	Radius 16
+	Height 16
 	+NOCLIP
 	+INVISIBLE
 	+NOINTERACTION
-	Radius 16
-	Height 16
 	States {
 	Spawn:
 		TNT1 A -1
@@ -532,9 +532,9 @@ Actor SnowFlake 20000
 	Radius 8
 	Height 1
 	Mass 5
-	RenderStyle Translucent
 	Alpha 0.8
 	Scale 0.3
+	RenderStyle Translucent
 	+NOGRAVITY // Greater fall Speed control
 	+NOBLOCKMAP
 	+CLIENTSIDEONLY
@@ -661,8 +661,8 @@ Actor Poweroutbeeps4
 
 Actor Potatotune
 {
-	-NOGRAVITY
 	ReactionTime 999
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -686,14 +686,14 @@ Actor SoundPeron 11700
 {
 	//$Category WDI Effects
 	//$Sprite WDISA0
-	+NOINTERACTION
-	+CLIENTSIDEONLY
-	-SOLID
-	+NOBLOCKMAP
-	+NOGRAVITY
 	Radius 10
 	Height 10
 	RenderStyle Add
+	+NOINTERACTION
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOGRAVITY
+	-SOLID
 	States
 	{
 	Spawn:
@@ -706,14 +706,14 @@ Actor SoundJazzy 11701
 {
 	//$Category WDI Effects
 	//$Sprite WDISA0
-	+NOINTERACTION
-	+CLIENTSIDEONLY
-	-SOLID
-	+NOBLOCKMAP
-	+NOGRAVITY
 	Radius 10
 	Height 10
 	RenderStyle Add
+	+NOINTERACTION
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOGRAVITY
+	-SOLID
 	States
 	{
 	Spawn:
@@ -726,14 +726,14 @@ Actor SoundAvalon 11702
 {
 	//$Category WDI Effects
 	//$Sprite WDISA0
-	+NOINTERACTION
-	+CLIENTSIDEONLY
-	-SOLID
-	+NOBLOCKMAP
-	+NOGRAVITY
 	Radius 10
 	Height 10
 	RenderStyle Add
+	+NOINTERACTION
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOGRAVITY
+	-SOLID
 	States
 	{
 	Spawn:
@@ -746,14 +746,14 @@ Actor SoundFog 11703
 {
 	//$Category WDI Effects
 	//$Sprite WDISA0
-	+NOINTERACTION
-	+CLIENTSIDEONLY
-	-SOLID
-	+NOBLOCKMAP
-	+NOGRAVITY
 	Radius 10
 	Height 10
 	RenderStyle Add
+	+NOINTERACTION
+	+CLIENTSIDEONLY
+	+NOBLOCKMAP
+	+NOGRAVITY
+	-SOLID
 	States
 	{
 	Spawn:

@@ -118,14 +118,14 @@ Actor PipeWrench : Weapon
 
 Actor DroppedWrench
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
 	Scale 0.5
 	DeathSound "Wrench/Hitwall"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -140,12 +140,12 @@ Actor DroppedWrench
 Actor WrenchPuff
 {
 	DamageType "Friendlymelee"
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
 	ActiveSound "Wrench/Swing"
 	AttackSound "Wrench/Hitwall"
 	SeeSound "Wrench/Hitbody"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
 	States
 	{
 	Spawn:

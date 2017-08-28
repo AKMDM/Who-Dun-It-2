@@ -13,13 +13,13 @@ Actor Ishtar 32260
 	Speed 3
 	Mass 900
 	BloodColor 88 88 88
-	+SOLID
-	+SHOOTABLE
-	+NOBLOOD
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
 	PainSound "PotBits"
 	DeathSound "Pot/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
 	States
 	{
 	Spawn:
@@ -46,21 +46,21 @@ Actor MinotaurStatue 16134
 
 Actor DeathStatue 14244
 {
+	//$Category WDI Props
+	//$Title "Player Statue"
 	Health 400
 	Radius 20
 	Height 56
 	Speed 3
 	Mass 900
 	BloodColor 88 88 88
-	+SOLID
-	+SHOOTABLE
-	+NOBLOOD
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
 	PainSound "PotBits"
 	DeathSound "Pot/Break"
-	//$Category WDI Props
-	//$Title "Player Statue"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
 	States
 	{
 	Spawn:
@@ -189,9 +189,9 @@ Actor PedestalRed 31988 {
 	//$Category WDI Props
 	//$Sprite GMPDB0
 	//$Title "PedestalRed"
-	+SOLID
 	Radius 24
 	Height 48
+	+SOLID
 	States {
 	Spawn:
 		GMPD B -1
@@ -213,9 +213,9 @@ Actor PodiumVase 13968
 	//$Category WDI Props
 	//$Sprite VASSA0
 	//$Title "Podium Vase"
-	+SOLID
 	Height 48
 	Radius 32
+	+SOLID
 	States
 	{
 	Spawn:
@@ -224,11 +224,11 @@ Actor PodiumVase 13968
 }}
 
 Actor ArmorSuit 32003 { //SKULLTAG??
-	+SOLID
-	Radius 24
-	Height 56
 	//$Category WDI Props
 	//$Title "Armor Suit"
+	Radius 24
+	Height 56
+	+SOLID
 	States {
 	Spawn:
 		SUIT A -1
@@ -300,13 +300,13 @@ Actor HPipe5 31019
 
 Actor Box1 31020
 {
+	//$Category WDI Props
+	//$Sprite BOX1A0
+	//$Title "Box (Cardboard)"
 	Game Doom
 	Radius 16
 	Height 56
 	-SOLID
-	//$Category WDI Props
-	//$Sprite BOX1A0
-	//$Title "Box (Cardboard)"
 	States
 	{
 	Spawn:
@@ -316,14 +316,14 @@ Actor Box1 31020
 
 Actor WasteBin 31021
 {
+	//$Category WDI Props
+	//$Sprite WBINA0
+	//$Title "Trash Can (White)"
 	Game Doom
 	Radius 8
 	Height 24
 	Scale .5
 	+SOLID
-	//$Category WDI Props
-	//$Sprite WBINA0
-	//$Title "Trash Can (White)"
 	States
 	{
 	Spawn:
@@ -333,14 +333,14 @@ Actor WasteBin 31021
 
 Actor WasteBinFilthy 31022
 {
+	//$Category WDI Props
+	//$Sprite WBINB0
+	//$Title "Trash Can (Filthy)"
 	Game Doom
 	Radius 8
 	Height 24
 	Scale .5
 	+SOLID
-	//$Category WDI Props
-	//$Sprite WBINB0
-	//$Title "Trash Can (Filthy)"
 	States
 	{
 	Spawn:
@@ -455,12 +455,12 @@ Actor UniformB 31029
 
 Actor WDIBarrel 13967
 {
-	+SOLID
-	Height 36
-	Radius 24
 	//$Category WDI Props
 	//$Sprite BARLA0
 	//$Title "Wood Barrel"
+	Height 36
+	Radius 24
+	+SOLID
 	States
 	{
 	Spawn:
@@ -470,13 +470,13 @@ Actor WDIBarrel 13967
 
 Actor TrashCan1 14267
 {
+	//$Category WDI Props
+	//$Sprite TRACA0
+	//$Title "Trash Can (Metal)"
 	Game Doom
 	Radius 16
 	Height 40
 	+SOLID
-	//$Category WDI Props
-	//$Sprite TRACA0
-	//$Title "Trash Can (Metal)"
 	States
 	{
 	Spawn:
@@ -486,12 +486,12 @@ Actor TrashCan1 14267
 
 Actor SkolVodka 14269
 {
-	-SOLID
-	Radius 8
-	Height 24
 	//$Category WDI Props
 	//$Sprite VODKA0
 	//$Title "Vodka Bottle"
+	Radius 8
+	Height 24
+	-SOLID
 	States
 	{
 	Spawn:
@@ -501,12 +501,12 @@ Actor SkolVodka 14269
 
 Actor BeerGarten 14271
 {
-	-SOLID
-	Radius 8
-	Height 18
 	//$Category WDI Props
 	//$Sprite PIVOA0
 	//$Title "Beer Bottle"
+	Radius 8
+	Height 18
+	-SOLID
 	States
 	{
 	Spawn:
@@ -516,12 +516,12 @@ Actor BeerGarten 14271
 
 Actor Cocktail_Glass 14273
 {
-	-SOLID
-	Radius 3
-	Height 8
 	//$Category WDI Props
 	//$Sprite GLSSA0
 	//$Title "Cocktail Glass"
+	Radius 3
+	Height 8
+	-SOLID
 	States
 	{
 	Spawn:
@@ -531,19 +531,19 @@ Actor Cocktail_Glass 14273
 
 Actor PushableChair 13712
 {
-	Health 100
-	Radius 10
-	Height 34
-	Mass 25
-	+SOLID
-	+SHOOTABLE
-	+NOBLOOD
-	DamageFactor "Gas", 0.0
-	DamageFactor "FlareEffect", 0.0
 	//+SLIDESONWALLS
 	//$Category WDI Props
 	//$Sprite CHAIA8A2
 	//$Title "Chair (Tan/Pushable)"
+	Health 100
+	Radius 10
+	Height 34
+	Mass 25
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
 	States
 	{
 	Spawn:
@@ -565,14 +565,14 @@ Actor FlaskblueA 10418
 	DamageFactor "FlareEffect", 0.0
 	Radius 7
 	Height 17
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -600,20 +600,20 @@ Actor FlaskblueB 10419
 	//$Category WDI Props
 	//$Sprite FLKSG0
 	//$Title "Flask Blue B"
+	Radius 6
+	Height 17
 	Mass 1500
 	Health 1
-	Radius 6
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Height 17
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -641,20 +641,20 @@ Actor FlaskpurpleA 10420
 	//$Category WDI Props
 	//$Sprite FLKSB0
 	//$Title "Flask Purple A"
+	Radius 7
+	Height 17
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 7
-	Height 17
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -682,20 +682,20 @@ Actor FlaskpurpleB 10421
 	//$Category WDI Props
 	//$Sprite FLKSH0
 	//$Title "Flask Purple B"
+	Radius 6
+	Height 17
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 6
-	Height 17
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -723,20 +723,20 @@ Actor FlaskredA 10422
 	//$Category WDI Props
 	//$Sprite FLKSC0
 	//$Title "Flask Red A"
+	Radius 7
+	Height 17
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 7
-	Height 17
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -764,20 +764,20 @@ Actor FlaskredB 10423
 	//$Category WDI Props
 	//$Sprite FLKSI0
 	//$Title "Flask Red B"
+	Radius 6
+	Height 17
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 6
-	Height 17
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -805,20 +805,20 @@ Actor FlaskgreenA 10424
 	//$Category WDI Props
 	//$Sprite FLKSD0
 	//$Title "Flask Green A"
+	Radius 7
+	Height 17
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 7
-	Height 17
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -846,20 +846,20 @@ Actor FlaskgreenB 10425
 	//$Category WDI Props
 	//$Sprite FLKSJ0
 	//$Title "Flask Green B"
+	Radius 6
+	Height 17
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 6
-	Height 17
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -887,20 +887,20 @@ Actor FlaskyellowA 10426
 	//$Category WDI Props
 	//$Sprite FLKSE0
 	//$Title "Flask Yellow A"
+	Radius 7
+	Height 17
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 7
-	Height 17
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -928,20 +928,20 @@ Actor FlaskyellowB 10427
 	//$Category WDI Props
 	//$Sprite FLKSK0
 	//$Title "Flask Yellow B"
+	Radius 6
+	Height 17
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 6
-	Height 17
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -969,20 +969,20 @@ Actor FlaskgreyA 10428
 	//$Category WDI Props
 	//$Sprite FLKSF0
 	//$Title "Flask Grey A"
+	Radius 7
+	Height 17
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 7
-	Height 17
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -1010,20 +1010,20 @@ Actor FlaskgreyB 10429
 	//$Category WDI Props
 	//$Sprite FLKSL0
 	//$Title "Flask Grey B"
+	Radius 6
+	Height 17
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 6
-	Height 17
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -1051,20 +1051,20 @@ Actor Glassblue 10430
 	//$Category WDI Props
 	//$Sprite BEAKA0
 	//$Title "Beaker Blue"
+	Radius 3
+	Height 8
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 3
-	Height 8
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -1087,20 +1087,20 @@ Actor Glasspurple 10431
 	//$Category WDI Props
 	//$Sprite BEAKB0
 	//$Title "Beaker Purple"
+	Radius 3
+	Height 8
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 3
-	Height 8
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -1122,20 +1122,20 @@ Actor Glassred 10432
 	//$Category WDI Props
 	//$Sprite BEAKC0
 	//$Title "Beaker Red"
+	Radius 3
+	Height 8
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 3
-	Height 8
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -1157,20 +1157,20 @@ Actor Glassgreen 10433
 	//$Category WDI Props
 	//$Sprite BEAKD0
 	//$Title "Beaker Green"
+	Radius 3
+	Height 8
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 3
-	Height 8
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -1192,20 +1192,20 @@ Actor Glassyellow 10434
 	//$Category WDI Props
 	//$Sprite BEAKE0
 	//$Title "Beaker Yellow"
+	Radius 3
+	Height 8
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 3
-	Height 8
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -1227,20 +1227,20 @@ Actor Glassgrey 10435
 	//$Category WDI Props
 	//$Sprite BEAKF0
 	//$Title "Beaker Grey"
+	Radius 3
+	Height 8
 	Mass 1500
 	Health 1
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	Radius 3
-	Height 8
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+ACTIVATEMCROSS
 	+DONTGIB
 	+NOICEDEATH
-	RenderStyle Translucent
-	DeathSound "Tubes/Break"
 	States
 	{
 	Spawn:
@@ -1506,12 +1506,12 @@ Actor CompChair 3247
 	Height 36
 	Scale 0.8
 	Mass 90
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	//+SLIDESONWALLS
-	DamageFactor "Gas", 0.0
-	DamageFactor "FlareEffect", 0.0
 	States
 	{
 	Spawn:
@@ -1524,21 +1524,21 @@ Actor CompChair 3247
 
 //potsssssssss
 Actor PotA 31998 {
+	//$Category WDI Props
+	//$Sprite POT1A0
+	//$Title "Pot 1 (Breakable)"
+	Radius 10
+	Height 20
+	Health 10
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	Speed 10
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
 	+SLIDESONWALLS
 	+PUSHABLE
 	+NOICEDEATH
-	Health 10
-	DamageFactor "Gas", 0.0
-	DamageFactor "FlareEffect", 0.0
-	Speed 10
-	Radius 10
-	Height 20
-	//$Category WDI Props
-	//$Sprite POT1A0
-	//$Title "Pot 1 (Breakable)"
 	States {
 	Spawn:
 		POT1 A -1
@@ -1620,11 +1620,11 @@ Actor PotF : PotA  3262 {
 }}
 
 Actor Bottle 31981 {
-	+NOCLIP
-	+NOINTERACTION
 	//$Category WDI Props
 	//$Sprite WATRA0
 	//$Title "Bottle"
+	+NOCLIP
+	+NOINTERACTION
 	States {
 	Spawn:
 		WATR A -1
@@ -1632,11 +1632,11 @@ Actor Bottle 31981 {
 }}
 
 Actor PotBits {
-	+DOOMBOUNCE
+	Speed 12
 	Gravity 2.0
 	BounceCount 5
 	ReactionTime 30
-	Speed 12
+	+DOOMBOUNCE
 	States {
 	Spawn:
 		ROCK E 1 A_Jump(255, "One", "Two", "Three")
@@ -1667,9 +1667,9 @@ Actor Nethertree 30007
 {
 	//$Category WDI Props
 	//$Title "Nether Tree"
-	+SOLID
 	Height 48
 	Radius 16
+	+SOLID
 	States {
 	Spawn:
 		NHTR C -1
@@ -1678,11 +1678,11 @@ Actor Nethertree 30007
 
 Actor Netherbeer 30008
 {
-	-SOLID
-	Radius 8
-	Height 18
 	//$Category WDI Props
 	//$Title "Nether beer bottle"
+	Radius 8
+	Height 18
+	-SOLID
 	States
 	{
 	Spawn:
@@ -1692,12 +1692,12 @@ Actor Netherbeer 30008
 
 Actor SICALAMP 3255 {
 	//$Category WDI Props
+	Radius 2
+	Height 2
+	Scale 0.2
 	+SOLID
 	+NOGRAVITY
 	+SPAWNCEILING
-	Scale 0.2
-	Radius 2
-	Height 2
 	States {
 	Spawn:
 		LAM1 A -1
@@ -1706,11 +1706,11 @@ Actor SICALAMP 3255 {
 
 Actor SICAMIC 3256 {
 	//$Category WDI Props
-	+SOLID
-	+NOGRAVITY
-	Scale 1
 	Radius 2
 	Height 2
+	Scale 1
+	+SOLID
+	+NOGRAVITY
 	States {
 	Spawn:
 		MIC1 A -1
@@ -1719,11 +1719,11 @@ Actor SICAMIC 3256 {
 
 Actor SICALAMP2 3257 {
 	//$Category WDI Props
-	+SOLID
-	+NOGRAVITY
-	Scale 0.2
 	Radius 2
 	Height 2
+	Scale 0.2
+	+SOLID
+	+NOGRAVITY
 	States {
 	Spawn:
 		LAM1 A -1

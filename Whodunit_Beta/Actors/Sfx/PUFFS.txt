@@ -9,10 +9,10 @@ Actor ShotgunCasing
 	Speed 4
 	Scale 0.20
 	Mass 0
+	SeeSound "Weapons/Casing2"
 	Projectile
 	+DOOMBOUNCE
 	-NOGRAVITY
-	SeeSound "Weapons/Casing2"
 	States
 	{
 	Spawn:
@@ -47,9 +47,9 @@ Actor ShotgunCasing
 
 Actor Poof
 {
+	Scale 0.5
 	RenderStyle Normal
 	+NOGRAVITY
-	Scale 0.5
 	States
 	{
 	Spawn:
@@ -62,9 +62,9 @@ Actor Poof
 
 Actor Poof2
 {
+	Scale 0.2
 	RenderStyle Normal
 	+NOGRAVITY
-	Scale 0.2
 	States
 	{
 	Spawn:

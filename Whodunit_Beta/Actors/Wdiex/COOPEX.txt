@@ -1,11 +1,11 @@
 Actor MarsisPlaya : Innocent
 {
+	DamageFactor "FlareEffect", 0.0
 	Player.DisplayName "Voice: Thick"
 	Player.SoundClass "TMC"
 	+NOSKIN
 	+NOBLOCKMONST
 	-ISMONSTER
-	DamageFactor "FlareEffect", 0.0
 	States
 	{
 	Death.Backstab:
@@ -94,10 +94,9 @@ Actor SSGZombie 17462
 	Scale 0.9
 	Speed 9
 	PainChance 170
+	Decal Bulletchip
 	DamageFactor "FlareEffect", 0.0
-	Monster
 	Translation "112:127=16:47"
-	+FLOORCLIP
 	SeeSound "SSGUNER/Sight"
 	AttackSound "SSGUNER/SSG"
 	PainSound "Grunt/Pain"
@@ -105,7 +104,8 @@ Actor SSGZombie 17462
 	ActiveSound "SSGUNER/Idle"
 	Obituary "%o was blown open by a Super Shotgunner!"
 	DropItem "SuperShotgun"
-	Decal Bulletchip
+	Monster
+	+FLOORCLIP
 	States
 	{
 	Spawn:
@@ -148,20 +148,20 @@ Actor COOP_Zombie_with_axe 17463
 {
 	//$Category COOPEX
 	Game Doom
-	Obituary "%o was axe-murdered by a zombie scientist."
+	Radius 20
+	Height 52
 	Health 202
 	Mass 90
 	Speed 8
-	Radius 20
-	Height 52
 	PainChance 200
+	DamageFactor "FlareEffect", 0.0
+	Obituary "%o was axe-murdered by a zombie scientist."
 	SeeSound "Grunt/Sight"
 	PainSound "Grunt/Pain"
 	DeathSound "Grunt/Death"
 	ActiveSound "Grunt/Active"
 	Monster
 	+FLOORCLIP
-	DamageFactor "FlareEffect", 0.0
 	States
 	{
 	Spawn:
@@ -203,19 +203,19 @@ Actor COOP_Zombie_with_axe 17463
 Actor COOPFemaleZombie 17464
 {
 	//$Category COOPEX
+	Radius 19
+	Height 72
 	Health 150
 	Mass 90
 	Speed 13
-	Radius 19
-	Height 72
 	PainChance 200
+	DamageFactor "FlareEffect", 0.0
 	SeeSound "Fem/Sight"
 	PainSound "Fem/Pain"
 	DeathSound "Fem/Death"
 	ActiveSound "Fem/Active"
 	Monster
 	+FLOORCLIP
-	DamageFactor "FlareEffect", 0.0
 	States
 	{
 	Spawn:
@@ -276,30 +276,30 @@ Actor AdvancedHelmet : Key 17465
 Actor CoopTrite 17466 ////////////////////from Shadow Mavericks
 {
 	//$Category COOPEX
-	Monster
+	SpawnID 251
 	Radius 12
 	Height 16
 	Health 10
-	SpawnID 251
 	Scale 0.4
-	Damage 2
-	PoisonDamage 3
 	Speed 10
 	PainChance 255
-	HitObituary "Someone didn't pay attention."
-	Obituary "'"
 	Gravity 0.7
+	MinMissileChance 116
+	MaxTargetRange 128
+	Damage 2
+	PoisonDamage 3
 	DamageType "Trite"
 	DamageFactor "Trite", 0
+	DamageFactor "FlareEffect", 0.0
+	HitObituary "Someone didn't pay attention."
+	Obituary "'"
 	BloodColor "00 FF 00"
 	SeeSound "Tritesee"
 	DeathSound "Tritedeath"
 	PainSound "Tritepain"
-	MinMissileChance 116
-	MaxTargetRange 128
+	Monster
 	+DROPOFF
 	+LOOKALLAROUND
-	DamageFactor "FlareEffect", 0.0
 	States
 	{
 	Spawn:
@@ -373,9 +373,9 @@ Actor NOT_A_MONSTER_ANYMORE: CustomInventory
 Actor TVNOIZELight
 {
 	//$Category Marsis_map_ONLY
-	Health 0x7FFFFFFF
 	Radius 10
 	Height 34
+	Health 0x7FFFFFFF
 	+CLIENTSIDEONLY
 	-SOLID
 	-SHOOTABLE
@@ -391,9 +391,9 @@ Actor DoorGreenLight 17468
 {
 	//$Category Marsis_map_ONLY
 	//$Sprite WDILA0
-	-SOLID
 	+NOGRAVITY
 	+GHOST
+	-SOLID
 	-SHOOTABLE
 	States
 	{
@@ -405,30 +405,30 @@ Actor DoorGreenLight 17468
 Actor CoopGonarch  ////////////////////from Shadow Mavericks
 {
 	//$Category COOPEX
-	Monster
+	SpawnID 251
 	Radius 32
 	Height 64
 	Health 100
-	SpawnID 251
 	Scale 1.4
-	Damage 5
-	PoisonDamage 3
 	Speed 15
 	PainChance 255
+	Gravity 0.7
+	Damage 5
+	PoisonDamage 3
+	DamageFactor "Trite", 0
+	DamageFactor "FlareEffect", 0.0
+	DamageType "Trite"
 	HitObituary "Someone didn't pay attention."
 	Obituary "'"
-	Gravity 0.7
-	DamageType "Trite"
-	DamageFactor "Trite", 0
 	BloodColor "00 FF 00"
 	SeeSound "Tritesee"
 	DeathSound "Tritedeath"
 	PainSound "Tritepain"
 	MinMissileChance 116
 	MaxTargetRange 128
+	Monster
 	+DROPOFF
 	+LOOKALLAROUND
-	DamageFactor "FlareEffect", 0.0
 	States
 	{
 	Spawn:
@@ -459,30 +459,30 @@ Actor CoopGonarch  ////////////////////from Shadow Mavericks
 Actor CoopTriteRespawnable 17469////////////////////from Shadow Mavericks
 {
 	//$Category COOPEX
-	Monster
+	SpawnID 251
 	Radius 12
 	Height 16
 	Health 10
-	SpawnID 251
 	Scale 0.4
 	Damage 2
 	PoisonDamage 3
 	Speed 10
-	PainChance 255
-	HitObituary "Someone didn't pay attention."
-	Obituary "'"
 	Gravity 0.7
+	PainChance 255
+	MinMissileChance 116
+	MaxTargetRange 128
 	DamageType "Trite"
 	DamageFactor "Trite", 0
+	DamageFactor "FlareEffect", 0.0
+	HitObituary "Someone didn't pay attention."
+	Obituary "'"
 	BloodColor "00 FF 00"
 	SeeSound "Tritesee"
 	DeathSound "Tritedeath"
 	PainSound "Tritepain"
-	MinMissileChance 116
-	MaxTargetRange 128
+	Monster
 	+DROPOFF
 	+LOOKALLAROUND
-	DamageFactor "FlareEffect", 0.0
 	States
 	{
 	Spawn:
@@ -517,9 +517,9 @@ Actor SavePointLight 17470
 {
 	//$Category Marsis_map_ONLY
 	//$Sprite WDILA0
-	-SOLID
 	+NOGRAVITY
 	+GHOST
+	-SOLID
 	-SHOOTABLE
 	States
 	{
@@ -530,13 +530,16 @@ Actor SavePointLight 17470
 
 Actor Slenderman2: Slenderman
 {
-	Scale 0.25
-	CameraHeight 40
 	Height 70
 	Radius 15
+	Scale 0.25
 	Speed 10
 	Damage 1
 	Health 9999
+	PainChance 0
+	Mass 9999999999
+	CameraHeight 40
+	Obituary "%o was kidnapped"
 	Monster
 	+NOBLOCKMONST
 	+DROPOFF
@@ -544,20 +547,20 @@ Actor Slenderman2: Slenderman
 	+QUICKTORETALIATE
 	+DONTSPLASH
 	+NOCLIP
-	Obituary "%o was kidnapped"
-	PainChance 0
-	Mass 9999999999
 }
 
 Actor Slenderman3: Slenderman
 {
-	Scale 0.25
-	CameraHeight 40
 	Height 70
 	Radius 15
+	Scale 0.25
+	CameraHeight 40
 	Speed 11
 	Damage 1
 	Health 9999
+	PainChance 0
+	Mass 9999999999
+	Obituary "%o was kidnapped"
 	Monster
 	+NOBLOCKMONST
 	+DROPOFF
@@ -565,9 +568,6 @@ Actor Slenderman3: Slenderman
 	+QUICKTORETALIATE
 	+DONTSPLASH
 	+NOCLIP
-	Obituary "%o was kidnapped"
-	PainChance 0
-	Mass 9999999999
 }
 
 Actor Slenderman4: Slenderman
@@ -579,6 +579,9 @@ Actor Slenderman4: Slenderman
 	Speed 12
 	Damage 1
 	Health 9999
+	PainChance 0
+	Mass 9999999999
+	Obituary "%o was kidnapped"
 	Monster
 	+NOBLOCKMONST
 	+DROPOFF
@@ -586,20 +589,20 @@ Actor Slenderman4: Slenderman
 	+QUICKTORETALIATE
 	+DONTSPLASH
 	+NOCLIP
-	Obituary "%o was kidnapped"
-	PainChance 0
-	Mass 9999999999
 }
 
 Actor Slenderman5: Slenderman
 {
-	Scale 0.25
-	CameraHeight 40
 	Height 70
 	Radius 15
+	Scale 0.25
+	CameraHeight 40
 	Speed 13
 	Damage 1
 	Health 9999
+	PainChance 0
+	Mass 9999999999
+	Obituary "%o was kidnapped"
 	Monster
 	+NOBLOCKMONST
 	+DROPOFF
@@ -607,20 +610,20 @@ Actor Slenderman5: Slenderman
 	+QUICKTORETALIATE
 	+DONTSPLASH
 	+NOCLIP
-	Obituary "%o was kidnapped"
-	PainChance 0
-	Mass 9999999999
 }
 
 Actor Slenderman6: Slenderman
 {
-	Scale 0.25
-	CameraHeight 40
 	Height 70
 	Radius 15
+	Scale 0.25
+	CameraHeight 40
 	Speed 14
 	Damage 1
 	Health 9999
+	PainChance 0
+	Mass 9999999999
+	Obituary "%o was kidnapped"
 	Monster
 	+NOBLOCKMONST
 	+DROPOFF
@@ -628,20 +631,20 @@ Actor Slenderman6: Slenderman
 	+QUICKTORETALIATE
 	+DONTSPLASH
 	+NOCLIP
-	Obituary "%o was kidnapped"
-	PainChance 0
-	Mass 9999999999
 }
 
 Actor Slenderman7: Slenderman
 {
-	Scale 0.25
-	CameraHeight 40
 	Height 70
 	Radius 15
+	Scale 0.25
+	CameraHeight 40
 	Speed 15
 	Damage 1
 	Health 9999
+	PainChance 0
+	Mass 9999999999
+	Obituary "%o was kidnapped"
 	Monster
 	+NOBLOCKMONST
 	+DROPOFF
@@ -649,20 +652,20 @@ Actor Slenderman7: Slenderman
 	+QUICKTORETALIATE
 	+DONTSPLASH
 	+NOCLIP
-	Obituary "%o was kidnapped"
-	PainChance 0
-	Mass 9999999999
 }
 
 Actor Slenderman8: Slenderman
 {
-	Scale 0.25
-	CameraHeight 40
 	Height 70
 	Radius 15
+	Scale 0.25
+	CameraHeight 40
 	Speed 16
 	Damage 1
 	Health 9999
+	PainChance 0
+	Mass 9999999999
+	Obituary "%o was kidnapped"
 	Monster
 	+NOBLOCKMONST
 	+DROPOFF
@@ -670,7 +673,4 @@ Actor Slenderman8: Slenderman
 	+QUICKTORETALIATE
 	+DONTSPLASH
 	+NOCLIP
-	Obituary "%o was kidnapped"
-	PainChance 0
-	Mass 9999999999
 }

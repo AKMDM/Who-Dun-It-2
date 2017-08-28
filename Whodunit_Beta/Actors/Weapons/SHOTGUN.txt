@@ -80,13 +80,13 @@ Actor TKFakeShotgun : FakeShotgun
 
 Actor DroppedShotgun
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
 	DeathSound "Weapons/Gundrop"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -108,13 +108,13 @@ Actor Shotgun2 : Weapon
 	Weapon.AmmoType1 "SuperShells"
 	Weapon.AmmoType2 "NewShell"
 	Weapon.PreferredSkin "ShotgunSkin"
+	Inventory.PickupMessage "Found a Shotgun."
+	AttackSound "Weapons/Shotgunfire"
+	Obituary "%o caught some buck."
 	+AMMO_OPTIONAL
 	+ALT_AMMO_OPTIONAL
 	+INVENTORY.UNDROPPABLE
 	+NOAUTOAIM
-	Obituary "%o caught some buck."
-	Inventory.PickupMessage "Found a Shotgun."
-	AttackSound "Weapons/Shotgunfire"
 	States
 	{
 	Spawn:
@@ -253,15 +253,15 @@ Actor NewShell : Ammo 30061
 	Game Doom
 	SpawnID 12
 	Scale 0.2
-	Inventory.PickupMessage "Found a shotgun shell."
-	Inventory.Amount 1
-	Inventory.MaxAmount 4
-	Inventory.Respawntics 21000 //10 minutes
 	Ammo.BackpackAmount 1
 	Ammo.BackpackMaxAmount 4
+	Inventory.PickupMessage "Found a shotgun shell."
+	Inventory.Respawntics 21000 //10 minutes
+	Inventory.Amount 1
+	Inventory.MaxAmount 4
+	Inventory.Icon "ARTISHEL"
 	+INVENTORY.INVBAR
 	-INVENTORY.INTERHUBSTRIP
-	Inventory.Icon "ARTISHEL"
 	States
 	{
 	Spawn:

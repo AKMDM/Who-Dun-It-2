@@ -6,27 +6,27 @@ Actor ArchvileFirex : ArchvileFire
 }
 Actor Sjasface
 {
-	FloatSpeed 15
-	Speed 10
-	Monster
-	Health 0x7FFFFFFF
-	RenderStyle Translucent
-	Alpha 0.5
-	MeleeDamage 2
-	DamageFactor "FlareEffect", 0.0
 	Radius 20
 	Height 72
-	CameraHeight 32
+	FloatSpeed 15
+	Speed 10
+	Health 0x7FFFFFFF
 	Mass 9999999999999
+	MeleeDamage 2
+	PainChance 250
+	CameraHeight 32
+	Alpha 0.5
+	RenderStyle Translucent
+	BloodColor Black
+	DamageFactor "FlareEffect", 0.0
 	Obituary "%o found the ghoul."
+	//SeeSound "Sjassee"
+	Monster
 	+FLOAT
 	+LOOKALLAROUND
 	+NOGRAVITY
 	+DROPOFF
 	+NOTELEOTHER
-	//SeeSound "Sjassee"
-	BloodColor Black
-	PainChance 250
 	States
 	{
 	Spawn:
@@ -100,26 +100,26 @@ Actor Sjasface
 
 Actor Sjasdummy
 {
-	FloatSpeed 15
-	Speed 10
-	Monster
-	Health 0x7FFFFFFF
-	RenderStyle Translucent
-	Alpha 0.5
-	MeleeDamage 0
-	Radius 20
 	Height 72
+	Radius 20
+	Speed 10
+	FloatSpeed 15
+	Health 0x7FFFFFFF
+	MeleeDamage 0
 	CameraHeight 32
 	Mass 9999999999999
+	PainChance 128
+	Alpha 0.5
+	RenderStyle Translucent
+	BloodColor Black
 	DamageFactor "FlareEffect", 0.0
 	Obituary "%o found the ghoul."
+	//SeeSound "Sjassee"
+	Monster
 	+FLOAT
 	+LOOKALLAROUND
 	+NOGRAVITY
 	+NOTELEOTHER
-	//SeeSound "Sjassee"
-	BloodColor Black
-	PainChance 128
 	States
 	{
 	Spawn:
@@ -199,24 +199,24 @@ Actor Sjasfriendly: Sjasface
 }
 Actor CreeperGhoul
 {
-	Monster
-	+NOBLOCKMONST
-	+DROPOFF
-	BloodColor white
-	-SOLID
-	Speed 5
-	+DONTSPLASH
-	//RenderStyle Fuzzy
-	CameraHeight 8
-	Health 0x7FFFFFFF
 	Radius 13
 	XScale 0.8
 	YScale 0.1
-	MeleeDamage 1
-	DamageFactor "FlareEffect", 0.0
+	Health 0x7FFFFFFF
+	Speed 5
+	//RenderStyle Fuzzy
+	CameraHeight 8
 	PainChance 1
+	MeleeDamage 1
+	BloodColor white
+	DamageFactor "FlareEffect", 0.0
 	Obituary "%o was creeped up on by the creeper"
+	Monster
+	+DONTSPLASH
+	+NOBLOCKMONST
+	+DROPOFF
 	+LOOKALLAROUND
+	-SOLID
 	States
 	{
 	Spawn:
@@ -266,15 +266,15 @@ Actor Creeperactivate : CustomInventory
 Actor BeatingHeartJM
 {
 	//$Category Retorn_map_ONLY
-	Scale 0.5
-	Health 100
 	Radius 32
 	Height 184
+	Scale 0.5
+	Health 100
 	Mass 900
-	+SOLID
-	+SHOOTABLE
 	PainSound "Brain/Pain"
 	DeathSound "Brain/Death"
+	+SOLID
+	+SHOOTABLE
 	States
 	{
 	Spawn:
@@ -302,17 +302,14 @@ Actor PoliceRaider : RandomSpawner
 }
 Actor Legaviy1
 {
-	Health 100
 	Radius 20
 	Height 56
+	Health 100
 	Mass 100
 	Scale 0.37
 	Speed 14
 	PainChance 170
 	DamageFactor "FlareEffect", 0.0
-	Monster
-	+FLOORCLIP
-	+NOINFIGHTING
 	SeeSound "XSCOPS"
 	AttackSound "Weapons/BerettaFire"
 	ActiveSound "XSCOPS"
@@ -320,6 +317,9 @@ Actor Legaviy1
 	DeathSound "P2Death"
 	Obituary "%o was shot by a cop."
 	HitObituary "%o is under arrest."
+	Monster
+	+FLOORCLIP
+	+NOINFIGHTING
 	States
 	{
 	Spawn:
@@ -365,17 +365,14 @@ Actor Legaviy1
 
 Actor Legaviy2
 {
-	Health 100
 	Radius 20
 	Height 56
+	Health 100
 	Mass 100
 	Scale 0.52
 	Speed 14
 	PainChance 170
 	DamageFactor "FlareEffect", 0.0
-	Monster
-	+FLOORCLIP
-	+NOINFIGHTING
 	SeeSound "XSCOPS"
 	AttackSound "Weapons/BerettaFire"
 	ActiveSound "XSCOPS"
@@ -383,6 +380,9 @@ Actor Legaviy2
 	DeathSound "P2Death"
 	Obituary "%o was shot by a cop."
 	HitObituary "%o is under arrest."
+	Monster
+	+FLOORCLIP
+	+NOINFIGHTING
 	States
 	{
 	Spawn:

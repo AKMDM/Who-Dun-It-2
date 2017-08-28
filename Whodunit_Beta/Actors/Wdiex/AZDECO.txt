@@ -56,12 +56,12 @@ Actor PainfulBoltSpawner 29900
 Actor LightningStrikeTrap1 29901 //check in "LIGHTS" Actor LightningStrike
 {
 	//$Category WDI Effects
-	Obituary "%o was murdered by a lightning strike."
-	RenderStyle Add
-	Scale 2.0
 	Height 60
 	Radius 3
+	Scale 2.0
 	Speed 0
+	RenderStyle Add
+	Obituary "%o was murdered by a lightning strike."
 	Projectile
 	+FLOORHUGGER
 	+NOCLIP
@@ -78,12 +78,12 @@ Actor LightningStrikeTrap1 29901 //check in "LIGHTS" Actor LightningStrike
 Actor LightningStrikeTrap2 29902
 {
 	//$Category WDI Effects
-	Obituary "%o was murdered by a lightning strike."
-	RenderStyle Add
 	Scale 2.0
 	Height 60
 	Radius 3
 	Speed 0
+	RenderStyle Add
+	Obituary "%o was murdered by a lightning strike."
 	Projectile
 	+FLOORHUGGER
 	+NOCLIP
@@ -100,12 +100,12 @@ Actor LightningStrikeTrap2 29902
 Actor LightningStrikeTrap3 29903
 {
 	//$Category WDI Effects
-	Obituary "%o was murdered by a lightning strike."
-	RenderStyle Add
-	Scale 2.0
 	Height 60
 	Radius 3
+	Scale 2.0
 	Speed 0
+	RenderStyle Add
+	Obituary "%o was murdered by a lightning strike."
 	Projectile
 	+FLOORHUGGER
 	+NOCLIP
@@ -122,12 +122,12 @@ Actor LightningStrikeTrap3 29903
 Actor LightningStrikeTrap4 29904
 {
 	//$Category WDI Effects
-	Obituary "%o was murdered by a lightning strike."
-	RenderStyle Add
-	Scale 2.0
 	Height 60
 	Radius 3
+	Scale 2.0
 	Speed 0
+	RenderStyle Add
+	Obituary "%o was murdered by a lightning strike."
 	Projectile
 	+FLOORHUGGER
 	+NOCLIP

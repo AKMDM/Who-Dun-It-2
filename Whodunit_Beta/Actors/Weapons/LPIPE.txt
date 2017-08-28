@@ -124,13 +124,13 @@ Actor LeadPipe : Weapon
 
 Actor DroppedPipe
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
 	DeathSound "Pipe/Wall"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -144,13 +144,13 @@ Actor DroppedPipe
 
 Actor PipePuff
 {
+	Scale 0.75
+	Alpha 0.9
+	RenderStyle Add
 	DamageType "Friendlymelee"
 	ActiveSound ""
 	AttackSound "Pipe/Wall"
 	SeeSound "Pipe/Hit"
-	Scale 0.75
-	RenderStyle Add
-	Alpha 0.9
 	+NOGRAVITY
 	+NOEXTREMEDEATH
 	+PUFFONACTORS

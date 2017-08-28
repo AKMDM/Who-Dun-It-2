@@ -94,14 +94,14 @@ Actor Plank : Weapon
 
 Actor DroppedPlank
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
 	Scale 0.5
 	DeathSound "Plank/Wall"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -206,14 +206,14 @@ Actor NailedPlank : Weapon
 
 Actor DroppedNailedPlank
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
 	Scale 0.5
 	DeathSound "Plank/Wall"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -228,12 +228,12 @@ Actor DroppedNailedPlank
 Actor PlankPuff
 {
 	DamageType "ShovelMelee"
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
 	ActiveSound "Shovel/Swing"
 	AttackSound "Plank/Wall"
 	SeeSound "Shovel/Hit"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
 	States
 	{
 	Spawn:
@@ -253,12 +253,12 @@ Actor PlankPuff
 Actor PlankPuff2
 {
 	DamageType "ShovelMelee"
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
 	ActiveSound ""
 	AttackSound ""
 	SeeSound ""
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
 	States
 	{
 	Spawn:

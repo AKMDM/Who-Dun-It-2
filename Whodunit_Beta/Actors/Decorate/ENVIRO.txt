@@ -5,14 +5,14 @@
 //evil_owl
 Actor Loudyowl 13721
 {
+	//$Category WDI Props
+	//$Sprite NOWLA0
+	//$Title "Owl"
 	Game Doom
 	Radius 16
 	Height 40
 	+SOLID
 	+NOGRAVITY
-	//$Category WDI Props
-	//$Sprite NOWLA0
-	//$Title "Owl"
 	States
 	{
 	Spawn:
@@ -23,10 +23,10 @@ Actor Loudyowl 13721
 ////Push_Start_To_Rich sprites
 Actor BFGrass2 14275
 {
-	+CLIENTSIDEONLY
 	//$Category WDI Environment
 	//$Sprite TRV2A0
 	//$Title "Grass 1"
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -36,10 +36,10 @@ Actor BFGrass2 14275
 
 Actor BFGrass3 14277
 {
-	+CLIENTSIDEONLY
 	//$Category WDI Environment
 	//$Sprite TRV3A0
 	//$Title "Grass 2"
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -49,10 +49,10 @@ Actor BFGrass3 14277
 
 Actor BFGrass5 14279
 {
-	+CLIENTSIDEONLY
 	//$Category WDI Environment
 	//$Sprite TRV5A0
 	//$Title "Grass 3"
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -62,10 +62,10 @@ Actor BFGrass5 14279
 
 Actor BFGrass6 14281
 {
-	+CLIENTSIDEONLY
 	//$Category WDI Environment
 	//$Sprite TRV6A0
 	//$Title "Grass 4"
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -75,6 +75,9 @@ Actor BFGrass6 14281
 
 Actor BFTree2 14283
 {
+	//$Category WDI Environment
+	//$Sprite DREVB0
+	//$Title "Tree 1"
 	Game Doom
 	SpawnID 3
 	Radius 5
@@ -86,9 +89,6 @@ Actor BFTree2 14283
 	+INVULNERABLE
 	+NODAMAGE
 	+NOBLOOD
-	//$Category WDI Environment
-	//$Sprite DREVB0
-	//$Title "Tree 1"
 	States
 	{
 	Spawn:
@@ -98,6 +98,9 @@ Actor BFTree2 14283
 
 Actor BFTree3 14285
 {
+	//$Category WDI Environment
+	//$Sprite DREVC0
+	//$Title "Tree 2"
 	Game Doom
 	SpawnID 3
 	Radius 5
@@ -109,9 +112,6 @@ Actor BFTree3 14285
 	+INVULNERABLE
 	+NODAMAGE
 	+NOBLOOD
-	//$Category WDI Environment
-	//$Sprite DREVC0
-	//$Title "Tree 2"
 	States
 	{
 	Spawn:
@@ -121,6 +121,9 @@ Actor BFTree3 14285
 
 Actor BFTree4 14287
 {
+	//$Category WDI Environment
+	//$Sprite DREVD0
+	//$Title "Tree 3"
 	Game Doom
 	SpawnID 3
 	Radius 20
@@ -132,9 +135,6 @@ Actor BFTree4 14287
 	+NODAMAGE
 	+NOBLOOD
 	+SHOOTABLE
-	//$Category WDI Environment
-	//$Sprite DREVD0
-	//$Title "Tree 3"
 	States
 	{
 	Spawn:
@@ -144,20 +144,20 @@ Actor BFTree4 14287
 
 Actor BFTree7 14289
 {
+	//$Category WDI Environment
+	//$Sprite DREVG0
+	//$Title "Tree 4"
 	Game Doom
 	SpawnID 3
+	Radius 5
+	Mass 1000000
+	Height 64
+	Scale 1.4
 	+SOLID
 	+SHOOTABLE
 	+INVULNERABLE
 	+NODAMAGE
 	+NOBLOOD
-	Radius 5
-	Mass 1000000
-	Height 64
-	Scale 1.4
-	//$Category WDI Environment
-	//$Sprite DREVG0
-	//$Title "Tree 4"
 	States
 	{
 	Spawn:
@@ -167,11 +167,11 @@ Actor BFTree7 14289
 
 Actor SICATREE1 3244 {
 	//$Category WDI Environment
+	Radius 16
+	Height 64
 	+SOLID
 	+NODAMAGE
 	-NOGRAVITY
-	Radius 16
-	Height 64
 	States {
 	Spawn:
 		SIC1 A -1
@@ -180,11 +180,11 @@ Actor SICATREE1 3244 {
 
 Actor SICATREE2 3358 {
 	//$Category WDI Environment
+	Radius 16
+	Height 64
 	+SOLID
 	+NODAMAGE
 	-NOGRAVITY
-	Radius 16
-	Height 64
 	States {
 	Spawn:
 		SIC2 A -1
@@ -256,14 +256,14 @@ Actor SnoTre4 17657
 	//$Category WDI Environment
 	Game Doom
 	SpawnID 3
-	+SOLID
-	+SHOOTABLE
-	+INVULNERABLE
-	+NOBLOOD
 	Radius 5
 	Mass 1000000
 	Height 64
 	Scale 1.4
+	+SOLID
+	+SHOOTABLE
+	+INVULNERABLE
+	+NOBLOOD
 	States
 	{
 	Spawn:
@@ -274,9 +274,9 @@ Actor SnoTre4 17657
 Actor SnoGrass 17658
 {
 	//$Category WDI Environment
+	Scale 0.7
 	+CLIENTSIDEONLY
 	+NOINTERACTION
-	Scale 0.7
 	States
 	{
 	Spawn:
@@ -289,15 +289,15 @@ Actor SnoTre2_Optimized : SnoTre2 17660 { +CLIENTSIDEONLY +NOINTERACTION }
 Actor SnoTre3_Optimized : SnoTre3 17661 { +CLIENTSIDEONLY +NOINTERACTION }
 Actor SnoTre4_Optimized : SnoTre4 17662 { +CLIENTSIDEONLY +NOINTERACTION }
 Actor TreeA 31995 {
-	+SOLID
-	+NODAMAGE
-	-NOGRAVITY
 	//+FORCEYBILLBOARD
 	//$Category WDI Environment
 	//$Sprite TRDTA0
 	//$Title "Tree 5"
 	Radius 16
 	Height 64
+	+SOLID
+	+NODAMAGE
+	-NOGRAVITY
 	States {
 	Spawn:
 		TRDT A -1
@@ -379,14 +379,15 @@ Actor TreeX : TreeA 31991
 }}
 
 Actor GrassLarge 31008
-{	Radius 24
+{	
+	//$Category WDI Environment
+	//$Sprite GRASA0
+	//$Title "Tall Grass"
+	Radius 24
 	Height 40
 	Scale 1.1
 	+FLOORCLIP
 	+NOINTERACTION
-	//$Category WDI Environment
-	//$Sprite GRASA0
-	//$Title "Tall Grass"
 	States
 	{
 	Spawn:
@@ -395,14 +396,15 @@ Actor GrassLarge 31008
 }}
 
 Actor GrassMedium 31009
-{	Radius 24
+{	
+	//$Category WDI Environment
+	//$Sprite GRASA0
+	//$Title "Medium Grass"
+	Radius 24
 	Height 40
 	Scale 0.75
 	+FLOORCLIP
 	+NOINTERACTION
-	//$Category WDI Environment
-	//$Sprite GRASA0
-	//$Title "Medium Grass"
 	States
 	{
 	Spawn:
@@ -411,14 +413,15 @@ Actor GrassMedium 31009
 }}
 
 Actor GlowShroom 31010
-{	Radius 8
+{	
+	//$Category WDI Environment
+	//$Sprite SHRMA0
+	//$Title "Glowing Mushroom"
+	Radius 8
 	Height 8
 	Scale 0.75
 	+FLOORCLIP
 	+NOINTERACTION
-	//$Category WDI Environment
-	//$Sprite SHRMA0
-	//$Title "Glowing Mushroom"
 	States
 	{
 	Spawn:

@@ -30,17 +30,17 @@ Actor FakeSoulcube : CustomInventory 28467
 
 Actor SoulCube : Weapon
 {
+	DamageType Cube
+	Scale 0.5
+	Weapon.SlotNumber 2
 	Weapon.SelectionOrder 352
 	Weapon.PreferredSkin "FistSkin"
 	Weapon.UpSound "YZCUBPIK"
 	Inventory.PickupSound "Misc/Usgpickup"
 	Obituary "$o'soul was taken by %k."
-	Weapon.SlotNumber 2
+	AttackSound "Skull/Melee"
 	+WEAPON.MELEEWEAPON
 	+WEAPON.NO_AUTO_SWITCH
-	AttackSound "Skull/Melee"
-	DamageType Cube
-	Scale 0.5
 	States
 	{
 	Spawn:
@@ -77,13 +77,13 @@ Actor SoulCube : Weapon
 
 Actor DroppedSoulcube
 {
-	Projectile
-	-NOGRAVITY
-	Scale 0.5
-	Damage 0
 	Radius 16
 	Height 8
+	Scale 0.5
+	Damage 0
 	Speed 9
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:

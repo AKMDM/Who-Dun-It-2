@@ -93,14 +93,14 @@ Actor Twig : Weapon
 
 Actor DroppedTwig
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 10
 	Height 6
+	Damage 0
 	Speed 9
 	Scale 0.35
 	DeathSound "Cue/Hit"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -115,12 +115,12 @@ Actor DroppedTwig
 Actor TwigPuff
 {
 	DamageType "CueMelee"
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
 	ActiveSound ""
 	AttackSound "Cue/Hit"
 	SeeSound "Cue/Hit"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
 	States
 	{
 	Spawn:
@@ -140,12 +140,12 @@ Actor TwigPuff
 Actor TwigPuff2
 {
 	DamageType "CueMelee"
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
 	ActiveSound "Cue/Swing"
 	AttackSound "Cue/Swing"
 	SeeSound "Cue/Swing"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
 	States
 	{
 	Spawn:

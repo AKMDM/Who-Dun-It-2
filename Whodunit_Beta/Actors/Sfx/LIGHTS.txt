@@ -4,18 +4,18 @@
 Actor LightswitchMarker 30013
 {
 	//$Category WDI Light Sources
-	-SOLID
+	//$Sprite LIMKA0
+	Radius 2
+	Height 2
+	Alpha 0.35
+	Scale 0.6
+	VisibleToTeam 1
+	RenderStyle Add
 	+NOBLOCKMAP
 	+NOGRAVITY
 	+CLIENTSIDEONLY
 	+ALLOWCLIENTSPAWN
-	Radius 2
-	Height 2
-	RenderStyle Add
-	Alpha 0.35
-	Scale 0.6
-	VisibleToTeam 1
-	//$Sprite LIMKA0
+	-SOLID
 	States
 	{
 	Spawn:
@@ -42,12 +42,12 @@ Actor LightswitchMarker 30013
 Actor Redlantern 30009
 {
 	//$Category WDI Light Sources
-	-SOLID
+	Radius 6
+	Height 49
 	+NOCLIP
 	+NOGRAVITY
 	+NOINTERACTION
-	Radius 6
-	Height 49
+	-SOLID
 	States
 	{
 	Spawn:
@@ -89,9 +89,9 @@ Actor PoliceLight 30666
 	//$Category WDI Effects
 	//$Sprite WDILA0
 	//$Title "Police Lights"
-	Health 0x7FFFFFFF
 	Radius 10
 	Height 34
+	Health 0x7FFFFFFF
 	+CLIENTSIDEONLY
 	-SOLID
 	-SHOOTABLE
@@ -119,13 +119,13 @@ Actor Wdi_chandelier 11114
 
 Actor Chandelier2Off 14071
 {
+	//$Category WDI Light Sources
+	//$Sprite CHANH0
+	//$Title "Chandelier (Off)"
 	Radius 10
 	Height 21
 	+NOGRAVITY
 	+SPAWNCEILING
-	//$Category WDI Light Sources
-	//$Sprite CHANH0
-	//$Title "Chandelier (Off)"
 	States
 	{
 	Spawn:
@@ -135,13 +135,13 @@ Actor Chandelier2Off 14071
 
 Actor Chandelier2On 14072
 {
+	//$Category WDI Light Sources
+	//$Sprite CHANE0
+	//$Title "Chandelier (On)"
 	Radius 10
 	Height 21
 	+NOGRAVITY
 	+SPAWNCEILING
-	//$Category WDI Light Sources
-	//$Sprite CHANE0
-	//$Title "Chandelier (On)"
 	States
 	{
 	Spawn:
@@ -151,13 +151,13 @@ Actor Chandelier2On 14072
 
 Actor TechLanternSmall 14248
 {
+	//$Category WDI Light Sources
+	//$Sprite HLMPE0
+	//$Title "Lantern"
 	Radius 6
 	Height 45
 	+NOGRAVITY
 	-SOLID
-	//$Category WDI Light Sources
-	//$Sprite HLMPE0
-	//$Title "Lantern"
 	States
 	{
 	Spawn:
@@ -167,12 +167,12 @@ Actor TechLanternSmall 14248
 
 Actor Str_LampDesk 14252
 {
-	Scale 0.75
-	Radius 16
-	Height 32
 	//$Category WDI Light Sources
 	//$Sprite NJEXA2A8
 	//$Title "Desk Lamp"
+	Radius 16
+	Height 32
+	Scale 0.75
 	States
 	{
 	Spawn:
@@ -209,12 +209,12 @@ Actor LibraryLight 20051
 Actor ElevatorLight 20052
 {
 	//$Sprite WDILA0
-	-NOGRAVITY
-	-SOLID
-	+DONTSPLASH
-	+CLIENTSIDEONLY
 	Radius 4
 	Height 48
+	+DONTSPLASH
+	+CLIENTSIDEONLY
+	-NOGRAVITY
+	-SOLID
 	States
 	{
 	Spawn:
@@ -231,12 +231,12 @@ Actor ElevatorLight 20052
 //Lightning credit to Lazureus (from JRift)
 Actor LightningStrike
 {
-	Obituary "$OB_LIGHTNING"
-	RenderStyle Add
 	Scale 2.0
 	Height 60
 	Radius 3
 	Speed 0
+	RenderStyle Add
+	Obituary "$OB_LIGHTNING"
 	Projectile
 	+FLOORHUGGER
 	+NOCLIP
@@ -262,13 +262,13 @@ Actor LightningStrikeSmall : LightningStrike
 }
 Actor HealSparkleSmall
 {
-	+NOGRAVITY
-	+CLIENTSIDEONLY
-	+NOINTERACTION
 	Radius 32
 	Height 32
 	Scale 0.65
 	RenderStyle Add
+	+NOGRAVITY
+	+CLIENTSIDEONLY
+	+NOINTERACTION
 	States
 	{
 	Spawn:
@@ -323,13 +323,13 @@ Actor BigKitHealSparkleThing
 
 Actor HealSparkleTrail
 {
-	+NOGRAVITY
-	+CLIENTSIDEONLY
-	+NOINTERACTION
 	Radius 1
 	Height 1
 	Scale 0.25
 	RenderStyle Add
+	+NOGRAVITY
+	+CLIENTSIDEONLY
+	+NOINTERACTION
 	States
 	{
 	Spawn:
@@ -342,12 +342,12 @@ Actor HealSparkleTrail
 
 Actor HealSparkleTrailRed
 {
-	+NOGRAVITY
-	+CLIENTSIDEONLY
 	Radius 1
 	Height 1
 	Scale 0.85
 	RenderStyle Add
+	+NOGRAVITY
+	+CLIENTSIDEONLY
 	States
 	{
 	Spawn:
@@ -360,13 +360,13 @@ Actor HealSparkleTrailRed
 }}
 
 Actor Bulb 32055 { //fixed
-	+NOCLIP
-	+NOGRAVITY
-	+NOINTERACTION
-	Scale 0.05
 	//$Category WDI Light Sources
 	//$Sprite BULBA0
 	//$Title "Light Bulb"
+	Scale 0.05
+	+NOCLIP
+	+NOGRAVITY
+	+NOINTERACTION
 	States {
 	Spawn:
 	On:

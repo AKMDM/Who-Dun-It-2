@@ -94,14 +94,14 @@ Actor Shovel : Weapon
 
 Actor DroppedShovel
 {
-	Projectile
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
 	Scale 0.48
 	DeathSound "Shovel/Wall"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -116,12 +116,12 @@ Actor DroppedShovel
 Actor ShovelPuff
 {
 	DamageType "ShovelMelee"
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
 	ActiveSound "Shovel/Swing"
 	AttackSound "Shovel/Wall"
 	SeeSound "Shovel/Hit"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
 	States
 	{
 	Spawn:

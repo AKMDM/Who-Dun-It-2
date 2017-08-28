@@ -3,15 +3,21 @@
 //=================================================================
 Actor Innocent : PlayerPawn
 {
-	+NOSKIN
-	+GHOST
-	+WINDTHRUST
-	-NOBLOCKMONST
-	-TELESTOMP
+	Radius 16
+	Height 56
+	PainChance 256
+	Mass 0x7fffffff
+	Speed 0.8
 	Alpha 1.0
+	Player.ViewHeight 50
+	DeathHeight 8
+	Player.ForwardMove 0.8 0.8
+	Player.SideMove 0.4 0.4
+	Player.JumpZ 8
+	Player.ColorRange 112, 127
+	Player.RunHealth 20
 	Player.DisplayName "Voice: Thick"
 	Player.SoundClass "TMC"
-	Player.ColorRange 112, 127
 	Player.StartItem "NewFist"
 	Player.StartItem "Action_DropWeapon"
 	Player.StartItem "Action_DropWeaponCancel"
@@ -20,22 +26,16 @@ Actor Innocent : PlayerPawn
 	Player.StartItem "Warm", 1
 	Player.StartItem HudAlive
 	Player.StartItem MarkMe
-	Player.RunHealth 20
 	DamageFactor "Falling", 2.5
 	DamageFactor "FlareEffect", 0.0
-	Radius 16
-	Height 56
-	PainChance 256
-	Mass 0x7fffffff
-	Speed 0.8
-	Player.ViewHeight 50
-	DeathHeight 8
-	Player.ForwardMove 0.8 0.8
-	Player.SideMove 0.4 0.4
-	Player.JumpZ 8
 	//Player.StartItem Safety
 	//Player.StartItem TIDGiver
 	//Player.InvulnerabilityMode "Normal"
+	+NOSKIN
+	+GHOST
+	+WINDTHRUST
+	-NOBLOCKMONST
+	-TELESTOMP
 	States
 	{
 	Spawn2:
@@ -405,9 +405,9 @@ Actor Innocent2 : Innocent
 {
 	Player.DisplayName "Voice: Wimpy"
 	Player.SoundClass "Firewolf"
+	DamageFactor "FlareEffect", 0.0
 	+NOSKIN
 	-NOBLOCKMONST
-	DamageFactor "FlareEffect", 0.0
 	States
 	{
 	Death.Backstab:
@@ -435,13 +435,13 @@ Actor FakeBody
 	Mass 25
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	-SOLID
 	+SHOOTABLE
-	-PUSHABLE
-	-NOGRAVITY
 	+SLIDESONWALLS
 	+DONTSPLASH
 	+NORADIUSDMG
+	-SOLID
+	-PUSHABLE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -484,13 +484,13 @@ Actor FakeiceBody
 	Mass 25
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	-SOLID
 	+SHOOTABLE
-	-PUSHABLE
-	-NOGRAVITY
 	+SLIDESONWALLS
 	+DONTSPLASH
 	+NORADIUSDMG
+	-SOLID
+	-PUSHABLE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -513,13 +513,13 @@ Actor Bstabody
 	Mass 25
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	-SOLID
 	+SHOOTABLE
-	-PUSHABLE
-	-NOGRAVITY
 	+SLIDESONWALLS
 	+DONTSPLASH
 	+NORADIUSDMG
+	-SOLID
+	-PUSHABLE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -553,13 +553,13 @@ Actor Gunbody1
 	Mass 25
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	-SOLID
 	+SHOOTABLE
-	-PUSHABLE
-	-NOGRAVITY
 	+SLIDESONWALLS
 	+DONTSPLASH
 	+NORADIUSDMG
+	-SOLID
+	-PUSHABLE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -590,13 +590,13 @@ Actor Gunbody2
 	Mass 25
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	-SOLID
 	+SHOOTABLE
-	-PUSHABLE
-	-NOGRAVITY
 	+SLIDESONWALLS
 	+DONTSPLASH
 	+NORADIUSDMG
+	-SOLID
+	-PUSHABLE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -630,13 +630,13 @@ Actor GasBody1
 	Mass 25
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	-SOLID
 	+SHOOTABLE
-	-PUSHABLE
-	-NOGRAVITY
 	+SLIDESONWALLS
 	+DONTSPLASH
 	+NORADIUSDMG
+	-SOLID
+	-PUSHABLE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -667,13 +667,13 @@ Actor GasBody2
 	Mass 25
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	-SOLID
 	+SHOOTABLE
-	-PUSHABLE
-	-NOGRAVITY
 	+SLIDESONWALLS
 	+DONTSPLASH
 	+NORADIUSDMG
+	-SOLID
+	-PUSHABLE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -705,13 +705,13 @@ Actor Drowingbody1
 	Mass 25
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	-SOLID
 	+SHOOTABLE
-	-PUSHABLE
-	-NOGRAVITY
 	+SLIDESONWALLS
 	+DONTSPLASH
 	+NORADIUSDMG
+	-SOLID
+	-PUSHABLE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -744,13 +744,13 @@ Actor Drowingbody2
 	Mass 25
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	-SOLID
 	+SHOOTABLE
-	-PUSHABLE
-	-NOGRAVITY
 	+SLIDESONWALLS
 	+DONTSPLASH
 	+NORADIUSDMG
+	-SOLID
+	-PUSHABLE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -784,13 +784,13 @@ Actor Csawbody1
 	Mass 25
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	-SOLID
 	+SHOOTABLE
-	-PUSHABLE
-	-NOGRAVITY
 	+SLIDESONWALLS
 	+DONTSPLASH
 	+NORADIUSDMG
+	-SOLID
+	-PUSHABLE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -822,13 +822,13 @@ Actor Csawbody2
 	Mass 25
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	-SOLID
 	+SHOOTABLE
-	-PUSHABLE
-	-NOGRAVITY
 	+SLIDESONWALLS
 	+DONTSPLASH
 	+NORADIUSDMG
+	-SOLID
+	-PUSHABLE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -860,13 +860,13 @@ Actor Crossbody
 	Mass 25
 	DamageFactor "Gas", 0.0
 	DamageFactor "FlareEffect", 0.0
-	-SOLID
 	+SHOOTABLE
-	-PUSHABLE
-	-NOGRAVITY
 	+SLIDESONWALLS
 	+DONTSPLASH
 	+NORADIUSDMG
+	-SOLID
+	-PUSHABLE
+	-NOGRAVITY
 	States
 	{
 	Spawn:
