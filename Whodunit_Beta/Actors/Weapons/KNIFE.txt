@@ -8,7 +8,7 @@ Actor MurderKnife : Weapon
 	Weapon.SelectionOrder 100
 	Weapon.Kickback 100
 	Weapon.UpSound "Weapons/KnifeReady"
-	Weapon.PreferredSkin "MurderSkin2"
+	Weapon.PreferredSkin "MurderSkin"
 	+WEAPON.AXEBLOOD
 	+WEAPON.MELEEWEAPON
 	+WEAPON.BFG

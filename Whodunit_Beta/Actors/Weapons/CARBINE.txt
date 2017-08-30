@@ -89,7 +89,7 @@ Actor M1Carbine : Weapon
 	Weapon.AmmoUse 0
 	Weapon.AmmoType "M1CarbineClipIn"
 	Weapon.AmmoType2 "M1Ammo"
-	Weapon.PreferredSkin "M1Skin2"
+	Weapon.PreferredSkin "M1Skin"
 	Inventory.PickupSound "M1/Cock"
 	Inventory.PickupMessage "You picked up A M1-Carbine!"
 	Obituary "%o was killed by %k's M1-Carbine."

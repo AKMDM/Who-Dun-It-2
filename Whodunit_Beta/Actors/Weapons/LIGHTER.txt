@@ -5,6 +5,7 @@ Actor Lighter : Weapon 9904
 {
 	Scale 0.2
 	Weapon.SelectionOrder 32000
+	Weapon.PreferredSkin "FistSkin"
 	Inventory.PickupMessage "Picked up a Lighter"
 	Inventory.PickupSound "Weapons/Combogun_open"
 	+NOALERT

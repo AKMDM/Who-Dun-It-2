@@ -34,7 +34,7 @@ Actor FlashlightZ : Weapon
 	Height 16
 	Inventory.PickupMessage "You got the flashlight!"
 	Inventory.PickupSound "Pickups/Weapons"
-	Weapon.PreferredSkin "FistSkin2"
+	Weapon.PreferredSkin "FistSkin"
 	Weapon.SelectionOrder 31000
 	Weapon.AmmoUse 0
 	Weapon.AmmoGive 0
@@ -149,7 +149,7 @@ Actor Lightbeam3 : Lightbeam1 {
 Actor FistWithFlashlight : Weapon
 {
 	Weapon.SelectionOrder 1
-	Weapon.PreferredSkin "FistSkin2"
+	Weapon.PreferredSkin "FistSkin"
 	Weapon.AmmoType1 "Lighterammo"
 	Weapon.AmmoUse1 1
 	Inventory.PickupMessage ""
