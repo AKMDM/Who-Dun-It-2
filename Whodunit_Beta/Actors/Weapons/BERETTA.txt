@@ -361,40 +361,40 @@ Actor FakeOldBeretta : CustomInventory 26906
 	//$Title "OldBeretta"
 	Radius 16
 	Height 8
-	Scale 0.7
+	Scale 0.85
 	Inventory.PickupMessage "Found an old Beretta."
 	Inventory.Respawntics 3024000
 	States
 	{
 	Spawn:
-		PIST A -1
+		2PIS E -1
 		Stop
 	Pickup:
-		PIST A 0
-		PIST A 0 A_JumpIfInventory("MurderMarker",1, 2)
-		PIST A 0 A_JumpIfInventory("TKToken",1,"NotPickup")
-		PIST A 0
-		PIST A 0 A_JumpIfInventory("OldBeretta",1,"AmmoPickup")
-		PIST A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		PIST A 0 A_PlaySound("Pickups/Weapon")
-		PIST A 0 A_GiveInventory("OldBeretta",1)
-		PIST A 0 A_GiveInventory("Slot1Filled",1)
+		2PIS E 0
+		2PIS E 0 A_JumpIfInventory("MurderMarker",1, 2)
+		2PIS E 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		2PIS E 0
+		2PIS E 0 A_JumpIfInventory("OldBeretta",1,"AmmoPickup")
+		2PIS E 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		2PIS E 0 A_PlaySound("Pickups/Weapon")
+		2PIS E 0 A_GiveInventory("OldBeretta",1)
+		2PIS E 0 A_GiveInventory("Slot1Filled",1)
 		TNT1 A 0
-		PIST A 1 ACS_ExecuteAlways(670,0,20)
-		PIST A 0 A_JumpIfInventory("PistolOnce",1,"ForgetIt")
-		PIST A 0 A_GiveInventory("PistolAmmo",random(1,8))
-		PIST A 0 A_GiveInventory("PistolOnce",1)
+		2PIS E 1 ACS_ExecuteAlways(670,0,20)
+		2PIS E 0 A_JumpIfInventory("PistolOnce",1,"ForgetIt")
+		2PIS E 0 A_GiveInventory("PistolAmmo",random(1,8))
+		2PIS E 0 A_GiveInventory("PistolOnce",1)
 		Stop
 	NotPickup:
-		PIST A 0
-		PIST A 1 ACS_ExecuteAlways(670,0,20)
+		2PIS E 0
+		2PIS E 1 ACS_ExecuteAlways(670,0,20)
 		Fail
 	AmmoPickup:
-		PIST A 0
-		PIST A 0 A_JumpIfInventory("PistolAmmo",7,"ForgetIt")
-		PIST A 0 A_PlaySound("Pickups/Ammo")
+		2PIS E 0
+		2PIS E 0 A_JumpIfInventory("PistolAmmo",7,"ForgetIt")
+		2PIS E 0 A_PlaySound("Pickups/Ammo")
 		TNT1 A 0
-		PIST A 1 A_GiveInventory("PistolAmmo",random(1,8))
+		2PIS E 1 A_GiveInventory("PistolAmmo",random(1,8))
 		Stop
 	ForgetIt:
 		LUGP A 1
@@ -405,7 +405,7 @@ Actor OldBeretta : Weapon
 {
 	Radius 20
 	Height 16
-	Scale 0.7
+	Scale 0.85
 	Obituary ""
 	AttackSound "Weapons/BerettaFire"
 	Inventory.PickupMessage "Picked up an old Beretta"
@@ -423,7 +423,7 @@ Actor OldBeretta : Weapon
 	States
 	{
 	Spawn:
-		PIST A -1
+		2PIS E -1
 		Stop
 	Ready:
 		2PIS A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
@@ -486,10 +486,10 @@ Actor OldBeretta : Weapon
 		Goto EmptyReady
 	WeaponDrop:
 		TNT1 A 0
-		2PIS A 1
-		TNT1 A 0 A_TakeInventory("IsDropping",1)
-		TNT1 A 0 ACS_ExecuteAlways(667,0,0,0,0)
-		Goto Ready
+		TNT1 A 1 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 A_TakeInventory("Slot1Filled",1)
+		TNT1 A 0 A_FireCustomMissile("DroppedOldBeretta",0,0,0,0)
+		TNT1 A 1 A_TakeInventory("OldBeretta",1)
 }}
 
 Actor DroppedOldBeretta
@@ -498,18 +498,18 @@ Actor DroppedOldBeretta
 	Radius 16
 	Height 8
 	Speed 9
-	Scale 0.7
+	Scale 0.85
 	DeathSound "Weapons/Gundrop"
 	Projectile
 	-NOGRAVITY
 	States
 	{
 	Spawn:
-		PIST A -1
+		2PIS E -1
 		Stop
 	Death:
-		PIST A 35
-		PIST A 1 A_SpawnItemEx("FakeOldBeretta",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		2PIS E 35
+		2PIS E 1 A_SpawnItemEx("FakeOldBeretta",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		Stop
 }}
 
