@@ -3916,6 +3916,371 @@ Sprite "EXTGZ0", 304, 143
 	Patch "HAMDN0", 25, 82
 }
 
+//MAGNUM
+
+Sprite "MAGNA0", 270, 130
+{
+	Offset -41, -55
+	Patch "MHANB0", 120, 90
+	Patch "MGNMA0", 130, 20
+}
+
+Sprite "MAGNB0", 270, 130
+{
+	Offset -41, -55
+	Patch "MHANB0", 120, 90
+	Patch "MGNMB0", 130, 20
+}
+
+Sprite "MAGNC0", 270, 130
+{
+	Offset -41, -55
+	Patch "MHANB0", 120, 90
+	Patch "MGNMC0", 121, 15
+}
+
+Sprite "MAGND0", 270, 130
+{
+	Offset -41, -55
+	Patch "MHANB0", 122, 92
+	Patch "MGNMD0", 131, 21
+}
+
+Sprite "MAGNE0", 270, 130
+{
+	Offset -42, -56
+	Patch "MHANB0", 122, 92
+	Patch "MGNMD0", 131, 21
+}
+
+Sprite "MAGNF0", 270, 130
+{
+	Offset -44, -58
+	Patch "MHANB0", 122, 93
+	Patch "MGNMB0", 131, 21
+}
+
+Sprite "MAGNG0", 270, 130
+{
+	Offset -47, -62
+	Patch "MHANB0", 122, 93
+	Patch "MGNMB0", 131, 21
+}
+
+Sprite "MAGNH0", 270, 130
+{
+	Offset -41, -55
+	Patch "MHANB0", 121, 104
+	Patch "MGNMA0", 131, 21
+}
+
+Sprite "MAGNI0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMA0", 130, 20
+}
+
+Sprite "MAGNJ0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMA0", 130, 20
+	Patch "MHANA0", 93, 107
+}
+
+Sprite "MAGNK0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMA0", 130, 20
+	Patch "MHANA0", 97, 82
+}
+
+Sprite "MAGNL0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMA0", 130, 20
+	Patch "MHANA0", 100, 66
+}
+
+Sprite "MAGNM0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNME0", -118, -68
+}
+
+Sprite "MAGNN0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMF0", 113, 19
+	Patch "MHANA0", 97, 48
+}
+
+Sprite "MAGNO0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMF0", 113, 19
+	Patch "MHANA0", 97, 74
+	Patch "MGNMG0", 89, 16
+}
+
+Sprite "MAGNP0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMF0", 113, 19
+	Patch "MGNMH0", 89, 16
+	Patch "MHANA0", 95, 93
+}
+
+Sprite "MAGNQ0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMF0", 113, 19
+	Patch "MGNMI0", 89, 16
+	Patch "MHANA0", 93, 107
+}
+
+Sprite "MAGNR0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMF0", 113, 19
+	Patch "MGNMI0", 91, 25
+}
+
+Sprite "MAGNS0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMF0", 113, 19
+	Patch "MGNMJ0", 94, 7
+}
+
+Sprite "MAGNT0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMF0", 113, 19
+	Patch "MGNMJ0", 95, 20
+}
+
+Sprite "MAGNU0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMF0", 113, 19
+}
+
+Sprite "MAGNV0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMF0", 119, 19
+	Patch "MHANA0", 93, 107
+}
+
+Sprite "MAGNW0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMF0", 119, 19
+	Patch "MHANA0", 97, 82
+}
+
+Sprite "MAGNX0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMF0", 119, 19
+	Patch "MHANA0", 99, 66
+}
+
+Sprite "MAGNY0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMF0", 119, 19
+	Patch "MHANA0", 97, 48
+}
+
+Sprite "MGMRA0", 270, 130
+{
+	Offset -51, -60
+	Patch "MHANB0", 120, 90
+	Patch "MGNMA0", 130, 20
+}
+
+Sprite "MGMRB0", 270, 130
+{
+	Offset -56, -62
+	Patch "MHANB0", 120, 90
+	Patch "MGNMA0", 130, 20
+}
+
+Sprite "MGMRC0", 270, 130
+{
+	Offset -67, -67
+	Patch "MHANB0", 120, 90
+	Patch "MGNMA0", 130, 20
+}
+
+Sprite "MGMRD0", 270, 130
+{
+	Offset -76, -75
+	Patch "MHANB0", 120, 90
+	Patch "MGNMA0", 130, 20
+}
+
+Sprite "MGMRE0", 270, 130
+{
+	Offset -88, -87
+	Patch "MHANB0", 120, 90
+	Patch "MGNMA0", 130, 20
+}
+
+Sprite "MGMRF0", 270, 130
+{
+	Offset -103, -102
+	Patch "MHANB0", 120, 90
+	Patch "MGNMA0", 130, 20
+}
+
+Sprite "MGMRG0", 270, 130
+{
+	Offset -114, -117
+	Patch "MHANB0", 120, 90
+	Patch "MGNMA0", 130, 20
+}
+
+Sprite "MGMRH0", 270, 130
+{
+	Offset -121, -130
+	Patch "MHANB0", 120, 90
+	Patch "MGNMA0", 130, 20
+}
+
+Sprite "MGMRI0", 270, 130
+{
+	Offset -127, -141
+	Patch "MHANB0", 120, 90
+	Patch "MGNMA0", 130, 20
+}
+
+Sprite "SPMGA0", 270, 130
+{
+	Offset -41, -55
+	Patch "MHANB0", 109, 97
+	Patch "MGNMA0", 130, 20
+}
+
+Sprite "SPMGB0", 270, 130
+{
+	Offset -41, -55
+	Patch "MHANB0", 99, 106
+	Patch "MGNMA0", 130, 20
+}
+
+Sprite "SPMGC0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMA0", 130, 20
+	Patch "MHANC0", 55, 79
+}
+
+Sprite "SPMGD0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMA0", 130, 20
+	Patch "MHANC0", 65, 62
+}
+
+Sprite "SPMGE0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMA0", 130, 20
+	Patch "MHANC0", 77, 51
+}
+
+Sprite "SPMGF0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMA0", 130, 20
+	Patch "MHAND0", 39, 40
+}
+
+Sprite "SPMGG0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMA0", 130, 20
+	Patch "MHAND0", 52, 25
+}
+
+Sprite "SPMGH0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMA0", 130, 20
+	Patch "MHAND0", 85, 15
+}
+
+Sprite "SPMGI0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMA0", 135, 25
+	Patch "MHAND0", 98, 24
+}
+
+Sprite "SPMGJ0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMB0", 140, 28
+	Patch "MHANE0", 127, 55
+}
+
+Sprite "SPMGK0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMC0", 140, 28
+	Patch "MHANE0", 139, 62
+}
+
+Sprite "SPMGL0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMD0", 153, 37
+	Patch "MHANE0", 141, 71
+}
+
+Sprite "SPMGM0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMD0", 155, 38
+	Patch "MHANE0", 144, 79
+}
+
+Sprite "SPMGN0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMB0", 153, 37
+	Patch "MHANE0", 145, 85
+}
+
+Sprite "SPMGO0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMB0", 150, 35
+	Patch "MHANE0", 150, 100
+}
+
+Sprite "SPMGP0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMA0", 144, 29
+	Patch "MHANE0", 154, 110
+}
+
+Sprite "SPMGQ0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMA0", 138, 26
+}
+
+Sprite "SPMGR0", 270, 130
+{
+	Offset -41, -55
+	Patch "MGNMA0", 134, 22
+}
+//END WEAPONS
+
 Texture "BLCELDR3", 64, 128
 {
 	Patch "BLCELDR1", 0, 0

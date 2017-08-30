@@ -1,163 +1,155 @@
-
 Actor ChaseCam
 {
-  Height 16
-  Radius 8
-  +NOGRAVITY +NOBLOCKMAP
-  States
-  {
-  Spawn:
-    TNT1 A -1
-    Stop
-  }
-}
+	Height 16
+	Radius 8
+	+NOGRAVITY +NOBLOCKMAP
+	States
+	{
+	Spawn:
+		TNT1 A -1
+		Stop
+}}
 
 // Lightning
-
 Actor BoltSpawner 29002
 {
-//$Category WDI Effects
-//$sprite LTNGA0 
-	radius 1
-	height 1
+	//$Category WDI Effects
+	//$sprite LTNGA0
+	Radius 1
+	Height 1
 	+NODAMAGETHRUST
 	States
 	{
-		Spawn:
-			TNT1 A 5 A_Jump(160, "Strike2")
-			TNT1 A 150
-			TNT1 A 1 A_SpawnItemEX("LightningStrike", random(-60, 60), random(-60, 60), 0, 0, 0, 0, 0, 128)
-			Loop
-		Strike2:
-			TNT1 A 1 A_Jump(192, "StrikeSmall")
-			TNT1 A 50
-			TNT1 A 1 A_SpawnItemEX("LightningStrike", random(-60, 60), random(-60, 60), 0, 0, 0, 0, 0, 128)
-			goto Spawn
-		StrikeSmall:
-			TNT1 A 10
-			TNT1 A 1 A_SpawnItemEX("LightningStrikeSmall", random(-60, 60), random(-60, 60), 0, 0, 0, 0, 0, 128)
-			goto Spawn
-	}
-}
+	Spawn:
+		TNT1 A 5 A_Jump(160, "Strike2")
+		TNT1 A 150
+		TNT1 A 1 A_SpawnItemEx("LightningStrike", random(-60, 60), random(-60, 60), 0, 0, 0, 0, 0, 128)
+		Loop
+	Strike2:
+		TNT1 A 1 A_Jump(192, "StrikeSmall")
+		TNT1 A 50
+		TNT1 A 1 A_SpawnItemEx("LightningStrike", random(-60, 60), random(-60, 60), 0, 0, 0, 0, 0, 128)
+		Goto Spawn
+	StrikeSmall:
+		TNT1 A 10
+		TNT1 A 1 A_SpawnItemEx("LightningStrikeSmall", random(-60, 60), random(-60, 60), 0, 0, 0, 0, 0, 128)
+		Goto Spawn
+}}
 
 Actor PainfulBoltSpawner 29900
 {
-//$Category WDI Effects
-//$sprite LTNGA0
-	radius 1
-	height 1
+	//$Category WDI Effects
+	//$sprite LTNGA0
+	Radius 1
+	Height 1
 	+NODAMAGETHRUST
 	States
 	{
-		Spawn:
-			TNT1 A 25 A_SpawnItemEx("LightningStrikeTrap1", 0, 0, 0, 0, 0, 0, 0, 0) 
-			TNT1 A 25 A_SpawnItemEx("LightningStrikeTrap2", 0, 0, 0, 0, 0, 0, 0, 0) 
-			TNT1 A 25 A_SpawnItemEx("LightningStrikeTrap3", 0, 0, 0, 0, 0, 0, 0, 0) 
-			TNT1 A 35 A_SpawnItemEx("LightningStrikeTrap4", 0, 0, 0, 0, 0, 0, 0, 0) 
-			goto Spawn
-	}
-}
+	Spawn:
+		TNT1 A 25 A_SpawnItemEx("LightningStrikeTrap1", 0, 0, 0, 0, 0, 0, 0, 0)
+		TNT1 A 25 A_SpawnItemEx("LightningStrikeTrap2", 0, 0, 0, 0, 0, 0, 0, 0)
+		TNT1 A 25 A_SpawnItemEx("LightningStrikeTrap3", 0, 0, 0, 0, 0, 0, 0, 0)
+		TNT1 A 35 A_SpawnItemEx("LightningStrikeTrap4", 0, 0, 0, 0, 0, 0, 0, 0)
+		Goto Spawn
+}}
 
-Actor LightningStrikeTrap1 29901 //check in "LIGHTS" actor LightningStrike
+Actor LightningStrikeTrap1 29901 //check in "LIGHTS" Actor LightningStrike
 {
-//$Category WDI Effects
-	obituary "%o was murdered by a lightning strike."
-	renderstyle Add
-	scale 2.0
-	height 60
-	radius 3
-	speed 0
-	PROJECTILE
+	//$Category WDI Effects
+	Height 60
+	Radius 3
+	Scale 2.0
+	Speed 0
+	RenderStyle Add
+	Obituary "%o was murdered by a lightning strike."
+	Projectile
 	+FLOORHUGGER
 	+NOCLIP
 	States
 	{
-		Spawn:
-			LTNG A 1 bright
-		Death:
-			LTNG A 0 bright A_Explode(1000,115)
-			LTNG A 2 bright A_PlaySound("zolt!")
-			Stop
-	}
-}
+	Spawn:
+		LTNG A 1 Bright
+	Death:
+		LTNG A 0 Bright A_Explode(1000,115)
+		LTNG A 2 Bright A_PlaySound("zolt!")
+		Stop
+}}
 
 Actor LightningStrikeTrap2 29902
 {
-//$Category WDI Effects
-	obituary "%o was murdered by a lightning strike."
-	renderstyle Add
-	scale 2.0
-	height 60
-	radius 3
-	speed 0
-	PROJECTILE
+	//$Category WDI Effects
+	Scale 2.0
+	Height 60
+	Radius 3
+	Speed 0
+	RenderStyle Add
+	Obituary "%o was murdered by a lightning strike."
+	Projectile
 	+FLOORHUGGER
 	+NOCLIP
 	States
 	{
-		Spawn:
-			LTNG B 1 bright
-		Death:
-			LTNG B 0 bright A_Explode(1000,115)
-			LTNG B 2 bright A_PlaySound("zolt!")
-			Stop
-	}
-}
+	Spawn:
+		LTNG B 1 Bright
+	Death:
+		LTNG B 0 Bright A_Explode(1000,115)
+		LTNG B 2 Bright A_PlaySound("zolt!")
+		Stop
+}}
 
 Actor LightningStrikeTrap3 29903
 {
-//$Category WDI Effects
-	obituary "%o was murdered by a lightning strike."
-	renderstyle Add
-	scale 2.0
-	height 60
-	radius 3
-	speed 0
-	PROJECTILE
+	//$Category WDI Effects
+	Height 60
+	Radius 3
+	Scale 2.0
+	Speed 0
+	RenderStyle Add
+	Obituary "%o was murdered by a lightning strike."
+	Projectile
 	+FLOORHUGGER
 	+NOCLIP
 	States
 	{
-		Spawn:
-			LTNG C 1 bright
-		Death:
-			LTNG C 0 bright A_Explode(1000,115)
-			LTNG C 2 bright A_PlaySound("zolt!")
-			Stop
-	}
-}
+	Spawn:
+		LTNG C 1 Bright
+	Death:
+		LTNG C 0 Bright A_Explode(1000,115)
+		LTNG C 2 Bright A_PlaySound("zolt!")
+		Stop
+}}
 
 Actor LightningStrikeTrap4 29904
 {
-//$Category WDI Effects
-	obituary "%o was murdered by a lightning strike."
-	renderstyle Add
-	scale 2.0
-	height 60
-	radius 3
-	speed 0
-	PROJECTILE
+	//$Category WDI Effects
+	Height 60
+	Radius 3
+	Scale 2.0
+	Speed 0
+	RenderStyle Add
+	Obituary "%o was murdered by a lightning strike."
+	Projectile
 	+FLOORHUGGER
 	+NOCLIP
 	States
 	{
-		Spawn:
-			LTNG A 1 bright
-		Death:
-			LTNG A 2 bright A_Explode(1000,120)
-			LTNG BC 2 bright A_PlaySound("zolt!")
-			Stop
-	}
-}
-/* NO<USED AND DUPLICATED
-Actor GROSSSS 26279 
+	Spawn:
+		LTNG A 1 Bright
+	Death:
+		LTNG A 2 Bright A_Explode(1000,120)
+		LTNG BC 2 Bright A_PlaySound("zolt!")
+		Stop
+}}
+
+/* No<USED AND DUPLICATED
+Actor GROSSSS 26279
 {
-  +NOINTERACTION
-  //$Category AZTEC
++NOINTERACTION
+//$Category AZTEC
 States
-  {
-    Spawn:
-	TRV5 A -1
-	Stop
-  }
-}*/
+{
+Spawn:
+TRV5 A -1
+Stop
+}}
+*/

@@ -48,6 +48,7 @@
 #Include "Actors/Weapons/NEWFIST.txt"
 #Include "Actors/Weapons/PLANKS.txt"
 #Include "Actors/Weapons/POOLCUE.txt"
+#Include "Actors/Weapons/REVOLVER.txt"
 #Include "Actors/Weapons/SHOTGUN.txt"
 #Include "Actors/Weapons/SHOVEL.txt"
 #Include "Actors/Weapons/SOULC.txt"

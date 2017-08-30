@@ -1,428 +1,378 @@
 //==================================================================
 /////////////////////     LIGHTS      /////////////////////////////
 //=================================================================
-
-Actor LightswitchMarker 30013 
+Actor LightswitchMarker 30013
 {
- //$Category WDI Light Sources
-- SOLID
-+NOBLOCKMAP
-+NOGRAVITY
-+CLIENTSIDEONLY
-+ALLOWCLIENTSpawn
-Radius 2
-Height 2
-Renderstyle Add
-Alpha 0.35
-Scale 0.6
-VisibleToTeam 1
-  //$Sprite LIMKA0
-States
-{
-Spawn:
-TNT1 A 0
-TNT1 A 0
-TNT1 A 0
-Goto On
-
-Active:
-LIMK A 1 BRIGHT A_UnHideThing
-LIMK A 1 BRIGHT
-Wait
-
-InActive:
-TNT1 A 1 A_HideThing
-TNT1 A 1
-Wait
-
-Off:
-TNT1 A 1
-Wait
-
-On:
-LIMK A 1 BRIGHT
-Wait
-}
-}
+	//$Category WDI Light Sources
+	//$Sprite LIMKA0
+	Radius 2
+	Height 2
+	Alpha 0.35
+	Scale 0.6
+	VisibleToTeam 1
+	RenderStyle Add
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+CLIENTSIDEONLY
+	+ALLOWCLIENTSPAWN
+	-SOLID
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0
+		TNT1 A 0
+		Goto On
+	Active:
+		LIMK A 1 Bright A_UnHideThing
+		LIMK A 1 Bright
+		Wait
+	Inactive:
+		TNT1 A 1 A_HideThing
+		TNT1 A 1
+		Wait
+	Off:
+		TNT1 A 1
+		Wait
+	On:
+		LIMK A 1 Bright
+		Wait
+}}
 
 Actor Redlantern 30009
 {
-  //$Category WDI Light Sources
-	-SOLID
+	//$Category WDI Light Sources
+	Radius 6
+	Height 49
 	+NOCLIP
 	+NOGRAVITY
 	+NOINTERACTION
-	Radius 6
-	Height 49
-	states
+	-SOLID
+	States
 	{
 	Spawn:
 		RDLN A -1
 		Stop
-	}
-}
+}}
 
 Actor Tablelamp 30011
 {
-//$Category WDI Light Sources
-Radius 10
-Height 36
-Scale 0.8
-States
-{
-Spawn:
-LMP2 A -1
-Stop
-}
-}
+	//$Category WDI Light Sources
+	Radius 10
+	Height 36
+	Scale 0.8
+	States
+	{
+	Spawn:
+		LMP2 A -1
+		Stop
+}}
 
-Actor columnswitch:  SwitchableDecoration Replaces Column 2028
+Actor Columnswitch:  SwitchableDecoration Replaces Column 2028
 {
-Radius 16
-Height 48
-+SOLID
-States
-{
-Spawn:
+	Radius 16
+	Height 48
+	+SOLID
+	States
+	{
+	Spawn:
 	Active:
-	COLU A -1 BRIGHT
-	Stop
-    Inactive:
-	COLU B -1 
-	Stop
+		COLU A -1 Bright
+		Stop
+	Inactive:
+		COLU B -1
+		Stop
 }}
 
 Actor PoliceLight 30666
 {
-  //$Category WDI Effects
-  //$Sprite WDILA0
-  //$Title "Police Lights"
-    Health 0x7FFFFFFF
-    Radius 10
-    Height 34
+	//$Category WDI Effects
+	//$Sprite WDILA0
+	//$Title "Police Lights"
+	Radius 10
+	Height 34
+	Health 0x7FFFFFFF
 	+CLIENTSIDEONLY
-    -SOLID
-    -SHOOTABLE
-    States
-    {
-        Spawn:
-            TNT1 A 10
-			TNT1 B 10
-        loop
-    }
-}
+	-SOLID
+	-SHOOTABLE
+	States
+	{
+	Spawn:
+		TNT1 A 10
+		TNT1 B 10
+		Loop
+}}
 
-Actor Wdi_chandelier 11114 
+Actor Wdi_chandelier 11114
 {
-  //$Category WDI Light Sources
-  //$Sprite CHANA0
-  //$Title "Chandelier (Off/Offset)"
-+SPAWNCEILING
-+NOGRAVITY
-States
-{
-Spawn:
-CHAN A -1 offset(25,0)
-stop
-}
-}
-
+	//$Category WDI Light Sources
+	//$Sprite CHANA0
+	//$Title "Chandelier (Off/Offset)"
+	+SPAWNCEILING
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		CHAN A -1 Offset(25,0)
+		Stop
+}}
 
 Actor Chandelier2Off 14071
 {
-  Radius 10
-  Height 21
-  +NOGRAVITY
-  +SPAWNCEILING
-  //$Category WDI Light Sources
-  //$Sprite CHANH0
-  //$Title "Chandelier (Off)"
-  States
-  {
-  Spawn:
-    CHAN H -1 
-    Stop
-  }
-}
+	//$Category WDI Light Sources
+	//$Sprite CHANH0
+	//$Title "Chandelier (Off)"
+	Radius 10
+	Height 21
+	+NOGRAVITY
+	+SPAWNCEILING
+	States
+	{
+	Spawn:
+		CHAN H -1
+		Stop
+}}
 
 Actor Chandelier2On 14072
 {
-  Radius 10
-  Height 21
-  +NOGRAVITY
-  +SPAWNCEILING
-  //$Category WDI Light Sources
-  //$Sprite CHANE0
-  //$Title "Chandelier (On)"
-  States
-  {
-  Spawn:
-    CHAN EFG 2 //A_PlaySound("DSCHAFIR")
-    Loop
- }}
+	//$Category WDI Light Sources
+	//$Sprite CHANE0
+	//$Title "Chandelier (On)"
+	Radius 10
+	Height 21
+	+NOGRAVITY
+	+SPAWNCEILING
+	States
+	{
+	Spawn:
+		CHAN EFG 2 //A_PlaySound("DSCHAFIR")
+		Loop
+}}
 
 Actor TechLanternSmall 14248
 {
+	//$Category WDI Light Sources
+	//$Sprite HLMPE0
+	//$Title "Lantern"
 	Radius 6
 	Height 45
 	+NOGRAVITY
 	-SOLID
-  //$Category WDI Light Sources
-  //$Sprite HLMPE0
-  //$Title "Lantern"
 	States
 	{
 	Spawn:
 		HLMP EFGH -1 //check sprites
-		loop
-	}
-}
+		Loop
+}}
 
-Actor str_LampDesk 14252
+Actor Str_LampDesk 14252
 {
-  scale 0.75
-  radius 16
-  height 32
-  //$Category WDI Light Sources
-  //$Sprite NJEXA2A8
-  //$Title "Desk Lamp"
-  states
-  {
-  Spawn:
-    NJEX A -1
-    stop
-  }
-}
-
-Actor GenericLight 
-{
-+NOGRAVITY
-+NOBLOCKMAP
-+DONTSPLASH
-States
+	//$Category WDI Light Sources
+	//$Sprite NJEXA2A8
+	//$Title "Desk Lamp"
+	Radius 16
+	Height 32
+	Scale 0.75
+	States
 	{
-		Spawn:
-		TNT1 A 1 BRIGHT
-		goto Active
-		
-		Active:
-		TNT1 A 1 BRIGHT A_TakeInventory("PowerOff", 1)
-		loop // !!check 
-		
-		Inactive:
+	Spawn:
+		NJEX A -1
+		Stop
+}}
+
+Actor GenericLight
+{
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+DONTSPLASH
+	States
+	{
+	Spawn:
+		TNT1 A 1 Bright
+		Goto Active
+	Active:
+		TNT1 A 1 Bright A_TakeInventory("PowerOff", 1)
+		Loop // !!check
+	Inactive:
 		TNT1 B 1 A_GiveInventory("PowerOff", 1)
-		loop // !!check
-	}
-}
+		Loop // !!check
+}}
 
 Actor HallwayLight 20050
 {
-//$Sprite WDILA0
+	//$Sprite WDILA0
 }
-
 Actor LibraryLight 20051
 {
-//$Sprite WDILA0
+	//$Sprite WDILA0
 }
-
 Actor ElevatorLight 20052
 {
-//$Sprite WDILA0
--NOGRAVITY
--SOLID
-+DONTSPLASH
-+CLIENTSIDEONLY
-
-Radius 4
-Height 48
-States
+	//$Sprite WDILA0
+	Radius 4
+	Height 48
+	+DONTSPLASH
+	+CLIENTSIDEONLY
+	-NOGRAVITY
+	-SOLID
+	States
 	{
-		Spawn:
+	Spawn:
 		ELIT A 1
-		goto On
-		
-		On:
-		ELIT A -1 
+		Goto On
+	On:
+		ELIT A -1
 		Stop
-		
-		Off:
+	Off:
 		ELIT B -1
 		Stop
-	}
-}
+}}
 
 //Lightning credit to Lazureus (from JRift)
 Actor LightningStrike
 {
-	obituary "$OB_LIGHTNING"
-	renderstyle Add
-	scale 2.0
-	height 60
-	radius 3
-	speed 0
-	PROJECTILE
+	Scale 2.0
+	Height 60
+	Radius 3
+	Speed 0
+	RenderStyle Add
+	Obituary "$OB_LIGHTNING"
+	Projectile
 	+FLOORHUGGER
 	+NOCLIP
-	states
+	States
 	{
-		Spawn:
-			LTNG A 1 bright
-		Death:
-			LTNG A 2 bright
-			LTNG B 2 bright
-			LTNG C 2 bright
-			IVVY A 3
-			LTNG B 2 bright
-			IVVY A 1
-			LTNG C 1 bright
-			stop
-	}
-}
+	Spawn:
+		LTNG A 1 Bright
+	Death:
+		LTNG A 2 Bright
+		LTNG B 2 Bright
+		LTNG C 2 Bright
+		IVVY A 3
+		LTNG B 2 Bright
+		IVVY A 1
+		LTNG C 1 Bright
+		Stop
+}}
 
 Actor LightningStrikeSmall : LightningStrike
 {
-	xscale 0.7
-	yscale 2.0
+	XScale 0.7
+	YScale 2.0
 }
-
-
 Actor HealSparkleSmall
 {
-+NOGRAVITY
-+CLIENTSIDEONLY
-+NOINTERACTION
-Radius 32
-Height 32
-Scale 0.65
-Renderstyle Add
-
+	Radius 32
+	Height 32
+	Scale 0.65
+	RenderStyle Add
+	+NOGRAVITY
+	+CLIENTSIDEONLY
+	+NOINTERACTION
 	States
 	{
-		Spawn:
-		 HEAL A 0 BRIGHT 
-		 HEAL A 0 BRIGHT A_SpawnItemEx("HealSparkleSmall2", 0, 0, 0, 0, 0, 0, 0, 0, 0)
-		 HEAL A 0 BRIGHT A_SpawnItemEx("HealSparkleSmall2", 0, 0, 0, 0, 0, 0, 0, 0, 0)
-		 HEAL A 0 BRIGHT ThrustThingZ (0, 32, 0, 0)
-		  goto Death
-
-		Death:
-		 HEAL A 0 BRIGHT A_SpawnItemEx("HealSparkleTrail", 0, 0, -24, 0, 0, 0, 0, 0, 0)
-		 HEAL A 1 BRIGHT A_Fadeout(0.1)
-		 loop
-
-	}
-
-}
+	Spawn:
+		Heal A 0 Bright
+		Heal A 0 Bright A_SpawnItemEx("HealSparkleSmall2", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+		Heal A 0 Bright A_SpawnItemEx("HealSparkleSmall2", 0, 0, 0, 0, 0, 0, 0, 0, 0)
+		Heal A 0 Bright ThrustThingZ (0, 32, 0, 0)
+		Goto Death
+	Death:
+		Heal A 0 Bright A_SpawnItemEx("HealSparkleTrail", 0, 0, -24, 0, 0, 0, 0, 0, 0)
+		Heal A 1 Bright A_FadeOut(0.1)
+		Loop
+}}
 
 Actor HealSparkleSmall2 : HealSparkleSmall
 {
-
 	States
 	{
-		Spawn:
-		 HEAL A 0 BRIGHT 
-		 HEAL A 0 BRIGHT ThrustThingZ (0, 32, 0, 0)
-		  goto Death
-	}
-
-}
+	Spawn:
+		Heal A 0 Bright
+		Heal A 0 Bright ThrustThingZ (0, 32, 0, 0)
+		Goto Death
+}}
 
 Actor BigKitHealSparkle : HealSparkleSmall
 {
-Renderstyle Normal
-Scale 1.0
-States
-	{
-		Spawn:
-		 KITS A 0 BRIGHT 
-		 KITS A 1 BRIGHT ThrustThingZ (0, 32, 0, 0)
-		  goto Death
-
-		Death:
-		 KITS A 1 BRIGHT A_Fadeout(0.1)
-		 loop
-
-	}
-}
-
-Actor BigKitHealSparkleThing 
-{
-states
+	RenderStyle Normal
+	Scale 1.0
+	States
 	{
 	Spawn:
-	TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
-	TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
-	TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
-	TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
-	TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
-	stop
-	}
-}
+		KITS A 0 Bright
+		KITS A 1 Bright ThrustThingZ (0, 32, 0, 0)
+		Goto Death
+	Death:
+		KITS A 1 Bright A_FadeOut(0.1)
+		Loop
+}}
+
+Actor BigKitHealSparkleThing
+{
+	States
+	{
+	Spawn:
+		TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
+		TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
+		TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
+		TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
+		TNT1 A 5 A_SpawnItemEx ("BigKitHealSparkle", random(-24, 24), random(-24, 24), -16, 0, 0, 0, 0, 0, 0)
+		Stop
+}}
 
 Actor HealSparkleTrail
 {
-+NOGRAVITY
-+CLIENTSIDEONLY
-+NOINTERACTION
-Radius 1
-Height 1
-Scale 0.25
-Renderstyle Add
-
+	Radius 1
+	Height 1
+	Scale 0.25
+	RenderStyle Add
+	+NOGRAVITY
+	+CLIENTSIDEONLY
+	+NOINTERACTION
 	States
 	{
-		Spawn:
-		 HEAL A 1 BRIGHT 
-		  goto Death
-
-		Death:
-		 HEAL A 1 BRIGHT A_Fadeout(0.15)
-		 loop
-
-	}
-
-}
+	Spawn:
+		Heal A 1 Bright
+		Goto Death
+	Death:
+		Heal A 1 Bright A_FadeOut(0.15)
+		Loop
+}}
 
 Actor HealSparkleTrailRed
 {
-+NOGRAVITY
-+CLIENTSIDEONLY
-Radius 1
-Height 1
-Scale 0.85
-Renderstyle Add
-
+	Radius 1
+	Height 1
+	Scale 0.85
+	RenderStyle Add
+	+NOGRAVITY
+	+CLIENTSIDEONLY
 	States
 	{
-		Spawn:
-		 HEAL B 0 BRIGHT 
-		 HEAL B 1 BRIGHT A_Fadeout(0.08)
-		  goto Spawn + 1
-
-		Death:
-		 TNT1 A 0
-		 stop
-
-	}
-
-}
-
-
-Actor Bulb 32055 { //fixed
-+NOCLIP
-+NOGRAVITY
-+NOINTERACTION
-scale 0.05
-  //$Category WDI Light Sources
-  //$Sprite BULBA0
-  //$Title "Light Bulb"
-states {
-Spawn:
-On:
-BULB A -1
-Stop
-Off:
-BULB B -1
-Stop
+	Spawn:
+		Heal B 0 Bright
+		Heal B 1 Bright A_FadeOut(0.08)
+		Goto Spawn + 1
+	Death:
+		TNT1 A 0
+		Stop
 }}
 
+Actor Bulb 32055 { //fixed
+	//$Category WDI Light Sources
+	//$Sprite BULBA0
+	//$Title "Light Bulb"
+	Scale 0.05
+	+NOCLIP
+	+NOGRAVITY
+	+NOINTERACTION
+	States {
+	Spawn:
+	On:
+		BULB A -1
+		Stop
+	Off:
+		BULB B -1
+		Stop
+}}

@@ -2,546 +2,532 @@
 /////////////////////     ENVIROMENT  /////////////////////////////
 //=================================================================
 //NOTE: NATURE OBJECTS ONLY
-
 //evil_owl
-Actor loudyowl 13721
+Actor Loudyowl 13721
 {
-  Game Doom
-  Radius 16
-  Height 40
-  +SOLID
-  +NOGRAVITY
-  //$Category WDI Props
-  //$Sprite NOWLA0
-  //$Title "Owl"
-  States
-  {
-  Spawn:
-    NOWL A -1
-    Stop
+	//$Category WDI Props
+	//$Sprite NOWLA0
+	//$Title "Owl"
+	Game Doom
+	Radius 16
+	Height 40
+	+SOLID
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		NOWL A -1
+		Stop
 }}
 
 ////Push_Start_To_Rich sprites
-
-Actor BFGrass2 14275 
+Actor BFGrass2 14275
 {
-+ClientSideOnly
-  //$Category WDI Environment
-  //$Sprite TRV2A0
-  //$Title "Grass 1"
-States
-  {
-    Spawn:
-	TRV2 A -1
-	Stop
+	//$Category WDI Environment
+	//$Sprite TRV2A0
+	//$Title "Grass 1"
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TRV2 A -1
+		Stop
 }}
 
 Actor BFGrass3 14277
 {
-+ClientSideOnly
-  //$Category WDI Environment
-  //$Sprite TRV3A0
-  //$Title "Grass 2"
-States
-  {
-    Spawn:
-	TRV3 A -1
-	Stop
+	//$Category WDI Environment
+	//$Sprite TRV3A0
+	//$Title "Grass 2"
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TRV3 A -1
+		Stop
 }}
 
-Actor BFGrass5 14279 
+Actor BFGrass5 14279
 {
-+ClientSideOnly
-  //$Category WDI Environment
-  //$Sprite TRV5A0
-  //$Title "Grass 3"
-States
-  {
-    Spawn:
-	TRV5 A -1
-	Stop
+	//$Category WDI Environment
+	//$Sprite TRV5A0
+	//$Title "Grass 3"
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TRV5 A -1
+		Stop
 }}
 
 Actor BFGrass6 14281
 {
-+ClientSideOnly
-  //$Category WDI Environment
-  //$Sprite TRV6A0
-  //$Title "Grass 4"
-States
-  {
-    Spawn:
-	TRV6 A -1
-	Stop
+	//$Category WDI Environment
+	//$Sprite TRV6A0
+	//$Title "Grass 4"
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TRV6 A -1
+		Stop
 }}
 
 Actor BFTree2 14283
 {
-Game Doom
-SpawnID 3
-Radius 5
-Mass 1000000
-height 64
-scale 1.4
-+SOLID
-+SHOOTABLE
-+INVULNERABLE
-+NODAMAGE
-+NOBLOOD
-  //$Category WDI Environment
-  //$Sprite DREVB0
-  //$Title "Tree 1"
-States 
- {
-   Spawn:
-   DREV B -1
-   Stop
+	//$Category WDI Environment
+	//$Sprite DREVB0
+	//$Title "Tree 1"
+	Game Doom
+	SpawnID 3
+	Radius 5
+	Mass 1000000
+	Height 64
+	Scale 1.4
+	+SOLID
+	+SHOOTABLE
+	+INVULNERABLE
+	+NODAMAGE
+	+NOBLOOD
+	States
+	{
+	Spawn:
+		DREV B -1
+		Stop
 }}
 
 Actor BFTree3 14285
 {
-Game Doom
-SpawnID 3
-Radius 5
-Mass 1000000
-height 64
-scale 1.4
-+SOLID
-+SHOOTABLE
-+INVULNERABLE
-+NODAMAGE
-+NOBLOOD
-  //$Category WDI Environment
-  //$Sprite DREVC0
-  //$Title "Tree 2"
-States 
- {
-   Spawn:
-   DREV C -1
-   Stop
+	//$Category WDI Environment
+	//$Sprite DREVC0
+	//$Title "Tree 2"
+	Game Doom
+	SpawnID 3
+	Radius 5
+	Mass 1000000
+	Height 64
+	Scale 1.4
+	+SOLID
+	+SHOOTABLE
+	+INVULNERABLE
+	+NODAMAGE
+	+NOBLOOD
+	States
+	{
+	Spawn:
+		DREV C -1
+		Stop
 }}
 
 Actor BFTree4 14287
 {
-Game Doom
-SpawnID 3
-Radius 20
-scale 1.4
-Mass 1000000
-height 64
-+SOLID
-+INVULNERABLE
-+NODAMAGE
-+NOBLOOD
-+SHOOTABLE
-  //$Category WDI Environment
-  //$Sprite DREVD0
-  //$Title "Tree 3"
-States 
- {
-   Spawn:
-   DREV D -1
-   Stop
+	//$Category WDI Environment
+	//$Sprite DREVD0
+	//$Title "Tree 3"
+	Game Doom
+	SpawnID 3
+	Radius 20
+	Scale 1.4
+	Mass 1000000
+	Height 64
+	+SOLID
+	+INVULNERABLE
+	+NODAMAGE
+	+NOBLOOD
+	+SHOOTABLE
+	States
+	{
+	Spawn:
+		DREV D -1
+		Stop
 }}
 
 Actor BFTree7 14289
 {
-Game Doom
-SpawnID 3
-+SOLID
-+SHOOTABLE
-+INVULNERABLE
-+NODAMAGE
-+NOBLOOD
-Radius 5
-Mass 1000000
-height 64
-scale 1.4
-  //$Category WDI Environment
-  //$Sprite DREVG0
-  //$Title "Tree 4"
-States 
- {
-   Spawn:
-   DREV G -1
-   Stop
+	//$Category WDI Environment
+	//$Sprite DREVG0
+	//$Title "Tree 4"
+	Game Doom
+	SpawnID 3
+	Radius 5
+	Mass 1000000
+	Height 64
+	Scale 1.4
+	+SOLID
+	+SHOOTABLE
+	+INVULNERABLE
+	+NODAMAGE
+	+NOBLOOD
+	States
+	{
+	Spawn:
+		DREV G -1
+		Stop
 }}
 
-
 Actor SICATREE1 3244 {
-  //$Category WDI Environment
-+SOLID
-+NODAMAGE
--NOGRAVITY
-
-radius 16
-height 64
-states {
-Spawn:
-SIC1 A -1
-Stop
+	//$Category WDI Environment
+	Radius 16
+	Height 64
+	+SOLID
+	+NODAMAGE
+	-NOGRAVITY
+	States {
+	Spawn:
+		SIC1 A -1
+		Stop
 }}
 
 Actor SICATREE2 3358 {
-  //$Category WDI Environment
-+SOLID
-+NODAMAGE
--NOGRAVITY
-
-radius 16
-height 64
-states {
-Spawn:
-SIC2 A -1
-Stop
+	//$Category WDI Environment
+	Radius 16
+	Height 64
+	+SOLID
+	+NODAMAGE
+	-NOGRAVITY
+	States {
+	Spawn:
+		SIC2 A -1
+		Stop
 }}
 
 Actor SnoTre1 17654
 {
-  //$Category WDI Environment
-Game Doom
-SpawnID 3
-Radius 5
-Mass 1000000
-height 64
-scale 1.4
-+SOLID
-+SHOOTABLE
-+INVULNERABLE
-+NOBLOOD
-States 
- {
-   Spawn:
-   SNTR A -1
-   Stop
+	//$Category WDI Environment
+	Game Doom
+	SpawnID 3
+	Radius 5
+	Mass 1000000
+	Height 64
+	Scale 1.4
+	+SOLID
+	+SHOOTABLE
+	+INVULNERABLE
+	+NOBLOOD
+	States
+	{
+	Spawn:
+		SNTR A -1
+		Stop
 }}
 
 Actor SnoTre2 17655
 {
-  //$Category WDI Environment
-Game Doom
-SpawnID 3
-Radius 5
-Mass 1000000
-height 64
-scale 1.4
-+SOLID
-+SHOOTABLE
-+INVULNERABLE
-+NOBLOOD
-States 
- {
-   Spawn:
-   SNTR B -1
-   Stop
+	//$Category WDI Environment
+	Game Doom
+	SpawnID 3
+	Radius 5
+	Mass 1000000
+	Height 64
+	Scale 1.4
+	+SOLID
+	+SHOOTABLE
+	+INVULNERABLE
+	+NOBLOOD
+	States
+	{
+	Spawn:
+		SNTR B -1
+		Stop
 }}
 
 Actor SnoTre3 17656
 {
-  //$Category WDI Environment
-Game Doom
-SpawnID 3
-Radius 20
-scale 1.4
-Mass 1000000
-height 64
-+SOLID
-+INVULNERABLE
-+NOBLOOD
-+SHOOTABLE
-States 
- {
-   Spawn:
-   SNTR C -1
-   Stop
+	//$Category WDI Environment
+	Game Doom
+	SpawnID 3
+	Radius 20
+	Scale 1.4
+	Mass 1000000
+	Height 64
+	+SOLID
+	+INVULNERABLE
+	+NOBLOOD
+	+SHOOTABLE
+	States
+	{
+	Spawn:
+		SNTR C -1
+		Stop
 }}
 
 Actor SnoTre4 17657
 {
-  //$Category WDI Environment
-Game Doom
-SpawnID 3
-+SOLID
-+SHOOTABLE
-+INVULNERABLE
-+NOBLOOD
-Radius 5
-Mass 1000000
-height 64
-scale 1.4
-States 
- {
-   Spawn:
-   SNTR D -1
-   Stop
+	//$Category WDI Environment
+	Game Doom
+	SpawnID 3
+	Radius 5
+	Mass 1000000
+	Height 64
+	Scale 1.4
+	+SOLID
+	+SHOOTABLE
+	+INVULNERABLE
+	+NOBLOOD
+	States
+	{
+	Spawn:
+		SNTR D -1
+		Stop
 }}
 
 Actor SnoGrass 17658
 {
-  //$Category WDI Environment
-+ClientSideOnly
-+NOINTERACTION
-Scale 0.7
-States
-  {
-    Spawn:
-	SNGR A -1
-	Stop
+	//$Category WDI Environment
+	Scale 0.7
+	+CLIENTSIDEONLY
+	+NOINTERACTION
+	States
+	{
+	Spawn:
+		SNGR A -1
+		Stop
 }}
 
-Actor SnoTre1_Optimized : SnoTre1 17659 { +ClientSideOnly +NOINTERACTION }
-Actor SnoTre2_Optimized : SnoTre2 17660 { +ClientSideOnly +NOINTERACTION }
-Actor SnoTre3_Optimized : SnoTre3 17661 { +ClientSideOnly +NOINTERACTION }
-Actor SnoTre4_Optimized : SnoTre4 17662 { +ClientSideOnly +NOINTERACTION }
-
-
+Actor SnoTre1_Optimized : SnoTre1 17659 { +CLIENTSIDEONLY +NOINTERACTION }
+Actor SnoTre2_Optimized : SnoTre2 17660 { +CLIENTSIDEONLY +NOINTERACTION }
+Actor SnoTre3_Optimized : SnoTre3 17661 { +CLIENTSIDEONLY +NOINTERACTION }
+Actor SnoTre4_Optimized : SnoTre4 17662 { +CLIENTSIDEONLY +NOINTERACTION }
 Actor TreeA 31995 {
-+SOLID
-+NODAMAGE
--NOGRAVITY
-//+FORCEYBILLBOARD
-  //$Category WDI Environment
-  //$Sprite TRDTA0
-  //$Title "Tree 5"
-radius 16
-height 64
-states {
-Spawn:
-TRDT A -1 
-Stop 
+	//+FORCEYBILLBOARD
+	//$Category WDI Environment
+	//$Sprite TRDTA0
+	//$Title "Tree 5"
+	Radius 16
+	Height 64
+	+SOLID
+	+NODAMAGE
+	-NOGRAVITY
+	States {
+	Spawn:
+		TRDT A -1
+		Stop
 }}
 
-Actor TreeB : TreeA 31994 { 
-  //$Category WDI Environment
-  //$Sprite TRE1A0
-  //$Title "Tree 6"
-states { 
-Spawn: 
-TRE1 A -1 
-Stop 
+Actor TreeB : TreeA 31994 {
+	//$Category WDI Environment
+	//$Sprite TRE1A0
+	//$Title "Tree 6"
+	States {
+	Spawn:
+		TRE1 A -1
+		Stop
 }}
 
-Actor TreeC : TreeA 31993 { 
-  //$Category WDI Environment
-  //$Sprite TRE4A0
-  //$Title "Tree 7"
-states { 
-Spawn: 
-TRE4 A -1 
-Stop  
+Actor TreeC : TreeA 31993 {
+	//$Category WDI Environment
+	//$Sprite TRE4A0
+	//$Title "Tree 7"
+	States {
+	Spawn:
+		TRE4 A -1
+		Stop
 }}
 
-Actor TreeD : TreeA 31992 { 
-  //$Category WDI Environment
-  //$Sprite TRE5A0
-  //$Title "Tree 8"
-states { 
-Spawn: 
-TRE5 A -1  
-Stop 
+Actor TreeD : TreeA 31992 {
+	//$Category WDI Environment
+	//$Sprite TRE5A0
+	//$Title "Tree 8"
+	States {
+	Spawn:
+		TRE5 A -1
+		Stop
 }}
 
 Actor TreeE: TreeA 31986
 {
-  //$Category WDI Environment
-  //$Sprite TRDTA0
-  //$Title "Tree 1 (Small)"
-scale 0.7
-height 64
+	//$Category WDI Environment
+	//$Sprite TRDTA0
+	//$Title "Tree 1 (Small)"
+	Scale 0.7
+	Height 64
 }
-
 Actor TreeF: TreeB 31985
 {
-  //$Category WDI Environment
-  //$Sprite TRE1A0
-  //$Title "Tree 6 (Small)"
-scale 0.7
-height 64
+	//$Category WDI Environment
+	//$Sprite TRE1A0
+	//$Title "Tree 6 (Small)"
+	Scale 0.7
+	Height 64
 }
-
 Actor TreeG: TreeC 31984
 {
-  //$Category WDI Environment
-  //$Sprite TRE4A0
-  //$Title "Tree 7 (Small)"
-scale 0.7
-height 64
+	//$Category WDI Environment
+	//$Sprite TRE4A0
+	//$Title "Tree 7 (Small)"
+	Scale 0.7
+	Height 64
 }
-
 Actor TreeH: TreeD 31983
 {
-  //$Category WDI Environment
-  //$Sprite TRE5A0
-  //$Title "Tree 8 (Small)"
-scale 0.7
-height 64
+	//$Category WDI Environment
+	//$Sprite TRE5A0
+	//$Title "Tree 8 (Small)"
+	Scale 0.7
+	Height 64
 }
-
 Actor TreeX : TreeA 31991
-{ 
-  //$Category WDI Environment
-  //$Sprite XMASA0
-  //$Title "XMas Tree"
-states
-{ 
-Spawn: 
-XMAS A -1   
-Stop 
+{
+	//$Category WDI Environment
+	//$Sprite XMASA0
+	//$Title "XMas Tree"
+	States
+	{
+	Spawn:
+		XMAS A -1
+		Stop
 }}
 
 Actor GrassLarge 31008
-{  Radius 24
-   Height 40
-   scale 1.1
-   +FLOORCLIP
-   +NOINTERACTION
-  //$Category WDI Environment
-  //$Sprite GRASA0
-  //$Title "Tall Grass"
-   States
-   {
-   Spawn:
-      GRAS A -1
-	  stop
+{	
+	//$Category WDI Environment
+	//$Sprite GRASA0
+	//$Title "Tall Grass"
+	Radius 24
+	Height 40
+	Scale 1.1
+	+FLOORCLIP
+	+NOINTERACTION
+	States
+	{
+	Spawn:
+		GRAS A -1
+		Stop
 }}
 
 Actor GrassMedium 31009
-{  Radius 24
-   Height 40
-   scale 0.75
-   +FLOORCLIP
-   +NOINTERACTION
-  //$Category WDI Environment
-  //$Sprite GRASA0
-  //$Title "Medium Grass"
-   States
-   {
-   Spawn:
-      GRAS A -1
-	  stop
+{	
+	//$Category WDI Environment
+	//$Sprite GRASA0
+	//$Title "Medium Grass"
+	Radius 24
+	Height 40
+	Scale 0.75
+	+FLOORCLIP
+	+NOINTERACTION
+	States
+	{
+	Spawn:
+		GRAS A -1
+		Stop
 }}
 
 Actor GlowShroom 31010
-{  Radius 8
-   Height 8
-   scale 0.75
-   +FLOORCLIP
-   +NOINTERACTION
-  //$Category WDI Environment
-  //$Sprite SHRMA0
-  //$Title "Glowing Mushroom"
-   States
-   {
-   Spawn:
-      SHRM A -1 Bright
-	  stop
+{	
+	//$Category WDI Environment
+	//$Sprite SHRMA0
+	//$Title "Glowing Mushroom"
+	Radius 8
+	Height 8
+	Scale 0.75
+	+FLOORCLIP
+	+NOINTERACTION
+	States
+	{
+	Spawn:
+		SHRM A -1 Bright
+		Stop
 }}
 
 Actor RockA 31990 {
-  //$Category WDI Environment
-  //$Sprite RCK4A0
-  //$Title "Rock 1"
-+NOINTERACTION
-states
-{
-Spawn:
-RCK4 A -1 
-stop
+	//$Category WDI Environment
+	//$Sprite RCK4A0
+	//$Title "Rock 1"
+	+NOINTERACTION
+	States
+	{
+	Spawn:
+		RCK4 A -1
+		Stop
 }}
 
 Actor RockB 31989 {
-  //$Category WDI Environment
-  //$Sprite RCK3A0
-  //$Title "Rock 2"
-+NOINTERACTION
-states
-{
-Spawn:
-RCK3 A -1  
-stop
+	//$Category WDI Environment
+	//$Sprite RCK3A0
+	//$Title "Rock 2"
+	+NOINTERACTION
+	States
+	{
+	Spawn:
+		RCK3 A -1
+		Stop
 }}
+
 // Small plants------------------------------------------------
 Actor Flowers1 30001
-{  //$Category WDI Environment
-   //$Title "Flowers 1"
-   Radius 24
-   Height 24
-   scale 0.95
+{	//$Category WDI Environment
+	//$Title "Flowers 1"
+	Radius 24
+	Height 24
+	Scale 0.95
+	States
+	{
+	Spawn:
+		FLWA A -1
+		Stop
+}}
 
-   States
-   {
-   Spawn:
-      FLWA A -1
-	  Stop
-	}
-}
 Actor Flowers2 30002
-{  //$Category WDI Environment
-   //$Title "Flowers 2"
-   Radius 24
-   Height 24
-   scale 0.95
+{	//$Category WDI Environment
+	//$Title "Flowers 2"
+	Radius 24
+	Height 24
+	Scale 0.95
+	States
+	{
+	Spawn:
+		FLWB A -1
+		Stop
+}}
 
-   States
-   {
-   Spawn:
-      FLWB A -1
-	  Stop
-	}
-}
 Actor Flowers3 30003
-{  //$Category WDI Environment
-   //$Title "Flowers 2B"
-   Radius 24
-   Height 24
-   scale 0.95
+{	//$Category WDI Environment
+	//$Title "Flowers 2B"
+	Radius 24
+	Height 24
+	Scale 0.95
+	States
+	{
+	Spawn:
+		FLWC A -1
+		Stop
+}}
 
-   States
-   {
-   Spawn:
-      FLWC A -1
-	  Stop
-	}
-}
 Actor Flowers4 30004
-{  //$Category WDI Environment
-   //$Title "Flowers 3"
-   Radius 24
-   Height 24
-   scale 0.95
+{	//$Category WDI Environment
+	//$Title "Flowers 3"
+	Radius 24
+	Height 24
+	Scale 0.95
+	States
+	{
+	Spawn:
+		FLWD A -1
+		Stop
+}}
 
-   States
-   {
-   Spawn:
-      FLWD A -1
-	  Stop
-	}
-}
 Actor Flowers5 30005
-{  //$Category WDI Environment
-   //$Title "Flowers 4"
-   Radius 24
-   Height 24
-   scale 0.95
+{	//$Category WDI Environment
+	//$Title "Flowers 4"
+	Radius 24
+	Height 24
+	Scale 0.95
+	States
+	{
+	Spawn:
+		FLWE A -1
+		Stop
+}}
 
-   States
-   {
-   Spawn:
-      FLWE A -1
-	  Stop
-	}
-}
 Actor Flowers6 30006
-{  //$Category WDI Environment
-   //$Title "Flowers 5"
-   Radius 24
-   Height 24
-   scale 0.95
-
-   States
-   {
-   Spawn:
-      FLWF A -1
-	  Stop
-	}
-}
+{	//$Category WDI Environment
+	//$Title "Flowers 5"
+	Radius 24
+	Height 24
+	Scale 0.95
+	States
+	{
+	Spawn:
+		FLWF A -1
+		Stop
+}}

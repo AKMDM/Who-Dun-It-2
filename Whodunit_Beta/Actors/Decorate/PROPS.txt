@@ -2,83 +2,81 @@
 /////////////////////     PROPS  /////////////////////////////
 //=================================================================
 //NOTE: ARTIFICIAL OBJECTS ONLY
-
 ///////////STATUES///////////////
-Actor Ishtar 32260 
+Actor Ishtar 32260
 {
-//$Category WDI Props
-    Health 100
+	//$Category WDI Props
+	Health 100
 	Radius 12
 	Height 50
 	Scale 0.35
 	Speed 3
-    Mass 900
-    BloodColor 88 88 88
-   +SOLID
-   +SHOOTABLE
-   +NOBLOOD
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-   PAINSOUND "PotBits"
-   DEATHSOUND "pot/break" 
-  States
+	Mass 900
+	BloodColor 88 88 88
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	PainSound "PotBits"
+	DeathSound "Pot/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	States
 	{
 	Spawn:
-		ISHT A -1 
-		Stop	
+		ISHT A -1
+		Stop
 	Death:
-      VASE E 1 A_PlaySound("pot/break")
-      VASE E 1 A_Burst("PotBits") 
-    Stop
+		VASE E 1 A_PlaySound("Pot/Break")
+		VASE E 1 A_Burst("PotBits")
+		Stop
 }}
 
 Actor MinotaurStatue 16134
 {
-//$Category WDI Props
-  Radius 32
-  Height 68
-  +SOLID
-  States
-  {
-  Spawn:
-    MTST A -1 
-    Stop
+	//$Category WDI Props
+	Radius 32
+	Height 68
+	+SOLID
+	States
+	{
+	Spawn:
+		MTST A -1
+		Stop
 }}
 
 Actor DeathStatue 14244
 {
-  Health 400
-  Radius 20
-  Height 56
-  Speed 3
-  Mass 900
-  BloodColor 88 88 88
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  PAINSOUND "PotBits"
-  DEATHSOUND "pot/break" 
-  //$Category WDI Props
-  //$Title "Player Statue"
-  States
-  {
-  Spawn:
-    STT1 A -1 
-    Stop
-  Pain:
-    STT1 A 3 A_Pain
-    Goto See
-	
-  Death:
-    STT1 H 5
-    STT1 I 3 A_PlayerScream
-    STT1 J 3 A_NoBlocking
-    STT1 KLM 6
-    STT1 NO 3
-	STT1 P -1
-    Stop
+	//$Category WDI Props
+	//$Title "Player Statue"
+	Health 400
+	Radius 20
+	Height 56
+	Speed 3
+	Mass 900
+	BloodColor 88 88 88
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	PainSound "PotBits"
+	DeathSound "Pot/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	States
+	{
+	Spawn:
+		STT1 A -1
+		Stop
+	Pain:
+		STT1 A 3 A_Pain
+		Goto See
+	Death:
+		STT1 H 5
+		STT1 I 3 A_PlayerScream
+		STT1 J 3 A_NoBlocking
+		STT1 KLM 6
+		STT1 No 3
+		STT1 P -1
+		Stop
 }}
 
 /*
@@ -93,7 +91,6 @@ Spawn:
 FGHT A -1
 Stop
 }}
-
 Actor StatueMage 13965 //THE SPRITE IT DOESN'T EXIST
 {
 +SOLID
@@ -105,7 +102,6 @@ Spawn:
 MAGE A -1
 Stop
 }}
-
 Actor StatueCleric 13966 //THE SPRITE IT DOESN'T EXIST
 {
 +SOLID
@@ -118,11 +114,9 @@ CLER A -1
 Stop
 }}
 */
-
-
 Actor Statue1 10002
 {
-//$Category WDI Props
+	//$Category WDI Props
 	Radius 18
 	Height 200
 	+SOLID
@@ -132,13 +126,12 @@ Actor Statue1 10002
 	Spawn:
 		STAT A -1
 		Stop
-	}
-}
+}}
 
 ///////////MISC///////////////
 Actor Tower 10001
 {
-//$Category WDI Props
+	//$Category WDI Props
 	Radius 18
 	Height 79
 	+SOLID
@@ -146,362 +139,359 @@ Actor Tower 10001
 	States
 	{
 	Spawn:
-		TOWR A -1 
-		//TOWR B 1 BRIGHT   mmmmmmmmm check sprite
-		//loop
+		TOWR A -1
+		//TOWR B 1 Bright   mmmmmmmmm check sprite
+		//Loop
 		Stop
-	}
-}
+}}
 
 Actor PropQuickRevive 21203
 {
-//$Category WDI Props
- Radius 1
- Height 1
- Scale 0.50
- +SOLID
- +NOGRAVITY
- +NOBLOCKMAP
- //+FORCEXYBILLBOARD
- States
- {
-  Spawn:
-	QCRV A -1 
-	stop
- }
-}
+	//$Category WDI Props
+	Radius 1
+	Height 1
+	Scale 0.50
+	+SOLID
+	+NOGRAVITY
+	+NOBLOCKMAP
+	//+FORCEXYBILLBOARD
+	States
+	{
+	Spawn:
+		QCRV A -1
+		Stop
+}}
 
 //I'll slaughter whoever replaced Tech Pillar sprite
 Actor TehPillar : TechPillar 14888
 {
-//$Category WDI Props
-  States
-  {
-  Spawn:
-    TEHP A -1
-    Stop
-  }
-}
+	//$Category WDI Props
+	States
+	{
+	Spawn:
+		TEHP A -1
+		Stop
+}}
 
 Actor PotTree : TreeA 31982 {
-  //$Category WDI Props
-  //$Sprite TREEC0
-  //$Title "Tree in a Pot"
-Height 48
-Radius 16
-States {
-Spawn:
-TREE C -1  
-Stop
+	//$Category WDI Props
+	//$Sprite TREEC0
+	//$Title "Tree in a Pot"
+	Height 48
+	Radius 16
+	States {
+	Spawn:
+		TREE C -1
+		Stop
 }}
 
 Actor PedestalRed 31988 {
-  //$Category WDI Props
-  //$Sprite GMPDB0
-  //$Title "PedestalRed"
-+SOLID
-Radius 24
-Height 48
-States {   
-Spawn:
-GMPD B -1
-Stop
+	//$Category WDI Props
+	//$Sprite GMPDB0
+	//$Title "PedestalRed"
+	Radius 24
+	Height 48
+	+SOLID
+	States {
+	Spawn:
+		GMPD B -1
+		Stop
 }}
 
 Actor PedestalRuby : PedestalRed 31987 {
-  //$Category WDI Props
-  //$Sprite GMPDA0
-  //$Title "Pedestal (Ruby)"
-States {
-Spawn:
-GMPD A -1 
-Stop
+	//$Category WDI Props
+	//$Sprite GMPDA0
+	//$Title "Pedestal (Ruby)"
+	States {
+	Spawn:
+		GMPD A -1
+		Stop
 }}
 
 Actor PodiumVase 13968
 {
-  //$Category WDI Props
-  //$Sprite VASSA0
-  //$Title "Podium Vase"
-+SOLID
-Height 48
-Radius 32
-States
-{
-Spawn:
-VASS A -1
-Stop
+	//$Category WDI Props
+	//$Sprite VASSA0
+	//$Title "Podium Vase"
+	Height 48
+	Radius 32
+	+SOLID
+	States
+	{
+	Spawn:
+		VASS A -1
+		Stop
 }}
 
 Actor ArmorSuit 32003 { //SKULLTAG??
-+SOLID
-Radius 24
-Height 56
-  //$Category WDI Props
-  //$Title "Armor Suit"  
-States {
-Spawn:
-SUIT A -1
-Stop
+	//$Category WDI Props
+	//$Title "Armor Suit"
+	Radius 24
+	Height 56
+	+SOLID
+	States {
+	Spawn:
+		SUIT A -1
+		Stop
 }}
 
 Actor HPipe2 31016
 {
-  //$Category WDI Props
-  //$Title "Horizontal Pipe 1"
-  Radius 16
-  Height 128
-  Tag "Pipe 2"
-  +SOLID
-  States
-  {
-  Spawn:
-    PIP2 A -1
-    Stop
+	//$Category WDI Props
+	//$Title "Horizontal Pipe 1"
+	Radius 16
+	Height 128
+	Tag "Pipe 2"
+	+SOLID
+	States
+	{
+	Spawn:
+		PIP2 A -1
+		Stop
 }}
 
 Actor HPipe3 31017
 {
-  //$Category WDI Props
-  //$Sprite PIP3A0
-  //$Title "Horizontal Pipe 2"
-  Radius 16
-  Height 128
-  Tag "Pipe 3"
-  +SOLID
-  States
-  {
-  Spawn:
-    PIP3 A -1
-    Stop
+	//$Category WDI Props
+	//$Sprite PIP3A0
+	//$Title "Horizontal Pipe 2"
+	Radius 16
+	Height 128
+	Tag "Pipe 3"
+	+SOLID
+	States
+	{
+	Spawn:
+		PIP3 A -1
+		Stop
 }}
 
 Actor HPipe4 31018
 {
-  //$Category WDI Props
-  //$Sprite PIP4A0
-  //$Title "Horizontal Pipe 3"
-  Radius 16
-  Height 128
-  Tag "Pipe 4"
-  +SOLID
-  States
-  {
-  Spawn:
-    PIP4 A -1
-    Stop
+	//$Category WDI Props
+	//$Sprite PIP4A0
+	//$Title "Horizontal Pipe 3"
+	Radius 16
+	Height 128
+	Tag "Pipe 4"
+	+SOLID
+	States
+	{
+	Spawn:
+		PIP4 A -1
+		Stop
 }}
 
 Actor HPipe5 31019
 {
-  //$Category WDI Props
-  //$Sprite PIP5A0
-  //$Title "Horizontal Pipe 4"
-  Radius 16
-  Height 128
-  Tag "Pipe 5"
-  +SOLID
-  States
-  {
-  Spawn:
-    PIP5 A -1
-    Stop
+	//$Category WDI Props
+	//$Sprite PIP5A0
+	//$Title "Horizontal Pipe 4"
+	Radius 16
+	Height 128
+	Tag "Pipe 5"
+	+SOLID
+	States
+	{
+	Spawn:
+		PIP5 A -1
+		Stop
 }}
 
 Actor Box1 31020
 {
-  Game Doom
-  Radius 16
-  Height 56
-  -SOLID
-  //$Category WDI Props
-  //$Sprite BOX1A0
-  //$Title "Box (Cardboard)"
-  States
-  {
-  Spawn:
-    BOX1 A -1
-    Stop
+	//$Category WDI Props
+	//$Sprite BOX1A0
+	//$Title "Box (Cardboard)"
+	Game Doom
+	Radius 16
+	Height 56
+	-SOLID
+	States
+	{
+	Spawn:
+		BOX1 A -1
+		Stop
 }}
 
 Actor WasteBin 31021
 {
-  Game Doom
-  Radius 8
-  Height 24
-  Scale .5
-  +SOLID
-  //$Category WDI Props
-  //$Sprite WBINA0
-  //$Title "Trash Can (White)"
-  States
-  {
-  Spawn:
-    WBIN A -1
-    Stop
+	//$Category WDI Props
+	//$Sprite WBINA0
+	//$Title "Trash Can (White)"
+	Game Doom
+	Radius 8
+	Height 24
+	Scale .5
+	+SOLID
+	States
+	{
+	Spawn:
+		WBIN A -1
+		Stop
 }}
 
 Actor WasteBinFilthy 31022
 {
-  Game Doom
-  Radius 8
-  Height 24
-  Scale .5
-  +SOLID
-  //$Category WDI Props
-  //$Sprite WBINB0
-  //$Title "Trash Can (Filthy)"
-  States
-  {
-  Spawn:
-    WBIN B -1
-    Stop
+	//$Category WDI Props
+	//$Sprite WBINB0
+	//$Title "Trash Can (Filthy)"
+	Game Doom
+	Radius 8
+	Height 24
+	Scale .5
+	+SOLID
+	States
+	{
+	Spawn:
+		WBIN B -1
+		Stop
 }}
 
 Actor HelmA 31023
 {
-  //$Category WDI Props
-  //$Sprite AHLMA0
-  //$Title "Helmet 1"
-  Radius 8
-  Height 10
-  +SOLID
-  States
-  {
-  Spawn:
-    AHLM A -1
-    Stop
+	//$Category WDI Props
+	//$Sprite AHLMA0
+	//$Title "Helmet 1"
+	Radius 8
+	Height 10
+	+SOLID
+	States
+	{
+	Spawn:
+		AHLM A -1
+		Stop
 }}
 
 Actor HelmB 31024
 {
-  //$Category WDI Props
-  //$Sprite BHLMA0
-  //$Title "Helmet 2"
-  Radius 8
-  Height 10
-  +SOLID
-  States
-  {
-  Spawn:
-    BHLM A -1
-    Stop
+	//$Category WDI Props
+	//$Sprite BHLMA0
+	//$Title "Helmet 2"
+	Radius 8
+	Height 10
+	+SOLID
+	States
+	{
+	Spawn:
+		BHLM A -1
+		Stop
 }}
 
 Actor HelmC 31025
 {
-  //$Category WDI Props
-  //$Sprite CHLMA0
-  //$Title "Helmet 3"
-  Radius 8
-  Height 10
-  +SOLID
-  States
-  {
-  Spawn:
-    CHLM A -1
-    Stop
+	//$Category WDI Props
+	//$Sprite CHLMA0
+	//$Title "Helmet 3"
+	Radius 8
+	Height 10
+	+SOLID
+	States
+	{
+	Spawn:
+		CHLM A -1
+		Stop
 }}
 
 Actor HelmD 31026
 {
-  //$Category WDI Props
-  //$Sprite DHLMA0
-  //$Title "Helmet 4"
-  Radius 6
-  Height 10
-  +SOLID
-  States
-  {
-  Spawn:
-    DHLM A -1
-    Stop
+	//$Category WDI Props
+	//$Sprite DHLMA0
+	//$Title "Helmet 4"
+	Radius 6
+	Height 10
+	+SOLID
+	States
+	{
+	Spawn:
+		DHLM A -1
+		Stop
 }}
 
 Actor Boots 31027
 {
-  //$Category WDI Props
-  //$Sprite BOOTA0
-  //$Title "Boots"
-  Radius 8
-  Height 11
-  +SOLID
-  States
-  {
-  Spawn:
-    BOOT A -1
-    Stop
+	//$Category WDI Props
+	//$Sprite BOOTA0
+	//$Title "Boots"
+	Radius 8
+	Height 11
+	+SOLID
+	States
+	{
+	Spawn:
+		BOOT A -1
+		Stop
 }}
 
 Actor UniformA 31028
 {
-  //$Category WDI Props
-  //$Sprite UNIFA0
-  //$Title "Uniform A"
-  Radius 12
-  Height 11
-  +SOLID
-  States
-  {
-  Spawn:
-    UNIF A -1
-    Stop
+	//$Category WDI Props
+	//$Sprite UNIFA0
+	//$Title "Uniform A"
+	Radius 12
+	Height 11
+	+SOLID
+	States
+	{
+	Spawn:
+		UNIF A -1
+		Stop
 }}
 
 Actor UniformB 31029
 {
-  //$Category WDI Props
-  //$Sprite UNIFB0
-  //$Title "Uniform B"
-  Radius 12
-  Height 11
-  +SOLID
-  States
-  {
-  Spawn:
-    UNIF B -1
-    Stop
+	//$Category WDI Props
+	//$Sprite UNIFB0
+	//$Title "Uniform B"
+	Radius 12
+	Height 11
+	+SOLID
+	States
+	{
+	Spawn:
+		UNIF B -1
+		Stop
 }}
 
 Actor WDIBarrel 13967
 {
-+SOLID
-Height 36
-Radius 24
-  //$Category WDI Props
-  //$Sprite BARLA0
-  //$Title "Wood Barrel"
-States
-{
-Spawn:
-BARL A -1
-Stop
+	//$Category WDI Props
+	//$Sprite BARLA0
+	//$Title "Wood Barrel"
+	Height 36
+	Radius 24
+	+SOLID
+	States
+	{
+	Spawn:
+		BARL A -1
+		Stop
 }}
 
 Actor TrashCan1 14267
 {
-  Game Doom
-  Radius 16
-  Height 40
-  +SOLID
-  //$Category WDI Props
-  //$Sprite TRACA0
-  //$Title "Trash Can (Metal)"
-  States
-  {
-  Spawn:
-    TRAC A -1
-    Stop
+	//$Category WDI Props
+	//$Sprite TRACA0
+	//$Title "Trash Can (Metal)"
+	Game Doom
+	Radius 16
+	Height 40
+	+SOLID
+	States
+	{
+	Spawn:
+		TRAC A -1
+		Stop
 }}
 
 Actor SkolVodka 14269
 {
-	-SOLID
+	//$Category WDI Props
+	//$Sprite VODKA0
+	//$Title "Vodka Bottle"
 	Radius 8
 	Height 24
-  //$Category WDI Props
-  //$Sprite VODKA0
-  //$Title "Vodka Bottle"
+	-SOLID
 	States
 	{
 	Spawn:
@@ -511,12 +501,12 @@ Actor SkolVodka 14269
 
 Actor BeerGarten 14271
 {
-	-SOLID
+	//$Category WDI Props
+	//$Sprite PIVOA0
+	//$Title "Beer Bottle"
 	Radius 8
 	Height 18
-  //$Category WDI Props
-  //$Sprite PIVOA0
-  //$Title "Beer Bottle"
+	-SOLID
 	States
 	{
 	Spawn:
@@ -526,12 +516,12 @@ Actor BeerGarten 14271
 
 Actor Cocktail_Glass 14273
 {
-	-SOLID
+	//$Category WDI Props
+	//$Sprite GLSSA0
+	//$Title "Cocktail Glass"
 	Radius 3
 	Height 8
-  //$Category WDI Props
-  //$Sprite GLSSA0
-  //$Title "Cocktail Glass"
+	-SOLID
 	States
 	{
 	Spawn:
@@ -539,1211 +529,1203 @@ Actor Cocktail_Glass 14273
 		Stop
 }}
 
-Actor PushableChair 13712 
+Actor PushableChair 13712
 {
-    Health 100
-    Radius 10
-    Height 34
-    Mass 25
-    +SOLID
-    +SHOOTABLE
-    +NOBLOOD
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
 	//+SLIDESONWALLS
-  //$Category WDI Props
-  //$Sprite CHAIA8A2
-  //$Title "Chair (Tan/Pushable)"
-  States
-  {
-  Spawn:
-    CHAI A -1
-    Stop
-  Death:
-    CHAI A -1 A_NoBlocking
-    Goto Spawn
+	//$Category WDI Props
+	//$Sprite CHAIA8A2
+	//$Title "Chair (Tan/Pushable)"
+	Health 100
+	Radius 10
+	Height 34
+	Mass 25
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	States
+	{
+	Spawn:
+		CHAI A -1
+		Stop
+	Death:
+		CHAI A -1 A_NoBlocking
+		Goto Spawn
 }}
 
-
-Actor flaskblueA 10418
+Actor FlaskblueA 10418
 {
 	//$Category WDI Props
 	//$Sprite FLKSA0
 	//$Title "Flask Blue A"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 7
-  Height 17
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    FLKS A -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	Radius 7
+	Height 17
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		FLKS A -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor flaskblueB 10419
+Actor FlaskblueB 10419
 {
 	//$Category WDI Props
 	//$Sprite FLKSG0
 	//$Title "Flask Blue B"
-  Mass 1500
-  Health 1
-  Radius 6
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Height 17
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    FLKS G -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 6
+	Height 17
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		FLKS G -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor flaskpurpleA 10420
+Actor FlaskpurpleA 10420
 {
 	//$Category WDI Props
 	//$Sprite FLKSB0
 	//$Title "Flask Purple A"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 7
-  Height 17
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    FLKS B -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 7
+	Height 17
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		FLKS B -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor flaskpurpleB 10421
+Actor FlaskpurpleB 10421
 {
 	//$Category WDI Props
 	//$Sprite FLKSH0
 	//$Title "Flask Purple B"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 6
-  Height 17
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    FLKS H -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 6
+	Height 17
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		FLKS H -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor flaskredA 10422
+Actor FlaskredA 10422
 {
 	//$Category WDI Props
 	//$Sprite FLKSC0
 	//$Title "Flask Red A"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 7
-  Height 17
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    FLKS C -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 7
+	Height 17
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		FLKS C -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor flaskredB 10423
+Actor FlaskredB 10423
 {
 	//$Category WDI Props
 	//$Sprite FLKSI0
 	//$Title "Flask Red B"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 6
-  Height 17
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    FLKS I -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 6
+	Height 17
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		FLKS I -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor flaskgreenA 10424
+Actor FlaskgreenA 10424
 {
 	//$Category WDI Props
 	//$Sprite FLKSD0
 	//$Title "Flask Green A"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 7
-  Height 17
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    FLKS D -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 7
+	Height 17
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		FLKS D -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor flaskgreenB 10425
+Actor FlaskgreenB 10425
 {
 	//$Category WDI Props
 	//$Sprite FLKSJ0
 	//$Title "Flask Green B"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 6
-  Height 17
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    FLKS J -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 6
+	Height 17
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		FLKS J -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor flaskyellowA 10426
+Actor FlaskyellowA 10426
 {
 	//$Category WDI Props
 	//$Sprite FLKSE0
 	//$Title "Flask Yellow A"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 7
-  Height 17
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    FLKS E -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 7
+	Height 17
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		FLKS E -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor flaskyellowB 10427
+Actor FlaskyellowB 10427
 {
 	//$Category WDI Props
 	//$Sprite FLKSK0
 	//$Title "Flask Yellow B"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 6
-  Height 17
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    FLKS K -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 6
+	Height 17
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		FLKS K -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor flaskgreyA 10428
+Actor FlaskgreyA 10428
 {
 	//$Category WDI Props
 	//$Sprite FLKSF0
 	//$Title "Flask Grey A"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 7
-  Height 17
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    FLKS F -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 7
+	Height 17
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		FLKS F -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor flaskgreyB 10429
+Actor FlaskgreyB 10429
 {
 	//$Category WDI Props
 	//$Sprite FLKSL0
 	//$Title "Flask Grey B"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 6
-  Height 17
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    FLKS L -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 6
+	Height 17
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		FLKS L -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor glassblue 10430
+Actor Glassblue 10430
 {
 	//$Category WDI Props
 	//$Sprite BEAKA0
 	//$Title "Beaker Blue"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 3
-  Height 8
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    BEAK A -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
-    Stop
+	Radius 3
+	Height 8
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		BEAK A -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
+		Stop
 }}
 
-Actor glasspurple 10431
+Actor Glasspurple 10431
 {
 	//$Category WDI Props
 	//$Sprite BEAKB0
 	//$Title "Beaker Purple"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 3
-  Height 8
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    BEAK B -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 3
+	Height 8
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		BEAK B -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor glassred 10432
+Actor Glassred 10432
 {
 	//$Category WDI Props
 	//$Sprite BEAKC0
 	//$Title "Beaker Red"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 3
-  Height 8
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    BEAK C -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 3
+	Height 8
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		BEAK C -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor glassgreen 10433
+Actor Glassgreen 10433
 {
 	//$Category WDI Props
 	//$Sprite BEAKD0
 	//$Title "Beaker Green"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 3
-  Height 8
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    BEAK D -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 3
+	Height 8
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		BEAK D -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor glassyellow 10434
+Actor Glassyellow 10434
 {
 	//$Category WDI Props
 	//$Sprite BEAKE0
 	//$Title "Beaker Yellow"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 3
-  Height 8
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    BEAK E -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 3
+	Height 8
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		BEAK E -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor glassgrey 10435
+Actor Glassgrey 10435
 {
 	//$Category WDI Props
 	//$Sprite BEAKF0
 	//$Title "Beaker Grey"
-  Mass 1500
-  Health 1
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  Radius 3
-  Height 8
-  +SOLID
-  +SHOOTABLE
-  +NOBLOOD
-  +ACTIVATEMCROSS
-  +DONTGIB
-  +NOICEDEATH
-  RenderStyle Translucent
-  DeathSound "tubes/break"
-  States
-  {
-   Spawn:
-    BEAK F -1
-    Stop
-   Death:
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
-    NULL A 0 A_Scream
-    Stop
+	Radius 3
+	Height 8
+	Mass 1500
+	Health 1
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	RenderStyle Translucent
+	DeathSound "Tubes/Break"
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		BEAK F -1
+		Stop
+	Death:
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard1", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_SpawnItemEx ("Flaskshard2", 0, 0, random (3, 5), random (-5, 5), random (-5, 5), random (1, 2), 0, 0, 30)
+		NULL A 0 A_Scream
+		Stop
 }}
 
-Actor flaskshard1 //10436  removed is used like actor
+Actor Flaskshard1 //10436  removed is used like Actor
 {
-  Radius 2
-  Height 4
-  Speed 2
-  Mass 1
-  RenderStyle Translucent
-  Alpha 0.6
-  +NOBLOCKMAP
-  +MISSILE
-  +NOTELEPORT
-  +DONTSPLASH
-  +NOICEDEATH
-  States
-  {
-  Spawn:
-    TSR1 ABC 4
-    TSR1 D 4
-    TSR1 ABC 4
-    TSR1 D 4 A_Jump (24, "DeathA")
-    TSR1 ABC 4
-    TSR1 D 4
-    TSR1 ABC 4
-    TSR1 D 4 A_Jump (24, "DeathB")
-    Loop
-  DeathA:
-    TSR1 C 5 A_Jump (80, "DeathA2")
-    NULL A 1
-    Stop
-  DeathB:
-    TSR1 D 5 A_Jump (80, "DeathB2")
-    NULL A 1
-    Stop
-  DeathA2:
-    TSR1 C 3 A_Jump (24, "DeathA2")
-    NULL A 1
-    Stop
-  DeathB2:
-    TSR1 D 5 A_Jump (24, "DeathB2")
-    NULL A 1
-    Stop
+	Radius 2
+	Height 4
+	Speed 2
+	Mass 1
+	RenderStyle Translucent
+	Alpha 0.6
+	+NOBLOCKMAP
+	+MISSILE
+	+NOTELEPORT
+	+DONTSPLASH
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		TSR1 ABC 4
+		TSR1 D 4
+		TSR1 ABC 4
+		TSR1 D 4 A_Jump (24, "DeathA")
+		TSR1 ABC 4
+		TSR1 D 4
+		TSR1 ABC 4
+		TSR1 D 4 A_Jump (24, "DeathB")
+		Loop
+	DeathA:
+		TSR1 C 5 A_Jump (80, "DeathA2")
+		NULL A 1
+		Stop
+	DeathB:
+		TSR1 D 5 A_Jump (80, "DeathB2")
+		NULL A 1
+		Stop
+	DeathA2:
+		TSR1 C 3 A_Jump (24, "DeathA2")
+		NULL A 1
+		Stop
+	DeathB2:
+		TSR1 D 5 A_Jump (24, "DeathB2")
+		NULL A 1
+		Stop
 }}
 
-Actor flaskshard2 //10437 removed is used like actor
+Actor Flaskshard2 //10437 removed is used like Actor
 {
-  Radius 2
-  Height 4
-  Speed 2
-  Mass 1
-  RenderStyle Translucent
-  Alpha 0.6
-  +NOBLOCKMAP
-  +MISSILE
-  +NOTELEPORT
-  +DONTSPLASH
-  +NOICEDEATH
-  States
-  {
-  Spawn:
-    TSR2 ADB 4
-    TSR2 C 4
-    TSR2 ADB 4
-    TSR2 C 4 A_Jump (24, "DeathA")
-    TSR2 ADB 4
-    TSR2 C 4
-    TSR2 ADB 4
-    TSR2 C 4 A_Jump (24, "DeathB")
-    Loop
-  DeathA:
-    TSR2 C 5 A_Jump (80, "DeathA2")
-    NULL A 1
-    Stop
-  DeathB:
-    TSR2 D 5 A_Jump (80, "DeathB2")
-    NULL A 1
-    Stop
-  DeathA2:
-    TSR2 C 3 A_Jump (24, "DeathA2")
-    NULL A 1
-    Stop
-  DeathB2:
-    TSR2 D 5 A_Jump (24, "DeathB2")
-    NULL A 1
-    Stop
+	Radius 2
+	Height 4
+	Speed 2
+	Mass 1
+	RenderStyle Translucent
+	Alpha 0.6
+	+NOBLOCKMAP
+	+MISSILE
+	+NOTELEPORT
+	+DONTSPLASH
+	+NOICEDEATH
+	States
+	{
+	Spawn:
+		TSR2 ADB 4
+		TSR2 C 4
+		TSR2 ADB 4
+		TSR2 C 4 A_Jump (24, "DeathA")
+		TSR2 ADB 4
+		TSR2 C 4
+		TSR2 ADB 4
+		TSR2 C 4 A_Jump (24, "DeathB")
+		Loop
+	DeathA:
+		TSR2 C 5 A_Jump (80, "DeathA2")
+		NULL A 1
+		Stop
+	DeathB:
+		TSR2 D 5 A_Jump (80, "DeathB2")
+		NULL A 1
+		Stop
+	DeathA2:
+		TSR2 C 3 A_Jump (24, "DeathA2")
+		NULL A 1
+		Stop
+	DeathB2:
+		TSR2 D 5 A_Jump (24, "DeathB2")
+		NULL A 1
+		Stop
 }}
 
 ///////////FOODS///////////////
-
-Actor burger1 10438
+Actor Burger1 10438
 {
 	//$Category WDI Props
 	//$Sprite BRGRA0
 	//$Title "Burger"
-  Mass 1
-  Radius 4
-  Height 6
-  Scale 0.6
-  +SOLID
-  States
-  {
-   Spawn:
-    BRGR A -1
-    Stop
+	Mass 1
+	Radius 4
+	Height 6
+	Scale 0.6
+	+SOLID
+	States
+	{
+	Spawn:
+		BRGR A -1
+		Stop
 }}
 
-Actor burger2 10439
+Actor Burger2 10439
 {
 	//$Category WDI Props
 	//$Sprite BRGRB0
 	//$Title "Burger Double"
-  Mass 1
-  Radius 4
-  Height 6
-  Scale 0.6
-  +SOLID
-  States
-  {
-   Spawn:
-    BRGR B -1
-    Stop
+	Mass 1
+	Radius 4
+	Height 6
+	Scale 0.6
+	+SOLID
+	States
+	{
+	Spawn:
+		BRGR B -1
+		Stop
 }}
 
-Actor burger3 10440
+Actor Burger3 10440
 {
 	//$Category WDI Props
 	//$Sprite BRGRC0
 	//$Title "Burger Triple"
-  Mass 1
-  Radius 4
-  Height 8
-  Scale 0.6
-  +SOLID
-  States
-  {
-   Spawn:
-    BRGR C -1
-    Stop
+	Mass 1
+	Radius 4
+	Height 8
+	Scale 0.6
+	+SOLID
+	States
+	{
+	Spawn:
+		BRGR C -1
+		Stop
 }}
 
-Actor burger4 10441
+Actor Burger4 10441
 {
 	//$Category WDI Props
 	//$Sprite BRGRD0
 	//$Title "Burger (Wrapped)"
-  Mass 1
-  Radius 4
-  Height 6
-  Scale 0.6
-  +SOLID
-  States
-  {
-   Spawn:
-    BRGR D -1
-    Stop
+	Mass 1
+	Radius 4
+	Height 6
+	Scale 0.6
+	+SOLID
+	States
+	{
+	Spawn:
+		BRGR D -1
+		Stop
 }}
 
-Actor fries1 10442
+Actor Fries1 10442
 {
 	//$Category WDI Props
 	//$Sprite FRESA0
 	//$Title "Fries"
-  Mass 1
-  Radius 3
-  Height 7
-  Scale 0.6
-  +SOLID
-  States
-  {
-   Spawn:
-    FRES A -1
-    Stop
+	Mass 1
+	Radius 3
+	Height 7
+	Scale 0.6
+	+SOLID
+	States
+	{
+	Spawn:
+		FRES A -1
+		Stop
 }}
 
-Actor fries2 10443
+Actor Fries2 10443
 {
 	//$Category WDI Props
 	//$Sprite FRESB0
 	//$Title "Fries (Empty)"
-  Mass 1
-  Radius 3
-  Height 6
-  Scale 0.6
-  +SOLID
-  States
-  {
-   Spawn:
-    FRES B -1
-    Stop
+	Mass 1
+	Radius 3
+	Height 6
+	Scale 0.6
+	+SOLID
+	States
+	{
+	Spawn:
+		FRES B -1
+		Stop
 }}
 
-Actor drink 10444
+Actor Drink 10444
 {
 	//$Category WDI Props
 	//$Sprite DRNKA0
 	//$Title "Drink"
-  Mass 1
-  Radius 2
-  Height 7
-  Scale 0.6
-  +SOLID
-  States
-  {
-   Spawn:
-    DRNK A -1
-    Stop
+	Mass 1
+	Radius 2
+	Height 7
+	Scale 0.6
+	+SOLID
+	States
+	{
+	Spawn:
+		DRNK A -1
+		Stop
 }}
 
-Actor donuts 10448
+Actor Donuts 10448
 {
 	//$Category WDI Props
 	//$Sprite DNTSA0
 	//$Title "Donuts"
-  Mass 1
-  Radius 5
-  Height 5
-  Scale 0.3
-  +SOLID
-  States
-  {
-   Spawn:
-    DNTS A -1
-    Stop
+	Mass 1
+	Radius 5
+	Height 5
+	Scale 0.3
+	+SOLID
+	States
+	{
+	Spawn:
+		DNTS A -1
+		Stop
 }}
 
 //BOXES
-
-Actor dbox 10449
+Actor Dbox 10449
 {
 	//$Category WDI Props
 	//$Sprite DBOXA0
 	//$Title "The DBOX"
-  Mass 1
-  Radius 6
-  Height 8
-  +SOLID
-  States
-  {
-   Spawn:
-    DBOX A -1
-    Stop
+	Mass 1
+	Radius 6
+	Height 8
+	+SOLID
+	States
+	{
+	Spawn:
+		DBOX A -1
+		Stop
 }}
 
 //chairs
 Actor CompChair 3247
 {
-//$Category WDI Props
-    Health 520
-    Radius 10
-    Height 36
+	//$Category WDI Props
+	Health 520
+	Radius 10
+	Height 36
 	Scale 0.8
-    Mass 90
-    +SOLID
-    +SHOOTABLE
-    +NOBLOOD
+	Mass 90
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
 	//+SLIDESONWALLS
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-  States
-  {
-  Spawn:
-    CHIR A -1
-    Stop
-  Death:
-    CHIR A -1 A_NoBlocking
-    Goto Spawn
+	States
+	{
+	Spawn:
+		CHIR A -1
+		Stop
+	Death:
+		CHIR A -1 A_NoBlocking
+		Goto Spawn
 }}
 
 //potsssssssss
-
 Actor PotA 31998 {
-+SOLID
-+SHOOTABLE
-+NOBLOOD
-+SLIDESONWALLS
-+PUSHABLE
-+NOICEDEATH
-Health 10
-	DamageFActor "Gas", 0.0
-	DamageFActor "FlareEffect", 0.0
-Speed 10
-Radius 10
-Height 20
-  //$Category WDI Props
-  //$Sprite POT1A0
-  //$Title "Pot 1 (Breakable)"
-States {
-Spawn:
-POT1 A -1
-Stop
-Death:
-POT1 A 1 A_PlaySound("pot/break")
-POT1 A 1 A_Burst("PotBits") 
-Stop
+	//$Category WDI Props
+	//$Sprite POT1A0
+	//$Title "Pot 1 (Breakable)"
+	Radius 10
+	Height 20
+	Health 10
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	Speed 10
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+SLIDESONWALLS
+	+PUSHABLE
+	+NOICEDEATH
+	States {
+	Spawn:
+		POT1 A -1
+		Stop
+	Death:
+		POT1 A 1 A_PlaySound("Pot/Break")
+		POT1 A 1 A_Burst("PotBits")
+		Stop
 }}
 
 Actor PotB : PotA 31997 {
-  //$Category WDI Props
-  //$Sprite POT2A0
-  //$Title "Pot 2 (Breakable)"
-States {
-Spawn:
-POT2 A -1
-Stop
-Death:
-POT2 A 1 A_PlaySound("pot/break")
-POT2 A 1 A_Burst("PotBits") 
-Stop
+	//$Category WDI Props
+	//$Sprite POT2A0
+	//$Title "Pot 2 (Breakable)"
+	States {
+	Spawn:
+		POT2 A -1
+		Stop
+	Death:
+		POT2 A 1 A_PlaySound("Pot/Break")
+		POT2 A 1 A_Burst("PotBits")
+		Stop
 }}
 
 Actor PotC : PotA 31996 {
-  //$Category WDI Props
-  //$Sprite POT3A0
-  //$Title "Pot 3 (Breakable)"
-States {
-Spawn:
-POT3 A -1
-Stop
-Death:
-POT3 A 1 A_PlaySound("pot/break")
-POT3 A 1 A_Burst("PotBits") 
-Stop
+	//$Category WDI Props
+	//$Sprite POT3A0
+	//$Title "Pot 3 (Breakable)"
+	States {
+	Spawn:
+		POT3 A -1
+		Stop
+	Death:
+		POT3 A 1 A_PlaySound("Pot/Break")
+		POT3 A 1 A_Burst("PotBits")
+		Stop
 }}
 
 Actor PotD : PotA 31979 {
-  //$Category WDI Props
-  //$Sprite POT4A0
-  //$Title "Pot 4 (Breakable)"
-States {
-Spawn:
-POT4 A -1
-Stop
-Death:
-POT4 A 1 A_PlaySound("pot/break")
-POT4 A 1 A_Burst("PotBits") 
-Stop
+	//$Category WDI Props
+	//$Sprite POT4A0
+	//$Title "Pot 4 (Breakable)"
+	States {
+	Spawn:
+		POT4 A -1
+		Stop
+	Death:
+		POT4 A 1 A_PlaySound("Pot/Break")
+		POT4 A 1 A_Burst("PotBits")
+		Stop
 }}
 
 Actor PotE : PotA 31980 {
-  //$Category WDI Props
-  //$Sprite VASEA0
-  //$Title "Pot 5 (Breakable)"
-States {
-Spawn:
-VASE A -1
-Stop
-Death:
-VASE A 1 A_PlaySound("pot/break")
-VASE A 1 A_Burst("PotBits") 
-Stop
+	//$Category WDI Props
+	//$Sprite VASEA0
+	//$Title "Pot 5 (Breakable)"
+	States {
+	Spawn:
+		VASE A -1
+		Stop
+	Death:
+		VASE A 1 A_PlaySound("Pot/Break")
+		VASE A 1 A_Burst("PotBits")
+		Stop
 }}
 
 Actor PotF : PotA  3262 {
-  //$Category WDI Props
-  //$Sprite VASEB0
-  //$Title "Pot 6 (Breakable)"
-States {
-Spawn:
-VASE B -1
-Stop
-Death:
-VASE B 1 A_PlaySound("pot/break")
-VASE B 1 A_Burst("PotBits") 
-Stop
+	//$Category WDI Props
+	//$Sprite VASEB0
+	//$Title "Pot 6 (Breakable)"
+	States {
+	Spawn:
+		VASE B -1
+		Stop
+	Death:
+		VASE B 1 A_PlaySound("Pot/Break")
+		VASE B 1 A_Burst("PotBits")
+		Stop
 }}
 
 Actor Bottle 31981 {
-+NOCLIP
-+NOINTERACTION
-  //$Category WDI Props
-  //$Sprite WATRA0
-  //$Title "Bottle"
-States {
-Spawn:
-WATR A -1 
-Stop
+	//$Category WDI Props
+	//$Sprite WATRA0
+	//$Title "Bottle"
+	+NOCLIP
+	+NOINTERACTION
+	States {
+	Spawn:
+		WATR A -1
+		Stop
 }}
 
 Actor PotBits {
-+DOOMBOUNCE
-gravity 2.0
-bouncecount 5
-reactiontime 30
-Speed 12
-States {
-Spawn:
-ROCK E 1 A_Jump(255, "One", "Two", "Three")
-One:
-ROCK E 4 A_Countdown
-loop
-Two:
-ROCK F 4 A_Countdown
-loop
-Three:
-ROCK G 4 A_Countdown
-loop
-Death:
-Stop
+	Speed 12
+	Gravity 2.0
+	BounceCount 5
+	ReactionTime 30
+	+DOOMBOUNCE
+	States {
+	Spawn:
+		ROCK E 1 A_Jump(255, "One", "Two", "Three")
+	One:
+		ROCK E 4 A_CountDown
+		Loop
+	Two:
+		ROCK F 4 A_CountDown
+		Loop
+	Three:
+		ROCK G 4 A_CountDown
+		Loop
+	Death:
+		Stop
 }}
 
 Actor DoomDoll 31899
 {
- //$Category WDI Props
-  States
-  {
-  Spawn:
-    DDOL A -1
-    Stop
-  }
-}
+	//$Category WDI Props
+	States
+	{
+	Spawn:
+		DDOL A -1
+		Stop
+}}
 
-Actor Nethertree 30007 
+Actor Nethertree 30007
 {
-  //$Category WDI Props
-  //$Title "Nether Tree"
-  +SOLID
-Height 48
-Radius 16
-States {
-Spawn:
-NHTR C -1
-Stop
+	//$Category WDI Props
+	//$Title "Nether Tree"
+	Height 48
+	Radius 16
+	+SOLID
+	States {
+	Spawn:
+		NHTR C -1
+		Stop
 }}
 
 Actor Netherbeer 30008
 {
-	-SOLID
+	//$Category WDI Props
+	//$Title "Nether beer bottle"
 	Radius 8
 	Height 18
-  //$Category WDI Props
-  //$Title "Nether beer bottle"
+	-SOLID
 	States
 	{
 	Spawn:
 		NHBR A -1
 		Stop
-	}
-}
+}}
 
 Actor SICALAMP 3255 {
-  //$Category WDI Props
-+SOLID
-+NOGRAVITY
-+SPAWNCEILING
-Scale 0.2
-Radius 2
-Height 2
-States {
-Spawn:
-LAM1 A -1
-Stop
+	//$Category WDI Props
+	Radius 2
+	Height 2
+	Scale 0.2
+	+SOLID
+	+NOGRAVITY
+	+SPAWNCEILING
+	States {
+	Spawn:
+		LAM1 A -1
+		Stop
 }}
 
 Actor SICAMIC 3256 {
-  //$Category WDI Props
-+SOLID
-+NOGRAVITY
-
-Scale 1
-Radius 2
-Height 2
-States {
-Spawn:
-MIC1 A -1
-Stop
+	//$Category WDI Props
+	Radius 2
+	Height 2
+	Scale 1
+	+SOLID
+	+NOGRAVITY
+	States {
+	Spawn:
+		MIC1 A -1
+		Stop
 }}
 
 Actor SICALAMP2 3257 {
-  //$Category WDI Props
-+SOLID
-+NOGRAVITY
-
-Scale 0.2
-Radius 2
-Height 2
-States {
-Spawn:
-LAM1 A -1
-Stop
+	//$Category WDI Props
+	Radius 2
+	Height 2
+	Scale 0.2
+	+SOLID
+	+NOGRAVITY
+	States {
+	Spawn:
+		LAM1 A -1
+		Stop
 }}

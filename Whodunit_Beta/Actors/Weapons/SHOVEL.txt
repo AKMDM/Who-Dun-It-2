@@ -2,26 +2,25 @@
 /////////////////////     SHOVEL    ///////////////////////////////
 //=================================================================
 //Sprites and Sounds by Marty Kirra, code by Firewolf
-
 Actor FakeShovel : CustomInventory 30074
 {
-  //$Category WDI Weapons
-  //$Sprite SHOVA0
-  //$Title "Shovel"
+	//$Category WDI Weapons
+	//$Sprite SHOVA0
+	//$Title "Shovel"
 	Radius 16
 	Height 8
 	Scale 0.48
 	Inventory.PickupMessage "Found a Shovel. Classy!"
-	Inventory.RespawnTics 10500 //5 Minutes
+	Inventory.Respawntics 10500 //5 Minutes
 	States
 	{
 	Spawn:
 		SHOV A -1
 		Stop
-	Pickup: 
-		SHOV A 0 
+	Pickup:
+		SHOV A 0
 		SHOV A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		SHOV A 0 A_PlaySound("pickups/weapon")
+		SHOV A 0 A_PlaySound("Pickups/Weapon")
 		SHOV A 0 A_GiveInventory("Shovel",1)
 		SHOV A 0 A_GiveInventory("Slot1Filled",1)
 		SHOV A 1 ACS_ExecuteAlways(670,0,14)
@@ -29,7 +28,7 @@ Actor FakeShovel : CustomInventory 30074
 	NotPickup:
 		SHOV A 0
 		SHOV A 1 ACS_ExecuteAlways(670,0,14)
-		Fail						  
+		Fail
 }}
 
 Actor Shovel : Weapon
@@ -38,79 +37,71 @@ Actor Shovel : Weapon
 	Height 32
 	Scale 0.48
 	Inventory.PickupMessage "Found a Shovel. Classy!"
-	Weapon.preferredSkin "ShovelSkin"
+	Weapon.PreferredSkin "ShovelSkin"
 	Weapon.SelectionOrder 2200
 	+WEAPON.MELEEWEAPON
 	+WEAPON.NOAUTOFIRE
 	+INVENTORY.UNDROPPABLE
-   +NOAUTOAIM
-	
+	+NOAUTOAIM
 	States
 	{
 	Spawn:
 		SHOV A 0
 		Goto Death
-	Pickup: 
-	
+	Pickup:
 	Select:
 		SHLR ABC 2
 		Goto Ready
-		
 	Deselect:
 		SHLG A 1 A_Lower
 		Loop
-		
 	Ready:
 		SHLG A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
 		SHLG A 1 A_WeaponReady
 		Loop
-		
 	DropWeapon:
 		SHLG A 0
 		SHLG A 1
 		SHLG A 0 A_TakeInventory("IsDropping",1)
 		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
-       Goto Ready
-		
+		Goto Ready
 	Fire:
 		SHLR CBA 2
 		TNT1 A 3
-		TNT1 A 1 A_Refire
-        SHLR ABC 1
+		TNT1 A 1 A_ReFire
+		SHLR ABC 1
 		SHLG ABC 1
 		SHLG DE 1 A_CustomPunch(19, 1, 1, "ShovelPuff", 72)
 		SHLG FGHI 1
 		TNT1 A 16
 		SHLR ABC 2
 		Goto Ready
-
-        Hold:
-	    TNT1 A 1
-		TNT1 A 1 A_Refire
-        SHLR ABC 1
+	Hold:
+		TNT1 A 1
+		TNT1 A 1 A_ReFire
+		SHLR ABC 1
 		SHLG ABC 1
 		SHLG DE 1 A_CustomPunch(16, 1, 1, "ShovelPuff", 72)
 		SHLG FGHI 1
 		TNT1 A 16
 		SHLR ABC 2
 		Goto Ready
-		
 	Death:
-	   POOL A 0 A_SpawnItem("DroppedShovel",0,0,0,0)
-	   TNT1 A 0 A_FadeOut(1.0)
-	   Goto death + 1
+		POOL A 0 A_SpawnItem("DroppedShovel",0,0,0,0)
+		TNT1 A 0 A_FadeOut(1.0)
+		Goto Death + 1
 }}
 
 Actor DroppedShovel
 {
-	PROJECTILE
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
 	Scale 0.48
-	DeathSound "shovel/wall"
+	DeathSound "Shovel/Wall"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:
@@ -124,25 +115,25 @@ Actor DroppedShovel
 
 Actor ShovelPuff
 {
-  DamageType "ShovelMelee"
-  +NOBLOCKMAP
-  +NOGRAVITY
-  +PUFFONActorS
-  activesound "shovel/swing"
-  attacksound "shovel/wall"
-  seesound "shovel/hit"
-  States
-  {
-  Spawn:
-    TNT1 A 0
-    TNT1 A 1
-    Stop
-  Crash:
-  	TNT1 A 0
-  	TNT1 A 1
-  	Stop
-  Melee:
-  	TNT1 A 0
-  	TNT1 A 1
-  	Stop
+	DamageType "ShovelMelee"
+	ActiveSound "Shovel/Swing"
+	AttackSound "Shovel/Wall"
+	SeeSound "Shovel/Hit"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		Stop
+	Crash:
+		TNT1 A 0
+		TNT1 A 1
+		Stop
+	Melee:
+		TNT1 A 0
+		TNT1 A 1
+		Stop
 }}

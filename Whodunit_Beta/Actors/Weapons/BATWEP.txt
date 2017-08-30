@@ -3,22 +3,22 @@
 //=================================================================
 Actor FakeBat : CustomInventory 22473
 {
-//$Category WDI Weapons
-//$Title "Bat"
+	//$Category WDI Weapons
+	//$Title "Bat"
 	Radius 16
 	Height 8
 	Scale 0.55
-	Inventory.PickupMessage "Found a baseball bat" 
-	Inventory.RespawnTics 3150 //1 minute 30 seconds
+	Inventory.PickupMessage "Found a baseball bat"
+	Inventory.Respawntics 3150 //1 minute 30 seconds
 	States
 	{
 	Spawn:
 		BBAT A -1
 		Stop
-	Pickup: 
-		BBAT A 0 
+	Pickup:
+		BBAT A 0
 		BBAT A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		BBAT A 0 A_PlaySound("pickups/weapon")
+		BBAT A 0 A_PlaySound("Pickups/Weapon")
 		BBAT A 0 A_GiveInventory("BaseballBat",1)
 		BBAT A 0 A_GiveInventory("Slot1Filled",1)
 		BBAT A 1 ACS_Execute(669,0,13)
@@ -26,27 +26,27 @@ Actor FakeBat : CustomInventory 22473
 	NotPickup:
 		BBAT A 0
 		BBAT A 1 ACS_Execute(669,0,13)
-		Fail						  
+		Fail
 }}
 
 Actor FakeBatY : CustomInventory 22474
 {
-//$Category WDI Weapons
-//$Title "Bat (Standing)"
+	//$Category WDI Weapons
+	//$Title "Bat (Standing)"
 	Radius 8
 	Height 16
 	Scale 0.55
-	Inventory.PickupMessage "Found a baseball bat" 
-	Inventory.RespawnTics 3150 //1 minute 30 seconds
+	Inventory.PickupMessage "Found a baseball bat"
+	Inventory.Respawntics 3150 //1 minute 30 seconds
 	States
 	{
 	Spawn:
 		BBYT A -1
 		Stop
-	Pickup: 
-		BBYT A 0 
+	Pickup:
+		BBYT A 0
 		BBYT A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		BBYT A 0 A_PlaySound("pickups/weapon")
+		BBYT A 0 A_PlaySound("Pickups/Weapon")
 		BBYT A 0 A_GiveInventory("BaseballBat",1)
 		BBYT A 0 A_GiveInventory("Slot1Filled",1)
 		BBYT A 1 ACS_Execute(669,0,13)
@@ -54,7 +54,7 @@ Actor FakeBatY : CustomInventory 22474
 	NotPickup:
 		BBYT A 0
 		BBYT A 1 ACS_Execute(669,0,13)
-		Fail						  
+		Fail
 }}
 
 Actor BaseballBat : Weapon
@@ -62,8 +62,8 @@ Actor BaseballBat : Weapon
 	Radius 8
 	Height 32
 	Scale 0.55
-	Inventory.PickupMessage "Found a baseball bat."
 	Weapon.SelectionOrder 2200
+	Inventory.PickupMessage "Found a baseball bat."
 	+WEAPON.MELEEWEAPON
 	+WEAPON.NOAUTOFIRE
 	+INVENTORY.UNDROPPABLE
@@ -71,27 +71,24 @@ Actor BaseballBat : Weapon
 	{
 	Spawn:
 		BBAT A 0
-		goto Death
-	Pickup: 
-	
+		Goto Death
+	Pickup:
 	Select:
 		BSBT A 1 A_Raise
 		Loop
-		
 	Deselect:
 		BSBT A 1 A_Lower
 		Loop
-		
 	Ready:
 		BSBT A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
 		BSBT A 1 A_WeaponReady
 		Loop
-   	DropWeapon:
+	DropWeapon:
 		BSBT A 0
 		BSBT A 1
 		BSBT A 0 A_TakeInventory("IsDropping",1)
 		TNT1 A 0 ACS_ExecuteAlways(667,0,0,0,0)
-       		Goto Ready
+		Goto Ready
 	Fire:
 		BSBT A 0 A_JumpIfInventory("PipeSeq",2,"Fire3")
 		BSBT A 0 A_JumpIfInventory("PipeSeq",1,"Fire2")
@@ -110,7 +107,7 @@ Actor BaseballBat : Weapon
 		BSBT I 1 Offset(-19,94)
 		TNT1 AAAAAAAAAAAA 1 A_WeaponReady
 		BSBT C 1 A_TakeInventory("PipeSeq",999)
-		BSBT BA 1 
+		BSBT BA 1
 		Goto Ready
 	Hold:
 		TNT1 A 1
@@ -129,7 +126,7 @@ Actor BaseballBat : Weapon
 		TNT1 A 2
 		TNT1 AAAAAAAAAAAA 1 A_WeaponReady
 		BSBT C 1 A_TakeInventory("PipeSeq",999)
-		BSBT BA 1 
+		BSBT BA 1
 		Goto Ready
 	Fire2:
 		TNT1 A 10 A_GiveInventory("PipeSeq",1)
@@ -157,46 +154,46 @@ Actor BaseballBat : Weapon
 		BSBT BA 1
 		Goto Ready
 	Death:
-	   	BBAT A 0 A_SpawnItem("DroppedBat",0,0,0,0)
-	   	TNT1 A 0 A_FadeOut(1.0)
-	   	goto death + 1
+		BBAT A 0 A_SpawnItem("DroppedBat",0,0,0,0)
+		TNT1 A 0 A_FadeOut(1.0)
+		Goto Death + 1
 }}
 
 Actor BatPuff
 {
-  	DamageType "friendlymelee"
-  	+NOBLOCKMAP
-  	+NOGRAVITY
-  	+PUFFONActorS
-  	activesound "cue/swing"
-  	AttackSound "bat/hitwall"
-  	seesound "bat/hitwall"
-  	States
-  	{
-  	Spawn:
-    		TNT1 A 0
-    		TNT1 A 1
-    		stop
-  	Crash:
-  		TNT1 A 0
-  		POOF ABCDE 2
-  		stop
-  	Melee:
-  		TNT1 A 0
-  		POOF ABCDE 2
-  		stop
+	DamageType "Friendlymelee"
+	ActiveSound "Cue/Swing"
+	AttackSound "Bat/Hitwall"
+	SeeSound "Bat/Hitwall"
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		Stop
+	Crash:
+		TNT1 A 0
+		POOF ABCDE 2
+		Stop
+	Melee:
+		TNT1 A 0
+		POOF ABCDE 2
+		Stop
 }}
 
 Actor DroppedBat
 {
-	PROJECTILE
-	-NOGRAVITY
-	Damage 0
 	Radius 16
 	Height 8
+	Damage 0
 	Speed 9
 	Scale 0.55
-	DeathSound "bat/hitwall"
+	DeathSound "Bat/Hitwall"
+	Projectile
+	-NOGRAVITY
 	States
 	{
 	Spawn:

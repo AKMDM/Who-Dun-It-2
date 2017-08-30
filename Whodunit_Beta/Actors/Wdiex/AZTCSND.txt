@@ -1,136 +1,115 @@
-
 Actor SND_CALENDAR 29218
 {
 	//$Category Aztec_map_ONLY
 	//$Sprite WDISA0
-    +NOINTERACTION
-    //+CLIENTSIDEONLY
-   
-    States
-    {
-      Spawn:
-        TNT1 A 0
-        TNT1 A -1 A_PlaySound("AZCALENDAR", CHAN_BODY, 1, 1)
-        Stop
-//Deactive:
-    //TNT1 A 0
-    //TNT1 A -1 A_PlaySound("AZCEREMONIALNIYCENTR", CHAN_BODY, 1, 1)
-    //Wait
-    }
-}
-
+	+NOINTERACTION
+	//+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A -1 A_PlaySound("AZCALENDAR",CHAN_BODY, 1, 1)
+		Stop
+		//Deactive:
+		//TNT1 A 0
+		//TNT1 A -1 A_PlaySound("AZCEREMONIALNIYCENTR",CHAN_BODY, 1, 1)
+		//Wait
+}}
 
 Actor SND_DEREVNYA 29220
 {
 	//$Category Aztec_map_ONLY
 	//$Sprite WDISA0
-    +NOINTERACTION
-    //+CLIENTSIDEONLY
-   
-    States
-    {
-      Spawn:
-        TNT1 A 0
-        TNT1 A -1 A_PlaySound("AZDEREVUSHECHKA", CHAN_BODY, 1, 1)
-        Stop
-    }
-}
+	+NOINTERACTION
+	//+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A -1 A_PlaySound("AZDEREVUSHECHKA",CHAN_BODY, 1, 1)
+		Stop
+}}
 
 Actor SND_DVOREC 29221
 {
 	//$Category Aztec_map_ONLY
 	//$Sprite WDISA0
-    +NOINTERACTION
-    //+CLIENTSIDEONLY
-   
-    States
-    {
-      Spawn:
-        TNT1 A 0
-        TNT1 A -1 A_PlaySound("AZDVORCOVIEINTRIGI", CHAN_BODY, 1, 1)
-        Stop
-    }
-}
-
-
+	+NOINTERACTION
+	//+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A -1 A_PlaySound("AZDVORCOVIEINTRIGI",CHAN_BODY, 1, 1)
+		Stop
+}}
 
 Actor SND_WATER1 29224
 {
 	//$Category Aztec_map_ONLY
 	//$Sprite WDISA0
-    +NOINTERACTION
-    //+CLIENTSIDEONLY
-   
-    States
-    {
-      Spawn:
-        TNT1 A 0
-        TNT1 A -1 A_PlaySound("AZSND011", CHAN_BODY, 1, 1)
-        Stop
-    }
-}
-
+	+NOINTERACTION
+	//+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A -1 A_PlaySound("AZSND011",CHAN_BODY, 1, 1)
+		Stop
+}}
 
 Actor SND_DEEPFOREST 29226
 {
 	//$Category Aztec_map_ONLY
 	//$Sprite WDISA0
-    +NOINTERACTION
-    //+CLIENTSIDEONLY
-   
-    States
-    {
-      Spawn:
-        TNT1 A 0
-        TNT1 A -1 A_PlaySound("AZSND013", CHAN_BODY, 1, 1)
-        Stop
-    }
-}
+	+NOINTERACTION
+	//+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A -1 A_PlaySound("AZSND013",CHAN_BODY, 1, 1)
+		Stop
+}}
 
 Actor SND_WARHEADSTORAGE 29229
 {
 	//$Category Aztec_map_ONLY
 	//$Sprite WDISA0
-    +NOINTERACTION
-    //+CLIENTSIDEONLY
-   
-    States
-    {
-      Spawn:
-        TNT1 A 0
-        TNT1 A -1 A_PlaySound("MGS_WARH", CHAN_BODY, 1, 1)
-        Stop
-    }
-}
+	+NOINTERACTION
+	//+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A -1 A_PlaySound("MGS_WARH",CHAN_BODY, 1, 1)
+		Stop
+}}
 
 Actor SND_MGSNINJA 29230
 {
 	//$Category Aztec_map_ONLY
 	//$Sprite WDISA0
-    +NOINTERACTION
-    //+CLIENTSIDEONLY
-   
-    States
-    {
-      Spawn:
-        TNT1 A 0
-        TNT1 A -1 A_PlaySound("MGSNINJA", CHAN_BODY, 1, 1)
-        Stop
-    }
-}
+	+NOINTERACTION
+	//+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A -1 A_PlaySound("MGSNINJA",CHAN_BODY, 1, 1)
+		Stop
+}}
 
 Actor SND_WATCHING 29231
 {
 	//$Category Aztec_map_ONLY
 	//$Sprite WDISA0
-    +NOINTERACTION
-    //+CLIENTSIDEONLY
-   
-    States
-    {
-      Spawn:
-        TNT1 A 0
-        TNT1 A -1 A_PlaySound("SH4JOSEF", CHAN_BODY, 1, 1)
-        Stop
-    }
-}
+	+NOINTERACTION
+	//+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A -1 A_PlaySound("SH4JOSEF",CHAN_BODY, 1, 1)
+		Stop
+}}

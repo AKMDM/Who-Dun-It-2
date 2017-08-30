@@ -1,28 +1,27 @@
 //===========================================
-//Lol friendly fire hacks.
+//Lol friendly Fire hacks.
 //For guns.
 Actor FFBulletPuff : BulletPuff
 {
-DamageType "friendlygun"
-Decal "BulletChip"
+	DamageType "Friendlygun"
+	Decal "BulletChip"
 }
 
-//For melee attacks. 
+//For Melee attacks.
 Actor FMBulletPuff : BulletPuff
 {
-DamageType "friendlymelee"
+	DamageType "Friendlymelee"
 }
 
-//This fixes the fist damage
+//This fixes the fist Damage
 Actor FMBulletPuff2 : BulletPuff
 {
 }
 
 Actor FMSawPuff : BulletPuff
 {
-DamageType "SawMelee"
+	DamageType "SawMelee"
 }
-
 
 //Weapon slot hacks (Wildweasel)
 Actor IsDropping : Inventory
@@ -32,31 +31,27 @@ Actor IsDropping : Inventory
 
 Actor Action_DropWeapon : CustomInventory
 {
-   Inventory.Amount 1
-   Inventory.MaxAmount 1
-   -INVBAR
-
-   States
-   {
-       	Use:
-       		TNT1 A 0 A_GiveInventory("IsDropping",1)
-       		Fail
-   }
-}
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	-INVBAR
+	States
+	{
+	Use:
+		TNT1 A 0 A_GiveInventory("IsDropping",1)
+		Fail
+}}
 
 Actor Action_DropWeaponCancel : CustomInventory
 {
-   Inventory.Amount 1
-   Inventory.MaxAmount 1
-   -INVBAR
-
-   States
-   {
-       	Use:
-       		TNT1 A 0 A_TakeInventory("IsDropping",1)
-       		Fail
-   }
-}
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	-INVBAR
+	States
+	{
+	Use:
+		TNT1 A 0 A_TakeInventory("IsDropping",1)
+		Fail
+}}
 
 Actor Slot1Filled : Inventory //Melee
 {
@@ -75,8 +70,8 @@ Actor GunSpawner : RandomSpawner 32050
 	//$Category WDI Weapons
 	//$Sprite TNT1A0
 	//$Title "Gun Spawner BSN"
-	DropItem "FakeBeretta" 
-	DropItem "FakeShotgun" 
+	DropItem "FakeBeretta"
+	DropItem "FakeShotgun"
 	DropItem "ABigNothing"
 }
 
@@ -85,9 +80,9 @@ Actor MeleeSpawner : RandomSpawner 32051
 	//$Category WDI Weapons
 	//$Sprite TNT1A0
 	//$Title "Melee Spawner WPN"
-	DropItem "FakeWrench" 
+	DropItem "FakeWrench"
 	DropItem "FakePipe"
-	DropItem "ABigNothing" 
+	DropItem "ABigNothing"
 }
 
 Actor AmmoSpawner : RandomSpawner 32060
@@ -96,7 +91,7 @@ Actor AmmoSpawner : RandomSpawner 32060
 	//$Sprite TNT1A0
 	//$Title "Ammo Spawner BS"
 	DropItem "NewShell"
-   	DropItem "NewShell"
+	DropItem "NewShell"
 	DropItem "NewShell"
 	DropItem "PistolClip"
 	DropItem "PistolClip"
@@ -109,10 +104,10 @@ Actor PlankSpawner : RandomSpawner 6867
 	//$Sprite PLANK0
 	//$Title "Plank Spawner"
 	Scale 0.5
-	DropItem "FakePlank" 
-	DropItem "FakePlank" 
-	DropItem "FakeNailedPlank" 
-	DropItem "ABigNothing" 
+	DropItem "FakePlank"
+	DropItem "FakePlank"
+	DropItem "FakeNailedPlank"
+	DropItem "ABigNothing"
 }
 
 Actor TwigSpawner : RandomSpawner 6866
@@ -121,8 +116,8 @@ Actor TwigSpawner : RandomSpawner 6866
 	//$Sprite TWIGZ0
 	//$Title "Twig Spawner"
 	Scale 0.35
-	DropItem "FakeTwig" 
-	DropItem "ABigNothing" 
+	DropItem "FakeTwig"
+	DropItem "ABigNothing"
 }
 
 ///////WDIEX////////////////////////
@@ -132,17 +127,17 @@ Actor GunSpawnerX : RandomSpawner 32555
 	//$Category Marsis_map_ONLY
 	//$Sprite TNT1A0
 	//$Title "Gun Spawner BS"
-    DropItem "FakeBeretta" 
-	DropItem "FakeShotgun" 
+	DropItem "FakeBeretta"
+	DropItem "FakeShotgun"
 }
 
-// Always spawn
+// Always Spawn
 Actor GunSpawnerX2 : RandomSpawner 28351
 {
 	//$Category Marsis_map_ONLY
 	//$Sprite TNT1A0
 	//$Title "Gun Spawner BSCMN"
-    DropItem "FakeBeretta" 
+	DropItem "FakeBeretta"
 	DropItem "FakeShotgun"
 	DropItem "FakeCrossbow"
 	DropItem "FakeM1"
@@ -150,16 +145,15 @@ Actor GunSpawnerX2 : RandomSpawner 28351
 }
 
 //TORN
-
-// Always spawn
+// Always Spawn
 Actor GunSpawnerBSM : RandomSpawner 22780
 {
 	//$Category Retorn_map_ONLY
 	//$Sprite TNT1A0
 	//$Title "Gun Spawner BSM"
-    DropItem "FakeBeretta" 
+	DropItem "FakeBeretta"
 	DropItem "FakeShotgun"
-	DropItem "FakeM1" 
+	DropItem "FakeM1"
 }
 
 Actor AmmoSpawnerBSM : RandomSpawner 22781
@@ -171,7 +165,7 @@ Actor AmmoSpawnerBSM : RandomSpawner 22781
 	DropItem "NewShell"
 	DropItem "PistolClip"
 	DropItem "M1Ammo"
-	DropItem "ABigNothing" 
+	DropItem "ABigNothing"
 }
 
 Actor GunSpawnerBSM2 : RandomSpawner 22782
@@ -179,9 +173,9 @@ Actor GunSpawnerBSM2 : RandomSpawner 22782
 	//$Category Retorn_map_ONLY
 	//$Sprite TNT1A0
 	//$Title "Gun Spawner BSMN"
-    DropItem "FakeBeretta" 
+	DropItem "FakeBeretta"
 	DropItem "FakeShotgun"
-	DropItem "FakeM1" 
+	DropItem "FakeM1"
 	DropItem "ABigNothing"
 }
 
@@ -191,7 +185,7 @@ Actor SpraySpawner : RandomSpawner 22141
 	//$Sprite SPRYB0
 	//$Title "Spray Spawner"
 	Scale 0.5
-    DropItem "FakeSprayCanRED" 
+	DropItem "FakeSprayCanRED"
 	DropItem "FakeSprayCanBLU"
 	DropItem "FakeSprayCanYRED"
 	DropItem "FakeSprayCanYBLU"
