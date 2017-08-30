@@ -1,16 +1,17 @@
 //==================================================================
 ////////////////////////     SKINS        ////////////////////////
 //=================================================================
+
 {
 name = AxeSkin
-class = "Voice: Wimpy"
+class = "Voice: Thick"
 sprite = PLAX
 CrouchSprite = PLAX
 }
 
 {
 name = AxeSkin
-class = "Voice: Thick"
+class = "Voice: Wimpy"
 sprite = PLAX
 CrouchSprite = PLAX
 }
@@ -69,13 +70,6 @@ name = ChainsawSkin
 class = "Voice: Wimpy"
 sprite = PLA0
 CrouchSprite = PL8C
-}
-
-{
-name = ShovelSkin
-class = "Voice: Wimpy"
-sprite = PLSH
-CrouchSprite = PSHC 
 }
 
 {
@@ -83,6 +77,13 @@ name = ShovelSkin
 class = "Voice: Thick"
 sprite = PLSH
 CrouchSprite = PSHC
+}
+
+{
+name = ShovelSkin
+class = "Voice: Wimpy"
+sprite = PLSH
+CrouchSprite = PSHC 
 }
 
 {
