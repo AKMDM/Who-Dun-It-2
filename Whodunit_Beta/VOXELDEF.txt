@@ -32,3 +32,18 @@ POOLA = "POOLA"
 {
  AngleOffset = 270
 }
+
+SCUFB= "SCUFA"
+{
+ AngleOffset = 22
+}
+
+SCUFC= "SCUFA"
+{
+ AngleOffset = 45
+}
+
+SCUFD= "SCUFA"
+{
+ AngleOffset = 67
+}

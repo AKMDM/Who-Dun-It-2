@@ -924,6 +924,15 @@ Weapons/Fireextinguisher/Empty		 FIEXEMPT
 
 //Pick Axe
 PickAxe/Hit H_PKAXE
+
+//Magnum
+BTSIN             BTSIN
+BTSOUT          BTSOUT
+CYLOPEN         CYLOPEN
+CYLCLOSE        CYLCLOSE
+DISCHARG        DISCHARG
+HAMMER          HAMMER
+MCOKING         MCOKING
 //MONSTERS===============================================================
 
 $Volume Rat/1 0.6
