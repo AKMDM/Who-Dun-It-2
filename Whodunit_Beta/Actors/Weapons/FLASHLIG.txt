@@ -41,27 +41,26 @@ Actor FlashlightZ : Weapon
 	+INVENTORY.UNDROPPABLE
 	States
 	{
-	Pickup:
 	Ready:
-		FL01 A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		FLSG A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
 		FLSG A 1 A_WeaponReady
 		Loop
 	DropWeapon:
-		FL01 A 0
+		TNT1 A 0
 		FLSG A 1
-		FL01 A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 A_TakeInventory("IsDropping",1)
 		TNT1 A 0 ACS_ExecuteAlways(667,0,0,0,0)
 		Goto Ready
 	Deselect:
-		FL01 A 0 A_Lower
+		TNT1 A 0 A_Lower
 		FLSG A 1 A_Lower
 		Loop
 	Select:
-		FL01 A 0 A_Raise
+		TNT1 A 0 A_Raise
 		FLSG A 1 A_Raise
 		Loop
 	Fire:
-		FL03 A 0 A_Light0
+		TNT1 A 0 A_Light0
 		FLSG CDE 1
 		TNT1 A 4
 		FLSG FGH 1
@@ -74,13 +73,13 @@ Actor FlashlightZ : Weapon
 		FLSG A 1 A_ReFire
 		Goto Ready
 	AltFire:
-		FL01 A 0 A_SpawnItemEx("Lightbeam2", 96.0 * (cos(pitch) * 2), -6.0, (96.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
-		FL01 A 0 A_SpawnItemEx("Lightbeam2", 128.0 * (cos(pitch) * 2), -6.0, (128.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
-		FL01 A 0 A_SpawnItemEx("Lightbeam3", 160.0 * (cos(pitch) * 2), -6.0, (160.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
+		TNT1 A 0 A_SpawnItemEx("Lightbeam2", 96.0 * (cos(pitch) * 2), -6.0, (96.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
+		TNT1 A 0 A_SpawnItemEx("Lightbeam2", 128.0 * (cos(pitch) * 2), -6.0, (128.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
+		TNT1 A 0 A_SpawnItemEx("Lightbeam3", 160.0 * (cos(pitch) * 2), -6.0, (160.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
 		FLSG A 1 A_SpawnItemEx("Lightbeam3", 192.0 * (cos(pitch) * 2), -6.0, (192.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
 		Goto Ready
 	Death:
-		DHSP A 0 A_SpawnItem("DroppedFlashlightZ",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("DroppedFlashlightZ",0,0,0,0)
 		TNT1 A 0 A_FadeOut(1.0)
 		Goto Death + 1
 	Spawn:
