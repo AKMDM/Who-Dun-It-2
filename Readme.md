@@ -28,7 +28,7 @@ Yes, the popular and lazarus murd from whodunit has found its home at Github. He
 
 For further information, see the Zandronum Forums thread. :suspect: [Zandronum](https://zandronum.com/forum/viewtopic.php?f=58&t=123&hilit=whodunit+finally)
 or contact us on IRC channel: :busts_in_silhouette: [#whodunithelp](https://client00.chat.mibbit.com/?server=irc.zandronum.com&channel=%23whodunithelp)
-
+<iframe src="https://discordapp.com/widget?id=447777148976103424&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
 ## Contributions 
 If you would like to contribute to this repository, please... 
 1. Fork 
