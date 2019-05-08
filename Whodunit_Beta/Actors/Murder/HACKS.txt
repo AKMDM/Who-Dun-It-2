@@ -63,7 +63,7 @@ Actor HudAlive: Inventory
 	Inventory.MaxAmount 1
 	-INVENTORY.INTERHUBSTRIP
 }
-Actor ScriptDeath : Inventory
+Actor ScriptDeath : Inventory //useless
 {
 	Inventory.MaxAmount 1
 }
@@ -136,7 +136,7 @@ Actor Warm : Inventory //When this isn't present, the Player will emit fog.
 	Inventory.PickupSound ""
 	Inventory.MaxAmount 1
 }
-Actor TIDGiver : CustomInventory
+Actor TIDGiver : CustomInventory  //useless
 {
 	Inventory.PickupMessage ""
 	Inventory.PickupSound ""
@@ -178,6 +178,8 @@ Actor MadMeter : Ammo
 	Ammo.BackpackAmount 500
 	Ammo.BackpackMaxAmount 500
 	+INVENTORY.UNDROPPABLE
+	+INVENTORY.UNTOSSABLE
+	-INVENTORY.INTERHUBSTRIP
 }
 Actor GetSane : CustomInventory //Given in Pain States
 {

@@ -1536,7 +1536,7 @@ Actor PotA 31998 {
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
-	+SLIDESONWALLS
+	//+SLIDESONWALLS <---- this thing crash wdi22
 	+PUSHABLE
 	+NOICEDEATH
 	States {

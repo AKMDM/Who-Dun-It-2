@@ -25,14 +25,14 @@ Actor FakeChainsaw : CustomInventory Replaces Chainsaw 2005
 		CSAW A 0 A_GiveInventory("LChainsaw",1)
 		CSAW A 0 A_GiveInventory("Slot1Filled",1)
 		TNT1 A 0 //A_Print("Picked up a Shotgun.")
-		CSAW A 1 ACS_ExecuteAlways(670,0,12)
+		CSAW A 1 ACS_NamedExecute("OldWeapon_ID",0,2)
 		CSAW A 0 A_JumpIfInventory("ChainsawOnce",1,"ForgetIt")
 		CSAW A 0 A_GiveInventory("Gasoline",random(150,500))
 		CSAW A 0 A_GiveInventory("ChainsawOnce",1)
 		Stop
 	NotPickup:
 		CSAW A 0
-		CSAW A 1 ACS_ExecuteAlways(670,0,12)
+		CSAW A 1 ACS_NamedExecute("OldWeapon_ID",0,2)
 		Fail
 	AmmoPickup:
 		CSAW A 0
@@ -72,9 +72,9 @@ Actor TKFakeChainsaw : FakeChainsaw
 
 Actor LChainsaw : Weapon
 {
+	Obituary ""
 	Radius 20
 	Height 16
-	Obituary ""
 	Inventory.PickupMessage "Found a Chainsaw."
 	AttackSound "Weapons/Sawhit"
 	Weapon.SelectionOrder 998
@@ -87,7 +87,9 @@ Actor LChainsaw : Weapon
 	+WEAPON.MELEEWEAPON
 	+WEAPON.NOAUTOFIRE
 	+INVENTORY.UNDROPPABLE
+	-INVENTORY.INTERHUBSTRIP
 	+NOAUTOAIM
+
 	States
 	{
 	Drop:
@@ -160,6 +162,8 @@ Actor LChainsaw : Weapon
 		CHSW A 0
 		Goto NoAmmoReady
 	SawReady:
+		TNT1 A 0 A_JumpIfInventory("SawOn", 1,1)
+		Goto offready
 		TNT1 A 0 A_JumpIfNoAmmo("TurnOff")
 		TNT1 A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
 		TNT1 A 0 A_PlaySoundEx("CHANIDLE","SoundSlot6",0)
@@ -202,7 +206,7 @@ Actor LChainsaw : Weapon
 		TNT1 A 1 A_Lower
 		Wait
 	OnLower:
-		SAWR A 1 A_PlaySoundEx("CHANOFF","Weapon",0)
+		SAWR A 1 A_PlaySoundEx("CHANOFF","WEAPON",0)
 		SAWR BC 3 //A_TakeInventory("SawOff",1)
 		SAWR DE 4 //A_TakeInventory("SawOn",1)
 		SAWR F 6
@@ -216,7 +220,10 @@ Actor LChainsaw : Weapon
 		TNT1 A 0 A_JumpIfNoAmmo ("NoAmmoReady")
 		//TNT1 A 0 A_JumpIfInventory ("SawOff", 1, "AltFire")
 		SAWF ABC 1
-		SAWF A 0 A_PlaySoundEx("CHANSTRT","SoundSlot6",1)
+		SAWF C 0 A_PlaySoundEx("CHANSTRT","SoundSlot6",1)
+		SAWF C 0 A_CustomPunch(2,1,0,"FMSawPuff", 52)
+
+		SAWF C 0 A_TakeInventory("Gasoline", 2)
 		SAWF DEFG 1
 		TNT1 A 0 A_ReFire
 		SAWF G 0 A_StopSoundEx("SoundSlot6")
@@ -245,7 +252,7 @@ Actor LChainsaw : Weapon
 	TurnOff:
 		SAWD A 0 A_TakeInventory("SawOn",1)
 		SAWF F 0 A_StopSoundEx("SoundSlot6")
-		SAWF F 0 A_PlaySoundEx("CHANOFF","Weapon",0)
+		SAWF F 0 A_PlaySoundEx("CHANOFF","WEAPON",0)
 		CHSW A 3
 		CHSW A 5 A_WeaponReady(WRF_NOFIRE)
 		Goto OffReady
@@ -254,6 +261,7 @@ Actor LChainsaw : Weapon
 		TNT1 A 0 A_FadeOut(1.0)
 		Goto Death + 1
 }}
+
 
 Actor DroppedChainsaw
 {
@@ -270,7 +278,7 @@ Actor DroppedChainsaw
 		CSAW A -1
 		Stop
 	Death:
-		CSAW A 35
+		CSAW AAAAA 7 A_SpawnItemEx("LSawSmoke",0,-12,12,0,0,0,0,SXF_NOCHECKPOSITION)
 		CSAW A 1 A_SpawnItemEx("FakeChainsaw",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		Stop
 }}

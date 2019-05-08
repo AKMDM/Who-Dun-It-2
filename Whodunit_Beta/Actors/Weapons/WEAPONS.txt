@@ -106,7 +106,7 @@ Actor PlankSpawner : RandomSpawner 6867
 	Scale 0.5
 	DropItem "FakePlank"
 	DropItem "FakePlank"
-	DropItem "FakeNailedPlank"
+	DropItem "NailPiece"
 	DropItem "ABigNothing"
 }
 
@@ -189,4 +189,8 @@ Actor SpraySpawner : RandomSpawner 22141
 	DropItem "FakeSprayCanBLU"
 	DropItem "FakeSprayCanYRED"
 	DropItem "FakeSprayCanYBLU"
+	DropItem "FakeSprayCanGRN"
+	DropItem "FakeSprayCanORG"
+	DropItem "FakeSprayCanPNK"
+	DropItem "FakeSprayCanYLL"
 }

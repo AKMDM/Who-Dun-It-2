@@ -170,6 +170,20 @@ sprite = PLEX
 CrouchSprite = CEXT
 }
 
+{
+name = FlashLightSkin
+class = "Voice: Thick"
+sprite = SFLZ
+CrouchSprite = CFLZ
+}
+
+{
+name = FlashLightSkin
+class = "Voice: Wimpy"
+sprite = SFLZ
+CrouchSprite = CFLZ
+}
+
 /*
 //WDIEXSKINS/////////////////////////////////////
 {

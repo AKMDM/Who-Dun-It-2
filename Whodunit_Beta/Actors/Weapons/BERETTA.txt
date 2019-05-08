@@ -29,14 +29,14 @@ Actor FakeBeretta : CustomInventory Replaces Pistol 5010
 		PIST A 0 A_GiveInventory("Beretta",1)
 		PIST A 0 A_GiveInventory("Slot1Filled",1)
 		TNT1 A 0 //A_Print("Picked up a Beretta.")
-		PIST A 1 ACS_ExecuteAlways(670,0,20)
+		PIST A 1 ACS_NamedExecute("OldWeapon_ID",0,3)
 		PIST A 0 A_JumpIfInventory("PistolOnce",1,"ForgetIt")
 		PIST A 0 A_GiveInventory("PistolAmmo",random(1,8))
 		PIST A 0 A_GiveInventory("PistolOnce",1)
 		Stop
 	NotPickup:
 		PIST A 0
-		PIST A 1 ACS_ExecuteAlways(670,0,20)
+		PIST A 1 ACS_NamedExecute("OldWeapon_ID",0,3)
 		Fail
 	AmmoPickup:
 		PIST A 0
@@ -73,13 +73,13 @@ Actor TKFakeBeretta : FakeBeretta
 		PIST A 1 ACS_ExecuteAlways(670,0,20)
 		Fail
 }}
-
+//M1911
 Actor Beretta : Weapon
 {
-	Radius 20
-	Height 16
 	Scale 0.7
 	Obituary ""
+	Radius 20
+	Height 16
 	//AttackSound "Weapons/BerettaFire"
 	Weapon.PreferredSkin "PistolSkin"
 	Weapon.SelectionOrder 400
@@ -88,8 +88,9 @@ Actor Beretta : Weapon
 	Weapon.AmmoType "PistolAmmo"
 	Weapon.AmmoType2 "PistolClip"
 	Weapon.AmmoUse 0
-	Inventory.PickupMessage "You find an M1911." // "Picked up a pistol."
 	+WEAPON.NOAUTOFIRE
+	-INVENTORY.INTERHUBSTRIP
+	Inventory.PickupMessage "You find an M1911." // "Picked up a pistol."
 	States
 	{
 	Ready:
@@ -207,8 +208,8 @@ Actor PistolOnce : Inventory
 Actor PistolAmmo : Ammo
 {
 	Inventory.MaxAmount 10
-	Inventory.Icon "PHUDA0"
 	+INVENTORY.UNDROPPABLE
+	Inventory.Icon "PHUDA0"
 }
 
 Actor PistolClip : Ammo 30062
@@ -354,77 +355,78 @@ Actor SpentClip5 //pistol-Type clip
 /////////////////////     OLD BERETTA   ////////////////////////////
 //=================================================================
 //Further tweaks by Prepper //(APOCALYPTO)
-Actor FakeOldBeretta : CustomInventory 26906
+Actor FakeWDIBeretta : CustomInventory 26906
 {
 	//$Category WDI Weapons
 	//$Sprite PISTA0
-	//$Title "OldBeretta"
+	//$Title "WDIBeretta"
 	Radius 16
 	Height 8
-	Scale 0.85
 	Inventory.PickupMessage "Found an old Beretta."
 	Inventory.Respawntics 3024000
+	Scale 0.7
 	States
 	{
 	Spawn:
-		2PIS E -1
+		PIST A -1
 		Stop
 	Pickup:
-		2PIS E 0
-		2PIS E 0 A_JumpIfInventory("MurderMarker",1, 2)
-		2PIS E 0 A_JumpIfInventory("TKToken",1,"NotPickup")
-		2PIS E 0
-		2PIS E 0 A_JumpIfInventory("OldBeretta",1,"AmmoPickup")
-		2PIS E 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		2PIS E 0 A_PlaySound("Pickups/Weapon")
-		2PIS E 0 A_GiveInventory("OldBeretta",1)
-		2PIS E 0 A_GiveInventory("Slot1Filled",1)
+		PIST A 0
+		PIST A 0 A_JumpIfInventory("MurderMarker",1, 2)
+		PIST A 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		PIST A 0
+		PIST A 0 A_JumpIfInventory("WDIBeretta",1,"AmmoPickup")
+		PIST A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		PIST A 0 A_PlaySound("Pickups/Weapon")
+		PIST A 0 A_GiveInventory("WDIBeretta",1)
+		PIST A 0 A_GiveInventory("Slot1Filled",1)
 		TNT1 A 0
-		2PIS E 1 ACS_ExecuteAlways(670,0,20)
-		2PIS E 0 A_JumpIfInventory("PistolOnce",1,"ForgetIt")
-		2PIS E 0 A_GiveInventory("PistolAmmo",random(1,8))
-		2PIS E 0 A_GiveInventory("PistolOnce",1)
+		PIST A 1 ACS_NamedExecute("OldWeapon_ID",0,3)
+		PIST A 0 A_JumpIfInventory("PistolOnce",1,"ForgetIt")
+		PIST A 0 A_GiveInventory("PistolAmmo",random(1,8))
+		PIST A 0 A_GiveInventory("PistolOnce",1)
 		Stop
 	NotPickup:
-		2PIS E 0
-		2PIS E 1 ACS_ExecuteAlways(670,0,20)
+		PIST A 0
+		PIST A 1 ACS_NamedExecute("OldWeapon_ID",0,3)
 		Fail
 	AmmoPickup:
-		2PIS E 0
-		2PIS E 0 A_JumpIfInventory("PistolAmmo",7,"ForgetIt")
-		2PIS E 0 A_PlaySound("Pickups/Ammo")
+		PIST A 0
+		PIST A 0 A_JumpIfInventory("PistolAmmo",7,"ForgetIt")
+		PIST A 0 A_PlaySound("Pickups/Ammo")
 		TNT1 A 0
-		2PIS E 1 A_GiveInventory("PistolAmmo",random(1,8))
+		PIST A 1 A_GiveInventory("PistolAmmo",random(1,8))
 		Stop
 	ForgetIt:
 		LUGP A 1
 		Stop
 }}
 
-Actor OldBeretta : Weapon
+Actor WDIBeretta : Weapon
 {
+	Scale 0.7
+	Obituary ""
 	Radius 20
 	Height 16
-	Scale 0.85
-	Obituary ""
 	AttackSound "Weapons/BerettaFire"
 	Inventory.PickupMessage "Picked up an old Beretta"
 	Weapon.PreferredSkin "PistolSkin"
-	Weapon.AmmoType "PistolAmmo"
-	Weapon.AmmoType2 "PistolClip"
 	Weapon.SelectionOrder 400
 	Weapon.SlotNumber 1
 	Weapon.Kickback 100
+	Weapon.AmmoType "PistolAmmo"
+	Weapon.AmmoType2 "PistolClip"
 	Weapon.AmmoUse 1
 	+AMMO_OPTIONAL
 	+ALT_AMMO_OPTIONAL
-	+INVENTORY.UNDROPPABLE
 	+NOAUTOAIM
+	+INVENTORY.UNDROPPABLE
+	-INVENTORY.INTERHUBSTRIP
 	States
 	{
 	Spawn:
-		2PIS E -1
-		Stop
+		PIST A -1
+		Loop
 	Ready:
 		2PIS A 0 A_JumpIfInventory("IsDropping",1,"WeaponDrop")
 		2PIS A 0 A_JumpIfNoAmmo("EmptyReady")
@@ -456,6 +458,7 @@ Actor OldBeretta : Weapon
 		2PIS F 0 A_ReFire
 		2PIS A 4 A_ReFire
 		Goto Ready
+
 	Closeshot:
 		2PIS B 2 Bright A_FireBullets(1.70, 1.70, -1, 9, "FFBulletPuff")
 		2PIS B 0 A_FireCustomMissile ("PistolSmokeSpawner", 0, 0, 8, 12, 0, 0)
@@ -466,6 +469,7 @@ Actor OldBeretta : Weapon
 		2PIS F 0 A_ReFire
 		2PIS A 4 A_ReFire
 		Goto Ready
+
 	Reload:
 		2PIS C 0 A_JumpIfInventory("PistolAmmo", 10, "Ready")
 		2PIS C 0 A_TakeInventory("PistolClip", 1)
@@ -484,36 +488,37 @@ Actor OldBeretta : Weapon
 		2PIS A 0 A_JumpIfNoAmmo(1)
 		Goto Ready
 		Goto EmptyReady
+
 	WeaponDrop:
 		TNT1 A 0
-		TNT1 A 1 A_TakeInventory("IsDropping",1)
-		TNT1 A 0 A_TakeInventory("Slot1Filled",1)
-		TNT1 A 0 A_FireCustomMissile("DroppedOldBeretta",0,0,0,0)
-		TNT1 A 1 A_TakeInventory("OldBeretta",1)
+		2PIS A 1
+		TNT1 A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
+		Goto Ready
 }}
 
-Actor DroppedOldBeretta
+Actor DroppedWDIBeretta
 {
+	Projectile
+	-NOGRAVITY
 	Damage 0
 	Radius 16
 	Height 8
 	Speed 9
-	Scale 0.85
+	Scale 0.7
 	DeathSound "Weapons/Gundrop"
-	Projectile
-	-NOGRAVITY
 	States
 	{
 	Spawn:
-		2PIS E -1
+		PIST A -1
 		Stop
 	Death:
-		2PIS E 35
-		2PIS E 1 A_SpawnItemEx("FakeOldBeretta",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		PIST A 35
+		PIST A 1 A_SpawnItemEx("FakeWDIBeretta",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		Stop
 }}
 
-Actor Dropper_OldBeretta : DeathDropper
+Actor Dropper_WDIBeretta : DeathDropper
 {
 	States
 	{
@@ -521,7 +526,7 @@ Actor Dropper_OldBeretta : DeathDropper
 		TNT1 A 1
 		Wait
 	Use:
-		TNT1 A 1 A_FireCustomMissile("DroppedOldBeretta", 0, 0, 0)
+		TNT1 A 1 A_FireCustomMissile("DroppedWDIBeretta", 0, 0, 0)
 		Stop
 }}
 

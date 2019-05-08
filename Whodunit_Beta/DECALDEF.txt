@@ -172,3 +172,42 @@ decal FireExtinguisherSpray
 	randomflipy
 	animator GoAway
 }
+Decal SprayPaintDecalGRN
+{
+	pic PAINTS
+	shade "40 99 38"//shade "63 131 47"
+	x-Scale 0.1
+	y-Scale 0.1
+	randomflipx
+	randomflipy
+}
+
+Decal SprayPaintDecalYLL
+{
+	pic PAINTS
+	shade "99 99 00"//shade "63 131 47"
+	x-Scale 0.1
+	y-Scale 0.1
+	randomflipx
+	randomflipy
+}
+
+Decal SprayPaintDecalPNK
+{
+	pic PAINTS
+	shade "99 71 71 "//"226 163 163"
+	x-Scale 0.1
+	y-Scale 0.1
+	randomflipx
+	randomflipy
+}
+
+Decal SprayPaintDecalORG
+{
+	pic PAINTS
+	shade  "99 45 0"//"242 130 28"
+	x-Scale 0.1
+	y-Scale 0.1
+	randomflipx
+	randomflipy
+}

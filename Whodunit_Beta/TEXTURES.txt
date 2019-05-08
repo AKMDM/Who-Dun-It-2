@@ -7670,3 +7670,108 @@ texture CTDOORR, 36, 72
   }
 }
 */
+
+Graphic "CANFRONB", 64, 48
+{
+	Patch "CANFRONB", 0, 0
+}
+
+//RAVES==========================
+Sprite "FL1RB0", 100, 100
+{
+	Offset 50, 49
+	Patch "FL1RA0", 0, 0
+	{
+		Blend "#BF0000", 0.7
+	}
+}
+Sprite "TGAYH0", 128, 114
+{
+	Offset 62, 108
+	Patch "TGAYG0", 0, 0
+}
+
+Sprite "TGAYI0", 128, 114
+{
+	Offset 64, 107
+	Patch "TGAYG0", 0, 0
+}
+
+Sprite "TGAYJ0", 128, 114
+{
+	Offset 63, 113
+	Patch "TGAYG0", 0, 0
+}
+
+Sprite "ECLWA0", 120, 116
+{
+	Offset 52, 112
+	Patch "ECLPE0", 0, 0
+	Patch "ECLPK0", 79, 49
+	{
+		Alpha 0.30
+		Style Translucent
+	}
+}
+
+Sprite "ECLWB0", 120, 116
+{
+	Offset 52, 112
+	Patch "ECLPF0", 0, 0
+	Patch "ECLPK0", 79, 49
+}
+
+Sprite "ECLWC0", 120, 116
+{
+	Offset 52, 112
+	Patch "ECLPG0", 0, 0
+	Patch "ECLPJ0", 84, 44
+}
+
+Sprite "ECLWD0", 120, 116
+{
+	Offset 52, 112
+	Patch "ECLPH0", 0, 0
+	Patch "ECLPI0", 91, 39
+}
+
+Sprite "ECLWE0", 120, 116
+{
+	Offset 52, 112
+	Patch "ECLPA0", 0, 0
+	Patch "ECLPI0", 98, 34
+}
+
+Sprite "ECLWF0", 140, 116
+{
+	Offset 67, 112
+	Patch "ECLPB0", 0, 0
+	Patch "ECLPI0", 120, 27
+	{
+		Alpha 0.80
+		Style Translucent
+	}
+}
+
+Sprite "ECLWG0", 150, 116
+{
+	Offset 67, 112
+	Patch "ECLPC0", 0, 0
+	Patch "ECLPI0", 122, 25
+	{
+		Alpha 0.40
+		Style Translucent
+	}
+}
+
+Sprite "ECLWH0", 150, 116
+{
+	Offset 67, 112
+	Patch "ECLPD0", 0, 0
+	Patch "ECLPI0", 123, 24
+	{
+		Alpha 0.10
+		Style Translucent
+	}
+}
+//========================================

@@ -233,7 +233,7 @@ Actor ChlorineGas : CustomInventory 10492
 	Inventory.Icon "ARTIPSBG"
 	Inventory.PickupSound ""
 	Inventory.PickupMessage "Found a Bertholite canister."
-	Inventory.Respawntics 3150 // 1 minute 30 seconds
+	Inventory.Respawntics 5250 // 2 minute
 	+INVBAR
 	+FANCYPICKUPSOUND
 	+INVENTORY.UNDROPPABLE
@@ -613,7 +613,9 @@ Actor RemoteCamera: CustomInventory
 		CAM2 A -1
 		Stop
 	Use:
-		TNT1 A 1 ACS_Execute(711, 0, 0, 0, 0)
+		TNT1 A 0
+		TNT1 A 0 ACS_Execute(711, 0, 0, 0, 0)
+		TNT1 A 1 ACS_Execute(712, 0, 0, 0, 0)
 		Fail
 }}
 
@@ -658,7 +660,7 @@ Actor DeployingCamera
 	{
 	Spawn:
 		CAM2 A 0
-		CAM2 A -1 //Thing_ChangeTID(0, 1336)
+		CAM2 A -1
 		Stop
 	Death:
 		CAM2 A 0
@@ -686,18 +688,14 @@ Actor DeployedCamera
 	States
 	{
 	Spawn:
-		CAM2 A 0
 		CAM2 A 0 Thing_Destroy (1337)
 		CAM2 A 72 Thing_ChangeTID(0, 1337)
-		CAM2 A 1 //ACS_Execute(713, 0, 1, 0, 0)
 		CAM2 A 1 A_PlaySound("Weapons/Noiseready")
 		CAM2 A -1
 		Stop
 	Death:
 		CAM2 A 0 ACS_Execute(713, 0, 2, 0, 0)
 		CAM2 A 0 A_NoBlocking
-		CAM2 A 0 //A_TakeFromTarget("CameraOn", 1)
-		CAM2 A 0 //A_GiveToTarget("CameraCheck", 1)
 		TNT1 A 1
 		Stop
 }}
@@ -1104,4 +1102,21 @@ Actor FlareUsed
 		FLAR D 0 A_StopSound(CHAN_BODY)
 		FLAR D 1 A_FadeOut(0.01)
 		Wait
+}}
+
+Actor Infrared2 : Infrared Replaces  Infrared 2045
+{
+	SpawnID 138
+	Inventory.PickupMessage "Light Amplification Visor"
+	Inventory.MaxAmount 0
+	Powerup.Duration 3095
+	Powerup.Type "LightAmp"
+	Inventory.PickupSound "Murd/Nighton"
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	States
+	{
+	Spawn:
+		GOGL A -1
+		Stop
 }}

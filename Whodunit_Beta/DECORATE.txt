@@ -12,6 +12,7 @@
 #Include "Actors/Items/EGGS.txt"
 #Include "Actors/Items/INVTORY.txt"
 #Include "Actors/Items/KEYS.txt"
+#Include "Actors/Items/RAVES.txt"
 
 //MODELS
 #Include "Actors/Models/MODELS.txt"
