@@ -5,28 +5,40 @@ AddPlayerClass "Innocent2"
 weaponsection "Whodunit"
 setslot 2 FistWithLighter FistWithFlashlight FireAxe FlashlightZ Soulcube BaseballBat SprayCanBLU SprayCanRED 20Dollars Magnum //NO_WEAPON Scissors Murd_Vanish 
 setslot 0 MurderKnife
-setslot 1 NewFist PickAxe FireExtinguisher PoolCue PipeWrench LeadPipe Shovel LChainsaw Beretta OldBeretta Shotgun2 LCrossbow M1Carbine Brick Molotov OldMolotov Twig Plank NailedPlank 
+setslot 1 NewFist PickAxe FireExtinguisher PoolCue PipeWrench LeadPipe Shovel LChainsaw Beretta OldBeretta Shotgun2 LCrossbow M1Carbine Brick Molotov OldMolotov Twig Plank NailedPlank
 
 addkeysection "Who Dun It?" whodunit
    
    addmenukey "Drop Weapon" +dropweapon
    addmenukey "Use Medkit" "Use SmallKit"
-   //addmenukey "Admin Vote Yes" wdi_voteyes //NO IMPLEMENTED YET
-   //addmenukey "Admin Vote No" wdi_voteno
-
-addkeysection "Murderer Controls" whodunit2
-   addmenukey "Wield Knife" "use murderknife"
-   addmenukey "Drop Smokebomb" "Use Smokebomb"
-   //addmenukey "Quick Color" Colormescotty
+   addmenukey "Change colour" changecolour
+   alias changecolour "puke 999"
    
-   alias +dropweapon "use Action_DropWeapon"
-   alias -dropweapon "use Action_DropWeaponCancel"
-   alias Usesmallkit "Use SmallKit"
-   alias UseSmokeBomb "Use Smokebomb"
-   alias Knife "use murderknife"
-   alias wdi_voteyes "puke -830"
-   alias wdi_voteno "puke -835"
 
+ addkeysection "Murderer Controls" whodunit2
+	addmenukey "Wield Knife" "use murderknife"
+	addmenukey "Drop Smokebomb" "Use Smokebomb"
+	
+	
+	alias +dropweapon "use Action_DropWeapon"
+	alias -dropweapon "use Action_DropWeaponCancel"
+	alias Usesmallkit "Use SmallKit"
+	alias UseSmokeBomb "Use Smokebomb"
+	alias Knife "use murderknife"
+
+	alias Wdi_skipme "puke -421"
+ 
+ addkeysection "puke Controls" whodunit3
+	addmenukey "kill the lagg" killlag
+	alias killlag "puke 75"
+	addmenukey "Anti ghost" stalker
+	alias stalker "puke +408"
+//addmenukey "Admin Vote Yes" wdi_voteyes //NO IMPLEMENTED YET
+   //addmenukey "Admin Vote No" wdi_voteno
+   	//alias wdi_voteyes "puke -830"
+	//alias wdi_voteno "puke -835"
+   
+   
    //alias admin_wdi_punish "puke 866 %1 %2 %3" //NO IMPLEMENTED YET
    //alias admin_wdi_login "puke 863 %1"   //NO IMPLEMENTED YET
    //alias Colormescotty "puke 662"
@@ -39,13 +51,9 @@ addkeysection "Murderer Controls" whodunit2
    defaultbind G Knife
    defaultbind F UseSmokeBomb
    defaultbind V dropweapon
+   defaultbind c changecolour
 
    //bind pgup "vote_yes;wdi_voteyes"  //NO IMPLEMENTED YET
    //bind pgdn "vote_no;wdi_voteno"
 
    //defaultbind X Colormescotty
-
-addkeysection "Colour Changer" colourchanger
-addmenukey "Change colour" changecolour
-alias changecolour "puke 999"
-defaultbind c changecolour

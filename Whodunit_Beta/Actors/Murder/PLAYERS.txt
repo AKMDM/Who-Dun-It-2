@@ -1,6 +1,4 @@
-//==================================================================
-/////////////////////    PLAYERS     //////////////////////////////
-//=================================================================
+//touch up Deaths  by prepper
 Actor Innocent : PlayerPawn
 {
 	Radius 16
@@ -9,6 +7,7 @@ Actor Innocent : PlayerPawn
 	Mass 0x7fffffff
 	Speed 0.8
 	Alpha 1.0
+	GibHealth -100
 	Player.ViewHeight 50
 	DeathHeight 8
 	Player.ForwardMove 0.8 0.8
@@ -86,42 +85,44 @@ Actor Innocent : PlayerPawn
 	Pain:
 	Pain.ShotgunTrap:
 	Pain.Default: //This is for all Damage that we want a blood splatter for. (Shotgun traps and the like)
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
+		TNT1 A 0 ACS_NamedExecuteAlways("Health_regen",0)
+		TNT1 A 0 A_GiveInventory ("GotHurt", 6)
 		PLAY G 0 ACS_ExecuteAlways(552, 0, 0, 0)
-		//PLAY G 0 A_GiveInventory ("GetSane", 1)
-		//PLAY G 0 A_GiveToTarget("GetHimSane", 1)
 		PLAY G 4 A_SpawnItemEx ("BloodDrop", 0, 0, 0, 0, 0, -8, 0,SXF_CLIENTSIDE|SXF_NOCHECKPOSITION, 0)
 		PLAY G 4 A_Pain
 		PLAY G 0 A_JumpIfInventory("Warm", 1, "Spawn")
 		PLAY GGGGGGGGGG 1 A_SpawnItemEx ("Breath", 8, 0, 48, random(0.5, 1.0), 0, random(-0.1, 0.1), random(-8.0, 8.0), 0, 0)
 		Goto Spawn
 	Pain.Gas:
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
+		PLAY G 0 A_jump(160,2)
+		PLAY G 0 A_playsound("Coughing")
+		PLAY G 0
+		TNT1 A 0 ACS_NamedExecuteAlways("Health_Regen",0)
+		TNT1 A 0 A_GiveInventory ("GotHurt", 6)
 		PLAY A 0 A_SetBlend ("0, 128, 0", 0.25, 35)
 		PLAY G 0 A_JumpIfInventory("Warm", 1, "Spawn")
 		PLAY GGGGGGGGGG 1 A_SpawnItemEx ("Breath", 8, 0, 48, random(0.5, 1.0), 0, random(-0.1, 0.1), random(-8.0, 8.0), 0, 0)
 		Goto Spawn
 	Pain.PoisonCloud:
 	Pain.Poison:
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
+		TNT1 A 0 ACS_NamedExecuteAlways("Health_Regen",0)
+		TNT1 A 0 A_GiveInventory ("GotHurt", 6)
 		PLAY G 4 A_Pain
 		Goto Spawn
-	Pain.Drowning: 
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
+	Pain.Drowning:
+		TNT1 A 0 ACS_NamedExecuteAlways("Health_Regen",0)
+		TNT1 A 0 A_GiveInventory ("GotHurt", 6)
 		PLAY G 1 A_SpawnItemEx ("WaterBreath", 8, 0, 48, 0, 0, 0, 0, 0, 0)
 		PLAY G 4 A_Pain
 		Goto Spawn
 	Pain.friendlymelee:
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
+		TNT1 A 0 ACS_NamedExecuteAlways("Health_Regen",0)
+		TNT1 A 0 A_GiveInventory ("GotHurt", 6)
 		PLAY G 0 ACS_ExecuteAlways(552, 0, 0, 0)
 		PLAY G 0 A_GiveInventory ("GetSane", 1)
-		PLAY G 0 //A_JumpIfInventory("SlowCounter", 1, 2)
+		PLAY G 0 A_JumpIfInventory("SlowCounter", 2, 2)//stuned weapons 3
 		PLAY G 0 A_GiveInventory ("SlowCounter", 1)
+		PLAY G 0 
 		PLAY G 0 A_GiveToTarget("GetHimSane", 1)
 		PLAY G 4 A_SpawnItemEx ("BloodDrop", 0, 0, 0, 0, 0, -8, 0,SXF_CLIENTSIDE|SXF_NOCHECKPOSITION, 0)
 		PLAY G 4 A_Pain
@@ -129,8 +130,8 @@ Actor Innocent : PlayerPawn
 		PLAY GGGGGGGGGG 1 A_SpawnItemEx ("Breath", 8, 0, 48, random(0.5, 1.0), 0, random(-0.1, 0.1), random(-8.0, 8.0), 0, 0)
 		Goto Spawn
 	Pain.friendlygun:
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
+		TNT1 A 0 ACS_NamedExecuteAlways("Health_Regen",0)
+		TNT1 A 0 A_GiveInventory ("GotHurt", 6)
 		PLAY G 0 ACS_ExecuteAlways(552, 0, 0, 0)
 		PLAY G 0 A_GiveInventory ("GetSane", 1)
 		PLAY G 0 A_GiveToTarget("GetHimSane", 1)
@@ -140,8 +141,8 @@ Actor Innocent : PlayerPawn
 		PLAY GGGGGGGGGG 1 A_SpawnItemEx ("Breath", 8, 0, 48, random(0.5, 1.0), 0, random(-0.1, 0.1), random(-8.0, 8.0), 0, 0)
 		Goto Spawn
 	Pain.friendlythrown:
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
+		TNT1 A 0 ACS_NamedExecuteAlways("Health_Regen",0)
+		TNT1 A 0 A_GiveInventory ("GotHurt", 6)
 		PLAY G 0 ACS_ExecuteAlways(552, 0, 0, 0)
 		PLAY G 0 A_GiveInventory ("GetSane", 1)
 		PLAY G 0 //A_JumpIfInventory("SlowCounter", 1, 2)
@@ -153,8 +154,8 @@ Actor Innocent : PlayerPawn
 		PLAY GGGGGGGGGG 1 A_SpawnItemEx ("Breath", 8, 0, 48, random(0.5, 1.0), 0, random(-0.1, 0.1), random(-8.0, 8.0), 0, 0)
 		Goto Spawn
 	Pain.CueMelee:
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
+		TNT1 A 0 ACS_NamedExecuteAlways("Health_Regen",0)
+		TNT1 A 0 A_GiveInventory ("GotHurt", 6)
 		PLAY G 0 ACS_ExecuteAlways(552, 0, 0, 0)
 		PLAY G 0 A_GiveInventory ("GetSane", 1)
 		PLAY G 0 A_GiveToTarget("GetHimSane", 1)
@@ -166,8 +167,8 @@ Actor Innocent : PlayerPawn
 		PLAY GGGGGGGGGG 1 A_SpawnItemEx ("Breath", 8, 0, 48, random(0.5, 1.0), 0, random(-0.1, 0.1), random(-8.0, 8.0), 0, 0)
 		Goto Spawn
 	Pain.ShovelMelee:
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
+		TNT1 A 0 ACS_NamedExecuteAlways("Health_Regen",0)
+		TNT1 A 0 A_GiveInventory ("GotHurt", 6)
 		PLAY G 0 ACS_ExecuteAlways(552, 0, 0, 0)
 		PLAY G 0 A_GiveInventory ("GetSane", 1)
 		PLAY G 0 A_GiveToTarget("GetHimSane", 1)
@@ -180,8 +181,8 @@ Actor Innocent : PlayerPawn
 		Goto Spawn
 	Pain.Ice:
 		PLAY A 0
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
+		TNT1 A 0 ACS_NamedExecuteAlways("Health_Regen",0)
+		TNT1 A 0 A_GiveInventory ("GotHurt", 6)
 		PLAY A 0 A_SetBlend ("0, 0, 255", 0.25, 35)
 		PLAY AAAAAAAAAA 1 A_SpawnItemEx ("Breath", 8, 0, 48, random(0.5, 1.0), 0, random(-0.1, 0.1), random(-8.0, 8.0), 0, 0)
 		Goto Spawn
@@ -191,14 +192,12 @@ Actor Innocent : PlayerPawn
 	AltSkinXDeath1:
 	AltSkinDeath:
 	AltSkinXDeath:
-	XDeath:
+	
 	Death.None:
 	Death:
 		TNT1 A 0
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
 		TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath")
-		TNT1 A 0 A_JumpIfInventory ("TKToken", 2, "TKDeath")
+		TNT1 A 0 A_JumpIfInventory ("TKToken", 1, "TKDeath")
 		TNT1 A 0 A_SpawnItemEx ("Fakebody", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
 		TNT1 A 0 A_GiveToTarget ("TKToken", 1)
 		TNT1 A 0 A_GiveToTarget ("KillMarker", 1)
@@ -208,27 +207,11 @@ Actor Innocent : PlayerPawn
 		TNT1 A 10 A_NoBlocking
 		TNT1 A -1
 		Stop
-	Death.Ice:
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
-		TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath")
-		TNT1 A 0 A_JumpIfInventory ("TKToken", 2, "TKDeath")
-		TNT1 A 0 A_SpawnItemEx ("FakeiceBody", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
-		TNT1 A 0
-		TNT1 A 0 A_GiveToTarget ("TKToken", 1)
-		TNT1 A 0 A_GiveToTarget ("KillMarker", 1)
-		TNT1 A 5 A_GiveToTarget ("GetSuperSane", 1)
-		TNT1 A 10
-		TNT1 A 10 A_PlayerScream
-		TNT1 A 10 A_NoBlocking
-		TNT1 A -1
-		Stop
+	
 	Death.Burn:
 		TNT1 A 0
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
 		TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath")
-		TNT1 A 0 A_JumpIfInventory ("TKToken", 2, "TKDeath")
+		TNT1 A 0 A_JumpIfInventory ("TKToken", 1, "TKDeath")
 		TNT1 A 0 A_SpawnItemEx ("Fakebody", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
 		TNT1 A 0 //A_GiveToTarget ("TKToken", 1)
 		TNT1 A 0 A_GiveToTarget ("KillMarker", 1)
@@ -240,8 +223,6 @@ Actor Innocent : PlayerPawn
 		Stop
 	MurderDeath:
 		TNT1 A 0
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
 		TNT1 A 0 A_SpawnItemEx ("Fakebody", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
 		TNT1 A 10 A_GiveToTarget ("Hero", 1)
 		TNT1 A 10 A_PlayerScream
@@ -250,8 +231,6 @@ Actor Innocent : PlayerPawn
 		Stop
 	TKDeath:
 		TNT1 A 0
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
 		TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath")
 		TNT1 A 0 A_GiveToTarget("TKHero",1)
 		TNT1 A 0 A_SpawnItemEx ("Fakebody", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
@@ -262,24 +241,34 @@ Actor Innocent : PlayerPawn
 		TNT1 A 10 A_NoBlocking
 		TNT1 A -1
 		Stop
+		//Custom bodys//////////////////////////////////////////////////////////////////
+	Death.Ice:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath")
+		TNT1 A 0 A_SpawnItemEx ("FakeiceBody", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
+		TNT1 A 0 A_JumpIfInventory ("TKToken", 1, "TKDeath2")
+		TNT1 A 0 A_GiveToTarget ("TKToken", 1)
+		TNT1 A 0 A_GiveToTarget ("KillMarker", 1)
+		TNT1 A 5 A_GiveToTarget ("GetSuperSane", 1)
+		TNT1 A 10
+		TNT1 A 10 A_PlayerScream
+		TNT1 A 10 A_NoBlocking
+		TNT1 A -1
+		Stop
+	XDeath:
 	Death.Crush:
 		TNT1 A 0
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
-		TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath")
-		TNT1 A 0 A_SpawnItemEx ("Fakebody", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
-		TNT1 A 0
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_SpawnItemEx ("CrushedBody", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
+		TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath2")
 		TNT1 A 0 ACS_ExecuteAlways(515, 0, 0, 0)
 		TNT1 A 10
 		TNT1 A 10 A_PlayerScream
 		TNT1 A 10 A_NoBlocking
 		TNT1 A -1
 		Stop
-		//Custom bodys//////////////////////////////////////////////////////////////////
 	Death.Backstab:
 		TNT1 A 0
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
 		TNT1 A 0 A_PlaySound("P1XDeath",CHAN_VOICE, 1.0, 0)
 		TNT1 A 0 A_SpawnItemEx ("Bstabody", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
 		TNT1 A 0 A_GiveInventory ("BackstabHero", 1)
@@ -294,11 +283,10 @@ Actor Innocent : PlayerPawn
 		Stop
 	Death.Drowning:
 		TNT1 A 0
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
 		TNT1 A 0 A_Jump (128,"DeathDrowning2")
 		TNT1 A 0 A_SpawnItemEx ("Drowingbody1", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
-		TNT1 A 0 A_JumpIfInventory ("TKToken", 2, "TKDeath2") //6
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory ("TKToken", 1, "TKDeath2") //6
 		TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath2")
 		TNT1 A 0 //A_GiveToTarget ("TKToken", 1)
 		TNT1 A 0 //A_GiveToTarget ("KillMarker", 1) who?
@@ -310,13 +298,12 @@ Actor Innocent : PlayerPawn
 		Stop
 	DeathDrowning2:
 		TNT1 A 0 A_SpawnItemEx ("Drowingbody1", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
-		Goto Death.Drowning +6
+		Goto Death.Drowning +4
 	Death.ShotgunTrap:
 		TNT1 A 0
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
 		TNT1 A 0 A_Jump (60,"Deathtrips")
 		TNT1 A 0 A_SpawnItemEx ("Gunbody1", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
+		TNT1 A 0
 		TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath2")
 		TNT1 A 1 ACS_ExecuteAlways(409,0,0,0,0)
 		TNT1 A 10
@@ -326,13 +313,12 @@ Actor Innocent : PlayerPawn
 		Stop
 	Deathtrips:
 		TNT1 A 0 A_SpawnItemEx ("Gunbody2", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
-		Goto  Death.ShotgunTrap +6
+		Goto  Death.ShotgunTrap +4
 	Death.Gas:
 		TNT1 A 0
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
 		TNT1 A 0 A_Jump (128,"Deathgas2")
 		TNT1 A 0 A_SpawnItemEx ("GasBody2", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
+		TNT1 A 0
 		TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath2")
 		TNT1 A 1 ACS_ExecuteAlways(409,0,0,0,0)
 		TNT1 A 10
@@ -342,19 +328,17 @@ Actor Innocent : PlayerPawn
 		Stop
 	Deathgas2:
 		TNT1 A 0 A_SpawnItemEx ("GasBody1", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
-		Goto  Death.Gas +6
+		Goto  Death.Gas +4
 	Death.friendlygun:
 		TNT1 A 0
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
 		TNT1 A 0 A_Jump (128,"Deathgun2")
 		TNT1 A 0 A_SpawnItemEx ("Gunbody1", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
-		TNT1 A 0 A_JumpIfInventory ("TKToken", 2, "TKDeath2")
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory ("TKToken", 1, "TKDeath2")
 		TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath2")
-		TNT1 A 10
 		TNT1 A 0 A_GiveToTarget ("TKToken", 1)
 		TNT1 A 0 A_GiveToTarget ("KillMarker", 1)
-		TNT1 A 1 A_GiveToTarget ("GetSuperSane", 1)
+		TNT1 A 10 A_GiveToTarget ("GetSuperSane", 1)
 		TNT1 A 10
 		TNT1 A 10 A_PlayerScream
 		TNT1 A 10 A_NoBlocking
@@ -362,14 +346,13 @@ Actor Innocent : PlayerPawn
 		Stop
 	Deathgun2:
 		TNT1 A 0 A_SpawnItemEx ("Gunbody2", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
-		Goto  Death.friendlygun +6
+		Goto  Death.friendlygun +4
 	Death.SawMelee:
 		TNT1 A 0
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
 		TNT1 A 0 A_Jump (128,"Deathcsaw2")
 		TNT1 A 0 A_SpawnItemEx ("Csawbody1", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
-		TNT1 A 0 A_JumpIfInventory ("TKToken", 2, "TKDeath2")
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory ("TKToken", 1, "TKDeath2")
 		TNT1 A 0 A_JumpIfInventory ("MurderMarker", 1, "MurderDeath2")
 		TNT1 A 10
 		TNT1 A 0 A_GiveToTarget ("TKToken", 1)
@@ -382,7 +365,7 @@ Actor Innocent : PlayerPawn
 		Stop
 	Deathcsaw2:
 		TNT1 A 0 A_SpawnItemEx ("Csawbody2", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
-		Goto  Death.SawMelee +6
+		Goto  Death.SawMelee +4
 		//////fixing bug of "murd killhimself"	now we got a hero and tk/////////////////////////////
 	MurderDeath2:
 		TNT1 A 10 A_GiveToTarget ("Hero", 1)
@@ -412,8 +395,7 @@ Actor Innocent2 : Innocent
 	{
 	Death.Backstab:
 		TNT1 A 0
-		TNT1 A 0 ACS_ExecuteAlways(407, 0, 0, 0)
-		TNT1 A 0 A_GiveInventory ("GotHurt", 1)
+		TNT1 A 0 //A_GiveInventory ("GotHurt", 1)
 		TNT1 A 0 A_PlaySound("P2Xdeath",CHAN_VOICE, 1.0, 0)
 		TNT1 A 0 A_SpawnItemEx ("Bstabody", 0, 0, 0, 0, 0, 0, 0,SXF_TRANSFERTRANSLATION|SXF_NOCHECKPOSITION, 0)
 		TNT1 A 0 A_GiveInventory ("BackstabHero", 1)
@@ -473,9 +455,16 @@ Actor KilledByMurderer : Inventory
 }
 Actor GotHurt : Inventory
 {
+	Inventory.Amount 6
+	Inventory.MaxAmount 6
+}
+
+Actor ReadyRegen : Inventory
+{
 	Inventory.Amount 1
 	Inventory.MaxAmount 1
 }
+
 //---------------ICEDeathBODY-------------------------------------------------------
 Actor FakeiceBody
 {
@@ -849,6 +838,42 @@ Actor Csawbody2
 		Goto Spawn+5
 	Death:
 		DPL3 M -1
+		Stop
+}}
+
+Actor CrushedBody
+{
+	Radius 16
+	Height 8
+	Mass 25
+	DamageFactor "Gas", 0.0
+	DamageFactor "FlareEffect", 0.0
+	+SHOOTABLE
+	+SLIDESONWALLS
+	+DONTSPLASH
+	+NORADIUSDMG
+	-SOLID
+	-PUSHABLE
+	-NOGRAVITY
+	States
+	{
+	Spawn:
+		PL1C O 10
+		PL1C PQRSTUVW 4
+		PL1C W 0 A_JumpIf(waterlevel == 0, 3)
+		PL1C W 0 A_CheckFloor("Death")
+		PL1C W 1 A_SpawnItemEx ("BloodDrop", random(-8, 8), random(-8, 8), random(-8, 8), random(-1, 1), random(-1, 1), random(-1, 1), 0,SXF_CLIENTSIDE|SXF_NOCHECKPOSITION, 0)
+		PL1C W 12 ThrustThingZ(0, 2, 1, 0)
+		PL1C W 1
+		Goto Spawn+9
+	Pain.Gas:
+		PL1C W 1 A_Stop
+		Goto Spawn+9
+	Pain.Falling:
+		PL1C W 1
+		Goto Spawn+9
+	Death:
+		PL1C W -1
 		Stop
 }}
 

@@ -5,192 +5,205 @@ completeborder true;
 
 statusbar Fullscreen
 {
-
-InInventory NOT HudCleaner
-{
-InInventory HudAlive
+	InInventory NOT HudCleaner
 	{
-	InInventory NOT MurderMarker, 1 //This seemed like a nice backdrop, imo.
-	{
-		DrawImage "EMPLEFT", -249, 128;
-		DrawImage "EMPRIGHT", 163, 128;
-    	}
+		InInventory HudAlive
+		{
+			InInventory NOT MurderMarker, 1 //This seemed like a nice backdrop, imo.
+			{
+				DrawImage "EMPLEFT", -249, 128;
+				DrawImage "EMPRIGHT", 163, 128;
+			}
 
 
-	InInventory MurderMarker, 1 //If the player is a murderer, draw the insanity bar. Wheeeeeee
-	{
-		DrawBar "FULLEFT", "EMPLEFT", MadMeter, horizontal, Reverse, -249, 128; //Left side
-		DrawBar "FULRIGHT", "EMPRIGHT", MadMeter, horizontal, 163, 128; //Right side
+			InInventory MurderMarker, 1 //if the Player is a murderer, draw the insanity bar. Wheeeeeee
+			{
+				DrawBar "FULLEFT", "EMPLEFT", MadMeter, horizontal, Reverse, -249, 128; //Left side
+				DrawBar "FULRIGHT", "EMPRIGHT", MadMeter, horizontal, 163, 128; //Right side
+			}
+
+
+			//Medikit drawing block thing
+			//===========================================
+			InInventory SmallKit, 1
+			{
+				DrawImage "STIMA0", -144, 122;
+
+			}
+
+			InInventory SmallKit, 2
+			{
+				DrawImage "STIMA0", -128, 122;
+
+			}
+
+			InInventory SmallKit, 3
+			{
+				DrawImage "STIMA0", -112, 122;
+
+			}
+
+			InInventory BigKit, 1
+			{
+				DrawImage "MEDIA0", -129, 104;
+			}
+
+			//===========================================
+
+			AspectRatio "4:3"
+			{
+
+			}
+
+			AspectRatio "16:9"
+			{
+			}
+
+			//The Health background with translatable Color. Wheeeeeeeeee
+			DrawImage translatable "HUDCOLOR", -154, 140;
+			//Numbers
+			//drawnumber 1, SMALLFONT, red, SmallKit, -102, 144;
+			drawnumber 3, HUDFONT_DOOM, red, Health, -104, 156;
+
+			//Mugshot hack///////////////////////////////////////////////////
+			//DrawMugShot 1, disablegrin, disableouch, disablerampage, 0, 0;
+			/////////////////////////////////////////////////////////////////
+			/*
+			REMOVED WDIEXCT
+				IsSelected NO_WEAPON
+				{
+				    drawnumber 3, HUDFONT_DOOM, red, Health, -34, 164;
+				DrawImage translatable "CTCOLOR", -154, 140;
+					DrawImage "JENFACE", -144, 142;
+			        //drawbar "STAMBAR", "STAMBAR2", RunStamina, horizontal, 314, 159;
+					DrawImage translatable "STAMWORD", 334, 160;
+				}
+
+
+				IsSelected Murd_Vanish
+				{
+				    drawnumber 3, HUDFONT_DOOM, red, Health, -34, 164;
+				DrawImage translatable "CTCOLOR", -154, 140;
+					DrawImage "JENFACEX", -144, 142;
+			        //drawbar "STAMBAR", "STAMBAR2", RunStamina, horizontal, 314, 159;
+					DrawImage translatable "CTVANISH", 188, 144;
+				}
+
+					IsSelected Scissors
+				{
+				    drawnumber 3, HUDFONT_DOOM, red, Health, -34, 164;
+				DrawImage  "CTMURDCR", -158, 137;
+					DrawImage "SCIMARK", -140, 147;
+			        //drawbar "STAMBAR", "STAMBAR2", RunStamina, horizontal, 314, 159;
+					//DrawImage translatable "STAMWORD", 334, 160;
+				}
+
+			*/
+			IsSelected Shotgun2
+			{
+				drawimage "D3S1C0", 414, 163, centerbottom;
+				drawimage ammoicon1, 414, 179, centerbottom;
+			}
+
+			IsSelected Beretta
+			{
+				drawimage "CLP4A0", 414, 163, centerbottom;
+				drawimage ammoicon1, 414, 179, centerbottom;
+			}
+
+			IsSelected M1Carbine
+			{
+				drawimage "M1CLIP", 414, 163, centerbottom;
+				drawimage ammoicon1, 414, 179, centerbottom;
+			}
+
+			IsSelected NOT LChainsaw
+			{
+				drawimage ammoicon1, 414, 179, centerbottom;
+				drawnumber 4, HUDFONT_DOOM, red, ammo2, 464, 148;
+				drawnumber 4, HUDFONT_DOOM, red, ammo1, 464, 164;
+			}
+
+
+			IsSelected LChainsaw
+			{
+				DrawBar "GASFRONT", "GASBACK", Gasoline, Vertical, 432, 142;
+			}
+
+			IsSelected FistWithLighter
+			{
+				DrawBar "LITFRONT", "LITBACK", Lighterammo, Vertical, 380, 142;
+			}
+
+			IsSelected FistWithFlashlight
+			{
+				drawimage "LITFLASH", 380, 142;
+			}
+
+			IsSelected FlashlightZ
+			{
+				drawimage "LITFLASH", 380, 142;
+			}
+
+			IsSelected SprayCanBLU
+			{
+				DrawBar "CANFRONB", "CANBACK", Sprayammo, Vertical, 420, 142;
+			}
+			IsSelected SprayCanRED
+			{
+				DrawBar "CANFRONR", "CANBACK", Sprayammo, Vertical, 420, 142;
+			}
+			IsSelected SprayCanGRN
+			{
+				DrawBar "CANFROGR", "CANBACK", Sprayammo, Vertical, 420, 142;
+			}
+			IsSelected SprayCanORG
+			{
+				DrawBar "CANFRORG", "CANBACK", Sprayammo, Vertical, 420, 142;
+			}
+			IsSelected SprayCanPNK
+			{
+				DrawBar "CANFROPN", "CANBACK", Sprayammo, Vertical, 420, 142;
+			}
+			IsSelected SprayCanYLL
+			{
+				DrawBar "CANFROYL", "CANBACK", Sprayammo, Vertical, 420, 142;
+			}
+
+			IsSelected FireExtinguisher
+			{
+				DrawBar "EXTFRONT", "EXTBACK", Co2ammo, Vertical, 418, 142;
+			}
+
+			/*	'''
+			   this message is an issue dropping the soul cube partially fixed
+				IsSelected Soulcube
+				{
+					drawimage "FUCKCUBE", 320, 180, centerbottom;
+				}
+				'''
+			*/
+
+			//drawnumber 4, BIGFONT, yellow, PowerupTime MeleeSlower, whennotzero, 166, 64;
+
+			InInventory SlowCounter
+			{
+				drawimage "STUNICO", 166, 110, centerbottom;
+				drawbar "STUNBA", "STUNBAK", SlowCounter, horizontal, 140, 120;
+			}
+
+			//============================================
+
+
+			DrawImage "SINVBACK", 462, 100;
+			drawselectedinventory SMALLFONT, 462, 100, 528, 116;
+		}
 	}
-
-
-	//Medikit drawing block thing
-	//===========================================
-	InInventory SmallKit, 1
-	{
-		DrawImage "STIMA0", -144, 122;
-
-	}
-
-	InInventory SmallKit, 2
-	{
-		DrawImage "STIMA0", -128, 122;
-
-	}
-
-	InInventory SmallKit, 3
-	{
-		DrawImage "STIMA0", -112, 122;
-
-	}
-
-	InInventory BigKit, 1
-	{
-		DrawImage "MEDIA0", -129, 104;
-	}
-
-	//===========================================
-
-	AspectRatio "4:3"
-	{
-
-	}
-	
-	AspectRatio "16:9"
-	{
-	}
-
-//The Health background with translatable color. Wheeeeeeeeee
-DrawImage translatable "HUDCOLOR", -154, 140;
-//Numbers
-//drawnumber 1, SMALLFONT, red, SmallKit, -102, 144; 
-drawnumber 3, HUDFONT_DOOM, red, health, -104, 156; 
-
-//Mugshot hack///////////////////////////////////////////////////
-//DrawMugShot 1, disablegrin, disableouch, disablerampage, 0, 0; 
-/////////////////////////////////////////////////////////////////
-/*
-REMOVED WDIEXCT
-	IsSelected NO_WEAPON
-	{
-	    drawnumber 3, HUDFONT_DOOM, red, health, -34, 164;
-	DrawImage translatable "CTCOLOR", -154, 140; 
-		DrawImage "JENFACE", -144, 142;
-        //drawbar "STAMBAR", "STAMBAR2", RunStamina, horizontal, 314, 159;
-		DrawImage translatable "STAMWORD", 334, 160;
-	}
-	
-	
-	IsSelected Murd_Vanish
-	{
-	    drawnumber 3, HUDFONT_DOOM, red, health, -34, 164;
-	DrawImage translatable "CTCOLOR", -154, 140; 
-		DrawImage "JENFACEX", -144, 142;
-        //drawbar "STAMBAR", "STAMBAR2", RunStamina, horizontal, 314, 159;
-		DrawImage translatable "CTVANISH", 188, 144;
-	}
-	
-		IsSelected Scissors
-	{
-	    drawnumber 3, HUDFONT_DOOM, red, health, -34, 164;
-	DrawImage  "CTMURDCR", -158, 137; 
-		DrawImage "SCIMARK", -140, 147;
-        //drawbar "STAMBAR", "STAMBAR2", RunStamina, horizontal, 314, 159;
-		//DrawImage translatable "STAMWORD", 334, 160;
-	}
-	
-*/
-	IsSelected Shotgun2
-	{
-    		drawimage "D3S1C0", 414, 163, centerbottom;
-    		drawimage ammoicon1, 414, 179, centerbottom;
-	}
-
-	IsSelected Beretta
-	{
-    		drawimage "CLP4A0", 414, 163, centerbottom;
-    		drawimage ammoicon1, 414, 179, centerbottom;
-	}
-
-	IsSelected M1Carbine
-	{
-    		drawimage "M1CLIP", 414, 163, centerbottom;
-    		drawimage ammoicon1, 414, 179, centerbottom;
-	}
-
-	IsSelected NOT LChainsaw 
-	{
-    		drawimage ammoicon1, 414, 179, centerbottom;
-		drawnumber 4, HUDFONT_DOOM, red, ammo2, 464, 148;
-		drawnumber 4, HUDFONT_DOOM, red, ammo1, 464, 164;
-	}
-	
-
-	IsSelected LChainsaw 
-	{
-		DrawBar "GASFRONT", "GASBACK", Gasoline, Vertical, 432, 142;
-	}
-	
-		IsSelected FistWithLighter 
-	{
-		DrawBar "LITFRONT", "LITBACK", Lighterammo, Vertical, 380, 142;
-	}
-	
-	IsSelected FistWithFlashlight 
-	{
-		drawimage "LITFLASH", 380, 142;
-	}
-	
-	IsSelected FlashlightZ 
-	{
-		drawimage "LITFLASH", 380, 142;
-	}
-	
-	IsSelected SprayCanBLU 
-	{
-		DrawBar "CANFRONB", "CANBACK", Sprayammo, Vertical, 420, 142;
-	}
-	
-	IsSelected SprayCanRED
-	{
-		DrawBar "CANFRONR", "CANBACK", Sprayammo, Vertical, 420, 142;
-	}
-	
-	IsSelected FireExtinguisher
-	{
-		DrawBar "EXTFRONT", "EXTBACK", Co2ammo, Vertical, 418, 142;
-	}
-	
-	
-/*	'''
-   this message is an issue dropping the soul cube partially fixed
-	IsSelected Soulcube
-	{
-		drawimage "FUCKCUBE", 320, 180, centerbottom;
-	}
-	'''
-*/
-
-//drawnumber 4, BIGFONT, yellow, PowerupTime MeleeSlower, whennotzero, 166, 64;
-
-	InInventory SlowCounter
-	{
-    		drawimage "STUNICO", 166, 110, centerbottom;
-		drawbar "STUNBA", "STUNBAK", SlowCounter, horizontal, 140, 120;
-	}
-
-//============================================
-
-
-DrawImage "SINVBACK", 462, 100;
-drawselectedinventory SMALLFONT, 462, 100, 528, 116;
-}
-}
 }
 
 statusbar inventoryfullscreen
 {
 	//drawinventorybar Doom, 7, INDEXFON, 50, 100;
-	DrawInventoryBar Strife, alwaysshowcounter, noarrows, translucent, 6, SMALLFONT, -42, 50, -1, 120;
-	//DrawString SMALLFONT, Gold, inventorytag, , <y> [, <spacing> [, <flags>]] //For when Skulltag goes to 2.5.0 :(
+	DrawInventoryBar Strife, alwaysshowcounter, noarrows, Translucent, 6, SMALLFONT, -42, 50, -1, 120;
+	//DrawString SMALLFONT, Gold, inventorytag, , <y> [, <spacing> [, <flags>]] //for when Skulltag goes to 2.5.0 :(
 }

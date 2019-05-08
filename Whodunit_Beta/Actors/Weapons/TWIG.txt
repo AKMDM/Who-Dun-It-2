@@ -25,11 +25,11 @@ Actor FakeTwig : CustomInventory 6888
 		TWIG Z 0 A_PlaySound("Pickups/Weapon")
 		TWIG Z 0 A_GiveInventory("Twig",1)
 		TWIG Z 0 A_GiveInventory("Slot1Filled",1)
-		TWIG Z 1 ACS_ExecuteAlways(670, 0, 28)
+		TWIG Z 1 ACS_NamedExecute("OldWeapon_ID",0,13)
 		Stop
 	NotPickup:
 		TWIG Z 0
-		TWIG Z 1 ACS_ExecuteAlways(670, 0, 28)
+		TWIG Z 1 ACS_NamedExecute("OldWeapon_ID",0,13)
 		Fail
 }}
 

@@ -381,9 +381,7 @@ Actor TripodLightStanding 22012 {
 	//$Category WDI Models
 	Height 56
 	Radius 16
-	+NOBLOOD
 	+SOLID
-	+SHOOTABLE
 	+NOGRAVITY
 	+NODAMAGE
 	States
@@ -666,8 +664,8 @@ Actor Motortrn 22779
 	//$Category Retorn_map_ONLY
 	Height 32
 	Radius 24
-	Scale 1.0
 	+SOLID
+	Scale 1.0
 	States
 	{
 	Spawn:

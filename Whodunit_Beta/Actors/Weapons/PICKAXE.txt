@@ -18,11 +18,11 @@ Actor FakePickAxe : CustomInventory  // Add Number//Code & sprites by Prepper
 		PKAX Z 0 A_PlaySound("Pickups/Weapon")
 		PKAX Z 0 A_GiveInventory("PickAxe",1)
 		PKAX Z 0 A_GiveInventory("Slot1Filled",1)
-		PKAX Z 1 ACS_Execute(669,0,10)
+		PKAX Z 1 ACS_NamedExecute("OldWeapon_ID",0,22)
 		Stop
 	NotPickup:
 		PKAX Z 0
-		PKAX Z 1 ACS_Execute(669,0,10)
+		PKAX Z 1 ACS_NamedExecute("OldWeapon_ID",0,22)
 		Fail
 }}
 

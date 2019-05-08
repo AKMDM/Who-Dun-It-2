@@ -595,8 +595,13 @@ Warehouse/Presssound PRESSM
 Warehouse/Pressfinal FINALS
 Warehouse/Pop POP
 Warehouse/Chinese CHINESE
+//RAVES=================================================================
+HUMTOUCH					HUMTOUCH
+rave2                       7UK1UPFZ
+rave3                       Y3S7UK1U
+rave4                       OM67UKIU
 
-//Glass===========================================================
+//GLASS===========================================================
 
 //TMC Stuff Hahahahaha
 Pot/Break POTBRK1
@@ -752,7 +757,7 @@ Brick/Land	DSBKDROP
 Weapons/Sawpull        Dssawpul //NO USED
 Weapons/Sawzip         Dssawzip //NO USED
 Weapons/Sawready       Dssawidl //NO USED
-Weapons/Sawdown        Dssawdwn //NO USED
+Weapons/Sawdown        Dssawdwn
 Weapons/Sawup          Dssawwup //NO USED
 Weapons/Sawfull        Dssawful
 Weapons/Sawrevdown     Dssawwdn //NO USED
@@ -835,7 +840,7 @@ Weapons/Bullet3			Dscasin3
 Weapons/Bullet4			Dscasin4//MISSED
 $Random Weapons/Casing1		{Weapons/Bullet1 Weapons/Bullet2 Weapons/Bullet3 Weapons/Bullet4}
 
-//============================
+//===========================================
 //Murder Knife
 Weapons/KnifeReady	DSKNFEUP
 Weapons/KnifeStab	DSKNIFE1

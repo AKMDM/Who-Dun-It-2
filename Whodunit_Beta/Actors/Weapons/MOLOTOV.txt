@@ -22,11 +22,11 @@ Actor FakeMolly : CustomInventory 30076
 		MOLV Z 0 A_PlaySound("Pickups/Weapon")
 		MOLV Z 0 A_GiveInventory("Molotov",1)
 		MOLV Z 0 A_GiveInventory("Slot1Filled",1)
-		MOLV Z 1 ACS_ExecuteAlways(670,0,25)
+		MOLV Z 1 ACS_NamedExecute("OldWeapon_ID",0,10)
 		Stop
 	NotPickup:
 		MOLV Z 0
-		MOLV Z 1 ACS_ExecuteAlways(670,0,25)
+		MOLV Z 1 ACS_NamedExecute("OldWeapon_ID",0,10)
 		Fail
 }}
 
@@ -174,11 +174,11 @@ Actor FakeOldMolly : CustomInventory //30076 it needs a new id
 		MOLP A 0 A_PlaySound("Pickups/Weapon")
 		MOLP A 0 A_GiveInventory("OldMolotov",1)
 		MOLP A 0 A_GiveInventory("Slot1Filled",1)
-		MOLP A 1 ACS_ExecuteAlways(670,0,25)
+		MOLP A 1 ACS_NamedExecute("OldWeapon_ID",0,10)
 		Stop
 	NotPickup:
 		MOLP A 0
-		MOLP A 1 ACS_ExecuteAlways(670,0,25)
+		MOLP A 1 ACS_NamedExecute("OldWeapon_ID",0,10)
 		Fail
 }}
 

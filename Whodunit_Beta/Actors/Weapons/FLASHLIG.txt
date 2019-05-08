@@ -3,7 +3,7 @@
 //=================================================================
 Actor FakeFlashlightZ : CustomInventory 30999
 {
-	//$Category Marsis_map_ONLY
+	//$Category WDI Weapons
 	Scale 0.7
 	Radius 16
 	Height 8
@@ -12,7 +12,7 @@ Actor FakeFlashlightZ : CustomInventory 30999
 	States
 	{
 	Spawn:
-		FLSG Y -1
+		FLSG y -1
 		Stop
 	Pickup:
 		FLSH A 0
@@ -20,11 +20,11 @@ Actor FakeFlashlightZ : CustomInventory 30999
 		FLSH A 0 A_PlaySound("Pickups/Weapon")
 		FLSH A 0 A_GiveInventory("FlashlightZ",1)
 		FLSH A 0 A_GiveInventory("Slot1Filled",1)
-		FLSH A 1 ACS_Execute(669,0,11)
+		FLSH A 1 ACS_NamedExecute("OldWeapon_ID",0,16)
 		Stop
 	NotPickup:
 		FLSH A 0
-		FLSG Y 1 ACS_Execute(669,0,11)
+		FLSG y 1 ACS_NamedExecute("OldWeapon_ID",0,16)
 		Fail
 }}
 
@@ -34,52 +34,54 @@ Actor FlashlightZ : Weapon
 	Height 16
 	Inventory.PickupMessage "You got the flashlight!"
 	Inventory.PickupSound "Pickups/Weapons"
-	Weapon.PreferredSkin "FistSkin"
+	+INVENTORY.UNDROPPABLE
+	-INVENTORY.INTERHUBSTRIP
+	Weapon.PreferredSkin "FlashLightSkin"
 	Weapon.SelectionOrder 31000
 	Weapon.AmmoUse 0
 	Weapon.AmmoGive 0
-	+INVENTORY.UNDROPPABLE
 	States
 	{
+	Pickup:
 	Ready:
-		FLSG A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
+		FL01 A 0 A_JumpIfInventory("IsDropping",1,"DropWeapon")
 		FLSG A 1 A_WeaponReady
 		Loop
 	DropWeapon:
-		TNT1 A 0
+		FL01 A 0
 		FLSG A 1
-		TNT1 A 0 A_TakeInventory("IsDropping",1)
-		TNT1 A 0 ACS_ExecuteAlways(667,0,0,0,0)
+		FL01 A 0 A_TakeInventory("IsDropping",1)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
 		Goto Ready
 	Deselect:
-		TNT1 A 0 A_Lower
+		FL01 A 0 A_Lower
 		FLSG A 1 A_Lower
-		Loop
+		Wait
 	Select:
-		TNT1 A 0 A_Raise
+		FL01 A 0 A_Raise
 		FLSG A 1 A_Raise
-		Loop
+		Wait
 	Fire:
-		TNT1 A 0 A_Light0
+		FL03 A 0 A_Light0
 		FLSG CDE 1
 		TNT1 A 4
 		FLSG FGH 1
 		FLSG I 0 A_PlaySound("Pipe/Swing")
 		FLSG JKLMN 1
-		FLSG O 0 A_CustomPunch(3,0,0,"PipePuff",72)
+		FLSG O 0 A_CustomPunch(3*random(4,8),1,0,"PipePuff",72)
 		FLSG OPQRS 1
 		TNT1 A 4
 		FLSG EDC 1
 		FLSG A 1 A_ReFire
 		Goto Ready
 	AltFire:
-		TNT1 A 0 A_SpawnItemEx("Lightbeam2", 96.0 * (cos(pitch) * 2), -6.0, (96.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
-		TNT1 A 0 A_SpawnItemEx("Lightbeam2", 128.0 * (cos(pitch) * 2), -6.0, (128.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
-		TNT1 A 0 A_SpawnItemEx("Lightbeam3", 160.0 * (cos(pitch) * 2), -6.0, (160.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
+		FL01 A 0 A_SpawnItemEx("Lightbeam2", 96.0 * (cos(pitch) * 2), -6.0, (96.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
+		FL01 A 0 A_SpawnItemEx("Lightbeam2", 128.0 * (cos(pitch) * 2), -6.0, (128.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
+		FL01 A 0 A_SpawnItemEx("Lightbeam3", 160.0 * (cos(pitch) * 2), -6.0, (160.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
 		FLSG A 1 A_SpawnItemEx("Lightbeam3", 192.0 * (cos(pitch) * 2), -6.0, (192.0 * (sin(pitch) * 2)) * -1.0 + 32.0, 0.0, 0.0, 0.0, 0.0, 128)
 		Goto Ready
 	Death:
-		TNT1 A 0 A_SpawnItem("DroppedFlashlightZ",0,0,0,0)
+		DHSP A 0 A_SpawnItem("DroppedFlashlightZ",0,0,0,0)
 		TNT1 A 0 A_FadeOut(1.0)
 		Goto Death + 1
 	Spawn:
@@ -145,13 +147,14 @@ Actor Lightbeam3 : Lightbeam1 {
 //==================================================================
 ///////////////////   FIST WITH  FLASHLIGHT ////////////////////////
 //=================================================================
+// FIST WITH FLASHLIGHT
 Actor FistWithFlashlight : Weapon
 {
 	Weapon.SelectionOrder 1
-	Weapon.PreferredSkin "FistSkin"
+	Weapon.PreferredSkin "FlashLightSkin"
+	Inventory.PickupMessage ""
 	Weapon.AmmoType1 "Lighterammo"
 	Weapon.AmmoUse1 1
-	Inventory.PickupMessage ""
 	+NOALERT
 	+WEAPON.NOAUTOFIRE
 	+INVENTORY.UNDROPPABLE
@@ -159,7 +162,7 @@ Actor FistWithFlashlight : Weapon
 	{
 	Spawn:
 		TNT1 A -1
-		Stop
+		Loop
 	Ready:
 		FIST A 1 A_WeaponReady
 		Loop

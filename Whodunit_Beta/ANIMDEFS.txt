@@ -124,9 +124,9 @@ warp2 texture HYWATER
 warp2 texture SMPEA0 0.1
 warp flat wfwater1
 warp flat wblood1
-
+//CAMERAS=================================
 CameraTexture MURDTV 320 240 fit 160 32
-cameratexture RECAMTX 640 480 fit 213 160
+CameraTexture RECAMTX 320 240 fit 213 160
 
 cameratexture MAPCAM1 256 256 fit 64 64
 cameratexture MAPCAM2 256 256 fit 64 64
@@ -140,7 +140,7 @@ cameratexture MAPCAM9 256 256 fit 64 64
 cameratexture MAPCAM10 256 256 fit 64 64
 cameratexture MAPCAM11 256 256 fit 64 64
 cameratexture MAPCAM12 256 256 fit 64 64
-   
+//========================================   
 texture NOIS1 range NOIS8 rand 1 3
 
 switch BSW07B on sound LightOff pic BSW07A tics 0

@@ -1,6 +1,106 @@
 //==================================================================
 /////////////////////   SPRAYCAN BLUE   ////////////////////////////
 //=================================================================
+Actor FakeSprayCanBLU : CustomInventory 22475
+{
+	//$Category WDI Weapons
+	//$Title "SprayCan Blue (standing)"
+	Scale 0.2
+	Radius 4
+	Height 12
+	Inventory.PickupMessage "Found a Spray Can."
+	Inventory.Respawntics 3150 //1 minute 30 seconds
+	States
+	{
+	Spawn:
+		SPRY B -1
+		Stop
+	Pickup:
+		SPRY B 0
+		SPRY B 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		SPRY B 0 A_PlaySound("Pickups/Weapon")
+		SPRY B 0 A_GiveInventory("SprayCanBLU",1)
+		SPRY B 0 A_GiveInventory("Slot1Filled",1)
+		SPRY B 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		SPRY B 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
+		SPRY B 0 A_GiveInventory("SprayCanOnce",1)
+		SPRY B 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		SPRY B 0 A_GiveInventory("SprayAmmo",random(50,700))
+		Stop
+	NotPickup:
+		SPRY B 0
+		SPRY B 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		Fail
+	ForgetIt:
+		SPRY B 1
+		Stop
+}}
+
+Actor TKFakeSprayCanBLU : FakeSprayCanBLU
+{
+	States
+	{
+	Pickup:
+		SPRY B 0
+		SPRY B 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		SPRY B 0 A_JumpIfInventory("SprayCanBLU",1,"AmmoPickup")
+		SPRY B 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		SPRY B 0 A_PlaySound("Pickups/Weapon")
+		SPRY B 0 A_GiveInventory("SprayCanBLU",1)
+		SPRY B 0 A_GiveInventory("Slot1Filled",1)
+		TNT1 A 0 //A_Print("Picked up a Shotgun.")
+		SPRY B 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		SPRY B 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
+		SPRY B 0 A_GiveInventory("SprayAmmo",random(50,750))
+		SPRY B 0 A_GiveInventory("SprayCanOnce",1)
+		Stop
+	NotPickup:
+		SPRY B 0
+		SPRY B 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		Fail
+}}
+
+Actor FakeSprayCanYBLU : CustomInventory 22476
+{
+	//$Category WDI Weapons
+	//$Title "SprayCan Blue"
+	Scale 0.2
+	Radius 4
+	Height 12
+	Inventory.PickupMessage "Found a Spray Can."
+	Inventory.Respawntics 3150 //1 minute 30 seconds
+	States
+	{
+	Spawn:
+		SPRY D -1
+		Stop
+	Pickup:
+		SPRY D 0
+		SPRY D 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		SPRY D 0 A_PlaySound("Pickups/Weapon")
+		SPRY D 0 A_GiveInventory("SprayCanBLU",1)
+		SPRY D 0 A_GiveInventory("Slot1Filled",1)
+		SPRY D 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		SPRY D 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
+		SPRY D 0 A_GiveInventory("SprayCanOnce",1)
+		SPRY D 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		SPRY D 0 A_GiveInventory("SprayAmmo",random(50,700))
+		Stop
+	NotPickup:
+		SPRY D 0
+		SPRY D 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		Fail
+	ForgetIt:
+		SPRY D 1
+		Stop
+}}
+
+Actor SprayCanOnce : Inventory
+{
+	Inventory.MaxAmount 1
+	-INVBAR
+}
+
 Actor SprayCanBLU : Weapon
 {
 	Damage 1
@@ -17,6 +117,7 @@ Actor SprayCanBLU : Weapon
 	+WEAPON.NOAUTOAIM
 	+WEAPON.WIMPY_WEAPON
 	+INVENTORY.UNDROPPABLE
+	-INVENTORY.INTERHUBSTRIP
 	States
 	{
 	Spawn:
@@ -28,12 +129,12 @@ Actor SprayCanBLU : Weapon
 		SPRY A 1 A_WeaponReady
 		Loop
 	Deselect:
-		SPRY A 1 A_Lower
 		SPRY A 0 A_StopSoundEx("Body")
-		Loop
+		SPRY A 1 A_Lower
+		Wait
 	Select:
 		SPRY A 1 A_Raise
-		Loop
+		Wait
 	Fire:
 		SPRY A 0 A_PlaySoundEx("DSSPRY", "Body", 1)
 		SPRY C 2 Offset (0, 35) A_FireCustomMissile ("PaintSprayBLU",0,1)
@@ -45,7 +146,7 @@ Actor SprayCanBLU : Weapon
 		SPRY A 0
 		SPRY A 1
 		SPRY A 0 A_TakeInventory("IsDropping",1)
-		TNT1 A 0 ACS_ExecuteAlways(667,0,0,0,0)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
 		Goto Ready
 	Death:
 		BBAT A 0 A_SpawnItem("DroppedSprayCanBLU",0,0,0,0)
@@ -103,104 +204,6 @@ Actor PaintSprayBLU
 		Stop
 }}
 
-Actor FakeSprayCanBLU : CustomInventory 22475
-{
-	//$Category WDI Weapons
-	//$Title "SprayCan Blue (standing)"
-	Scale 0.2
-	Radius 4
-	Height 12
-	Inventory.PickupMessage "Found a Spray Can."
-	Inventory.Respawntics 3150 //1 minute 30 seconds
-	States
-	{
-	Spawn:
-		SPRY B -1
-		Stop
-	Pickup:
-		SPRY B 0
-		SPRY B 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		SPRY B 0 A_PlaySound("Pickups/Weapon")
-		SPRY B 0 A_GiveInventory("SprayCanBLU",1)
-		SPRY B 0 A_GiveInventory("Slot1Filled",1)
-		SPRY B 1 ACS_Execute(669,0,14)
-		SPRY B 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
-		SPRY B 0 A_GiveInventory("SprayAmmo",random(50,750))
-		SPRY B 0 A_GiveInventory("SprayCanOnce",1)
-		Stop
-	NotPickup:
-		SPRY B 0
-		SPRY B 1 ACS_Execute(669,0,14)
-		Fail
-	ForgetIt:
-		SPRY B 1
-		Stop
-}}
-
-Actor TKFakeSprayCanBLU : FakeSprayCanBLU
-{
-	States
-	{
-	Pickup:
-		SPRY B 0
-		SPRY B 0 A_JumpIfInventory("TKToken",1,"NotPickup")
-		SPRY B 0 A_JumpIfInventory("SprayCanBLU",1,"AmmoPickup")
-		SPRY B 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		SPRY B 0 A_PlaySound("Pickups/Weapon")
-		SPRY B 0 A_GiveInventory("SprayCanBLU",1)
-		SPRY B 0 A_GiveInventory("Slot1Filled",1)
-		TNT1 A 0 //A_Print("Picked up a Shotgun.")
-		SPRY B 1 ACS_Execute(669,0,14)
-		SPRY B 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
-		SPRY B 0 A_GiveInventory("SprayAmmo",random(50,750))
-		SPRY B 0 A_GiveInventory("SprayCanOnce",1)
-		Stop
-	NotPickup:
-		SPRY B 0
-		SPRY B 1 ACS_Execute(669,0,14)
-		Fail
-}}
-
-Actor FakeSprayCanYBLU : CustomInventory 22476
-{
-	//$Category WDI Weapons
-	//$Title "SprayCan Blue"
-	Scale 0.2
-	Radius 4
-	Height 12
-	Inventory.PickupMessage "Found a Spray Can."
-	Inventory.Respawntics 3150 //1 minute 30 seconds
-	States
-	{
-	Spawn:
-		SPRY D -1
-		Stop
-	Pickup:
-		SPRY D 0
-		SPRY D 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		SPRY D 0 A_PlaySound("Pickups/Weapon")
-		SPRY D 0 A_GiveInventory("SprayCanBLU",1)
-		SPRY D 0 A_GiveInventory("Slot1Filled",1)
-		SPRY D 1 ACS_Execute(669,0,14)
-		SPRY D 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
-		SPRY D 0 A_GiveInventory("SprayAmmo",random(50,750))
-		SPRY D 0 A_GiveInventory("SprayCanOnce",1)
-		Stop
-	NotPickup:
-		SPRY D 0
-		SPRY D 1 ACS_Execute(669,0,14)
-		Fail
-	ForgetIt:
-		SPRY D 1
-		Stop
-}}
-
-Actor SprayCanOnce : Inventory
-{
-	Inventory.MaxAmount 1
-	-INVBAR
-}
-
 Actor DroppedSprayCanBLU
 {
 	Radius 4
@@ -225,6 +228,100 @@ Actor DroppedSprayCanBLU
 //==================================================================
 /////////////////////   SPRAYCAN RED   ////////////////////////////
 //=================================================================
+Actor FakeSprayCanRED : CustomInventory 22142
+{
+	//$Category WDI Weapons
+	//$Title "SprayCan Red (standing)"
+	Scale 0.2
+	Radius 4
+	Height 12
+	Inventory.PickupMessage "Found a Spray Can."
+	Inventory.Respawntics 3150 //1 minute 30 seconds
+	States
+	{
+	Spawn:
+		SPRY B -1
+		Stop
+	Pickup:
+		SPRY B 0
+		SPRY B 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		SPRY B 0 A_PlaySound("Pickups/Weapon")
+		SPRY B 0 A_GiveInventory("SprayCanRED",1)
+		SPRY B 0 A_GiveInventory("Slot1Filled",1)
+		SPRY B 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		SPRY B 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
+		SPRY B 0 A_GiveInventory("SprayCanOnce",1)
+		SPRY B 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		SPRY B 0 A_GiveInventory("SprayAmmo",random(50,700))
+		Stop
+	NotPickup:
+		SPRY B 0
+		SPRY B 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		Fail
+	ForgetIt:
+		SPRY B 1
+		Stop
+}}
+
+Actor TKFakeSprayCanRED : FakeSprayCanRED
+{
+	States
+	{
+	Pickup:
+		SPRY B 0
+		SPRY B 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		SPRY B 0 A_JumpIfInventory("SprayCanRED",1,"AmmoPickup")
+		SPRY B 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		SPRY B 0 A_PlaySound("Pickups/Weapon")
+		SPRY B 0 A_GiveInventory("SprayCanBLU",1)
+		SPRY B 0 A_GiveInventory("Slot1Filled",1)
+		TNT1 A 0 //A_Print("Picked up a Shotgun.")
+		SPRY B 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		SPRY B 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
+		SPRY B 0 A_GiveInventory("SprayAmmo",random(50,750))
+		SPRY B 0 A_GiveInventory("SprayCanOnce",1)
+		Stop
+	NotPickup:
+		SPRY B 0
+		SPRY B 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		Fail
+}}
+
+Actor FakeSprayCanYRED : CustomInventory 22143
+{
+	//$Category WDI Weapons
+	//$Title "SprayCan Red"
+	Scale 0.2
+	Radius 4
+	Height 12
+	Inventory.PickupMessage "Found a Spray Can."
+	Inventory.Respawntics 3150 //1 minute 30 seconds
+	States
+	{
+	Spawn:
+		SPRY D -1
+		Stop
+	Pickup:
+		SPRY D 0
+		SPRY D 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		SPRY D 0 A_PlaySound("Pickups/Weapon")
+		SPRY D 0 A_GiveInventory("SprayCanRED",1)
+		SPRY D 0 A_GiveInventory("Slot1Filled",1)
+		SPRY D 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		SPRY D 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
+		SPRY D 0 A_GiveInventory("SprayCanOnce",1)
+		SPRY D 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		SPRY D 0 A_GiveInventory("SprayAmmo",random(50,700))
+		Stop
+	NotPickup:
+		SPRY D 0
+		SPRY D 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		Fail
+	ForgetIt:
+		SPRY D 1
+		Stop
+}}
+
 Actor SprayCanRED : Weapon
 {
 	Damage 1
@@ -269,7 +366,7 @@ Actor SprayCanRED : Weapon
 		SPRY A 0
 		SPRY A 1
 		SPRY A 0 A_TakeInventory("IsDropping",1)
-		TNT1 A 0 ACS_ExecuteAlways(667,0,0,0,0)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
 		Goto Ready
 	Death:
 		BBAT A 0 A_SpawnItem("DroppedSprayCanBLU",0,0,0,0)
@@ -311,64 +408,6 @@ Actor PaintSprayRED
 		Stop
 }}
 
-Actor FakeSprayCanRED : CustomInventory 22142
-{
-	//$Category WDI Weapons
-	//$Title "SprayCan Red (standing)"
-	Scale 0.2
-	Radius 4
-	Height 12
-	Inventory.PickupMessage "Found a Spray Can."
-	Inventory.Respawntics 3150 //1 minute 30 seconds
-	States
-	{
-	Spawn:
-		SPRY B -1
-		Stop
-	Pickup:
-		SPRY B 0
-		SPRY B 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		SPRY B 0 A_PlaySound("Pickups/Weapon")
-		SPRY B 0 A_GiveInventory("SprayCanRED",1)
-		SPRY B 0 A_GiveInventory("Slot1Filled",1)
-		SPRY B 1 ACS_Execute(669,0,15)
-		SPRY B 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
-		SPRY B 0 A_GiveInventory("SprayAmmo",random(50,750))
-		SPRY B 0 A_GiveInventory("SprayCanOnce",1)
-		Stop
-	NotPickup:
-		SPRY B 0
-		SPRY B 1 ACS_Execute(669,0,15)
-		Fail
-	ForgetIt:
-		SPRY B 1
-		Stop
-}}
-
-Actor TKFakeSprayCanRED : FakeSprayCanRED
-{
-	States
-	{
-	Pickup:
-		SPRY B 0
-		SPRY B 0 A_JumpIfInventory("TKToken",1,"NotPickup")
-		SPRY B 0 A_JumpIfInventory("SprayCanRED",1,"AmmoPickup")
-		SPRY B 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
-		SPRY B 0 A_PlaySound("Pickups/Weapon")
-		SPRY B 0 A_GiveInventory("SprayCanBLU",1)
-		SPRY B 0 A_GiveInventory("Slot1Filled",1)
-		TNT1 A 0 //A_Print("Picked up a Shotgun.")
-		SPRY B 1 ACS_Execute(669,0,15)
-		SPRY B 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
-		SPRY B 0 A_GiveInventory("SprayAmmo",random(50,750))
-		SPRY B 0 A_GiveInventory("SprayCanOnce",1)
-		Stop
-	NotPickup:
-		SPRY B 0
-		SPRY B 1 ACS_Execute(669,0,15)
-		Fail
-}}
-
 Actor DroppedSprayCanRED
 {
 	Radius 4
@@ -390,36 +429,343 @@ Actor DroppedSprayCanRED
 		Stop
 }}
 
-Actor FakeSprayCanYRED : CustomInventory 22143
+//==================================================================
+/////////////////////   SPRAYCAN GREEN   ////////////////////////////
+//=================================================================
+Actor FakeSprayCanGRN : FakeSprayCanYBLU
 {
 	//$Category WDI Weapons
-	//$Title "SprayCan Red"
-	Scale 0.2
-	Radius 4
-	Height 12
-	Inventory.PickupMessage "Found a Spray Can."
-	Inventory.Respawntics 3150 //1 minute 30 seconds
+	//$Title "SprayCan Green"
 	States
 	{
-	Spawn:
-		SPRY D -1
-		Stop
 	Pickup:
 		SPRY D 0
 		SPRY D 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
 		SPRY D 0 A_PlaySound("Pickups/Weapon")
-		SPRY D 0 A_GiveInventory("SprayCanRED",1)
+		SPRY D 0 A_GiveInventory("SprayCanGRN",1)
 		SPRY D 0 A_GiveInventory("Slot1Filled",1)
-		SPRY D 1 ACS_Execute(669,0,15)
+		SPRY D 1 ACS_NamedExecute("OldWeapon_ID",0,18)
 		SPRY D 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
-		SPRY D 0 A_GiveInventory("SprayAmmo",random(50,750))
 		SPRY D 0 A_GiveInventory("SprayCanOnce",1)
-		Stop
-	NotPickup:
-		SPRY D 0
-		SPRY D 1 ACS_Execute(669,0,15)
-		Fail
-	ForgetIt:
-		SPRY D 1
+		SPRY D 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		SPRY D 0 A_GiveInventory("SprayAmmo",random(50,700))
 		Stop
 }}
+
+Actor SprayCanGRN : SprayCanBLU
+{
+	States
+	{
+	Fire:
+		SPRY A 0 A_PlaySoundEx("DSSPRY", "Body", 1)
+		SPRY C 2 Offset (0, 35) A_FireCustomMissile ("PaintSprayGRN",0,1)
+		SPRY A 0 A_ReFire
+		SPRY A 0 A_StopSoundEx("Body")
+		SPRY A 20 Offset (0, 33)
+		Goto Ready
+	Death:
+		BBAT A 0 A_SpawnItem("DroppedSprayCanGRN",0,0,0,0)
+		TNT1 A 0 A_FadeOut(1.0)
+		Goto Death + 1
+}}
+
+Actor PaintSprayGRN : PaintSprayBLU
+{
+	Translation "192:207=112:127"
+	Decal SprayPaintDecalGRN
+}
+
+Actor DroppedSprayCanGRN:DroppedSprayCanBLU
+{
+	States
+	{
+	Spawn:
+		SPRY B -1
+		Stop
+	Death:
+		SPRY D 35
+		SPRY D 1 A_SpawnItem("FakeSprayCanGRN",0,0,0,0)
+		Stop
+}}
+
+Actor Dropper_SprayCanGRN : DeathDropper
+{
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		Wait
+
+	Use:
+		TNT1 A 1 A_FireCustomMissile("DroppedSprayCanGRN", 0, 0, 0)
+		Stop
+}}
+
+Actor DeathDropper_SprayCanGRN : DeathDropper
+{
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		Wait
+
+	Use:
+		TNT1 A 1 A_SpawnItemEx("FakeSprayCanGRN", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+		Stop
+}}
+
+//==================================================================
+/////////////////////   SPRAYCAN YELLOW  ////////////////////////////
+//=================================================================
+Actor FakeSprayCanYLL : FakeSprayCanYBLU
+{
+	//$Category WDI Weapons
+	//$Title "SprayCan Yellow"
+	States
+	{
+	Pickup:
+		SPRY D 0
+		SPRY D 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		SPRY D 0 A_PlaySound("Pickups/Weapon")
+		SPRY D 0 A_GiveInventory("SprayCanYLL",1)
+		SPRY D 0 A_GiveInventory("Slot1Filled",1)
+		SPRY D 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		SPRY D 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
+		SPRY D 0 A_GiveInventory("SprayCanOnce",1)
+		SPRY D 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		SPRY D 0 A_GiveInventory("SprayAmmo",random(50,700))
+		Stop
+}}
+
+Actor SprayCanYLL : SprayCanBLU
+{
+	States
+	{
+	Fire:
+		SPRY A 0 A_PlaySoundEx("DSSPRY", "Body", 1)
+		SPRY C 2 Offset (0, 35) A_FireCustomMissile ("PaintSprayYLL",0,1)
+		SPRY A 0 A_ReFire
+		SPRY A 0 A_StopSoundEx("Body")
+		SPRY A 20 Offset (0, 33)
+		Goto Ready
+	Death:
+		BBAT A 0 A_SpawnItem("DroppedSprayCanYLL",0,0,0,0)
+		TNT1 A 0 A_FadeOut(1.0)
+		Goto Death + 1
+}}
+
+Actor PaintSprayYLL : PaintSprayBLU
+{
+	Translation "192:207=160:167"
+	Decal SprayPaintDecalYLL
+}
+
+Actor DroppedSprayCanYLL:DroppedSprayCanBLU
+{
+	States
+	{
+	Spawn:
+		SPRY B -1
+		Stop
+	Death:
+		SPRY D 35
+		SPRY D 1 A_SpawnItem("FakeSprayCanYLL",0,0,0,0)
+		Stop
+}}
+
+Actor Dropper_SprayCanYLL : DeathDropper
+{
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		Wait
+
+	Use:
+		TNT1 A 1 A_FireCustomMissile("DroppedSprayCanYLL", 0, 0, 0)
+		Stop
+}}
+
+Actor DeathDropper_SprayCanYLL : DeathDropper
+{
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		Wait
+
+	Use:
+		TNT1 A 1 A_SpawnItemEx("FakeSprayCanYLL", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+		Stop
+}}
+
+//==================================================================
+/////////////////////   SPRAYCAN ORANGE  ////////////////////////////
+//=================================================================
+Actor FakeSprayCanORG : FakeSprayCanYBLU
+{
+	//$Category WDI Weapons
+	//$Title "SprayCan Orange"
+	States
+	{
+	Pickup:
+		SPRY D 0
+		SPRY D 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		SPRY D 0 A_PlaySound("Pickups/Weapon")
+		SPRY D 0 A_GiveInventory("SprayCanORG",1)
+		SPRY D 0 A_GiveInventory("Slot1Filled",1)
+		SPRY D 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		SPRY D 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
+		SPRY D 0 A_GiveInventory("SprayCanOnce",1)
+		SPRY D 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		SPRY D 0 A_GiveInventory("SprayAmmo",random(50,700))
+		Stop
+}}
+
+Actor SprayCanORG : SprayCanBLU
+{
+	States
+	{
+	Fire:
+		SPRY A 0 A_PlaySoundEx("DSSPRY", "Body", 1)
+		SPRY C 2 Offset (0, 35) A_FireCustomMissile ("PaintSprayORG",0,1)
+		SPRY A 0 A_ReFire
+		SPRY A 0 A_StopSoundEx("Body")
+		SPRY A 20 Offset (0, 33)
+		Goto Ready
+	Death:
+		BBAT A 0 A_SpawnItem("DroppedSprayCanORG",0,0,0,0)
+		TNT1 A 0 A_FadeOut(1.0)
+		Goto Death + 1
+}}
+
+Actor PaintSprayORG : PaintSprayBLU
+{
+	Translation "192:207=208:223"
+	Decal SprayPaintDecalORG
+}
+
+Actor DroppedSprayCanORG:DroppedSprayCanBLU
+{
+	States
+	{
+	Spawn:
+		SPRY B -1
+		Stop
+	Death:
+		SPRY D 35
+		SPRY D 1 A_SpawnItem("FakeSprayCanORG",0,0,0,0)
+		Stop
+}}
+
+Actor Dropper_SprayCanORG : DeathDropper
+{
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		Wait
+
+	Use:
+		TNT1 A 1 A_FireCustomMissile("DroppedSprayCanORG", 0, 0, 0)
+		Stop
+}}
+
+Actor DeathDropper_SprayCanORG : DeathDropper
+{
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		Wait
+
+	Use:
+		TNT1 A 1 A_SpawnItemEx("FakeSprayCanORG", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+		Stop
+}}
+
+//==================================================================
+/////////////////////   SPRAYCAN PINK  ////////////////////////////
+//=================================================================
+Actor FakeSprayCanPNK : FakeSprayCanYBLU
+{
+	//$Category WDI Weapons
+	//$Title "SprayCan Orange"
+	States
+	{
+	Pickup:
+		SPRY D 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		SPRY D 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		SPRY D 0 A_PlaySound("Pickups/Weapon")
+		SPRY D 0 A_GiveInventory("SprayCanPNK",1)
+		SPRY D 0 A_GiveInventory("Slot1Filled",1)
+		SPRY D 1 ACS_NamedExecute("OldWeapon_ID",0,18)
+		SPRY D 0 A_JumpIfInventory("SprayCanOnce",1,"ForgetIt")
+		SPRY D 0 A_GiveInventory("SprayCanOnce",1)
+		SPRY D 0 A_JumpIfInventory("TKToken",1,"NotPickup")
+		SPRY D 0 A_GiveInventory("SprayAmmo",random(50,700))
+		Stop
+}}
+
+Actor SprayCanPNK : SprayCanBLU
+{
+	States
+	{
+	Fire:
+		SPRY A 0 A_PlaySoundEx("DSSPRY", "Body", 1)
+		SPRY C 2 Offset (0, 35) A_FireCustomMissile ("PaintSprayPNK",0,1)
+		SPRY A 0 A_ReFire
+		SPRY A 0 A_StopSoundEx("Body")
+		SPRY A 20 Offset (0, 33)
+		Goto Ready
+	Death:
+		BBAT A 0 A_SpawnItem("DroppedSprayCanPNK",0,0,0,0)
+		TNT1 A 0 A_FadeOut(1.0)
+		Goto Death + 1
+}}
+
+Actor PaintSprayPNK : PaintSprayBLU
+{
+	Translation "192:207=16:31"
+	Decal SprayPaintDecalPNK
+}
+
+Actor DroppedSprayCanPNK:DroppedSprayCanBLU
+{
+	States
+	{
+	Spawn:
+		SPRY B -1
+		Stop
+	Death:
+		SPRY D 35
+		SPRY D 1 A_SpawnItem("FakeSprayCanPNK",0,0,0,0)
+		Stop
+}}
+
+Actor Dropper_SprayCanPNK : DeathDropper
+{
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		Wait
+
+	Use:
+		TNT1 A 1 A_FireCustomMissile("DroppedSprayCanPNK", 0, 0, 0)
+		Stop
+}}
+
+Actor DeathDropper_SprayCanPNK : DeathDropper
+{
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		Wait
+
+	Use:
+		TNT1 A 1 A_SpawnItemEx("FakeSprayCanPNK", 0, 0, 24.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
+		Stop
+}}
+

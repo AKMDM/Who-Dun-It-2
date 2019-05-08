@@ -15,39 +15,41 @@ Actor FakeSoulcube : CustomInventory 28467
 		SCUF ABCD 5
 		Loop
 	Pickup:
-		SCUF A 0
+		SCUF A 0 
 		SCUF A 0 A_JumpIfInventory("Slot1Filled",1,"NotPickup")
+		SCUF A 0 A_PlaySoundEx("YZVVSOUL",CHAN_BODY)
 		SCUF A 0 A_GiveInventory("Soulcube",1)
 		SCUF A 1 A_GiveInventory("Slot1Filled",1)
-		SCUF A 1 ACS_Execute(669,0,12)
+		SCUF A 1 ACS_NamedExecute("OldWeapon_ID",0,17)
 		SCUF A 0 ACS_Execute(5,0)
 		Stop
 	NotPickup:
 		SCUF A 0
-		SCUF A 1 ACS_Execute(669,0,12)
+		SCUF A 1 ACS_NamedExecute("OldWeapon_ID",0,17)
 		Fail
 }}
 
 Actor SoulCube : Weapon
 {
-	DamageType Cube
-	Scale 0.5
-	Weapon.SlotNumber 2
 	Weapon.SelectionOrder 352
 	Weapon.PreferredSkin "FistSkin"
 	Weapon.UpSound "YZCUBPIK"
 	Inventory.PickupSound "Misc/Usgpickup"
 	Obituary "$o'soul was taken by %k."
-	AttackSound "Skull/Melee"
+	Weapon.SlotNumber 2
 	+WEAPON.MELEEWEAPON
 	+WEAPON.NO_AUTO_SWITCH
+	-INVENTORY.INTERHUBSTRIP
+	AttackSound "Skull/Melee"
+	DamageType Cube
+	Scale 0.5
 	States
 	{
 	Spawn:
 		SCUF ABCD 5
 		Loop
 	Select:
-		SCUB A 0 A_PlaySound("YZSOULPK")
+		SCUB A 0 A_PlaySound("YZVVSOUL")
 		SCUB A 0 A_Raise
 		Goto Ready
 	Deselect:
@@ -62,7 +64,7 @@ Actor SoulCube : Weapon
 		SCUB A 0
 		SCUB A 1
 		SCUB A 0 A_TakeInventory("IsDropping",1)
-		TNT1 A 0 ACS_ExecuteAlways(667,0,0,0,0)
+		TNT1 A 0 ACS_ExecuteAlways(418,0,0,0,0)
 		Goto Ready
 	Fire:
 		SCUB E 7 A_PlaySound ("YZCUBFIR")
